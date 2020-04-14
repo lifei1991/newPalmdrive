@@ -23,38 +23,24 @@
     </div>
 
     <div class="banner2-div">
-      <div class="title">offer 战绩</div>
-      <div class="title2">4000+世界名校毕业生导师，涵盖192+专业。</div>
+      <div class="title">梦校计划</div>
+      <div class="title2">从零到一，指引留学小白成长成海外学习通。 </div>
+      <div class="title2">覆盖申请关键节点，充分挖掘同学潜力，培养学生思辨和表达能力，圆梦理想学校，探索新可能。</div>
       <div class="school-div">
-        <div class="each-school-div" v-for="item in schools" :key="item.logo">
-          <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="school-into">
-            <div class="school-name">{{ item.name }}</div>
-            <div class="school-offer">{{ item.offer }}</div>
-            <span class="offer-text">offer</span>
-          </div>
-        </div>
-        <div class="more-offer">
-          <a href="http://palmdrive.cn/graduate_showcase" target="_blank">
-            查看更多offer<img src="../assets/img/home/more.png" class="more-img" />
-          </a>
+        <div class="each-school-div" v-for="item in dreams" :key="item.img" :style="{backgroundImage:'url(' + item.img + ')'}">
         </div>
       </div>
     </div>
 
     <div class="banner3-div">
-      <div class="number-div">
-        <div class="each-number-div"  v-for="(item, index) in numbers" :key='item.logo'>
-          <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="number-into">
-            <div class="number-name">{{ item.title }}</div>
-            <div class="number">{{ item.number }}</div>
-            <span class="number-text" v-if="index == 0">位</span>
-            <span class="number-text" v-if="index == 1">份</span>
-          </div>
+        <div class="title">六大专享特权</div>
+        <div class="power-div">
+            <div class="each-power-div"  v-for="item in powers" :key="item.img">
+                <div class="power-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="power-title">{{ item.title }}</div>
+                <div class="power-text">{{ item.text }}</div>
+            </div>
         </div>
-        <div class="number-dataLine">*数据截止到2019年1月</div>
-      </div>
     </div>
 
     <div class="banner4-div">
@@ -102,16 +88,6 @@
     </div>
 
     <div class="banner5-div">
-      <div class="intos-div">
-        <div class="each-into-div" v-for="item in intros" :key="item.logo">
-          <div class="intro-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="intro-title">{{ item.title }}</div>
-          <div class="intro-text">{{ item.text }}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner6-div">
       <div class="title">导师团队</div>
       <div class="teachers-div">
         <template v-for="(item, index) in teachers" >
@@ -124,49 +100,60 @@
           </div>
         </template>
 
+        <div class="more-teachers" @click="show = !show">
+          <div>
+            查看更多导师
+          </div>
+          <div class="open-ask"></div>
+        </div>
+      </div>
+    </div>
+
+    <transition name="slide-fade">
+        <div v-if="show" class="banner6-div" :style="{backgroundImage:'url(' + banner6 + ')'}">
+            <div class="ask-div">
+                <div class="ercode" :style="{backgroundImage:'url(' + askErcode + ')'}"></div>
+                <div class="ask-text">
+                    <div class="text1">想要了解更多导师信息和留学服务内容，可扫码咨询留学小助手。</div>
+                    <div class="text2">咨询暗号</div>
+                    <div class="text3">梦 校</div>
+                </div>
+                <div class="close-ask" @click="show = !show"></div>
+            </div>
+            <div></div>
+        </div>
+    </transition>
+
+    <div class="banner7-div">
+      <div class="title">学员故事</div>
+      <div class="story-div">
+        <template v-for="(item, index) in stories" >
+          <div class="each-story" v-if="index < maxNumber" :key="item.img">
+            <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <div class="story-info-div">
+              <div class="story-text">{{ item.name }}</div>
+            </div>
+          </div>
+        </template>
+
         <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8">
           <div>
-            查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
+            查看更多案例<img src="../assets/img/home/more.png" class="more-img" />
           </div>
         </div>
       </div>
     </div>
 
-    <div class="banner7-div">
-      <div class="title">辅导项目</div>
-      <div>
-        <div class="each-program" v-for="item in programs" :key="item.img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-      </div>
-    </div>
-
     <div class="banner8-div">
-      <div class="title">近期活动</div>
-      <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
-      <div class="carousel-div">
-        <div id="owl-demo" class="owl-carousel  owl-theme">
-            <div class="each-activity" v-for="(item, index) in activities" :key="index">
-              <div class="activity-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title">{{ item.title }}</div>
-              <div class="time">{{ item.time }}</div>
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner9-div">
-      <div class="title">最新动态</div>
-      <div class="title2">右下角扫码关注公众号，及时获得最新动态。</div>
-      <div class="carousel-div">
-        <div id="owl-demo2" class="owl-carousel  owl-theme">
-            <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
-              <div class="logo">PALMDRIVE</div>
-              <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title">{{ item.title }}</div>
-              <div class="text">{{ item.text }}</div>
-              <div class="more">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
-              <div class="bottom-green"></div>
-            </div>
-        </div>
+      <div class="banner8" :style="{backgroundImage:'url(' + banner8 + ')'}">
+          <div class="dream-school-div" :style="{backgroundImage:'url(' + dreamSchoolPlan + ')'}">
+              <div class="title-div">
+                <div class="title1">梦校计划</div>
+                <div class="title2">专业匹配的申请指导、职业点拨、全程指引。</div>
+                <div class="title3">￥ 39,800 - ￥ 99,800</div>
+                <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div>
+              </div>
+          </div>
       </div>
     </div>
 
@@ -198,135 +185,84 @@ export default {
   name: 'Home',
   data () {
     return {
-      schools: [
+      dreams: [
         {
-          logo: require('../assets/img/home/school/hf.png'),
-          name: '哈佛大学',
-          offer: 18
+          img: require('../assets/img/dreamSchool/dreams/dreams1.png')
         },
         {
-          logo: require('../assets/img/home/school/stf.png'),
-          name: '斯坦福大学',
-          offer: 20
+          img: require('../assets/img/dreamSchool/dreams/dreams2.png')
         },
         {
-          logo: require('../assets/img/home/school/yl.png'),
-          name: '耶鲁大学',
-          offer: 22
+          img: require('../assets/img/dreamSchool/dreams/dreams3.png')
         },
         {
-          logo: require('../assets/img/home/school/zjg.png'),
-          name: '芝加哥大学',
-          offer: 70
-        },
-        {
-          logo: require('../assets/img/home/school/bxfny.png'),
-          name: '宾夕法尼亚大学',
-          offer: 98
-        },
-        {
-          logo: require('../assets/img/home/school/dk.png'),
-          name: '杜克大学',
-          offer: 84
-        },
-        {
-          logo: require('../assets/img/home/school/kne.png'),
-          name: '康奈尔大学',
-          offer: 95
-        },
-        {
-          logo: require('../assets/img/home/school/glby.png'),
-          name: '哥伦比亚大学',
-          offer: 293
-        },
-        {
-          logo: require('../assets/img/home/school/nj.png'),
-          name: '牛津大学',
-          offer: 11
-        },
-        {
-          logo: require('../assets/img/home/school/jq.png'),
-          name: '剑桥大学',
-          offer: 13
-        },
-        {
-          logo: require('../assets/img/home/school/dglg.png'),
-          name: '帝国理工学院',
-          offer: 39
-        },
-        {
-          logo: require('../assets/img/home/school/ldzzjj.png'),
-          name: '伦敦政治经济学院',
-          offer: 70
-        },
-        {
-          logo: require('../assets/img/home/school/lddx.png'),
-          name: '伦敦大学学院',
-          offer: 39
-        },
-        {
-          logo: require('../assets/img/home/school/xjpgl.png'),
-          name: '新加坡国立大学',
-          offer: 36
-        },
-        {
-          logo: require('../assets/img/home/school/xg.png'),
-          name: '香港大学',
-          offer: 32
+          img: require('../assets/img/dreamSchool/dreams/dreams4.png')
         }
       ],
-      numbers: [
+      powers: [
         {
-          logo: require('../assets/img/home/number/number1.png'),
-          title: '学生总数',
-          number: '4000+'
+          img: require('../assets/img/dreamSchool/powers/powers1.png'),
+          title: '素材挖掘器',
+          text: '启发文书简历思路'
         },
         {
-          logo: require('../assets/img/home/number/number2.png'),
-          title: '硕博Top100 offer',
-          number: '5000+'
+          img: require('../assets/img/dreamSchool/powers/powers2.png'),
+          title: '提纲蓝图 ',
+          text: '梳理文书脉络逻辑'
         },
         {
-          logo: require('../assets/img/home/number/number3.png'),
-          title: '背景提升率',
-          number: '95%'
+          img: require('../assets/img/dreamSchool/powers/powers3.png'),
+          title: '文书宝库 ',
+          text: '阅读同专业范文'
         },
         {
-          logo: require('../assets/img/home/number/number4.png'),
-          title: '奖学金总额',
-          number: '12亿+'
+          img: require('../assets/img/dreamSchool/powers/powers4.png'),
+          title: '申请季面试库 ',
+          text: '掌握海量面试真题'
+        },
+        {
+          img: require('../assets/img/dreamSchool/powers/powers5.png'),
+          title: '棕榈专业手册',
+          text: '解读项目细分选择'
+        },
+        {
+          img: require('../assets/img/dreamSchool/powers/powers6.png'),
+          title: '海外飞跃指南 ',
+          text: '领取海外留学优惠'
         }
       ],
-      intros: [
+      stories: [
         {
-          logo: require('../assets/img/home/intros/intro1.png'),
-          title: '全球专业导师网络',
-          text: '5000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          img: require('../assets/img/dreamSchool/stories/story1.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         },
         {
-          logo: require('../assets/img/home/intros/intro2.png'),
-          title: '资深外籍语言导师',
-          text: '累计修改文书篇幅10,000+，毕业于世界知名高校， 拥有学校招生、教育、语言学背景'
+          img: require('../assets/img/dreamSchool/stories/story2.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         },
         {
-          logo: require('../assets/img/home/intros/intro3.png'),
-          title: '全能主导师',
-          text: '8,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
+          img: require('../assets/img/dreamSchool/stories/story3.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         },
         {
-          logo: require('../assets/img/home/intros/intro4.png'),
-          title: '大数据资源库',
-          text: '30,000+项目信息，2,000+文书宝库，申请大数据库，背景提升资源库'
+          img: require('../assets/img/dreamSchool/stories/story4.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         },
         {
-          logo: require('../assets/img/home/intros/intro5.png'),
-          title: '跨国技术团队',
-          text: '链接硅谷和中国，24小时在线技术保障，独创文书素材挖掘系统，进度管理系统，选校小程序'
+          img: require('../assets/img/dreamSchool/stories/story5.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         },
         {
-          logo: require('../assets/img/home/intros/intro6.png'),
-          title: '陪伴式教学',
-          text: '科学的时间安排和规划，长期和及时的进度追踪， 密切的沟通交流，干满满的学习课程'
+          img: require('../assets/img/dreamSchool/stories/story6.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
+        },
+        {
+          img: require('../assets/img/dreamSchool/stories/story7.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
+        },
+        {
+          img: require('../assets/img/dreamSchool/stories/story8.png'),
+          name: '为梦想而实现横扫，因横扫而点亮梦想，为梦想而实现横扫，因横扫…'
         }
       ],
       teachers: [
@@ -391,102 +327,22 @@ export default {
           school: '哥伦比亚大学 电子工程硕士'
         }
       ],
-      programs: [
-        {
-          img: require('../assets/img/home/programs/program1.png')
-        },
-        {
-          img: require('../assets/img/home/programs/program2.png')
-        },
-        {
-          img: require('../assets/img/home/programs/program3.png')
-        }
-      ],
-      activities: [
-        {
-          img: require('../assets/img/home/activity/activity1.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity2.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity4.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '关于CS硕博混申的那些事',
-          time: '2019-08-18(周四) 16:00-17:00'
-        }
-      ],
-      dynamics: [
-        {
-          img: require('../assets/img/home/activity/activity1.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        },
-        {
-          img: require('../assets/img/home/activity/activity2.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        },
-        {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        },
-        {
-          img: require('../assets/img/home/activity/activity4.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        },
-        {
-          img: require('../assets/img/home/activity/activity1.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        }
-      ],
       banner1: '',
-      maxNumber: 8
+      banner6: '',
+      banner8: '',
+      dreamSchoolPlan: '',
+      planButton: '',
+      askErcode: require('../assets/img/dreamSchool/askErcode.png'),
+      maxNumber: 8,
+      show: false
     }
   },
   created () {
     this.banner1 = require('../assets/img/dreamSchool/banner1.png')
+    this.banner6 = require('../assets/img/dreamSchool/banner6.png')
+    this.banner8 = require('../assets/img/dreamSchool/banner8.png')
+    this.dreamSchoolPlan = require('../assets/img/dreamSchool/plan/dreamSchoolPlan.png')
+    this.planButton = require('../assets/img/dreamSchool/plan/plan-button.png')
   },
   mounted () {
     this.$nextTick(function () {
@@ -603,7 +459,7 @@ export default {
 
   .banner2-div {
     background-color: #fff;
-    padding: 50px 0 54px;
+    padding: 63px 0 108px;
 
     .title {
       font-size: 24px;
@@ -619,167 +475,78 @@ export default {
       font-size: 16px;
       font-family: Biko, SourceHanSansCN;
       font-weight: 500;
-      line-height: 27px;
+      line-height: 16px;
       color: rgba(85, 85, 85, 1);
       opacity: 1;
-      margin-bottom: 49px;
+      margin-bottom: 8px;
     }
 
     .school-div {
-      width: 1150px;
-      margin: 0 auto;
+    //   width: 1150px;
+      margin: 54px auto 0;
       // align-items: center;
       // display: flex;
       // flex-direction: row;
       // justify-content: center;
 
       .each-school-div {
-        width: 189px;
+        width: 249px;
+        height:313px;
         display: inline-block;
-        margin: 0 20px 50px;
-
-        .school-logo {
-          width: 63px;
-          height: 58px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
-
-        .school-into {
-          display: inline-block;
-          width: 112px;
-          margin-left: 14px;
-          text-align: left;
-          vertical-align: top;
-
-          .school-name {
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:14px;
-            color:rgba(57,60,61,1);
-            opacity:1;
-            margin-bottom: 10px;
-            margin-top: 7px;
-          }
-
-          .school-offer {
-            font-size:25px;
-            font-family:Biko;
-            font-weight:bold;
-            line-height:25px;
-            color:rgba(1,138,141,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .offer-text {
-            font-size:15px;
-            font-family:Avenir;
-            font-weight:800;
-            line-height:20px;
-            color:rgba(117,117,117,1);
-            opacity:1;
-            margin-left: 9px;
-          }
-        }
-      }
-
-      .more-offer {
-        margin-top: -11px;
-        font-size:13px;
-        font-family:PingFangSC-Medium, Avenir-Heavy;
-        font-weight:800;
-        line-height:13px;
-        color:rgba(51,51,51,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 30px;
-
-        a {
-          text-decoration: none;
-          color: rgba(51,51,51,1);
-        }
-
-        .more-img {
-          width: 16px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
+        margin: 0 13px;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
     }
   }
 
   .banner3-div {
-    padding: 90px 0 77px;
-    background-color: #25C3B6;
+    padding: 73px 0 53px;
+    background:rgba(243,246,251,0.64);
 
-    .number-div {
+    .title {
+      font-size: 24px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
+      line-height: 24px;
+      color: rgba(12,10,11,1);
+      opacity: 1;
+      margin: 0px auto 58px;
+    }
+
+    .power-div {
       text-align: center;
       width: 1200px;
       margin: 0 auto;
 
-      .each-number-div {
-        height: 75px;
-        width: 250px;
+      .each-power-div {
+        width: 120px;
         display: inline-block;
-        margin: 0 25px;
+        margin: 0 100px 38px;
 
-        .number-logo {
-          width: 75px;
-          height: 100%;
-          display: inline-block;
+        .power-img {
+            width: 86px;
+            height: 85px;
+            margin: 0 auto;
         }
 
-        .number-into {
-          display: inline-block;
-          margin-left: 25px;
-          text-align: left;
-          vertical-align: top;
-
-          .number-name {
+        .power-title {
+            margin: 19px auto 7px;
             font-size:18px;
             font-family:SourceHanSansCN;
             font-weight:bold;
             line-height:18px;
-            color:rgba(0,106,101,1);
+            color:rgba(74,74,74,1);
             opacity:1;
-            margin: 7px 0 14px;
-          }
-
-          .number {
-            font-size:40px;
-            font-family:Biko;
-            font-weight:Bold;
-            line-height:40px;
-            color:rgba(238,238,238,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .number-text {
-            font-size: 20px;
-            display: inline-block;
-            color: #EEEEEE;
-            font-family: SourceHanSansCN;
-          }
         }
-      }
 
-      .number-dataLine {
-        height:17px;
-        font-size:12px;
-        font-family:PingFang SC;
-        font-weight:400;
-        line-height:17px;
-        color:rgba(0,124,118,1);
-        opacity:1;
-        margin-top: 20px;
-        text-align: right;
-        margin-right: 45px;
+        .power-text {
+            font-size:14px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:14px;
+            color:rgba(117,117,117,1);
+        }
       }
     }
   }
@@ -905,51 +672,8 @@ export default {
   }
 
   .banner5-div {
-    padding: 69px 0 32px;
-    background-color: #EFF3F4;
-
-    .intos-div {
-      width: 1100px;
-      margin: 0 auto;
-
-      .each-into-div {
-        margin: 0 42px 47px;
-        width: 273px;
-        display: inline-block;
-        text-align: left;
-
-        .intro-logo {
-          width: 29px;
-          height: 28px;
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
-
-        .intro-title {
-          margin: 14px 0 12px;
-          font-size:18px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:18px;
-          color:rgba(98,98,98,1);
-          opacity:1;
-        }
-
-        .intro-text {
-          font-size:13px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:20px;
-          color:rgba(94,94,94,1);
-          opacity:1;
-        }
-      }
-    }
-  }
-
-  .banner6-div {
-    padding: 75px 0 73px;
-    background-color: #fff;
+    padding: 75px 0 54px;
+    background-color: #F3F6FB;
 
     .title {
       font-size:24px;
@@ -1010,8 +734,175 @@ export default {
         font-size:15px;
         font-family:PingFang SC;
         font-weight:500;
-        line-height:15px;
         color:rgba(57,60,61,1);
+        opacity:1;
+        cursor: pointer;
+
+        width: 142px;
+        text-align: center;
+        margin: 0 auto;
+        height: 36px;
+        line-height: 36px;
+        border: 1px solid rgba(151,151,151,1);
+        border-radius: 21px;
+
+        a {
+          text-decoration: none;
+          color:rgba(57,60,61,1);
+        }
+
+        .more-img {
+          width: 17px;
+          height: 17px;
+          margin-left: 15px;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+
+        .open-ask {
+            width: 23px;
+            height: 8px;
+            background: #21C3B6;
+            margin: 13px auto 36px;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .banner6-div {
+      background-color: #21C3B6;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: auto;
+
+      .ask-div {
+          margin: 101px auto 0;
+          text-align: center;
+
+          .ercode {
+              width: 210px;
+              height: 211px;
+              background-repeat: no-repeat;
+              background-size: contain;
+              display: inline-block;
+              border: 12px solid #fff;
+              background-color: #fff;
+          }
+
+          .ask-text {
+              display: inline-block;
+              margin: 33px 0 0 82px;
+              width: 433px;
+              text-align: left;
+              vertical-align: top;
+
+              .text1 {
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:33px;
+                color:rgba(255,255,255,1);
+                opacity:1;
+              }
+
+              .text2 {
+                margin-top: 45px;
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:41px;
+                color:#FFFFFF;
+                opacity:1;
+                display: inline-block;
+              }
+
+              .text3 {
+                display: inline-block;
+                width:100px;
+                height:35px;
+                background:rgba(255,255,255,1);
+                opacity:1;
+                border-radius:20px;
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:35px;
+                color: #36B2B3;
+                text-align: center;
+                margin-left: 20px;
+              }
+          }
+
+          .close-ask {
+              width: 23px;
+              height: 8px;
+              background: #fff;
+              margin: 63px auto 36px;
+              cursor: pointer;
+          }
+      }
+  }
+
+  .banner7-div {
+    padding: 78px 0 26px;
+    background-color: #fff;
+
+    .title {
+      font-size:24px;
+      font-family:SourceHanSansCN;
+      font-weight:bold;
+      line-height:24px;
+      color:rgba(60,60,60,1);
+      opacity:1;
+      margin-bottom: 15px;
+    }
+
+    .story-div {
+      width: 1130px;
+      text-align: center;
+      margin: 0 auto;
+
+      .each-story {
+        width: 233px;
+        margin: 42px 24px 14px;
+        display: inline-block;
+        vertical-align: top;
+
+        .story-img {
+          width:100%;
+          height:150px;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .story-info-div {
+          padding-top: 4px;
+          text-align: left;
+          overflow: hidden;
+
+          .story-text {
+            font-size:14px;
+            font-family:PingFang SC;;
+            font-weight:500;
+            line-height:20px;
+            color:rgba(61,57,57,1);
+            opacity:1;
+            margin-top: 7px;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+        }
+      }
+
+      .more-teachers {
+        font-size:13px;
+        font-family:PingFang SC;
+        font-weight:500;
+        line-height:15px;
+        color:rgba(51,51,51,1);
         opacity:1;
         text-align: right;
         margin-right: 20px;
@@ -1033,398 +924,103 @@ export default {
     }
   }
 
-  .banner7-div {
-    padding: 70px 0 87px;
-    background-color: #F1F7FA;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 61px;
-    }
-
-    .each-program {
-      width:324px;
-      height:199px;
-      box-shadow: 0px 5px 6px rgba(189,189,189,1);
-      border-radius: 15px;
-      opacity:1;
-      display: inline-block;
-      margin: 0 25px;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-
   .banner8-div {
-    padding: 58px 0 50px;
+    // padding: 58px 0 50px;
     background-color: #fff;
     text-align: center;
     font-size: 30px;
-    display: none;
 
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
+    .banner8 {
+      height: 452px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
 
-    .title2 {
-      font-size:18px;
-      font-family:PingFang SC;
-      font-weight:400;
-      line-height:18px;
-      color:rgba(85,85,85,1);
-      opacity:1;
-      margin: 11px 0 52px;
-    }
-
-    .carousel-div {
-      width: 985px;
-      margin: 0 auto;
-      text-align: left;
-
-      .activity-img {
-        width:222px;
-        height:116px;
-      }
-
-      .title {
-        font-size:13px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:13px;
-        color:rgba(85,85,85,1);
+      .dream-school-div {
+        width:1078px;
+        height:223px;
+        box-shadow:6px 6px 6px rgba(0,0,0,0.15);
         opacity:1;
-        margin: 19px 0 11px;
-      }
-
-      .time {
-        font-size:11px;
-        font-family:SourceHanSansCN;
-        font-weight:500;
-        line-height:19px;
-        color:rgba(85,85,85,1);
-        opacity:1;
-      }
-    }
-  }
-
-  .banner9-div {
-    padding: 65px 0 70px;
-    background-color: #F1F7FA;
-    text-align: center;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(51,51,51,1);
-      opacity:1;
-    }
-
-    .title2 {
-      margin: 13px 0 51px;
-      font-size:18px;
-      font-family:PingFang SC;
-      font-weight:400;
-      line-height:18px;
-      color:rgba(85,85,85,1);
-      opacity:1;
-    }
-
-    .carousel-div {
-      width: 1100px;
-      margin: 0 auto;
-      text-align: left;
-
-      .each-dynamic {
-        padding: 18px 18px 0;
-        background:rgba(255,255,255,1);
-        box-shadow:5px 5px 6px rgba(47,47,47,0.21);
-        opacity:1;
-        width: 222px;
-
-        .logo {
-          font-size:12px;
-          font-family:Campton;
-          font-weight:bold;
-          line-height:14px;
-          color:rgba(190,190,190,1);
-          opacity:1;
-        }
-
-        .dynamic-img {
-          margin: 11px 0 18px;
-          width: 222px;
-          height: 143px;
-        }
-
-        .title {
-          font-size:20px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:30px;
-          color:rgba(0,0,0,1);
-          opacity:1;
-        }
-
-        .text {
-          font-family:CamptonLight, SourceHanSansCN;
-          font-size:14px;
-          font-weight:400;
-          line-height:22px;
-          color:rgba(82,82,82,1);
-          opacity:1;
-          margin: 12px 0 3px;
-        }
-
-        .more {
-          font-size:9px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:16px;
-          color:rgba(65,64,64,1);
-          opacity:1;
-          margin-bottom: 18px;
-          cursor: pointer;
-
-          .more-img {
-            width: 10px;
-            height: 10px;
-            display: inline-block;
-            margin-left: 8px;
-          }
-        }
-
-        .bottom-green {
-          height:5px;
-          background:rgba(34,195,182,1);
-          opacity:1;
-          margin: 0 -18px;
-        }
-      }
-    }
-  }
-
-  .banner10-div {
-    padding: 0px 0 38px;
-    background-color: #F1F7FA;
-    text-align: center;
-    background-image: url("../assets/img/home/foot/foot-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 330px;
-
-    .left-div {
-      width: 627px;
-      display: inline-block;
-      margin-top: 48px;
-      text-align: left;
-
-      .link {
-        font-size:15px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:15px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-
-        .link-img {
-          width: 13px;
-          height: 20px;
-          vertical-align: sub;
-          margin-right: 5px;
-        }
-      }
-
-      .heng-line {
-        width:31px;
-        height:0px;
-        border:1px solid rgba(1,183,183,1);
-        opacity:1;
-        margin: 8px 0 9px;
-      }
-
-      .link-item-div {
-        list-style: none;
+        border-radius:35px;
+        position: absolute;
+        top: 126px;
+        left: 50%;
+        margin-left: -539px;
+        // padding: 51px 0 0 130px;
         text-align: left;
-        padding: 0;
-        margin-bottom: 46px;
-
-        li {
-          font-size:14px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:14px;
-          opacity:1;
-          margin-right: 36px;
-          display: inline-block;
-          color: #fff;
-
-          a {
-            text-decoration: none;
-            color: #fff;
-          }
-
-          a:hover {
-            color:rgba(1,183,183,1);
-          }
-        }
-      }
-
-      .location-item-div {
-        list-style: none;
-        text-align: left;
-        padding: 0;
-        margin-bottom: 21px;
-
-        li {
-          font-size: 14px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 14px;
-          opacity: 1;
-          margin-right: 39px;
-          display: inline-block;
-          color: #fff;
-          padding-bottom: 3px;
-          margin-top: 3px;
-          cursor: pointer;
-        }
-
-        .bg-colors {
-          color:rgba(1,183,183,1);
-          border-bottom: 3px solid rgba(1,183,183,1);
-        }
-      }
-
-      .place {
-        .text, .number {
-          font-size:11px;
-          font-family:PingFangSC-Regular, Biko;
-          font-weight:400;
-          line-height:16px;
-          color:rgba(255,255,255,1);
-          opacity:1;
-        }
-
-        .place-line {
-          width:124px;
-          height:0px;
-          border:1px solid rgba(154,154,154,1);
-          opacity:1;
-          margin: 17px 0;
-        }
-      }
-    }
-
-    .middle-div {
-      height:237px;
-      border:1px solid rgba(255,255,255,1);
-      opacity:1;
-      display: inline-block;
-      vertical-align: top;
-      margin-top: 73px;
-    }
-
-    .right-div {
-      margin: 32px 0 0 57px;
-      display: inline-block;
-      vertical-align: top;
-
-      .contact {
-        width:338px;
-        height:141px;
-        background-image: url("../assets/img/home/foot/contact-us.png");
         background-repeat: no-repeat;
-        background-size: cover;
-      }
 
-      .wechat-div {
-        margin: 23px 0 0 35px;
-        text-align: left;
+        .title-div {
+            margin: 51px 0 0 130px;
 
-        .title {
-          font-size:15px;
-          font-family:PingFang SC;
-          // font-weight:600;
-          line-height:15px;
-          color:rgba(255,255,255,1);
-          opacity:1;
-
-          img {
-            width: 19px;
-            height: 17px;
-            margin-right: 8px;
-            vertical-align: sub;
-          }
-        }
-
-        .code-div {
-          margin: 11px 0 0 27px;
-
-          .each-code {
-            display: inline-block;
-            margin-right:31px;
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:500;
-            line-height:14px;
-            color:rgba(255,255,255,1);
-            opacity:1;
-            text-align: center;
-
-            img {
-              width: 66px;
-              height: 66px;
-              margin-bottom: 9px;
+            .title1 {
+                font-size:35px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:35px;
+                color:rgba(255,255,255,1);
+                opacity:1;
             }
-          }
+
+            .title2 {
+                margin: 17px 0 16px;
+                font-size:20px;
+                font-family:SourceHanSansCN;
+                font-weight:500;
+                line-height:20px;
+                color:rgba(255,255,255,1);
+                opacity:1;
+            }
+
+            .title3 {
+                font-size:26px;
+                font-family:Biko;
+                font-weight:bold;
+                line-height:32px;
+                color:rgba(255,255,255,1);
+                opacity:1;
+                display: inline-block;
+            }
+
+            .plan-button {
+                width:147px;
+                height:41px;
+                // background:rgba(255,255,255,1);
+                // box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+                opacity:1;
+                border-radius:23px;
+                background-repeat: no-repeat;
+                background-size: 100% 126%;
+                display: inline-block;
+                vertical-align: bottom;
+                margin-left: 189px;
+
+                font-size:17px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:45px;
+                color:rgba(42,42,45,1);
+                padding-left: 22px;
+                cursor: pointer;
+            }
         }
       }
     }
   }
 
-  .banner11-div {
-    padding: 31px 0 30px;
-    background-color: #25C3B6;
-    text-align: left;
-
-    .content {
-      width: 1100px;
-      margin: 0 auto;
-
-      .content-title {
-        margin-bottom: 6px;
-        font-size:12px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-      }
-
-      .content-title2 {
-        span {
-          margin-right: 38px;
-          font-size:12px;
-          font-family: SourceHanSansCN, Biko;
-          font-weight:500;
-          line-height:12px;
-          color:rgba(255,255,255,1);
-          opacity:1;
-        }
-      }
+    /* 可以设置不同的进入和离开动画 */
+    /* 设置持续时间和动画函数 */
+    .slide-fade-enter-active {
+    transition: all .3s ease;
     }
-  }
+    .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+    }
 }
 </style>

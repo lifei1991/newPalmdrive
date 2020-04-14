@@ -78,7 +78,20 @@
       <div class="middle-div"></div>
 
       <div class="right-div">
-        <div class="contact"></div>
+        <div class="contact">
+          <div class="title">
+            <img src="./assets/img/home/foot/contact1.png" class="more-img" />联系我们
+          </div>
+          <div class="text">
+            <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 4000-062-153
+          </div>
+          <div class="text">
+            <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：pdpr19
+          </div>
+          <div class="text">
+            <img src="./assets/img/home/foot/contact4.png" class="contact2-img" />邮箱：suggestions@palmdrive.cn
+          </div>
+        </div>
         <div class="wechat-div">
           <div class="title">
             <img src="./assets/img/home/foot/wechat.png"/>
@@ -202,11 +215,11 @@ export default {
         },
         {
           img: require('./assets/img/home/foot/zlxy-code.png'),
-          name: '棕榈大道'
+          name: '棕榈学院'
         },
         {
           img: require('./assets/img/home/foot/htyy-code.png'),
-          name: '棕榈大道'
+          name: '核桃英语'
         }
       ],
       selectedCity: {},
@@ -547,10 +560,48 @@ body {
 
       .contact {
         width:338px;
-        height:141px;
-        background-image: url("assets/img/home/foot/contact-us.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+        height:122px;
+        background:rgba(36,195,182, 0.83);
+        border-radius:13px;
+        padding: 19px 0 0 38px;
+        text-align: left;
+        // background-image: url("assets/img/home/foot/contact-us.png");
+        // background-repeat: no-repeat;
+        // background-size: cover;
+
+        .title {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:600;
+          line-height:20px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+          margin-bottom: 18px;
+
+          .more-img {
+            margin-right: 8px;
+            vertical-align: top;
+            width: 25px;
+            height: 20px;
+          }
+        }
+
+        .text {
+          margin-bottom: 5px;
+          font-size:13px;
+          font-family:SourceHanSansCN, Biko;
+          font-weight:400;
+          line-height:19px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+
+          .contact2-img {
+            width: 19px;
+            height: 19px;
+            margin-right: 9px;
+            vertical-align: top;
+          }
+        }
       }
 
       .wechat-div {
