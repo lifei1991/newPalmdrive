@@ -362,7 +362,7 @@ export default {
         },
         {
           img: require('../assets/img/home/teachers/Z3.png'),
-          name: 'N 导师',
+          name: 'Z 导师',
           school: '哥伦比亚大学 艺术管理硕士'
         },
         {

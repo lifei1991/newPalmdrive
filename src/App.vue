@@ -255,7 +255,7 @@ export default {
 body {
   margin: 0;
   min-width: 1200px;
-  font-family: Source Han Sans CN;
+  font-family: SourceHanSansCN;
 }
 
 .left-arrow {

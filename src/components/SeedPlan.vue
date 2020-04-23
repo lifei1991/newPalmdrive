@@ -1,21 +1,21 @@
 <template>
-  <div class="dream-school">
+  <div class="seed-plan">
     <!-- <remote-css rel="stylesheet" href="../assets/third/carousel/owl.theme.css"></remote-css>
     <remote-css rel="stylesheet" href="../assets/third/carousel/owl.carousel.css"></remote-css> -->
 
     <div class="banner1-div">
       <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
         <div class="info1-div">
-          <div class="info-number">99.3%</div>
-          <div class="info-text" style="line-height:28px">学校申请成功率</div>
+          <div class="info-number">1800+</div>
+          <div class="info-text" style="line-height:28px">种子学生</div>
         </div>
         <div class="info2-div">
-          <div class="info-number">71.6%</div>
-          <div class="info-text">世界排名前50名校</div>
+          <div class="info-number">95%</div>
+          <div class="info-text" style="line-height:28px">背景提升率</div>
         </div>
         <div class="info3-div">
-          <div class="info-number">94.3%</div>
-          <div class="info-text">世界排名前100名校录取offer比例</div>
+          <div class="info-number">1700+</div>
+          <div class="info-text"  style="text-align: center"> 背景提升<br/>Offer</div>
         </div>
 
         <div class="text">数据解释权归棕榈大道</div>
@@ -23,24 +23,52 @@
     </div>
 
     <div class="banner2-div">
-      <div class="title">梦校计划</div>
-      <div class="title2">从零到一，指引留学小白成长成海外学习通。 </div>
-      <div class="title2">覆盖申请关键节点，充分挖掘同学潜力，培养学生思辨和表达能力，圆梦理想学校，探索新可能。</div>
-      <div class="school-div">
-        <div class="each-school-div" v-for="item in dreams" :key="item.img" :style="{backgroundImage:'url(' + item.img + ')'}">
+      <div class="seed-plan-intro1">
+        <div class="intro1-title1">
+            <span class="green">种子</span>计划
+        </div>
+        <div class="intro1-title2">1800+同学的选择，多年背景提升，申请水到渠成。</div>
+        <div class="intro1-title3">
+            相较于申请季一锤定音的选校和文书辅导，种子计划先行一步，引导同学认识自己、挑战自己，长线培养和提升学生的学术能力、实践能力和英语能力。通过一到两年的背景提升指导，种子主导师为同学进行优劣势分析，量身定制学业计划，明确专业定位、辅导实习/科研/交流交换等，结合棕榈学院项目和核桃英语课程，全方位提升同学升学和职场竞争力。
+        </div>
+      </div>
+      <div class="seed-plan-intro2">
+        <div class="each-plan-div"  v-for="item in seedPlanIntros" :key="item.img">
+            <div class="plan-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <div class="plan-title">{{ item.title }}</div>
         </div>
       </div>
     </div>
 
     <div class="banner3-div">
-        <div class="title">六大专享特权</div>
-        <div class="power-div">
-            <div class="each-power-div"  v-for="item in powers" :key="item.img">
-                <div class="power-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-                <div class="power-title">{{ item.title }}</div>
-                <div class="power-text">{{ item.text }}</div>
+      <div class="title">核心种子力量</div>
+      <div class="title2">3000+同学的选择，多年背景提升，申请水到渠成。</div>
+      <ul class="teacher-item-div" >
+        <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" v-bind:class="{ 'teacher-bg-colors' : index == currentType }">
+          <div class="img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+          <div>{{ item.name }}</div>
+        </li>
+      </ul>
+      <div class="teachers-div">
+        <div class="teacher-type-title1">种子主导师职责</div>
+        <div class="teacher-type-title2">学业进度规划    |    选课策略制定    |    英语备考督促    |    背景提升辅导</div>
+        <template v-for="(item, index) in selectedTeacher" >
+          <div class="each-teacher" v-if="index < maxNumber" :key="item.school">
+            <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <div class="teacher-info-div">
+              <div class="teacher-name">{{ item.name }}</div>
+              <div class="teacher-school">{{ item.school }}</div>
             </div>
-        </div>
+          </div>
+        </template>
+
+        <!-- <div class="more-teachers" @click="show = !show">
+          <div>
+            查看更多导师
+          </div>
+          <div class="open-ask"></div>
+        </div> -->
+      </div>
     </div>
 
     <div class="banner4-div">
@@ -83,31 +111,6 @@
         <div class="foreignMentor">
           <div class="title3">名校外籍导师</div>
           <div class="title4">妙笔生花，纯正表达</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner5-div">
-      <div class="title">导师团队</div>
-      <ul class="teacher-item-div" >
-        <li v-for="(item, index) in teacherTypes" :key="item.name" v-html="item.name" @click="changeTeacherType(index)" v-bind:class="{ 'teacher-bg-colors' : index == currentType }"></li>
-      </ul>
-      <div class="teachers-div">
-        <template v-for="(item, index) in selectedTeacher" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="item.school">
-            <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="teacher-info-div">
-              <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.school }}</div>
-            </div>
-          </div>
-        </template>
-
-        <div class="more-teachers" @click="show = !show">
-          <div>
-            查看更多导师
-          </div>
-          <div class="open-ask"></div>
         </div>
       </div>
     </div>
@@ -188,18 +191,30 @@ export default {
   name: 'Home',
   data () {
     return {
-      dreams: [
+      seedPlanIntros: [
         {
-          img: require('../assets/img/dreamSchool/dreams/dreams1.png')
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan1.png'),
+          title: '学业规划'
         },
         {
-          img: require('../assets/img/dreamSchool/dreams/dreams2.png')
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan2.png'),
+          title: '背景提升'
         },
         {
-          img: require('../assets/img/dreamSchool/dreams/dreams3.png')
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan3.png'),
+          title: '申请辅导'
         },
         {
-          img: require('../assets/img/dreamSchool/dreams/dreams4.png')
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan4.png'),
+          title: '能力提升'
+        },
+        {
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan5.png'),
+          title: '模拟面试'
+        },
+        {
+          img: require('../assets/img/seedPlan/seedPlanIntros/plan6.png'),
+          title: '文书辅导 '
         }
       ],
       powers: [
@@ -460,16 +475,20 @@ export default {
       ],
       teacherTypes: [
         {
-          name: '专业导师'
+          name: '种子主导师',
+          img: require('../assets/img/seedPlan/teacherMenu/menu1.png')
         },
         {
-          name: '主导师'
+          name: '专业导师',
+          img: require('../assets/img/seedPlan/teacherMenu/menu2.png')
         },
         {
-          name: '外籍导师'
+          name: '核桃英语',
+          img: require('../assets/img/seedPlan/teacherMenu/menu3.png')
         },
         {
-          name: '班主任'
+          name: '棕榈学院',
+          img: require('../assets/img/seedPlan/teacherMenu/menu4.png')
         }
       ],
       banner1: '',
@@ -485,7 +504,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = require('../assets/img/dreamSchool/banner1.png')
+    this.banner1 = require('../assets/img/seedPlan/banner1.png')
     this.banner6 = require('../assets/img/dreamSchool/banner6.png')
     this.banner8 = require('../assets/img/dreamSchool/banner8.png')
     this.dreamSchoolPlan = require('../assets/img/dreamSchool/plan/dreamSchoolPlan.png')
@@ -533,17 +552,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-.dream-school {
+.seed-plan {
   text-align: center;
 
   .banner1-div {
     width: 100%;
-    padding: 59px 0 84px;
+    padding: 74px 0 54px;
     background-color: #1BBEB2;
 
     .banner1 {
-      width: 1079px;
-      height: 443px;
+      width: 1116px;
+      height: 458px;
       margin: 0 auto;
       position: relative;
       text-align: left;
@@ -552,20 +571,20 @@ export default {
 
       .info1-div {
         position: absolute;
-        top: 282px;
-        left: 59px;
+        top: 264px;
+        left: 66px;
       }
 
       .info2-div {
         position: absolute;
-        top: 342px;
-        left: 59px;
+        top: 326px;
+        left: 66px;
       }
 
       .info3-div {
         position: absolute;
-        top: 401px;
-        left: 59px;
+        top: 387px;
+        left: 66px;
       }
 
       .info-number {
@@ -576,13 +595,13 @@ export default {
         line-height:35px;
         color:rgba(40,167,169,1);
         opacity:1;
-        margin-right: 12px;
+        margin-right: 8px;
         display: inline-block;
         height: 28px;
       }
 
       .info-text {
-        width: 93px;
+        width: 66px;
         font-size:12px;
         font-family:SourceHanSansCN;
         font-weight:bold;
@@ -596,8 +615,8 @@ export default {
 
       .text {
         position: absolute;
-        top: 450px;
-        left: 24px;
+        top: 435px;
+        left: 35px;
 
         font-size:12px;
         font-family:Biko;
@@ -610,94 +629,257 @@ export default {
   }
 
   .banner2-div {
-    background-color: #fff;
-    padding: 63px 0 108px;
+    background-color: #F3F6FB;
+    padding: 110px 0 111px;
+    text-align: center;
 
-    .title {
-      font-size: 24px;
-      font-family: Campton, SourceHanSansCN;
-      font-weight: bold;
-      line-height: 24px;
-      color: rgba(57, 60, 61, 1);
-      opacity: 1;
-      margin: 0px auto 10px;
+    .green {
+        color: #21C3B6;
     }
 
-    .title2 {
-      font-size: 16px;
-      font-family: Biko, SourceHanSansCN;
-      font-weight: 500;
-      line-height: 16px;
-      color: rgba(85, 85, 85, 1);
-      opacity: 1;
-      margin-bottom: 8px;
-    }
-
-    .school-div {
-    //   width: 1150px;
-      margin: 54px auto 0;
-      // align-items: center;
-      // display: flex;
-      // flex-direction: row;
-      // justify-content: center;
-
-      .each-school-div {
-        width: 249px;
-        height:313px;
+    .seed-plan-intro1 {
         display: inline-block;
-        margin: 0 13px;
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
+        width: 465px;
+        margin-top: 3px;
+        text-align: left;
+        margin-right: 115px;
+
+        .intro1-title1 {
+            font-size:28px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:28px;
+            color:rgba(60,60,60,1);
+            opacity:1;
+        }
+
+        .intro1-title2 {
+            margin: 14px 0 24px;
+            font-size:16px;
+            font-family:Biko, SourceHanSansCN;
+            font-weight:bold;
+            line-height:16px;
+            color:rgba(93,93,93,1);
+            opacity:1;
+        }
+
+        .intro1-title3 {
+            font-size:14px;
+            font-family:SourceHanSansCN;
+            font-weight:400;
+            line-height:20px;
+            color:rgba(102,102,103,1);
+            opacity:1;
+        }
+    }
+
+    .seed-plan-intro2 {
+        display: inline-block;
+        vertical-align: top;
+        width: 550px;
+
+        .each-plan-div {
+            margin: 0 35px 35px;
+            width: 99px;
+            display: inline-block;
+
+            .plan-img {
+                width: 100%;
+                height: 66px;
+                margin-bottom: 18px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .plan-title {
+                font-size:16px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:16px;
+                color:rgba(80,82,83,1);
+                opacity:1;
+            }
+        }
     }
   }
 
   .banner3-div {
-    padding: 73px 0 53px;
-    background:rgba(243,246,251,0.64);
+    padding: 78px 0 54px;
+    background-color: #fff;
 
     .title {
-      font-size: 24px;
-      font-family: SourceHanSansCN;
-      font-weight: bold;
-      line-height: 24px;
-      color: rgba(12,10,11,1);
-      opacity: 1;
-      margin: 0px auto 58px;
+      font-size:24px;
+      font-family:SourceHanSansCN;
+      font-weight:bold;
+      line-height:24px;
+      color:rgba(60,60,60,1);
+      opacity:1;
     }
 
-    .power-div {
+    .title2 {
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:500;
+        line-height:16px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin: 18px 0 35px;
+    }
+
+    .teacher-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto 36px;
+        width: 812px;
+        background:rgba(250,255,255,1);
+        box-shadow:0px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
+
+        li {
+          width: 161px;
+          height: 123px;
+          font-size: 16px;
+          font-family: SourceHanSansCN;
+          font-weight: bold;
+          line-height: 16px;
+          opacity: 1;
+          margin-right: 56px;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+
+          .img {
+            width:51px;
+            height:51px;
+            background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            margin: 22px auto 9px;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        .teacher-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
+        }
+      }
+
+    .teachers-div {
+      width: 1130px;
       text-align: center;
-      width: 1200px;
       margin: 0 auto;
 
-      .each-power-div {
-        width: 120px;
-        display: inline-block;
-        margin: 0 100px 38px;
+      .teacher-type-title1 {
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:px;
+        color:rgba(57,60,61,1);
+        opacity:1;
+      }
 
-        .power-img {
-            width: 86px;
-            height: 85px;
-            margin: 0 auto;
+      .teacher-type-title2 {
+        margin: 25px 0 59px;
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:40px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .each-teacher {
+        width: 240px;
+        margin: 0 20px 45px;
+        display: inline-block;
+        vertical-align: top;
+
+        .teacher-img {
+          width:100%;
+          height:308px;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
 
-        .power-title {
-            margin: 19px auto 7px;
+        .teacher-info-div {
+          height: 96px;
+          background-color: #F1FAFA;
+          padding: 17px 20px 0 21px;
+          text-align: left;
+
+          .teacher-name {
             font-size:18px;
-            font-family:SourceHanSansCN;
+            font-family:Campton;
             font-weight:bold;
             line-height:18px;
-            color:rgba(74,74,74,1);
+            color:rgba(51,51,51,1);
             opacity:1;
+          }
+
+          .teacher-school {
+            font-size:15px;
+            font-family:SourceHanSansCN;
+            font-weight:400;
+            line-height:20px;
+            color:rgba(51,51,51,1);
+            opacity:1;
+            margin-top: 7px;
+          }
+        }
+      }
+
+      .more-teachers {
+        font-size:15px;
+        font-family:PingFang SC;
+        font-weight:500;
+        color:rgba(57,60,61,1);
+        opacity:1;
+        cursor: pointer;
+
+        width: 142px;
+        text-align: center;
+        margin: 0 auto;
+        height: 36px;
+        line-height: 36px;
+        border: 1px solid rgba(151,151,151,1);
+        border-radius: 21px;
+
+        a {
+          text-decoration: none;
+          color:rgba(57,60,61,1);
         }
 
-        .power-text {
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:500;
-            line-height:14px;
-            color:rgba(117,117,117,1);
+        .more-img {
+          width: 17px;
+          height: 17px;
+          margin-left: 15px;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+
+        .open-ask {
+            width: 26px;
+            height: 10px;
+            // background: #21C3B6;
+            margin: 13px auto 36px;
+            cursor: pointer;
+            background-image: url("../assets/img/dreamSchool/openArrow.png");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
       }
     }
@@ -820,134 +1002,6 @@ export default {
       color:rgba(148,148,148,1);
       opacity:1;
       margin-top: 8px;
-    }
-  }
-
-  .banner5-div {
-    padding: 75px 0 54px;
-    background-color: #F3F6FB;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 45px;
-    }
-
-    .teacher-item-div {
-        list-style: none;
-        text-align: center;
-        padding: 0;
-        margin-bottom: 64px;
-
-        li {
-          font-size: 18px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 18px;
-          opacity: 1;
-          margin: 0 40px;
-          display: inline-block;
-          color: rgba(175,175,175,1);
-          padding: 0 8px 8px;
-          cursor: pointer;
-        }
-
-        .teacher-bg-colors {
-          color:rgba(60,60,60,1);
-          font-weight:bold;
-          border-bottom: 3px solid rgba(1,183,183,1);
-        }
-      }
-
-    .teachers-div {
-      width: 1130px;
-      text-align: center;
-      margin: 0 auto;
-
-      .each-teacher {
-        width: 240px;
-        margin: 0 20px 45px;
-        display: inline-block;
-        vertical-align: top;
-
-        .teacher-img {
-          width:100%;
-          height:308px;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .teacher-info-div {
-          height: 96px;
-          background-color: #FFFFFF;
-          padding: 17px 20px 0 21px;
-          text-align: left;
-
-          .teacher-name {
-            font-size:18px;
-            font-family:Campton;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-          }
-
-          .teacher-school {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-            margin-top: 7px;
-          }
-        }
-      }
-
-      .more-teachers {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        cursor: pointer;
-
-        width: 142px;
-        text-align: center;
-        margin: 0 auto;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid rgba(151,151,151,1);
-        border-radius: 21px;
-
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
-
-        .open-ask {
-            width: 26px;
-            height: 10px;
-            // background: #21C3B6;
-            margin: 13px auto 36px;
-            cursor: pointer;
-            background-image: url("../assets/img/dreamSchool/openArrow.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-      }
     }
   }
 
