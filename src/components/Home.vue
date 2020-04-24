@@ -202,32 +202,32 @@ export default {
         {
           logo: require('../assets/img/home/school/hf.png'),
           name: '哈佛大学',
-          offer: 18
+          offer: 29
         },
         {
           logo: require('../assets/img/home/school/stf.png'),
           name: '斯坦福大学',
-          offer: 20
+          offer: 25
         },
         {
           logo: require('../assets/img/home/school/yl.png'),
           name: '耶鲁大学',
-          offer: 22
+          offer: 41
         },
         {
           logo: require('../assets/img/home/school/zjg.png'),
           name: '芝加哥大学',
-          offer: 70
+          offer: 93
         },
         {
           logo: require('../assets/img/home/school/bxfny.png'),
           name: '宾夕法尼亚大学',
-          offer: 98
+          offer: 154
         },
         {
           logo: require('../assets/img/home/school/dk.png'),
           name: '杜克大学',
-          offer: 84
+          offer: 115
         },
         {
           logo: require('../assets/img/home/school/kne.png'),
@@ -237,7 +237,7 @@ export default {
         {
           logo: require('../assets/img/home/school/glby.png'),
           name: '哥伦比亚大学',
-          offer: 293
+          offer: 388
         },
         {
           logo: require('../assets/img/home/school/nj.png'),

@@ -51,7 +51,7 @@
       </ul>
       <div class="teachers-div">
         <div class="teacher-type-title1">种子主导师职责</div>
-        <div class="teacher-type-title2">学业进度规划    |    选课策略制定    |    英语备考督促    |    背景提升辅导</div>
+        <div class="teacher-type-title2">学业进度规划&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选课策略制定&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;英语备考督促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;背景提升辅导</div>
         <template v-for="(item, index) in selectedTeacher" >
           <div class="each-teacher" v-if="index < maxNumber" :key="item.school">
             <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
@@ -61,74 +61,39 @@
             </div>
           </div>
         </template>
-
-        <!-- <div class="more-teachers" @click="show = !show">
-          <div>
-            查看更多导师
-          </div>
-          <div class="open-ask"></div>
-        </div> -->
       </div>
     </div>
 
     <div class="banner4-div">
-      <div class="title">四对一辅导模式</div>
-      <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
-      <div class="four-to-one-div">
-        <div class="each1 each">
-          <div class="each-title">全能主导师</div>
-          <div class="each-text">超越行业水平的师资团队， </div>
-          <div class="each-text">丰富的辅导经验和海外学习经历</div>
+        <div class="title">种子计划优势</div>
+        <div class="power-div">
+            <div class="each-power-div"  v-for="item in advantages" :key="item.img">
+                <div class="power-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="power-title">{{ item.title }}</div>
+                <div class="power-text">{{ item.text }}</div>
+            </div>
         </div>
-        <div class="each2 each">
-          <div class="each-title">同专业导师</div>
-          <div class="each-text">覆盖全球广泛的名校优秀校友资源</div>
-          <div class="each-text">为学生提供独特的专业见解和职业建议</div>
-        </div>
-        <div class="each3 each">
-          <div class="each-title">名校外籍导师</div>
-          <div class="each-text">美国著名高校，修读专业为语言学、教育学</div>
-          <div class="each-text">丰富的文书写作经验，辅导3000+文书</div>
-        </div>
-        <div class="each4 each">
-          <div class="each-title">资深班主任</div>
-          <div class="each-text">申请材料准备指导，堪称申请流程的百科</div>
-          <div class="each-text">全书</div>
-        </div>
-
-        <div class="almightyMentor">
-          <div class="title3">全能主导师</div>
-          <div class="title4">深耕留学，申请专家</div>
-        </div>
-        <div class="seniorMentor">
-          <div class="title3">资深班主任</div>
-          <div class="title4">流程点拨，答疑百科</div>
-        </div>
-        <div class="sameMajorMentor">
-          <div class="title3">同专业导师</div>
-          <div class="title4">全球高校，精英网络</div>
-        </div>
-        <div class="foreignMentor">
-          <div class="title3">名校外籍导师</div>
-          <div class="title4">妙笔生花，纯正表达</div>
-        </div>
-      </div>
     </div>
 
-    <transition name="slide-fade">
-        <div v-if="show" class="banner6-div" :style="{backgroundImage:'url(' + banner6 + ')'}">
-            <div class="ask-div">
-                <div class="ercode" :style="{backgroundImage:'url(' + askErcode + ')'}"></div>
-                <div class="ask-text">
-                    <div class="text1">想要了解更多导师信息和留学服务内容，可扫码咨询留学小助手。</div>
-                    <div class="text2">咨询暗号</div>
-                    <div class="text3">梦 校</div>
-                </div>
-                <div class="close-ask" @click="show = !show"></div>
+    <div class="banner5-div">
+        <div class="title">背景提升方案</div>
+        <div class="title2">实习领域覆盖广，科研专业覆盖全，海外交流辅导经验丰富。</div>
+        <div class="demo-div1">
+            <div class="each-demo-div1"  v-for="item in demos" :key="item.img">
+                <div class="demo-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="demo-title">{{ item.title }}</div>
+                <div class="demo-intro">{{ item.intro }}</div>
+                <div class="demo-text">{{ item.text }}</div>
             </div>
-            <div></div>
         </div>
-    </transition>
+        <div class="demo-div2">
+            <div class="each-demo-div2"  v-for="item in demos2" :key="item.img">
+                <div class="demo-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="demo-title">{{ item.title }}</div>
+                <div class="demo-text">{{ item.text }}</div>
+            </div>
+        </div>
+    </div>
 
     <div class="banner7-div">
       <div class="title">学员故事</div>
@@ -154,9 +119,9 @@
       <div class="banner8" :style="{backgroundImage:'url(' + banner8 + ')'}">
           <div class="dream-school-div" :style="{backgroundImage:'url(' + dreamSchoolPlan + ')'}">
               <div class="title-div">
-                <div class="title1">梦校计划</div>
-                <div class="title2">专业匹配的申请指导、职业点拨、全程指引。</div>
-                <div class="title3">￥ 39,800 - ￥ 99,800</div>
+                <div class="title1">种子计划</div>
+                <div class="title2">大一至大三，从背景提升到出国申请，一步到位</div>
+                <div class="title3">￥ 49,800 - ￥ 79,800</div>
                 <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div>
               </div>
           </div>
@@ -217,38 +182,6 @@ export default {
           title: '文书辅导 '
         }
       ],
-      powers: [
-        {
-          img: require('../assets/img/dreamSchool/powers/powers1.png'),
-          title: '素材挖掘器',
-          text: '启发文书简历思路'
-        },
-        {
-          img: require('../assets/img/dreamSchool/powers/powers2.png'),
-          title: '提纲蓝图 ',
-          text: '梳理文书脉络逻辑'
-        },
-        {
-          img: require('../assets/img/dreamSchool/powers/powers3.png'),
-          title: '文书宝库 ',
-          text: '阅读同专业范文'
-        },
-        {
-          img: require('../assets/img/dreamSchool/powers/powers4.png'),
-          title: '申请季面试库 ',
-          text: '掌握海量面试真题'
-        },
-        {
-          img: require('../assets/img/dreamSchool/powers/powers5.png'),
-          title: '棕榈专业手册',
-          text: '解读项目细分选择'
-        },
-        {
-          img: require('../assets/img/dreamSchool/powers/powers6.png'),
-          title: '海外飞跃指南 ',
-          text: '领取海外留学优惠'
-        }
-      ],
       stories: [
         {
           img: require('../assets/img/dreamSchool/stories/story1.png'),
@@ -286,64 +219,44 @@ export default {
       teachers: [
         [
           {
-            img: require('../assets/img/home/teachers/Z.png'),
-            name: 'Z 导师',
-            school: '加州大学伯克利分校 计算机科学硕士'
+            img: require('../assets/img/teachers/graduate/Vivian.png'),
+            name: 'Vivian 老师',
+            school: '伦敦国王学院 文化创意产业 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/H.png'),
-            name: 'H 导师',
-            school: '卡耐基梅隆大学 计算机科学硕士'
+            img: require('../assets/img/teachers/graduate/Olivia.png'),
+            name: 'Olivia 老师',
+            school: '哥伦比亚大学 教育学 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/Y.png'),
-            name: 'Y 导师',
-            school: '斯坦福大学 物理学博士'
+            img: require('../assets/img/teachers/graduate/Xiaohan.png'),
+            name: 'Xiaohan 老师',
+            school: '哥伦比亚大学 公共管理 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/C.png'),
-            name: 'C 导师',
-            school: '斯坦福大学 教育学硕士'
+            img: require('../assets/img/teachers/graduate/Cheryl.png'),
+            name: 'Cheryl 老师',
+            school: '伦敦大学学院 应用语言学 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/L.png'),
-            name: 'L 导师',
-            school: '杜克大学 管理学硕士'
+            img: require('../assets/img/teachers/graduate/Wendy.png'),
+            name: 'Wendy 老师',
+            school: '北科罗拉多大学大学 TESOL 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/Z2.png'),
-            name: 'Z 导师',
-            school: '麻省理工大学 政治科学博士'
+            img: require('../assets/img/teachers/graduate/Claire.png'),
+            name: 'Claire 老师',
+            school: '香港中文大学 视觉文化研究 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/Z3.png'),
-            name: 'Z 导师',
-            school: '哥伦比亚大学 艺术管理硕士'
+            img: require('../assets/img/teachers/graduate/Vanessa.png'),
+            name: 'Vanessa 老师',
+            school: '华威大学 人力资源管理 硕士'
           },
           {
-            img: require('../assets/img/home/teachers/W.png'),
-            name: 'W 导师',
-            school: '麻省理工学院 金融硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/C2.png'),
-            name: 'C 导师',
-            school: '卡耐基梅隆大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/Y2.png'),
-            name: 'Y 导师',
-            school: '范德堡大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/D.png'),
-            name: 'D 导师',
-            school: '多伦多大学 航空工程'
-          },
-          {
-            img: require('../assets/img/home/teachers/L2.png'),
-            name: 'L 导师',
-            school: '哥伦比亚大学 电子工程硕士'
+            img: require('../assets/img/teachers/graduate/Bella.png'),
+            name: 'Bella 老师',
+            school: '哥伦比亚大学 发展心理学 硕士'
           }
         ],
         [
@@ -491,8 +404,76 @@ export default {
           img: require('../assets/img/seedPlan/teacherMenu/menu4.png')
         }
       ],
+      advantages: [
+        {
+          img: require('../assets/img/seedPlan/advantage/advantage1.png'),
+          title: '学业规划',
+          text: '开学、期中、期末、假期规划，助力同学明确目标，完成出国先修课，提升GPA。'
+        },
+        {
+          img: require('../assets/img/seedPlan/advantage/advantage2.png'),
+          title: '英语报考 & 培训',
+          text: '名师讲解 GRE / GMAT / IELTS / TOEFL 题型和方法，真题演练和点评。'
+        },
+        {
+          img: require('../assets/img/seedPlan/advantage/advantage3.png'),
+          title: '背景提升',
+          text: '实习、科研、志愿者、竞赛、交流交换，海量辅导经验和资源，加强同学背景。'
+        },
+        {
+          img: require('../assets/img/seedPlan/advantage/advantage4.png'),
+          title: '能力锤炼',
+          text: '督促打卡，提升同学自律性；学术指导，培养同学严谨治学、独立思辨性。'
+        }
+      ],
+      demos: [
+        {
+          img: require('../assets/img/seedPlan/demo/demo1.png'),
+          title: '中英实习简历修改',
+          intro: '约一周',
+          text: '简历录课收听 / 素材结构搭建 / 专业内容精改  / 逐句语言修订/'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo2.png'),
+          title: '科研实习申请指导',
+          intro: '按需',
+          text: '实习岗位推送  / 科研资源引荐 / 课外活动分享   / 套瓷面试辅导/'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo3.png'),
+          title: '交流交换申请指导',
+          intro: '按需',
+          text: '交换项目筛选  / 申请流程答疑 / 文书沟通修改  / 材料语言润色 /'
+        }
+      ],
+      demos2: [
+        {
+          img: require('../assets/img/seedPlan/demo/demo4.png'),
+          title: '企业实习',
+          text: '提升目标专业相关背景，培养职业素养，锻造职场技能。'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo5.png'),
+          title: '海内外科研',
+          text: '深入认识目标专业，了解科研项目运作，提升学术科研能力。'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo6.png'),
+          title: '交流交换',
+          text: '开拓跨文化视野，提前适应海外学业生活，加强国际化背景。'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo7.png'),
+          title: '志愿活动',
+          text: '参与公共服务，提升软背景，培养社会责任感和使命感。'
+        },
+        {
+          img: require('../assets/img/seedPlan/demo/demo8.png'),
+          title: '竞赛 & 社团',
+          text: '提升领导力、团队协作力，提高执行力，结交同道中人。'
+        }
+      ],
       banner1: '',
-      banner6: '',
       banner8: '',
       dreamSchoolPlan: '',
       planButton: '',
@@ -505,8 +486,7 @@ export default {
   },
   created () {
     this.banner1 = require('../assets/img/seedPlan/banner1.png')
-    this.banner6 = require('../assets/img/dreamSchool/banner6.png')
-    this.banner8 = require('../assets/img/dreamSchool/banner8.png')
+    this.banner8 = require('../assets/img/seedPlan/banner8.png')
     this.dreamSchoolPlan = require('../assets/img/dreamSchool/plan/dreamSchoolPlan.png')
     this.planButton = require('../assets/img/dreamSchool/plan/plan-button.png')
     this.selectedTeacher = this.teachers[this.currentType]
@@ -797,7 +777,7 @@ export default {
         font-size:16px;
         font-family:SourceHanSansCN;
         font-weight:400;
-        line-height:40px;
+        line-height:16px;
         color:rgba(60,60,60,1);
         opacity:1;
       }
@@ -841,250 +821,190 @@ export default {
           }
         }
       }
-
-      .more-teachers {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        cursor: pointer;
-
-        width: 142px;
-        text-align: center;
-        margin: 0 auto;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid rgba(151,151,151,1);
-        border-radius: 21px;
-
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
-
-        .open-ask {
-            width: 26px;
-            height: 10px;
-            // background: #21C3B6;
-            margin: 13px auto 36px;
-            cursor: pointer;
-            background-image: url("../assets/img/dreamSchool/openArrow.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-      }
     }
   }
 
   .banner4-div {
-    padding: 112px 0 97px;
-    background-color: #fff;
+    padding: 88px 0 109px;
+    background:#DCEAFF;
 
     .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
+      font-size: 24px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
+      line-height: 24px;
+      color: rgba(60,60,60,1);
+      opacity: 1;
+      margin: 0px auto 65px;
     }
 
-    .title2 {
-      width: 720px;
-      font-size:16px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:23px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin: 18px auto 86px;
-    }
-
-    .four-to-one-div {
-      width: 1158px;
-      height: 638px;
+    .power-div {
+      text-align: center;
+      // width: 1200px;
       margin: 0 auto;
-      background-image: url("../assets/img/home/fourToOne/fourtoone.png");
-      position: relative;
-      text-align: left;
 
-      .each {
-        width: 266px;
+      .each-power-div {
+        width: 195px;
+        display: inline-block;
+        margin: 0 37px;
         text-align: left;
-        position: absolute;
-        right: 126px;
+        vertical-align: top;
+
+        .power-img {
+            width: 138px;
+            height: 129px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .power-title {
+            margin: 28px 0 15px 21px;
+            font-size:18px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:18px;
+            color:rgba(60,60,60,1);
+            opacity:1;
+        }
+
+        .power-text {
+            font-size:14px;
+            font-family:SourceHanSansCN, Campton;
+            font-weight:400;
+            line-height:20px;
+            color:rgba(81,81,81,1);
+            margin-left: 21px;
+        }
       }
-
-      .each1 {
-        top: 126px;
-      }
-
-      .each2 {
-        top: 255px;
-      }
-
-      .each3 {
-        top: 385px;
-      }
-
-      .each4 {
-        top: 518px;
-      }
-
-      .each-title {
-        font-size:20px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:20px;
-        color:rgba(60,60,60,1);
-        opacity:1;
-        margin-bottom: 8px;
-      }
-
-      .each-text {
-        font-size:14px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:20px;
-        color:rgba(117,117,117,1);
-        opacity:1;
-      }
-
-      .almightyMentor {
-        position: absolute;
-        top: 34px;
-        left: 257px;
-      }
-
-      .seniorMentor {
-        position: absolute;
-        top: 102px;
-        left: 527px;
-      }
-
-      .sameMajorMentor {
-        position: absolute;
-        top: 530px;
-        left: 24px;
-      }
-
-      .foreignMentor {
-        position: absolute;
-        bottom: -44px;
-        left: 520px;
-      }
-    }
-
-    .title3 {
-      margin-top: 2px;
-      font-size:18px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:18px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title4 {
-      font-size:14px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:14px;
-      color:rgba(148,148,148,1);
-      opacity:1;
-      margin-top: 8px;
     }
   }
 
-  .banner6-div {
-      background-color: #21C3B6;
-      background-repeat: no-repeat;
-      background-size: cover;
-      overflow: auto;
+  .banner5-div {
+    padding: 104px 0 92px;
+    background:#FFFFFF;
 
-      .ask-div {
-          margin: 77px auto 0;
-          text-align: center;
+    .title {
+      font-size: 24px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
+      line-height: 24px;
+      color: rgba(60,60,60,1);
+      opacity: 1;
+      text-align: center;
+    }
 
-          .ercode {
-              width: 254px;
-              height: 254px;
-              background-repeat: no-repeat;
-              background-size: contain;
-              display: inline-block;
-            //   border: 12px solid #fff;
-            //   background-color: #fff;
-          }
+    .title2 {
+      font-size:16px;
+      font-family:SourceHanSansCN;
+      font-weight:500;
+      line-height:16px;
+      color:rgba(60,60,60,1);
+      opacity:1;
+      margin: 20px auto 154px;
+    }
 
-          .ask-text {
-              display: inline-block;
-              margin: 33px 0 0 61px;
-              width: 433px;
-              text-align: left;
-              vertical-align: top;
+    .demo-div1 {
+      text-align: center;
+      // width: 1200px;
+      margin: 0 auto 70px;
 
-              .text1 {
-                font-size:24px;
-                font-family:SourceHanSansCN;
-                font-weight:bold;
-                line-height:33px;
-                color:rgba(255,255,255,1);
-                opacity:1;
-              }
+      .each-demo-div1 {
+        width: 321px;
+        display: inline-block;
+        margin: 0 33px;
+        vertical-align: top;
+        background:rgba(243,246,251,1);
+        box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+        border-radius:15px;
 
-              .text2 {
-                margin-top: 45px;
-                font-size:24px;
-                font-family:SourceHanSansCN;
-                font-weight:bold;
-                line-height:41px;
-                color:#FFFFFF;
-                opacity:1;
-                display: inline-block;
-              }
+        .demo-img {
+            width: 168px;
+            height: 170px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: -95px auto 0;
+        }
 
-              .text3 {
-                display: inline-block;
-                width:100px;
-                height:35px;
-                background:rgba(255,255,255,1);
-                opacity:1;
-                border-radius:20px;
-                font-size:24px;
-                font-family:SourceHanSansCN;
-                font-weight:bold;
-                line-height:35px;
-                color: #36B2B3;
-                text-align: center;
-                margin-left: 20px;
-              }
-          }
+        .demo-title {
+            margin: 29px 0 12px;
+            font-size:20px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:20px;
+            color:rgba(86,86,86,1);
+            opacity:1;
+        }
 
-          .close-ask {
-              width: 26px;
-              height: 10px;
-              // background: #fff;
-              margin: 43px auto 36px;
-              cursor: pointer;
-              background-image: url("../assets/img/dreamSchool/closeArrow.png");
-              background-repeat: no-repeat;
-              background-size: cover;
-          }
+        .demo-text {
+            width: 203px;
+            margin: 18px auto 45px;
+            font-size:14px;
+            font-family:SourceHanSansCN, Campton;
+            font-weight:400;
+            line-height:20px;
+            color:rgba(81,81,81,1);
+        }
+
+        .demo-intro {
+          font-size:15px;
+          font-family:SourceHanSansCN;
+          font-weight:400;
+          line-height:15px;
+          color:rgba(119,119,119,1);
+          opacity:1;
+        }
       }
+    }
+
+    .demo-div2 {
+      text-align: center;
+      // width: 1200px;
+      margin: 0 auto;
+
+      .each-demo-div2 {
+        width: 303px;
+        display: inline-block;
+        margin: 0 20px 31px;
+        vertical-align: top;
+        background:rgba(243,246,251,1);
+        box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+        border-radius:15px;
+
+        .demo-img {
+            width: 120px;
+            height: 92px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 36px auto 0;
+            background-position: center;
+        }
+
+        .demo-title {
+            margin: 15px 0 14px;
+            font-size:20px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:20px;
+            color:rgba(67,91,92,1);
+            opacity:1;
+        }
+
+        .demo-text {
+            width: 229px;
+            margin: 18px auto 45px;
+            font-size:16px;
+            font-family:SourceHanSansCN, Campton;
+            font-weight:400;
+            line-height:20px;
+            color:rgba(41,41,41,1);
+        }
+      }
+    }
   }
 
   .banner7-div {
     padding: 78px 0 26px;
-    background-color: #fff;
+    background-color: #F3F6FB;
 
     .title {
       font-size:24px;
