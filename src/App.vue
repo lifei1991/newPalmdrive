@@ -1,18 +1,25 @@
 <template>
-  <div id="app">
+  <div id="app" @click="clearAll">
     <!-- <img src="./assets/logo.png"> -->
     <div class="head">
       <div class="logo"></div>
 
       <ul>
-        <li><a href="http://palmdrive.cn/" target="_blank">首页</a></li>
-        <li><a href="http://palmdrive.cn/highschool_services" target="_blank">申请初高中</a></li>
-        <li><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
-        <li><a href="http://palmdrive.cn/services" target="_blank">申请研究生</a></li>
-        <li><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
-        <li><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
-        <li><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
-        <li><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 0 }"><a href="http://palmdrive.cn/" target="_blank">首页</a></li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 1 }"><a href="http://palmdrive.cn/highschool_services" target="_blank">申请初高中</a></li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
+
+        <li @mouseover="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
+
+        <li v-bind:class="{ 'select-menu-colors' : currentType == 7 }"><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
       </ul>
 
       <div class="register" >
@@ -39,6 +46,23 @@
           <div class="ercode" slot="reference"></div>
         </el-popover>
       </div>
+
+      <transition name="fade">
+        <div v-if="showMenus" class="menus-div">
+          <div class="menu-intro">
+            {{ selectedMenu.title }}
+            <div class="icon-new"></div>
+          </div>
+
+          <div class="each-menus" v-for="(menus, index) in selectedMenu.menus" :key="index">
+            <div class="each-menu-title">{{ menus.title }}</div>
+            <div class="menu" v-for="(item, ind) in menus.items" :key="ind" @click="goUrl(item.url)">
+              {{ item.name }}
+              <span class="menu-name2">{{ item.name2 }}</span>
+            </div>
+          </div>
+        </div>
+      </transition>
     </div>
 
     <router-view/>
@@ -222,8 +246,93 @@ export default {
           name: '核桃英语'
         }
       ],
+      menus: [
+        {
+          title: '研究生服务介绍',
+          menus: [
+            {
+              title: '辅导项目',
+              items: [
+                {
+                  name: '梦校计划',
+                  name2: '（申请季）',
+                  url: '/dream'
+                },
+                {
+                  name: '种子计划',
+                  name2: '（大一至大三）',
+                  url: '/seed'
+                },
+                {
+                  name: '能力提升',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '师资团队',
+              items: [
+                {
+                  name: '导师介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '种子四位一体计划',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '辅导结果',
+              items: [
+                {
+                  name: '申请季offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '背景提升offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '成功案例',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '留学干货',
+              items: [
+                {
+                  name: '申请指南',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '专业介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '资料下载',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            }
+          ]
+        }
+      ],
       selectedCity: {},
-      current: 0
+      current: 0,
+      showMenus: false,
+      currentType: '99',
+      selectedMenu: {}
     }
   },
   mounted () {
@@ -232,9 +341,26 @@ export default {
     })
   },
   methods: {
+    clearAll () {
+      this.showMenus = false
+    },
     addClass: function (index) {
       this.current = index
       this.selectedCity = this.cities[index]
+    },
+    changeMenu (index) {
+      this.currentType = index
+      this.showMenus = true
+      this.selectedMenu = this.menus[0]
+    },
+    outMenu () {
+      this.showMenus = !this.showMenus
+    },
+    goUrl (url) {
+      this.showMenus = false
+      this.$router.push({
+        path: url
+      })
     }
   }
 }
@@ -334,7 +460,7 @@ body {
   // background:rgba(33,195,182,1);
   opacity:1;
   text-align: center;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   background:rgba(31,195,181,1);
   box-shadow:5px 5px 7px rgba(0,0,0,0.08);
@@ -345,8 +471,9 @@ body {
     background-image: url("assets/img/head/logo.png");
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 38px 129px 0 0;
+    margin: 38px 111px 0 0;
     display: inline-block;
+    vertical-align: top;
   }
 
   ul {
@@ -356,28 +483,35 @@ body {
     white-space:nowrap;
     overflow: hidden;
     padding: 0;
+    height: 100%;
 
     li {
       float:left;
-      margin-right:36px;
+      padding:0 18px;
       position: relative;
       overflow: hidden;
       font-size:16px;
       font-family:SourceHanSansCN;
       font-weight:bold;
-      line-height:36px;
+      line-height:115px;
       color:rgba(255,255,255,1);
       opacity:1;
-      height: 36px;
+      height: 100%;
+      cursor: pointer;
 
       a {
         display: block;
         color:white;
         text-align: center;
-        padding: 3px 0px;
+        // padding: 3px 0px;
         overflow: hidden;
         text-decoration: none;
+        height: 100%;
       }
+    }
+
+    li:hover {
+      background: #35A79E;
     }
   }
 
@@ -395,9 +529,10 @@ body {
     color:rgba(34,195,182,1);
     opacity:1;
     vertical-align: bottom;
-    margin-left: 46px;
+    margin-left: 64px;
     position: relative;
     cursor: pointer;
+    margin-bottom: 13px;
 
     a {
       text-decoration: none;
@@ -428,6 +563,88 @@ body {
 
     .ercode-detail {
       background: chocolate;
+    }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .select-menu-colors {
+    background: #35A79E;
+  }
+
+  .menus-div {
+    width: 100%;
+    height: 233px;
+    background-color: #FFF;
+    z-index: 2;
+    position: absolute;
+
+    .menu-intro {
+      font-size:14px;
+      font-family:SourceHanSansCN;
+      font-weight:bold;
+      line-height:14px;
+      color:rgba(57,60,61,1);
+      opacity:1;
+      margin-top: 48px;
+      position: relative;
+      display: inline-block;
+      margin-right: 139px;
+
+      .icon-new {
+        width: 31px;
+        height: 14px;
+        position: absolute;
+        top: -15px;
+        right: -32px;
+        background-image: url("assets/img/head/icon-new.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .each-menus {
+      display: inline-block;
+      width: 186px;
+      text-align: left;
+      vertical-align: top;
+      margin-top: 36px;
+
+      .each-menu-title {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:14px;
+        color:rgba(74,74,74,1);
+        opacity:1;
+        padding-bottom: 8px;
+        border-bottom: 2px solid rgba(197,197,197,1);
+        width: 70px;
+      }
+
+      .menu {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:500;
+        line-height:20px;
+        color:rgba(57,60,61,1);
+        opacity:1;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      .menu:hover {
+        color: rgba(1,183,183,1);
+      }
+
+      .menu-name2 {
+        color: #A2A2A2;
+      }
     }
   }
 }
