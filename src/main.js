@@ -13,6 +13,11 @@ Vue.use(VueResource)
 Vue.config.productionTip = false
 // window.jquery = window.$ = $
 
+// 每次跳转到页面顶部
+// router.afterEach((to, from, next) => {
+//   window.scrollTo(0, 0)
+// })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

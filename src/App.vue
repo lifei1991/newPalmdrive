@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @click="clearAll">
+  <div id="app" v-cloak>
     <!-- <img src="./assets/logo.png"> -->
     <div class="head">
       <div class="logo"></div>
@@ -11,7 +11,7 @@
 
         <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
 
-        <li @mouseover="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
+        <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
 
         <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
 
@@ -48,8 +48,8 @@
       </div>
 
       <transition name="fade">
-        <div v-if="showMenus" class="menus-div">
-          <div class="menu-intro">
+        <div v-if="showMenus" class="menus-div" @mouseleave="outMenu()">
+          <div class="menu-intro" @click="goUrl(selectedMenu.url)">
             {{ selectedMenu.title }}
             <div class="icon-new"></div>
           </div>
@@ -249,6 +249,7 @@ export default {
       menus: [
         {
           title: '研究生服务介绍',
+          url: '/graduate',
           menus: [
             {
               title: '辅导项目',
@@ -311,7 +312,250 @@ export default {
                 {
                   name: '申请指南',
                   name2: '',
+                  url: '/guide'
+                },
+                {
+                  name: '专业介绍',
+                  name2: '',
                   url: ''
+                },
+                {
+                  name: '资料下载',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: '研究生服务介绍',
+          url: '/graduate',
+          menus: [
+            {
+              title: '辅导项目',
+              items: [
+                {
+                  name: '梦校计划',
+                  name2: '（申请季）',
+                  url: '/dream'
+                },
+                {
+                  name: '种子计划',
+                  name2: '（大一至大三）',
+                  url: '/seed'
+                },
+                {
+                  name: '能力提升',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '师资团队',
+              items: [
+                {
+                  name: '导师介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '种子四位一体计划',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '辅导结果',
+              items: [
+                {
+                  name: '申请季offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '背景提升offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '成功案例',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '留学干货',
+              items: [
+                {
+                  name: '申请指南',
+                  name2: '',
+                  url: '/guide'
+                },
+                {
+                  name: '专业介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '资料下载',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: '本科服务介绍',
+          url: '/graduate',
+          menus: [
+            {
+              title: '本科项目',
+              items: [
+                {
+                  name: '梦校计划',
+                  name2: '（申请季）',
+                  url: '/dream'
+                },
+                {
+                  name: '种子计划',
+                  name2: '（大一至大三）',
+                  url: '/seed'
+                },
+                {
+                  name: '能力提升',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '师资团队',
+              items: [
+                {
+                  name: '导师介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '种子四位一体计划',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '辅导结果',
+              items: [
+                {
+                  name: '申请季offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '背景提升offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '成功案例',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '留学干货',
+              items: [
+                {
+                  name: '申请指南',
+                  name2: '',
+                  url: '/guide'
+                },
+                {
+                  name: '专业介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '资料下载',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: '研究生服务介绍',
+          url: '/graduate',
+          menus: [
+            {
+              title: '辅导项目',
+              items: [
+                {
+                  name: '梦校计划',
+                  name2: '（申请季）',
+                  url: '/dream'
+                },
+                {
+                  name: '种子计划',
+                  name2: '（大一至大三）',
+                  url: '/seed'
+                },
+                {
+                  name: '能力提升',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '师资团队',
+              items: [
+                {
+                  name: '导师介绍',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '种子四位一体计划',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '辅导结果',
+              items: [
+                {
+                  name: '申请季offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '背景提升offer',
+                  name2: '',
+                  url: ''
+                },
+                {
+                  name: '成功案例',
+                  name2: '',
+                  url: ''
+                }
+              ]
+            },
+            {
+              title: '留学干货',
+              items: [
+                {
+                  name: '申请指南',
+                  name2: '',
+                  url: '/guide'
                 },
                 {
                   name: '专业介绍',
@@ -342,7 +586,7 @@ export default {
   },
   methods: {
     clearAll () {
-      this.showMenus = false
+      // this.showMenus = false
     },
     addClass: function (index) {
       this.current = index
@@ -351,10 +595,11 @@ export default {
     changeMenu (index) {
       this.currentType = index
       this.showMenus = true
-      this.selectedMenu = this.menus[0]
+      this.selectedMenu = this.menus[index]
     },
     outMenu () {
-      this.showMenus = !this.showMenus
+      this.showMenus = false
+      this.currentType = '99'
     },
     goUrl (url) {
       this.showMenus = false
@@ -595,6 +840,7 @@ body {
       position: relative;
       display: inline-block;
       margin-right: 139px;
+      cursor: pointer;
 
       .icon-new {
         width: 31px;
@@ -606,6 +852,10 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
       }
+    }
+
+    .menu-intro:hover {
+      color: rgba(1,183,183,1);
     }
 
     .each-menus {

@@ -4,15 +4,22 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import DreamSchool from '@/components/DreamSchool'
 import SeedPlan from '@/components/SeedPlan'
+import ApplicationGuide from '@/components/ApplicationGuide'
+import News from '@/components/News'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/graduate',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/news',
+      name: 'News',
+      component: News
     },
     {
       path: '/hello',
@@ -28,6 +35,11 @@ export default new Router({
       path: '/seed',
       name: 'SeedPlan',
       component: SeedPlan
+    },
+    {
+      path: '/guide',
+      name: 'ApplicationGuide',
+      component: ApplicationGuide
     }
   ]
 })
