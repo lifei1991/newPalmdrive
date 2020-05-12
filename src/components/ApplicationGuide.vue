@@ -39,8 +39,8 @@
     </div>
 
     <div class="banner3-div">
-      <div class="img1"></div>
-      <div class="img2"></div>
+      <div class="img1" @click="goUrl('/material')" ></div>
+      <div class="img2" @click="goUrl('/major')"></div>
     </div>
 
   </div>
@@ -288,6 +288,7 @@ export default {
     this.banner1 = require('../assets/img/applicationGuide/banner1.png')
     // this.selectedGuide = this.guides[this.currentType]
     this.changeGuideType(this.currentType)
+    window.scrollTo(0, 0)
   },
   mounted () {
   },
@@ -305,6 +306,12 @@ export default {
     },
     loadMoreGuide () {
       this.maxNumber = 100
+    },
+    goUrl (url) {
+      this.showMenus = false
+      this.$router.push({
+        path: url
+      })
     }
   }
 }

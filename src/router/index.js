@@ -6,6 +6,8 @@ import DreamSchool from '@/components/DreamSchool'
 import SeedPlan from '@/components/SeedPlan'
 import ApplicationGuide from '@/components/ApplicationGuide'
 import News from '@/components/News'
+import DownMaterial from '@/components/DownMaterial'
+import MajorIntro from '@/components/MajorIntro'
 
 Vue.use(Router)
 
@@ -14,7 +16,10 @@ export default new Router({
     {
       path: '/graduate',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        title: '研究生服务介绍'
+      }
     },
     {
       path: '/news',
@@ -29,17 +34,42 @@ export default new Router({
     {
       path: '/dream',
       name: 'DreamSchool',
-      component: DreamSchool
+      component: DreamSchool,
+      meta: {
+        title: '梦校计划'
+      }
     },
     {
       path: '/seed',
       name: 'SeedPlan',
-      component: SeedPlan
+      component: SeedPlan,
+      meta: {
+        title: '种子计划'
+      }
     },
     {
       path: '/guide',
       name: 'ApplicationGuide',
-      component: ApplicationGuide
+      component: ApplicationGuide,
+      meta: {
+        title: '申请指南'
+      }
+    },
+    {
+      path: '/major',
+      name: 'MajorIntro',
+      component: MajorIntro,
+      meta: {
+        title: '专业介绍'
+      }
+    },
+    {
+      path: '/material',
+      name: 'DownMaterial',
+      component: DownMaterial,
+      meta: {
+        title: '资料下载'
+      }
     }
   ]
 })

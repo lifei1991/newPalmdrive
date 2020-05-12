@@ -560,12 +560,12 @@ export default {
                 {
                   name: '专业介绍',
                   name2: '',
-                  url: ''
+                  url: '/major'
                 },
                 {
                   name: '资料下载',
                   name2: '',
-                  url: ''
+                  url: '/material'
                 }
               ]
             }
@@ -686,7 +686,7 @@ body {
 
 @font-face {
   font-family:'SourceHanSansCN';
-  src:url('./assets/font/NotoSansHans-Regular.otf') format('truetype');
+  src:url('./assets/font/SourceHanSansCN-Regular.ttf') format('truetype');
 }
 
 @font-face {
