@@ -280,7 +280,7 @@ export default {
                   url: ''
                 },
                 {
-                  name: '种子四位一体计划',
+                  name: '四位一体',
                   name2: '',
                   url: ''
                 }
@@ -348,7 +348,7 @@ export default {
                 {
                   name: '能力提升',
                   name2: '',
-                  url: ''
+                  url: '/ability'
                 }
               ]
             },
@@ -361,7 +361,7 @@ export default {
                   url: ''
                 },
                 {
-                  name: '种子四位一体计划',
+                  name: '四位一体',
                   name2: '',
                   url: ''
                 }
@@ -442,7 +442,7 @@ export default {
                   url: ''
                 },
                 {
-                  name: '种子四位一体计划',
+                  name: '四位一体',
                   name2: '',
                   url: ''
                 }
@@ -510,7 +510,7 @@ export default {
                 {
                   name: '能力提升',
                   name2: '',
-                  url: ''
+                  url: '/ability'
                 }
               ]
             },
@@ -523,7 +523,7 @@ export default {
                   url: ''
                 },
                 {
-                  name: '种子四位一体计划',
+                  name: '四位一体',
                   name2: '',
                   url: ''
                 }
@@ -613,7 +613,7 @@ export default {
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'SourceHanSansCN', 'Avenir', Helvetica, Arial, sans-serif;
   /* -webkit-font-smoothing: antialiased; */
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -649,6 +649,19 @@ body {
   cursor: pointer;
 }
 
+.left-arrow-circule {
+  background-image: url("assets/img/ability/left-arrow-circule.png") !important;
+  width: 56px !important;
+  height: 56px !important;
+  left: -76px !important;
+}
+
+.right-arrow-circule {
+  background-image: url("assets/img/ability/right-arrow-circule.png") !important;
+  width: 56px !important;
+  height: 56px !important;
+}
+
 .home-activity-left-arrow {
   position: absolute;
   top: 20%;
@@ -673,6 +686,18 @@ body {
   right: -38px;
 }
 
+.ability-program-left-arrow {
+  position: absolute;
+  top: 35%;
+  left: -58px;
+}
+
+.ability-program-right-arrow {
+  position: absolute;
+  top: 35%;
+  right: -58px;
+}
+
 @media not all and (min-resolution:.001dpcm) {
   body {
     letter-spacing: -1px;
@@ -688,6 +713,18 @@ body {
   font-family:'SourceHanSansCN';
   src:url('./assets/font/SourceHanSansCN-Regular.ttf') format('truetype');
 }
+
+// @font-face {
+//   font-family: 'SourceHanSansCN';
+//   src: url('./SourceHanSansCN-Regular.eot');
+//   src:
+//     url('./SourceHanSansCN-Regular.eot?#font-spider') format('embedded-opentype'),
+//     url('./SourceHanSansCN-Regular.woff') format('woff'),
+//     url('./SourceHanSansCN-Regular.ttf') format('truetype'),
+//     url('./SourceHanSansCN-Regular.svg') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
 @font-face {
   font-family:'Campton';

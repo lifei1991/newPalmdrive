@@ -8,6 +8,7 @@ import ApplicationGuide from '@/components/ApplicationGuide'
 import News from '@/components/News'
 import DownMaterial from '@/components/DownMaterial'
 import MajorIntro from '@/components/MajorIntro'
+import Ability from '@/components/Ability'
 
 Vue.use(Router)
 
@@ -69,6 +70,14 @@ export default new Router({
       component: DownMaterial,
       meta: {
         title: '资料下载'
+      }
+    },
+    {
+      path: '/ability',
+      name: 'Ability',
+      component: Ability,
+      meta: {
+        title: '能力提升'
       }
     }
   ]

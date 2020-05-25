@@ -260,6 +260,11 @@ export default {
             img: require('../assets/img/teachers/graduate/Vanessa.png'),
             name: 'Vanessa 老师',
             school: '华威大学 人力资源管理 硕士'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Jiaqi.png'),
+            name: 'Jiaqi 老师',
+            school: '芝加哥洛约拉大学 会记学 硕士'
           }
         ],
         [

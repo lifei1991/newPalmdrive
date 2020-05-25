@@ -1,0 +1,19 @@
+@font-face {
+          font-family: 'SourceHanSansCN';
+          src: url('./SourceHanSansCN.eot');
+          src:
+            url('./SourceHanSansCN.eot?#font-spider') format('embedded-opentype'),
+            url('./SourceHanSansCN.woff2') format('woff2'),
+            url('./SourceHanSansCN.woff') format('woff'),
+            url('./SourceHanSansCN.ttf') format('truetype'),
+            url('./SourceHanSansCN.svg') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+#app {
+  font-family: 'SourceHanSansCN';
+}
+
+#h {
+  font-family: 'SourceHanSansCN';
+}
