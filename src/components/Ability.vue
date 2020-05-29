@@ -374,7 +374,7 @@ export default {
           img1: require('../assets/img/ability/type/menu2-1.png')
         }
       ],
-      currentType: 1,
+      currentType: 0,
       banner3: '',
       palmdriveBanner3: '',
       currentShowDot: 100,

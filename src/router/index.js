@@ -9,6 +9,7 @@ import News from '@/components/News'
 import DownMaterial from '@/components/DownMaterial'
 import MajorIntro from '@/components/MajorIntro'
 import Ability from '@/components/Ability'
+import TeacherIntro from '@/components/TeacherIntro'
 
 Vue.use(Router)
 
@@ -78,6 +79,14 @@ export default new Router({
       component: Ability,
       meta: {
         title: '能力提升'
+      }
+    },
+    {
+      path: '/teachers',
+      name: 'TeacherIntro',
+      component: TeacherIntro,
+      meta: {
+        title: '导师介绍'
       }
     }
   ]

@@ -520,7 +520,7 @@ export default {
                 {
                   name: '导师介绍',
                   name2: '',
-                  url: ''
+                  url: '/teachers'
                 },
                 {
                   name: '四位一体',
@@ -543,7 +543,7 @@ export default {
                   url: ''
                 },
                 {
-                  name: '成功案例',
+                  name: '学员故事',
                   name2: '',
                   url: ''
                 }
