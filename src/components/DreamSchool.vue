@@ -154,7 +154,7 @@
                 <div class="title1">梦校计划</div>
                 <div class="title2">专业匹配的申请指导、职业点拨、全程指引。</div>
                 <div class="title3">￥ 39,800 - ￥ 99,800</div>
-                <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div>
+                <!-- <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div> -->
               </div>
           </div>
       </div>

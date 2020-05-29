@@ -120,7 +120,7 @@
                 <div class="title1">种子计划</div>
                 <div class="title2">大一至大三，从背景提升到出国申请，一步到位</div>
                 <div class="title3">￥ 49,800 - ￥ 79,800</div>
-                <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div>
+                <!-- <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div> -->
               </div>
           </div>
       </div>
