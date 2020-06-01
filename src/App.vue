@@ -525,7 +525,7 @@ export default {
                 {
                   name: '四位一体',
                   name2: '',
-                  url: ''
+                  url: '/four_to_one'
                 }
               ]
             },

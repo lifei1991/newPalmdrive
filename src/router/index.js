@@ -10,6 +10,7 @@ import DownMaterial from '@/components/DownMaterial'
 import MajorIntro from '@/components/MajorIntro'
 import Ability from '@/components/Ability'
 import TeacherIntro from '@/components/TeacherIntro'
+import FourToOne from '@/components/FourToOne'
 
 Vue.use(Router)
 
@@ -87,6 +88,14 @@ export default new Router({
       component: TeacherIntro,
       meta: {
         title: '导师介绍'
+      }
+    },
+    {
+      path: '/four_to_one',
+      name: 'FourToOne',
+      component: FourToOne,
+      meta: {
+        title: '四位一体'
       }
     }
   ]
