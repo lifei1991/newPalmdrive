@@ -24,9 +24,9 @@
           <div class="each-dynamic" v-for="(item, index) in eachArray" :key="index">
             <div class="logo">PALMDRIVE</div>
             <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="title">{{ item.title }}</div>
+            <div class="title" @click="goToDetail(item.content)">{{ item.title }}</div>
             <div class="text">{{ item.text }}</div>
-            <div class="more">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+            <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
             <div class="bottom-green"></div>
           </div>
         </div>
@@ -307,6 +307,15 @@ export default {
       this.$router.push({
         path: url
       })
+    },
+    goToDetail (content) {
+      // let routeUrl = this.$router.resolve({
+      //   path: '/news',
+      //   query: {
+      //     content: content
+      //   }
+      // })
+      // window.open(routeUrl.href, '_blank')
     }
   }
 }
@@ -497,6 +506,16 @@ export default {
           line-height:24px;
           color:rgba(0,0,0,1);
           opacity:1;
+          cursor: pointer;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          height: 48px;
+        }
+
+        .title:hover {
+          color: #2aa7aa;
         }
 
         .text {
@@ -511,6 +530,7 @@ export default {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
           overflow: hidden;
+          height: 54px;
         }
 
         .more {
@@ -529,6 +549,10 @@ export default {
             display: inline-block;
             margin-left: 8px;
           }
+        }
+
+        .more:hover {
+          color: #2aa7aa;
         }
 
         .bottom-green {

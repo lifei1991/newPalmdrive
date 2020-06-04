@@ -11,6 +11,7 @@ import MajorIntro from '@/components/MajorIntro'
 import Ability from '@/components/Ability'
 import TeacherIntro from '@/components/TeacherIntro'
 import FourToOne from '@/components/FourToOne'
+import StudentStory from '@/components/StudentStory'
 
 Vue.use(Router)
 
@@ -96,6 +97,14 @@ export default new Router({
       component: FourToOne,
       meta: {
         title: '四位一体'
+      }
+    },
+    {
+      path: '/story',
+      name: 'StudentStory',
+      component: StudentStory,
+      meta: {
+        title: '学员故事'
       }
     }
   ]

@@ -545,7 +545,7 @@ export default {
                 {
                   name: '学员故事',
                   name2: '',
-                  url: ''
+                  url: '/story'
                 }
               ]
             },
