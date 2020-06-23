@@ -23,10 +23,11 @@
         <div class="carousel-div">
           <div class="each-dynamic" v-for="(item, index) in eachArray" :key="index">
             <div class="logo">PALMDRIVE</div>
-            <div class="title">{{ item.title }}</div>
-            <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <div class="title" @click="goToDetail(item.content)">{{ item.name }}</div>
+            <!-- <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div> -->
+            <img class="dynamic-img" :src="item.img"/>
             <div class="text">{{ item.text }}</div>
-            <div class="more">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+            <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
             <!-- <div class="bottom-green"></div> -->
           </div>
         </div>
@@ -50,218 +51,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      guides: [
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '看她如何战胜焦虑斩获耶鲁杜克等 11 所名校 Offer！',
-            text: '你一个女孩子去学什么CS？不好意思，千万不要小看Girls Power,她们的倔强和韧性你真的体会不到。',
-            url: ''
-          }
-        ]
-      ],
+      guides: [[]],
       dynamicTypes: [
         {
           name: '逆袭',
@@ -301,6 +91,7 @@ export default {
     }
   },
   created () {
+    this.guides = require('../../static/json/studentStory.json')
     this.banner1 = require('../assets/img/studentStory/banner1.png')
     this.changeGuideType(this.currentType)
   },
@@ -325,6 +116,15 @@ export default {
       this.$router.push({
         path: url
       })
+    },
+    goToDetail (content) {
+      let routeUrl = this.$router.resolve({
+        path: '/news',
+        query: {
+          content: content
+        }
+      })
+      window.open(routeUrl.href, '_blank')
     }
   }
 }
@@ -520,6 +320,16 @@ export default {
           color:rgba(0,0,0,1);
           opacity:1;
           margin-top: 12px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          height: 44px;
+          cursor: pointer;
+        }
+
+        .title:hover {
+          color: #2aa7aa;
         }
 
         .text {
@@ -534,6 +344,7 @@ export default {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
           overflow: hidden;
+          height: 54px;
         }
 
         .more {

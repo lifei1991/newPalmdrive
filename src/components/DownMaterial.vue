@@ -23,7 +23,8 @@
         <div class="carousel-div">
           <div class="each-dynamic" v-for="(item, index) in eachArray" :key="index">
             <div class="logo">PALMDRIVE</div>
-            <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <!-- <div class="dynamic-img" :style="{backgroundImage:'url(' + require(item.img) + ')'}"></div> -->
+            <img class="dynamic-img" :src="item.img"/>
             <div class="title" @click="goToDetail(item.content)">{{ item.title }}</div>
             <div class="text">{{ item.text }}</div>
             <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
@@ -68,189 +69,10 @@ export default {
       }
     }
   },
-  name: 'Home',
+  name: 'DownMaterial',
   data () {
     return {
-      guides: [
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity2.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity3.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity4.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          },
-          {
-            img: require('../assets/img/home/activity/activity1.png'),
-            title: '同学你心真大，竟然想一篇文书“走天下”',
-            text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-            url: ''
-          }
-        ]
-      ],
+      guides: [[]],
       dynamicTypes: [
         {
           name: '英文',
@@ -280,6 +102,7 @@ export default {
     }
   },
   created () {
+    this.guides = require('../../static/json/downMaterial.json')
     this.banner1 = require('../assets/img/downMaterial/banner1.png')
     // this.selectedGuide = this.guides[this.currentType]
     this.changeGuideType(this.currentType)
@@ -309,13 +132,13 @@ export default {
       })
     },
     goToDetail (content) {
-      // let routeUrl = this.$router.resolve({
-      //   path: '/news',
-      //   query: {
-      //     content: content
-      //   }
-      // })
-      // window.open(routeUrl.href, '_blank')
+      let routeUrl = this.$router.resolve({
+        path: '/news',
+        query: {
+          content: content
+        }
+      })
+      window.open(routeUrl.href, '_blank')
     }
   }
 }

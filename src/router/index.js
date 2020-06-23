@@ -12,6 +12,7 @@ import Ability from '@/components/Ability'
 import TeacherIntro from '@/components/TeacherIntro'
 import FourToOne from '@/components/FourToOne'
 import StudentStory from '@/components/StudentStory'
+import Offers from '@/components/Offers'
 
 Vue.use(Router)
 
@@ -105,6 +106,14 @@ export default new Router({
       component: StudentStory,
       meta: {
         title: '学员故事'
+      }
+    },
+    {
+      path: '/offers',
+      name: 'Offers',
+      component: Offers,
+      meta: {
+        title: '申请季offer'
       }
     }
   ]
