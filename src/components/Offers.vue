@@ -42,7 +42,7 @@
           <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='item.img' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
             <div class='place-title'>{{ item.title }}</div>
             <div class='place-number'>{{ item.number }}</div>
-            <div class='place-dot'></div>
+            <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
           </div>
         </div>
 
@@ -2300,6 +2300,29 @@ export default {
             line-height:50px;
             color:rgba(9,23,39,1);
             opacity:1;
+          }
+
+          .place-dot {
+            width: 16px;
+            height: 16px;
+            margin: 55px auto 0;
+            border-radius:50%;
+          }
+
+          .place-dot0 {
+            background: #DD99EF;
+          }
+
+          .place-dot1 {
+            background: #FD8E7D;
+          }
+
+          .place-dot2 {
+            background: #79D0F1;
+          }
+
+          .place-dot3 {
+            background: #20ACA4;
           }
         }
 
