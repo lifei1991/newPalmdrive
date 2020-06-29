@@ -493,7 +493,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/xg.png'),
             admissionSchool: '香港大学',
             admissionMajor: 'Master of Journalism',
-            collegeSchool: '江西师范大学',
+            collegeSchool: '',
+            // 江西师范大学
             collegeMajor: 'Journalism',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE: N/A',
@@ -506,7 +507,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/xbdx.png'),
             admissionSchool: '西北大学',
             admissionMajor: 'M.S. Integrated Marketing Communications',
-            collegeSchool: '上海师范大学',
+            collegeSchool: '',
+            // 上海师范大学
             collegeMajor: '旅游管理',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE：320-330',
@@ -584,7 +586,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/dk.png'),
             admissionSchool: '杜克大学',
             admissionMajor: 'Master of Political Science ',
-            collegeSchool: '吉林大学',
+            collegeSchool: '',
+            // 吉林大学
             collegeMajor: '国际政治',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：320-330',
@@ -662,7 +665,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/bxfny.png'),
             admissionSchool: '宾夕法尼亚大学',
             admissionMajor: 'MS in Nonprofit Leadership ',
-            collegeSchool: '密歇根大学',
+            collegeSchool: '海本',
+            // 密歇根大学
             collegeMajor: 'business administration',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：315-320',
@@ -675,7 +679,8 @@ export default {
             schoolLogo: '',
             admissionSchool: '约翰霍普金斯大学',
             admissionMajor: 'SAIS Master of Arts',
-            collegeSchool: '国际关系学院',
+            collegeSchool: '',
+            // 国际关系学院
             collegeMajor: '国际关系',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：320-330',
@@ -688,7 +693,8 @@ export default {
             schoolLogo: '',
             admissionSchool: '纽约大学',
             admissionMajor: 'MA in Psychology',
-            collegeSchool: '北京师范大学',
+            collegeSchool: '',
+            // 北京师范大学
             collegeMajor: '心理学',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：324+3.5',
@@ -701,7 +707,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
             admissionMajor: 'MSc Urbanisation and Development',
-            collegeSchool: '北京大学',
+            collegeSchool: '',
+            // 北京大学
             collegeMajor: '城市管理',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：320-330',
@@ -727,7 +734,8 @@ export default {
             schoolLogo: '',
             admissionSchool: 'SOAS',
             admissionMajor: 'MA Chinese Studies',
-            collegeSchool: '南开大学',
+            collegeSchool: '',
+            // 南开大学
             collegeMajor: '对外汉语',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：315-320',
@@ -740,7 +748,8 @@ export default {
             schoolLogo: '',
             admissionSchool: '华盛顿大学',
             admissionMajor: 'Master of Public Administration(Environment Policy and Management specialization)',
-            collegeSchool: '北京第二外国语学院',
+            collegeSchool: '',
+            // 北京第二外国语学院
             collegeMajor: '国际经济与贸易',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：320-330',
@@ -766,7 +775,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
             admissionMajor: 'MA European History',
-            collegeSchool: '复旦大学',
+            collegeSchool: '985',
+            // 复旦大学
             collegeMajor: '历史',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GRE：N/A',
@@ -781,9 +791,12 @@ export default {
             admissionMajor: 'Master in Middle Eastern Studies (AM)',
             collegeSchool: 'UC Berkeley',
             collegeMajor: 'Political Science+Near Eastern Studies (Arabic Concentration)',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：110+',
+            gpa: '',
+            // 3.5以上（85以上）
+            greOrGmat: '',
+            // GRE：320-330
+            toeflOrIelts: '',
+            // TOEFL：110+
             bg: '相关经历丰富'
           }
         ],
@@ -1350,7 +1363,8 @@ export default {
             bg: '有全职工作经验'
           },
           {
-            name: '曾俊桦',
+            name: '曾同学',
+            // 曾俊桦
             year: '',
             schoolLogo: '',
             admissionSchool: '约翰·霍普金斯大学',
@@ -1537,7 +1551,8 @@ export default {
             schoolLogo: require('../assets/img/home/school/lds.png'),
             admissionSchool: '伦敦商学院',
             admissionMajor: 'Masters in Financial Analysis',
-            collegeSchool: '宁波诺丁汉大学',
+            collegeSchool: '',
+            // 宁波诺丁汉大学
             collegeMajor: '金融',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GMAT：640-750',
@@ -1615,7 +1630,8 @@ export default {
             schoolLogo: '',
             admissionSchool: '南洋理工大学',
             admissionMajor: 'Master of Science in Accountancy',
-            collegeSchool: '昆士兰大学',
+            collegeSchool: '海本',
+            // 昆士兰大学
             collegeMajor: 'Accounting',
             gpa: '3.5以上（85以上）',
             greOrGmat: 'GMAT：640-750',
