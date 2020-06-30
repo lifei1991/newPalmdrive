@@ -228,6 +228,26 @@ export default {
             logo: require('../assets/img/home/school/lds.png'),
             name: '伦敦商学院',
             offer: 11
+          },
+          {
+            logo: '',
+            name: '澳大利亚国立大学',
+            offer: 39
+          },
+          {
+            logo: '',
+            name: '墨尔本大学',
+            offer: 58
+          },
+          {
+            logo: '',
+            name: '悉尼大学',
+            offer: 176
+          },
+          {
+            logo: '',
+            name: '昆士兰大学',
+            offer: 72
           }
         ],
         [
@@ -289,24 +309,29 @@ export default {
         ],
         [
           {
-            logo: '',
-            name: '澳大利亚国立大学',
-            offer: 39
+            logo: require('../assets/img/home/school/xg.png'),
+            name: '香港大学',
+            offer: 60
           },
           {
             logo: '',
-            name: '墨尔本大学',
-            offer: 58
+            name: '香港科技大学',
+            offer: 54
           },
           {
             logo: '',
-            name: '悉尼大学',
-            offer: 176
+            name: '香港中文大学 ',
+            offer: 84
           },
           {
             logo: '',
-            name: '昆士兰大学',
-            offer: 72
+            name: '南洋理工大学',
+            offer: 31
+          },
+          {
+            logo: '',
+            name: '新加坡国立大学',
+            offer: 74
           }
         ]
       ],
@@ -335,23 +360,23 @@ export default {
       places: [
         {
           img: require('../assets/img/offers/place/place1.png'),
-          title: '美国 Offer',
-          number: '265'
+          title: '北美 Offer',
+          number: '1346'
         },
         {
           img: require('../assets/img/offers/place/place2.png'),
-          title: '英国 Offer',
-          number: '165'
+          title: '英国/澳洲 Offer',
+          number: '1051'
         },
         {
           img: require('../assets/img/offers/place/place3.png'),
           title: '欧洲 Offer',
-          number: '119'
+          number: '69'
         },
         {
           img: require('../assets/img/offers/place/place4.png'),
-          title: '澳洲 Offer',
-          number: '340'
+          title: '中国香港/新加坡 Offer',
+          number: '303'
         }
       ],
       demoTypes: [
@@ -371,7 +396,7 @@ export default {
       demos: [
         [
           {
-            name: '李旻璞',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
@@ -384,7 +409,7 @@ export default {
             bg: '三段相关实习和科研'
           },
           {
-            name: '张煜',
+            name: '张同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '南加利福尼亚大学',
@@ -397,7 +422,7 @@ export default {
             bg: '四段相关实习，两段校园活动经历'
           },
           {
-            name: '何婧楠',
+            name: '何同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -410,7 +435,7 @@ export default {
             bg: '两段相关实习'
           },
           {
-            name: '宫凯璇',
+            name: '宫同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
@@ -423,7 +448,7 @@ export default {
             bg: '多段相关经历和校园活动'
           },
           {
-            name: '周雨凡',
+            name: '周同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
@@ -436,7 +461,7 @@ export default {
             bg: '两段发展研究科研，联合国人口基金会实习'
           },
           {
-            name: '赵佳璐',
+            name: '赵同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/bxfny.png'),
             admissionSchool: '宾夕法尼亚大学',
@@ -449,7 +474,7 @@ export default {
             bg: '两段相关实习'
           },
           {
-            name: '罗灏婷',
+            name: '罗同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -462,7 +487,7 @@ export default {
             bg: '两段相关实习，多段相关经历'
           },
           {
-            name: '陈舒婷',
+            name: '陈同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/nj.png'),
             admissionSchool: '牛津大学',
@@ -475,7 +500,7 @@ export default {
             bg: '两段暑校经历，两段相关实习'
           },
           {
-            name: '李辛夷',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/nj.png'),
             admissionSchool: '牛津大学',
@@ -488,7 +513,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '敖雨璐',
+            name: '敖同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xg.png'),
             admissionSchool: '香港大学',
@@ -502,7 +527,7 @@ export default {
             bg: '三段相关实习，多段校园活动经历'
           },
           {
-            name: '吕明格',
+            name: '吕同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xbdx.png'),
             admissionSchool: '西北大学',
@@ -516,7 +541,7 @@ export default {
             bg: '四段实习'
           },
           {
-            name: '袁玮',
+            name: '袁同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '蒙特雷高翻学院',
@@ -529,7 +554,7 @@ export default {
             bg: '毕业后工作一年，多段相关经历'
           },
           {
-            name: '高晓琪',
+            name: '高同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '多伦多大学',
@@ -542,7 +567,7 @@ export default {
             bg: '两段暑校经历，多段相关科研和实习'
           },
           {
-            name: '唐妍星',
+            name: '唐同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '多伦多大学',
@@ -555,7 +580,7 @@ export default {
             bg: '两段相关的实习经历'
           },
           {
-            name: '冯焕琳',
+            name: '冯同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -568,7 +593,7 @@ export default {
             bg: '两段法院实习，一段课程调研项目'
           },
           {
-            name: '李卓文',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -581,7 +606,7 @@ export default {
             bg: '一段科研，两段教育相关实习'
           },
           {
-            name: '王悦霖',
+            name: '王同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dk.png'),
             admissionSchool: '杜克大学',
@@ -595,7 +620,7 @@ export default {
             bg: '多段科研经历'
           },
           {
-            name: '周若琳',
+            name: '周同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xjpgl.png'),
             admissionSchool: '新加坡国立大学',
@@ -608,7 +633,7 @@ export default {
             bg: '编辑相关实习经历'
           },
           {
-            name: '李旬',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/zjg.png'),
             admissionSchool: '芝加哥大学',
@@ -621,7 +646,7 @@ export default {
             bg: '研究经历丰富'
           },
           {
-            name: '丁傅涵',
+            name: '丁同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '纽约大学',
@@ -634,7 +659,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '喻静蕾',
+            name: '喻同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '鹿特丹伊拉斯姆斯大学',
@@ -647,7 +672,7 @@ export default {
             bg: '研究经历丰富'
           },
           {
-            name: '蔡钟瑶',
+            name: '蔡同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '布朗大学',
@@ -660,7 +685,7 @@ export default {
             bg: '有三段社会研究经历。两段市场分析实习'
           },
           {
-            name: '胡芊芊',
+            name: '胡同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/bxfny.png'),
             admissionSchool: '宾夕法尼亚大学',
@@ -674,7 +699,7 @@ export default {
             bg: '两段科研实习经历'
           },
           {
-            name: '周易',
+            name: '周同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '约翰霍普金斯大学',
@@ -688,7 +713,7 @@ export default {
             bg: '相关经历很丰富'
           },
           {
-            name: '张童瑶',
+            name: '张同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '纽约大学',
@@ -702,7 +727,7 @@ export default {
             bg: '扎实校内科研，海外暑研'
           },
           {
-            name: '冯子欣',
+            name: '冯同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
@@ -716,7 +741,7 @@ export default {
             bg: '伯克利交换，实习经历丰富'
           },
           {
-            name: '李亭钰',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldgw.png'),
             admissionSchool: '伦敦国王学院',
@@ -729,7 +754,7 @@ export default {
             bg: '奥美+拜尔两段实习'
           },
           {
-            name: '高洵美',
+            name: '高同学',
             year: '',
             schoolLogo: '',
             admissionSchool: 'SOAS',
@@ -743,7 +768,7 @@ export default {
             bg: '相关研究经历丰富，有一段北大出版社实习'
           },
           {
-            name: '侯继莹',
+            name: '侯同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '华盛顿大学',
@@ -757,7 +782,7 @@ export default {
             bg: '三段实习经历'
           },
           {
-            name: '周晨茜',
+            name: '周同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '南加利福尼亚大学',
@@ -770,7 +795,7 @@ export default {
             bg: '一段英国交换，两段实习经历'
           },
           {
-            name: '彭爽',
+            name: '彭同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
@@ -784,7 +809,7 @@ export default {
             bg: '美国学期交换，一段校内助研'
           },
           {
-            name: '乔天瑜',
+            name: '乔同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/hf.png'),
             admissionSchool: '哈佛大学',
@@ -802,7 +827,7 @@ export default {
         ],
         [
           {
-            name: '商若曦',
+            name: '商同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/hf.png'),
             admissionSchool: '哈佛大学',
@@ -815,7 +840,7 @@ export default {
             bg: '科研经历丰富，有五篇paper与专利'
           },
           {
-            name: '钟憬锐',
+            name: '钟同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/hf.png'),
             admissionSchool: '哈佛大学',
@@ -828,7 +853,7 @@ export default {
             bg: '科研经历丰富，发表两篇相关论文'
           },
           {
-            name: '蔡一凡',
+            name: '蔡同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/zjg.png'),
             admissionSchool: '剑桥大学',
@@ -841,7 +866,7 @@ export default {
             bg: '科研经历丰富，有一段校内RA，一段Umich RA,一段Upenn RA,发表两篇相关论文'
           },
           {
-            name: '梁卓辉',
+            name: '梁同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/yl.png'),
             admissionSchool: '耶鲁大学',
@@ -854,7 +879,7 @@ export default {
             bg: '有卫健委实习及本校科研经历'
           },
           {
-            name: '刘岳铭',
+            name: '刘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/mslg.png'),
             admissionSchool: '麻省理工学院',
@@ -867,7 +892,7 @@ export default {
             bg: '两段科研经历，一段芝大暑研'
           },
           {
-            name: '刘岳铭',
+            name: '刘同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '加州理工大学',
@@ -880,7 +905,7 @@ export default {
             bg: '两段科研经历，一段芝大暑研'
           },
           {
-            name: '刘岳铭',
+            name: '刘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/stf.png'),
             admissionSchool: '斯坦福大学',
@@ -893,7 +918,7 @@ export default {
             bg: '两段科研经历，一段芝大暑研'
           },
           {
-            name: '李潇萌',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/mslg.png'),
             admissionSchool: '麻省理工学院',
@@ -906,7 +931,7 @@ export default {
             bg: '有两段project经历，一段实习经历'
           },
           {
-            name: '袁翊',
+            name: '袁同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/nj.png'),
             admissionSchool: '牛津大学',
@@ -919,7 +944,7 @@ export default {
             bg: '三段研究经历'
           },
           {
-            name: '张翼',
+            name: '张同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/nj.png'),
             admissionSchool: '牛津大学',
@@ -932,7 +957,7 @@ export default {
             bg: '三段研究经历'
           },
           {
-            name: '朱亭仪',
+            name: '朱同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '昆士兰大学',
@@ -945,7 +970,7 @@ export default {
             bg: '两段实习两段科研'
           },
           {
-            name: '殷佳杨',
+            name: '殷同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dglg.png'),
             admissionSchool: '帝国理工大学',
@@ -958,7 +983,7 @@ export default {
             bg: '两段校内科研'
           },
           {
-            name: '崔庆梅',
+            name: '崔同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',
@@ -971,7 +996,7 @@ export default {
             bg: '多段校内非quant实验室经历'
           },
           {
-            name: '孙祺玮',
+            name: '孙同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '瑞士皇家理工学院',
@@ -984,7 +1009,7 @@ export default {
             bg: '多段相关实习，经历丰富'
           },
           {
-            name: '周伊楚',
+            name: '周同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '隆德大学',
@@ -997,7 +1022,7 @@ export default {
             bg: '三段相关实习和研究经历'
           },
           {
-            name: '刘紫琪',
+            name: '刘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -1010,7 +1035,7 @@ export default {
             bg: '有多段相关实习，跨专业申请'
           },
           {
-            name: '李茂然',
+            name: '李同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '代尔夫特理工大学',
@@ -1023,7 +1048,7 @@ export default {
             bg: '多段相关经历，中科院科研'
           },
           {
-            name: '陈宇韬',
+            name: '陈同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/stf.png'),
             admissionSchool: '斯坦福大学',
@@ -1036,7 +1061,7 @@ export default {
             bg: '暑期交流，以及相关经历丰富'
           },
           {
-            name: '刘雨',
+            name: '刘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/stf.png'),
             admissionSchool: '斯坦福大学',
@@ -1049,7 +1074,7 @@ export default {
             bg: '海外合办项目，相关背景丰富'
           },
           {
-            name: '李心怡',
+            name: '李同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',
@@ -1062,7 +1087,7 @@ export default {
             bg: '双学位背景契合，实习经历丰富'
           },
           {
-            name: '吴兆宇',
+            name: '吴同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -1075,7 +1100,7 @@ export default {
             bg: '海本CS强校，两段实习'
           },
           {
-            name: '冯琰哲',
+            name: '冯同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldgw.png'),
             admissionSchool: '伦敦国王学院',
@@ -1088,7 +1113,7 @@ export default {
             bg: '一段校内科研'
           },
           {
-            name: '由珍源',
+            name: '由同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '加州大学洛杉矶分校',
@@ -1101,7 +1126,7 @@ export default {
             bg: '一段实习和三段科研经历'
           },
           {
-            name: '王琦深',
+            name: '王同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '佐治亚理工学院',
@@ -1114,7 +1139,7 @@ export default {
             bg: '一段NTU暑校经历，多段相关项目经历'
           },
           {
-            name: '黄靖怡',
+            name: '黄同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '卡内基梅隆',
@@ -1127,7 +1152,7 @@ export default {
             bg: '多段实习经历'
           },
           {
-            name: '曹倚梅',
+            name: '曹同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '约翰霍普金斯大学',
@@ -1140,7 +1165,7 @@ export default {
             bg: 'JHU暑研，科研经历丰富'
           },
           {
-            name: '王昂',
+            name: '王同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/jzdxbkl.png'),
             admissionSchool: '加州大学伯克利分校',
@@ -1153,7 +1178,7 @@ export default {
             bg: '两段东南大学MEMS实习室科研经历，里海大学科研经历，UBC学期交换'
           },
           {
-            name: '董书豪',
+            name: '董同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '南洋理工大学',
@@ -1166,7 +1191,7 @@ export default {
             bg: 'ME项目经历丰富，1年国家实验室学习'
           },
           {
-            name: '何川',
+            name: '何同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dk.png'),
             admissionSchool: '杜克大学',
@@ -1179,7 +1204,7 @@ export default {
             bg: '两段课程设计，一段科研'
           },
           {
-            name: '程智敏',
+            name: '程同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '鲁汶大学',
@@ -1192,7 +1217,7 @@ export default {
             bg: '相关比赛和经历丰富'
           },
           {
-            name: '秦申旭',
+            name: '秦同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dglg.png'),
             admissionSchool: '帝国理工大学',
@@ -1205,7 +1230,7 @@ export default {
             bg: '两段交换，两段研究，一段实习'
           },
           {
-            name: '邹佳伶',
+            name: '邹同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -1218,7 +1243,7 @@ export default {
             bg: 'UCL交换，一个专利'
           },
           {
-            name: '陈柏涵',
+            name: '陈同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '布朗大学',
@@ -1231,7 +1256,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '丁铭',
+            name: '丁同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '瑞士皇家理工学院',
@@ -1244,7 +1269,7 @@ export default {
             bg: '多段科研经历'
           },
           {
-            name: '卓尔',
+            name: '卓同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '加州大学圣地亚哥分校',
@@ -1257,7 +1282,7 @@ export default {
             bg: 'UCI暑研，相关经历丰富'
           },
           {
-            name: '施念邡',
+            name: '施同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -1270,7 +1295,7 @@ export default {
             bg: '有一段相关实习'
           },
           {
-            name: '徐宗杰',
+            name: '徐同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xjpgl.png'),
             admissionSchool: '新加坡国立大学',
@@ -1283,7 +1308,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '王梓名',
+            name: '王同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '加州大学戴维斯分校',
@@ -1296,7 +1321,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '吴咏菡',
+            name: '吴同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/bxfny.png'),
             admissionSchool: '宾夕法尼亚大学',
@@ -1309,7 +1334,7 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '何昊楠',
+            name: '何同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '阿尔伯塔大学',
@@ -1324,7 +1349,7 @@ export default {
         ],
         [
           {
-            name: '王子奕',
+            name: '王同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -1337,7 +1362,7 @@ export default {
             bg: '4段实习, 自我创业'
           },
           {
-            name: '潘晓琪',
+            name: '潘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -1350,7 +1375,7 @@ export default {
             bg: '3段金融实习，3段校园竞赛+校园活动经历'
           },
           {
-            name: '杜宇阳',
+            name: '杜同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '纽约大学',
@@ -1377,7 +1402,7 @@ export default {
             bg: '两段金融知名公司实习'
           },
           {
-            name: '莫紫莹',
+            name: '莫同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '约翰·霍普金斯大学',
@@ -1390,7 +1415,7 @@ export default {
             bg: '4段相关实习，多段校园活动经历'
           },
           {
-            name: '周筱扬',
+            name: '周同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '罗切斯特大学',
@@ -1403,7 +1428,7 @@ export default {
             bg: '2段相关实习'
           },
           {
-            name: '李丽洁',
+            name: '李同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '华盛顿大学圣路易斯分校',
@@ -1416,7 +1441,7 @@ export default {
             bg: '3段相关实习，多段校园竞赛与活动经历。'
           },
           {
-            name: '董玲玲',
+            name: '董同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '加利福尼亚大学欧文分校',
@@ -1429,7 +1454,7 @@ export default {
             bg: '2段会计实习，多段商学院社团经历'
           },
           {
-            name: '张之蓝',
+            name: '张同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '波士顿大学',
@@ -1442,7 +1467,7 @@ export default {
             bg: '转专业申请，2段不知名公司实习'
           },
           {
-            name: '蔡依婷',
+            name: '蔡同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',
@@ -1455,7 +1480,7 @@ export default {
             bg: '4段相关经历'
           },
           {
-            name: '费思圆',
+            name: '费同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xg.png'),
             admissionSchool: '香港大学',
@@ -1468,7 +1493,7 @@ export default {
             bg: '多段相关实习'
           },
           {
-            name: '董宇南',
+            name: '董同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xg.png'),
             admissionSchool: '香港大学',
@@ -1481,7 +1506,7 @@ export default {
             bg: '4段工作经历,多段校园活动和学术经历'
           },
           {
-            name: '厉倩',
+            name: '厉同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '香港科技大学',
@@ -1494,7 +1519,7 @@ export default {
             bg: '多段校园活动经历'
           },
           {
-            name: '罗方明',
+            name: '罗同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '香港科技大学',
@@ -1507,7 +1532,7 @@ export default {
             bg: '多段实习，2段海外经历'
           },
           {
-            name: '敬相瑞',
+            name: '敬同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '香港中文大学',
@@ -1520,7 +1545,7 @@ export default {
             bg: '多段校园活动和一段big name实习'
           },
           {
-            name: '张津尧',
+            name: '张同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '香港中文大学',
@@ -1533,7 +1558,7 @@ export default {
             bg: '多段big name相关实习'
           },
           {
-            name: '阚清澜',
+            name: '阚同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
             admissionSchool: '伦敦政治经济学院',
@@ -1546,7 +1571,7 @@ export default {
             bg: '2段海外交流,4段相关实习, 多段校园活动经历'
           },
           {
-            name: '顾缘孟',
+            name: '顾同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lds.png'),
             admissionSchool: '伦敦商学院',
@@ -1560,7 +1585,7 @@ export default {
             bg: '4段相关实习,三段竞赛,多段校园活动'
           },
           {
-            name: '问殊轩',
+            name: '问同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
@@ -1573,7 +1598,7 @@ export default {
             bg: '3段相关实习'
           },
           {
-            name: '宋志骄',
+            name: '宋同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dglg.png'),
             admissionSchool: '帝国理工学院',
@@ -1586,7 +1611,7 @@ export default {
             bg: '3段商赛, 3段big name,多段活动经历'
           },
           {
-            name: '严恒宇',
+            name: '严同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
@@ -1599,7 +1624,7 @@ export default {
             bg: '2段相关实习,多段校园活动和学术经历'
           },
           {
-            name: '朱瑞茜',
+            name: '朱同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/lddx.png'),
             admissionSchool: '伦敦大学学院',
@@ -1612,7 +1637,7 @@ export default {
             bg: '4段相关实习和4段校园活动经历'
           },
           {
-            name: '李子晔',
+            name: '李同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '南洋理工大学',
@@ -1625,7 +1650,7 @@ export default {
             bg: '相关项目活动丰富及2段实习经历'
           },
           {
-            name: '黄漫琪',
+            name: '黄同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '南洋理工大学',
@@ -1639,7 +1664,7 @@ export default {
             bg: '4段相关实习经历'
           },
           {
-            name: '宋爻',
+            name: '宋同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xjpgl.png'),
             admissionSchool: '新加坡国立大学',
@@ -1652,7 +1677,7 @@ export default {
             bg: '3段酒店行业相关实习'
           },
           {
-            name: '陈颖琪',
+            name: '陈同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/xjpgl.png'),
             admissionSchool: '新加坡国立大学',
@@ -1665,7 +1690,7 @@ export default {
             bg: '无实习申请'
           },
           {
-            name: '王海娇',
+            name: '王同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '新加坡管理大学',
@@ -1678,7 +1703,7 @@ export default {
             bg: '3段实习经历'
           },
           {
-            name: '郭宇诚',
+            name: '郭同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '新加坡管理大学',
@@ -1691,7 +1716,7 @@ export default {
             bg: '2段相关实习 多段校园活动'
           },
           {
-            name: '高诗语',
+            name: '高同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '埃塞克商学院',
@@ -1704,7 +1729,7 @@ export default {
             bg: '2段实习,多段校园经历'
           },
           {
-            name: '徐逸凡',
+            name: '徐同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '埃塞克商学院',
@@ -1717,7 +1742,7 @@ export default {
             bg: '3段相关实习'
           },
           {
-            name: '曹兆钧',
+            name: '曹同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '巴黎高等商学院',
@@ -1730,7 +1755,7 @@ export default {
             bg: '海本高三维、有多段实习'
           },
           {
-            name: '宋爻',
+            name: '宋同学',
             year: '',
             schoolLogo: '',
             admissionSchool: '里昂商学院',
@@ -1745,7 +1770,7 @@ export default {
         ],
         [
           {
-            name: '李宇',
+            name: '李同学',
             year: '2019',
             schoolLogo: '',
             admissionSchool: '芝加哥艺术学院',
@@ -1758,7 +1783,7 @@ export default {
             bg: '2段交换学习经历,2段工作经历'
           },
           {
-            name: '郑舒尹',
+            name: '郑同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/glby.png'),
             admissionSchool: '哥伦比亚大学',
@@ -1771,7 +1796,7 @@ export default {
             bg: '托福未达标破格录取'
           },
           {
-            name: '钟佳雯',
+            name: '钟同学',
             year: '2019',
             schoolLogo: '',
             admissionSchool: '米兰理工大学',
@@ -1784,7 +1809,7 @@ export default {
             bg: '多段学校活动经历, 4段相关经历'
           },
           {
-            name: '王嘉廉',
+            name: '王同学',
             year: '2019',
             schoolLogo: '',
             admissionSchool: 'New York Film Academy',
@@ -1797,7 +1822,7 @@ export default {
             bg: '转专业申请，无太多相关经验'
           },
           {
-            name: '张芸梦',
+            name: '张同学',
             year: '2019',
             schoolLogo: '',
             admissionSchool: '英国创意艺术大学',
@@ -1810,7 +1835,7 @@ export default {
             bg: '低GPA录取;双非录取;转专业录取'
           },
           {
-            name: '李诗煜',
+            name: '李同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/dk.png'),
             admissionSchool: '杜克大学',
@@ -1823,7 +1848,7 @@ export default {
             bg: '双非录取;含奖学金;转专业录取'
           },
           {
-            name: '董正日',
+            name: '董同学',
             year: '2019',
             schoolLogo: '',
             admissionSchool: '皇家中央演讲与戏剧学院',
@@ -1836,7 +1861,7 @@ export default {
             bg: ''
           },
           {
-            name: '高晓琪',
+            name: '高同学',
             year: '2019',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',

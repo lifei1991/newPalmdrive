@@ -535,7 +535,7 @@ export default {
                 {
                   name: '申请季offer',
                   name2: '',
-                  url: ''
+                  url: '/offers'
                 },
                 {
                   name: '背景提升offer',
