@@ -66,14 +66,14 @@
       <div class='title'>成功案例</div>
 
       <ul class='guide-item-div'>
-        <li v-for='(item, index) in demoTypes' :key='item.name' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
+        <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
           <div class='text'>{{ item.name }}</div>
         </li>
       </ul>
 
       <div class='demos-div'>
         <template v-for='(item, index) in selectedDemo' >
-          <div class='each-demo' v-if='index < maxNumber' :key='item.img + item.name'>
+          <div class='each-demo' v-if='index < maxNumber' :key='index'>
             <div>
               <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
               <img src='../assets/img/offers/demo-right-img.png' class='right-img' />
@@ -361,22 +361,22 @@ export default {
         {
           img: require('../assets/img/offers/place/place1.png'),
           title: '北美 Offer',
-          number: '1346'
+          number: '6778'
         },
         {
           img: require('../assets/img/offers/place/place2.png'),
           title: '英国/澳洲 Offer',
-          number: '1051'
+          number: '3364'
         },
         {
           img: require('../assets/img/offers/place/place3.png'),
           title: '欧洲 Offer',
-          number: '69'
+          number: '172'
         },
         {
           img: require('../assets/img/offers/place/place4.png'),
           title: '中国香港/新加坡 Offer',
-          number: '303'
+          number: '505'
         }
       ],
       demoTypes: [

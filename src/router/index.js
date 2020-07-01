@@ -13,6 +13,7 @@ import TeacherIntro from '@/components/TeacherIntro'
 import FourToOne from '@/components/FourToOne'
 import StudentStory from '@/components/StudentStory'
 import Offers from '@/components/Offers'
+import BgPromote from '@/components/BgPromote'
 
 Vue.use(Router)
 
@@ -114,6 +115,14 @@ export default new Router({
       component: Offers,
       meta: {
         title: '申请季offer'
+      }
+    },
+    {
+      path: '/bg_promote',
+      name: 'BgPromote',
+      component: BgPromote,
+      meta: {
+        title: '背景提升'
       }
     }
   ]

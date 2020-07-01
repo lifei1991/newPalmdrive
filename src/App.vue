@@ -540,7 +540,7 @@ export default {
                 {
                   name: '背景提升offer',
                   name2: '',
-                  url: ''
+                  url: '/bg_promote'
                 },
                 {
                   name: '学员故事',
