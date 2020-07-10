@@ -161,9 +161,9 @@
             <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
               <div class="logo">PALMDRIVE</div>
               <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title">{{ item.title }}</div>
+              <div class="title" @click="goToDetail(1000, index)">{{ item.title }}</div>
               <div class="text">{{ item.text }}</div>
-              <div class="more">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+              <div class="more" @click="goToDetail(1000, index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
               <div class="bottom-green"></div>
             </div>
         </div>
@@ -451,34 +451,24 @@ export default {
       ],
       dynamics: [
         {
-          img: require('../assets/img/home/activity/activity1.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
-        },
-        {
           img: require('../assets/img/home/activity/activity2.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
+          title: '被GRE虐哭，暑研加持的她如何打怪升级，获取梦校offer？',
+          text: '看小姐姐打怪升级，一路成长。'
         },
         {
-          img: require('../assets/img/home/activity/activity3.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
+          img: './static/img/graduateHome/activity/activity3.jpg',
+          title: '北大考研失利，被迫gap后这位高颜值小姐姐如何完成华丽转身？',
+          text: '这个转身很漂亮'
         },
         {
-          img: require('../assets/img/home/activity/activity4.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
+          img: './static/img/graduateHome/activity/activity4.jpg',
+          title: '慕了！文转商的她居然横扫了法国前五高商的所有offer！',
+          text: '大牛是怎么养成的？'
         },
         {
-          img: require('../assets/img/home/activity/activity1.png'),
-          title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
-          url: ''
+          img: './static/img/graduateHome/activity/activity5.jpg',
+          title: 'GPA一度低至2.2的她靠什么收割专排top2的offer？',
+          text: '低标化却全申请冲击的极限操作~'
         }
       ],
       banner1: '',
@@ -486,6 +476,10 @@ export default {
     }
   },
   created () {
+    // this.$nextTick(() => {
+    // }
+    // )
+
     this.banner1 = require('../assets/img/home/banner1.png')
   },
   mounted () {
@@ -513,11 +507,33 @@ export default {
         autoplayHoverPause: true,
         navText: ["<i class='left-arrow home-dynamic-left-arrow'></i>", "<i class='right-arrow home-dynamic-right-arrow'></i>"]
       })
+
+      // const axios = require('axios')
+      // let that = this
+      // // axios.get('http://www.palmdrive.cn/v2/static/json/graduateHomeDynamics.json').then(
+      // axios.get('http://localhost:8080/static/json/graduateHomeDynamics.json').then(
+      //   (res) => {
+      //     that.dynamics = res.data
+      //   }
+      // )
     })
   },
   methods: {
     showMoreTeachers () {
       this.maxNumber = 100
+    },
+
+    goToDetail (ind, index) {
+      let routeUrl = this.$router.resolve({
+        path: '/news',
+        query: {
+          index1: ind,
+          index2: index,
+          jsonName: 'graduateHomeDynamics.json'
+
+        }
+      })
+      window.open(routeUrl.href, '_blank')
     }
   }
 }
@@ -1166,6 +1182,8 @@ export default {
           margin: 11px 0 18px;
           width: 222px;
           height: 143px;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
 
         .title {
@@ -1175,6 +1193,7 @@ export default {
           line-height:30px;
           color:rgba(0,0,0,1);
           opacity:1;
+          cursor: pointer;
         }
 
         .text {

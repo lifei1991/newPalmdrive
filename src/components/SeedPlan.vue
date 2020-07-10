@@ -97,7 +97,7 @@
       <div class="title">学员故事</div>
       <div class="story-div">
         <template v-for="(item, index) in stories" >
-          <div class="each-story" v-if="index < maxNumber" :key="item.img" @click="goToDetail(item.content)">
+          <div class="each-story" v-if="index < maxNumber" :key="item.img" @click="goToDetail(1000, index)">
             <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
             <div class="story-info-div">
               <div class="story-text">{{ item.name }}</div>
@@ -180,7 +180,43 @@ export default {
           title: '文书辅导 '
         }
       ],
-      stories: [],
+      stories: [
+        {
+          'img': './static/img/seedPlan/stories/story1.jpg',
+          'name': '文科生杀到商科成年级第一，她一个月拿下两个BA offer !',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story2.jpg',
+          'name': '藤校最难申请季！宾大 DS offer 却被才华横溢的中大小哥收入囊中？',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story3.jpg',
+          'name': '托福四连跪的北师学姐，亲述放弃保研、转专业斩获宾大offer的心路历程！',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story4.jpg',
+          'name': '面试时断网，语言成绩越刷越低，双非小姐姐凭什么斩获哥大offer？',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story5.jpg',
+          'name': '颜值高又会玩，这个学艺术的武汉理工小姐姐成绩还很好！我酸了...',
+          'type': '艺术'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story6.jpg',
+          'name': '逆转三维弱势，她如何凭5段实习斩获全美排名第一的传媒offer？',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/seedPlan/stories/story7.jpg',
+          'name': 'GPA 3.9！每周 2 场考试！看中大小姐姐如何靠合理规划战胜迷茫期！',
+          'type': '商科'
+        }
+      ],
       teachers: [
         [
           {
@@ -465,7 +501,21 @@ export default {
     }
   },
   created () {
-    this.stories = require('../../static/json/seedPlan.json')
+    // this.$nextTick(() => {
+    //   const axios = require('axios')
+    //   let that = this
+    //   axios.get('http://www.palmdrive.cn/v2/static/json/seedPlan.json').then(
+    //   // axios.get('http://localhost:8080/static/json/seedPlan.json').then(
+    //     (res) => {
+    //       that.stories = res.data
+    //       // that.$set(that, 'guides', res.data)
+    //       // that.changeGuideType(that.currentType)
+    //     }
+    //   )
+    // }
+    // )
+
+    // this.stories = require('../../static/json/seedPlan.json')
     this.banner1 = require('../assets/img/seedPlan/banner1.png')
     this.banner8 = require('../assets/img/seedPlan/banner8.png')
     this.dreamSchoolPlan = require('../assets/img/dreamSchool/plan/dreamSchoolPlan.png')
@@ -507,11 +557,14 @@ export default {
       this.currentType = index
       this.selectedTeacher = this.teachers[index]
     },
-    goToDetail (content) {
+    goToDetail (ind, index) {
       let routeUrl = this.$router.resolve({
         path: '/news',
         query: {
-          content: content
+          index1: ind,
+          index2: index,
+          jsonName: 'seedPlan.json'
+
         }
       })
       window.open(routeUrl.href, '_blank')

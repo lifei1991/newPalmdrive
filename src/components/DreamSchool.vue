@@ -131,7 +131,7 @@
       <div class="title">学员故事</div>
       <div class="story-div">
         <template v-for="(item, index) in stories" >
-          <div class="each-story" v-if="index < maxNumber" :key="item.img" @click="goToDetail(item.content)">
+          <div class="each-story" v-if="index < maxNumber" :key="item.img" @click="goToDetail(1000, index)">
             <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
             <div class="story-info-div">
               <div class="story-text">{{ item.name }}</div>
@@ -234,7 +234,193 @@ export default {
           text: '领取海外留学优惠'
         }
       ],
-      stories: [],
+      stories: [
+        {
+          'img': './static/img/dreamSchool/stories/story1.jpg',
+          'name': '包揽哈佛、耶鲁和全美专排Top1梦校offer，她是如何做到的？',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story2.jpg',
+          'name': '6战托福，Gap一年，她一举拿下CMU带奖offer！',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story3.jpg',
+          'name': '被中介坑申请全拒后，北航小姐姐gap一年转专业拿到剑桥offer！',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story4.jpg',
+          'name': '英美欧混申，GRE两次考出335，她一举拿下世界顶尖商学院offer！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story5.jpg',
+          'name': '北理小姐姐冒着零科研风险退出实验室，GPA年级第一的她转专业申请拿下耶鲁带奖offer！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story6.jpg',
+          'name': 'GPA2.9，考研失败，“零背景”的我用半年拿下了心仪的offer……',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story7.jpg',
+          'name': '双非文科生进击博士！放弃专业唯一保研名额，今拿下高难博士offer，每年录取不超10人！',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story8.jpg',
+          'name': '低绩点转专业无语言成绩，重大小哥哥强势逆袭拿下G5offer！',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story9.jpg',
+          'name': '从倒数第一到满绩4.0，川大小姐姐斩获就业率100%的梦校offer！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story10.jpg',
+          'name': '本科荒废两年，三维成绩低，看他如何一路逆风翻盘拿下梦校 offer！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story11.jpg',
+          'name': '从小语种走向大世界，学霸小姐姐拿下哈佛、芝大、LSE、JHU等名校offer！',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story12.jpg',
+          'name': '放弃10万刀全奖Offer，被常春藤与G5宠爱的双非小姐姐，最后选择了……',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story13.jpg',
+          'name': 'GPA2.88、实习平平还有救吗？这位小姐姐不仅申5中5，还斩获1万刀奖学金！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story14.jpg',
+          'name': '拿下KCL、爱大的律政俏佳人，也曾因表达困难而极度不自信……',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story15.jpg',
+          'name': '6个Offer，2个带奖！普通211里的宝藏男孩非他莫属了！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story16.jpg',
+          'name': '大一创业大二建社团大三办TEDx，双非二本的她告诉你低标化如何赢得漂亮！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story17.jpg',
+          'name': 'GPA 3.1 到 3.9！为了提高成绩他的 final 真的太拼了！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story18.jpg',
+          'name': '曾被说申不上港大，现在我要去常春藤了',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story19.jpg',
+          'name': '只用半年GPA 3.1 升到 3.9 ！ 她一周瘦 7 斤终换来耶鲁康奈尔等 8 所offer！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story20.jpg',
+          'name': '我从保底校一路逆袭专排Top2，和男友牵手上梦校！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story21.jpg',
+          'name': '2次考试大陆第一！GPA位列专业第2！看小姐姐如何逃离舒适圈！',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story22.jpg',
+          'name': '硕博混申，最后我拒了耶鲁，连拿三个博士offer！',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story23.jpg',
+          'name': '满绩大神：本以为只能去常春藤，结果拒了MIT去了这儿……',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story24.jpg',
+          'name': '拒绝剑桥offer！大一GPA 3.9 的年级第一，直呼这 4 段经历对他影响太大！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story25.jpg',
+          'name': '无心插柳GRE首战334，申7中5，小姐姐最后为它放弃芝大9万刀！',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story26.jpg',
+          'name': '关晓彤北电师哥：3个月赶8个DDL，藤校来电时差点把对方拉黑！',
+          'type': '艺术'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story27.jpg',
+          'name': '你们羡慕不已的美本，竟成我申请时最大的障碍......',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story28.jpg',
+          'name': '身材好嗓音苏颜值高！双非拿下 7 个offer，这是什么宝藏男孩？',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story29.jpg',
+          'name': '他拿康奈尔做保底被拒！没想到后续惊现神反转剧情......',
+          'type': '文科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story30.jpg',
+          'name': '2 次考研失败，GPA 2.7、没有语言成绩的他终于······',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story31.jpg',
+          'name': 'GPA3.9 的年级第一担心失学？看她如何战胜焦虑斩获耶鲁杜克等11所名校 offer！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story32.jpg',
+          'name': '曾经压力大到转学，数理全A佛系偏科的我终于拿下了哥大offer！',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story33.jpg',
+          'name': '3次校奖，GPA3.92！她让理工男感受到了Girls power威胁......',
+          'type': '理科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story34.jpg',
+          'name': '放弃保研，普通211狂补实习的她如何低成本留美',
+          'type': '商科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story35.jpg',
+          'name': '北大降分录取、考神级别也被网申吓懵，他是如何拿下伯克利哥大 offer 的？',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story36.jpg',
+          'name': '投实习全被拒，她为了翻盘一天只睡 2 小时，不服输最终带给她······',
+          'type': '工科'
+        },
+        {
+          'img': './static/img/dreamSchool/stories/story37.jpg',
+          'name': '“双非”普本被歧视？她参加美赛、发明专利、名企实习，最后完美逆袭！',
+          'type': '理科'
+        }
+      ],
       teachers: [
         [
           {
@@ -452,7 +638,21 @@ export default {
     }
   },
   created () {
-    this.stories = require('../../static/json/dreamSchool.json')
+    // this.$nextTick(() => {
+    //   const axios = require('axios')
+    //   let that = this
+    //   axios.get('http://www.palmdrive.cn/v2/static/json/dreamSchool.json').then(
+    //   // axios.get('http://localhost:8080/static/json/dreamSchool.json').then(
+    //     (res) => {
+    //       that.stories = res.data
+    //       // that.$set(that, 'guides', res.data)
+    //       // that.changeGuideType(that.currentType)
+    //     }
+    //   )
+    // }
+    // )
+
+    // this.stories = require('../../static/json/dreamSchool.json')
     this.banner1 = require('../assets/img/dreamSchool/banner1.png')
     this.banner6 = require('../assets/img/dreamSchool/banner6.png')
     this.banner8 = require('../assets/img/dreamSchool/banner8.png')
@@ -495,11 +695,14 @@ export default {
       this.currentType = index
       this.selectedTeacher = this.teachers[index]
     },
-    goToDetail (content) {
+    goToDetail (ind, index) {
       let routeUrl = this.$router.resolve({
         path: '/news',
         query: {
-          content: content
+          index1: ind,
+          index2: index,
+          jsonName: 'dreamSchool.json'
+
         }
       })
       window.open(routeUrl.href, '_blank')

@@ -23,9 +23,9 @@
           <div class="each-dynamic" v-for="(item, index) in eachArray" :key="index">
             <div class="logo">PALMDRIVE</div>
             <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="title" @click="goToDetail(item.content)">{{ item.title }}</div>
+            <div class="title" @click="goToDetail(currentType, 4 * ind + index)">{{ item.title }}</div>
             <div class="text">{{ item.text }}</div>
-            <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+            <div class="more" @click="goToDetail(currentType, 4 * ind + index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
             <div class="bottom-green"></div>
           </div>
         </div>
@@ -70,7 +70,162 @@ export default {
   name: 'Home',
   data () {
     return {
-      guides: [[]],
+      guides: [
+        [
+          {
+            'img': './static/img/applicationGuide/gh/2.jpg',
+            'title': '干货丨热门留学国家优势大盘点，明明白白做选择！',
+            'text': '不知如何选择留学国家，或许这篇可以帮助你！',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/3.jpg',
+            'title': '去留学原来要花那么多钱？硬核版省钱攻略来了！',
+            'text': '每位留学生都改Mark的留学省钱指南请注意查收！',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/4.jpg',
+            'title': '选专业干货秘籍！学会这个方法，选专业不再是难题',
+            'text': '专业选择其实很简单，四个步骤就搞定。',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/5.jpg',
+            'title': '申请模式掌握这七点！留学规划比别人轻松好几倍...',
+            'text': '如何掌握正确的申请模式？这些套路助力你轻松搞定！',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/6.jpg',
+            'title': '最新院校选择攻略已出，不知道这些操作的你可能连学都上不了了...',
+            'text': '众多高校难以抉择？超详尽院校选择方法来啦！',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/7.jpg',
+            'title': 'UCLA交换、剑桥暑校、埃森哲实习……我用经历告诉你，本科阶段如何进行时间规划！',
+            'text': '作为一个本科生，如何在求职大军中脱颖而出规划好自己的未来？',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/8.jpg',
+            'title': '如何在大学期间找到高质量实习？分享几点超级有用的方法',
+            'text': '没有实习，何来offer？',
+            'type': '规划'
+          },
+          {
+            'img': './static/img/applicationGuide/gh/9.jpg',
+            'title': '理工科＝难申请？快来 get 热门理工专业申请必杀技！丨理工科申请规划',
+            'text': '理工科申请超全全程规划！照着走，offer到手！',
+            'type': '规划'
+          }
+        ],
+        [
+          {
+            'img': './static/img/applicationGuide/ws/2.jpg',
+            'title': '不用钱的文书神器，请收下！',
+            'text': '棕榈文书神器，面对疾风吧！',
+            'type': '文书'
+          },
+          {
+            'img': './static/img/applicationGuide/ws/3.jpg',
+            'title': '你在出国留学文书里写过的最漂亮的句子是什么？',
+            'text': '关于“转专业”的文书，我想这样写。',
+            'type': '文书'
+          },
+          {
+            'img': './static/img/applicationGuide/ws/4.jpg',
+            'title': '同学你心真大，竟想一篇文书“走天下”……',
+            'text': '没有重点的文书=没有offer，这是我听过最真的话~',
+            'type': '文书'
+          },
+          {
+            'img': './static/img/applicationGuide/ws/5.jpg',
+            'title': '想当别人还在改文书时，你已名校 offer 到手？🤫来看看这个！丨绝密资料',
+            'text': '回复【合集】你将免费体验“醍醐灌顶”数次，并受到一个别处难寻的无敌绝密资料',
+            'type': '文书'
+          }
+        ],
+        [
+          {
+            'img': './static/img/applicationGuide/jl/2.jpg',
+            'title': '你的简历都不完整，还敢问学校为什么不录你？简历这样写才能拿 offer！丨讲座实录',
+            'text': '如何打造属于你的发光简历（上）：简历和CV需要注意哪些细节？',
+            'type': '简历'
+          },
+          {
+            'img': './static/img/applicationGuide/jl/3.jpg',
+            'title': '从申请萌新到圆梦名校！一份闪瞎招生官的简历应该长这样~',
+            'text': '招生官：“啊啊啊啊我的眼睛”…',
+            'type': '简历'
+          },
+          {
+            'img': './static/img/applicationGuide/jl/4.jpg',
+            'title': 'CV和Resume的具体区別在哪里？',
+            'text': '万千疑问找谁解答？棕榈天团帮到你！',
+            'type': '简历'
+          },
+          {
+            'img': './static/img/applicationGuide/jl/5.jpg',
+            'title': 'CV 写得好，offer 拿得早！这样“营销”个人背景让你更受名校青睐！',
+            'text': '满分CV模书写法则~',
+            'type': '简历'
+          }
+        ],
+        [
+          {
+            'img': './static/img/applicationGuide/tjx/2.jpg',
+            'title': '好的推荐信应该如何写？',
+            'text': '是谁给你的勇气，敢说推荐信不重要？',
+            'type': '推荐信'
+          },
+          {
+            'img': './static/img/applicationGuide/tjx/3.jpg',
+            'title': '推荐信的高级玩法！做到这些绝不踩雷丨讲座实录',
+            'text': '为什么你的推荐信一看就是自己写的？',
+            'type': '推荐信'
+          },
+          {
+            'img': './static/img/applicationGuide/tjx/4.jpg',
+            'title': '厉害了，我的推荐信 | 附优质推荐信模板',
+            'text': '推荐信如何写？找谁写？怎样写？',
+            'type': '推荐信'
+          },
+          {
+            'img': './static/img/applicationGuide/tjx/5.jpg',
+            'title': '和教授之间互动很少，那应该怎么求推荐信？',
+            'text': '这是棕榈全新开设的一个固定栏目。在这里，棕榈天团（Service 团队的班主任和导师们）将会为你解答关于留学的所有疑惑',
+            'type': '推荐信'
+          }
+        ],
+        [
+          {
+            'img': './static/img/applicationGuide/ms/2.jpg',
+            'title': '准备面试美国的大学，有哪些经验技巧值得参考？',
+            'text': '这是棕榈全新开设的一个固定栏目。在这里，棕榈天团（Service 团队的班主任和导师们）将会为你解答关于留学的所有疑惑',
+            'type': '面试'
+          },
+          {
+            'img': './static/img/applicationGuide/ms/3.jpg',
+            'title': '在面试官眼中，什么样的申请者才不会沦为“备胎”？',
+            'text': '这是棕榈全新开设的一个固定栏目。在这里，棕榈天团（Service 团队的班主任和导师们）将会为你解答关于留学的所有疑惑',
+            'type': '面试'
+          },
+          {
+            'img': './static/img/applicationGuide/ms/4.jpg',
+            'title': '如何敲开顶尖商学院的大门？',
+            'text': '面试可滔滔不绝，信手拈来，绝地反击而非前功尽弃',
+            'type': '面试'
+          },
+          {
+            'img': './static/img/applicationGuide/ms/5.jpg',
+            'title': '有三个学位也敌不过面试“翻船”，学霸小姐姐破釜沉舟捞回梦校offer！',
+            'text': '鬼知道我经历了什么……',
+            'type': '面试'
+          }
+        ]
+      ],
       dynamicTypes: [
         {
           name: '规划',
@@ -105,9 +260,22 @@ export default {
     }
   },
   created () {
-    this.guides = require('../../static/json/applicationGuide.json')
+    // this.$nextTick(() => {
+    //   const axios = require('axios')
+    //   let that = this
+    //   axios.get('http://www.palmdrive.cn/v2/static/json/applicationGuide.json').then(
+    //   // axios.get('http://localhost:8080/static/json/applicationGuide.json').then(
+    //     (res) => {
+    //       that.guides = res.data
+    //       // that.$set(that, 'guides', res.data)
+    //       that.changeGuideType(that.currentType)
+    //     }
+    //   )
+    // }
+    // )
+
+    // this.guides = require('../../static/json/applicationGuide.json')
     this.banner1 = require('../assets/img/applicationGuide/banner1.png')
-    // this.selectedGuide = this.guides[this.currentType]
     this.changeGuideType(this.currentType)
     window.scrollTo(0, 0)
   },
@@ -134,11 +302,14 @@ export default {
         path: url
       })
     },
-    goToDetail (content) {
+    goToDetail (ind, index) {
       let routeUrl = this.$router.resolve({
         path: '/news',
         query: {
-          content: content
+          index1: ind,
+          index2: index,
+          jsonName: 'applicationGuide.json'
+
         }
       })
       window.open(routeUrl.href, '_blank')
@@ -324,6 +495,8 @@ export default {
           margin: 11px 0 17px;
           width: 218px;
           height: 141px;
+          background-size: cover;
+          background-repeat: no-repeat;
         }
 
         .title {

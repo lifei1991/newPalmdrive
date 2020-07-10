@@ -25,9 +25,9 @@
             <div class="logo">PALMDRIVE</div>
             <!-- <div class="dynamic-img" :style="{backgroundImage:'url(' + require(item.img) + ')'}"></div> -->
             <img class="dynamic-img" :src="item.img"/>
-            <div class="title" @click="goToDetail(item.content)">{{ item.title }}</div>
+            <div class="title" @click="goToDetail(currentType, 4 * ind + index)">{{ item.title }}</div>
             <div class="text">{{ item.text }}</div>
-            <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+            <div class="more" @click="goToDetail(currentType, 4 * ind + index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
             <div class="bottom-green"></div>
           </div>
         </div>
@@ -72,27 +72,159 @@ export default {
   name: 'DownMaterial',
   data () {
     return {
-      guides: [[]],
+      guides: [
+        [
+          {
+            'img': './static/img/downMaterial/yw/2.jpg',
+            'title': '快收下！69天后的四六级还有救！完整版陪跑资料免费领取中...丨绝密资料 ',
+            'text': '四六级陪跑计划启动，一次通关不是梦~',
+            'type': '英文'
+          },
+          {
+            'img': './static/img/downMaterial/yw/3.jpg',
+            'title': '叮！今夏必看高分剧单已送到！教你看剧练听力口语的正确方式！丨绝密资料 ',
+            'text': '不仅能拯救你的剧荒，还能拯救你的听力和口语！回复【剧单】即刻get！',
+            'type': '英文'
+          },
+          {
+            'img': './static/img/downMaterial/yw/4.jpg',
+            'title': '10 所顶尖名校教授推荐最多的 45 本原版书，让你在留学前追上美本党！丨绝密资料 ',
+            'text': '美国大学惊人的阅读量对中国学生是多大的挑战？是时候送大家一个书单了…',
+            'type': '英文'
+          },
+          {
+            'img': './static/img/downMaterial/yw/6.jpg',
+            'title': '「史上最全」托雅、双G资料限时免费领！助力暑假冲刺！|绝密资料',
+            'text': '限时！免费领取托福/雅思/GRE/GMAT最全资料！',
+            'type': '英文'
+          },
+          {
+            'img': './static/img/downMaterial/yw/7.jpg',
+            'title': '让你6步从无到有搞定论文，从选题到答辩的 2.0 保姆级论文资料包来啦！丨绝密资料 ',
+            'text': '2019年毕业论文写作攻略大礼包来啦~回复【答辩】即可免费领取~',
+            'type': '表达力提升'
+          },
+          {
+            'img': './static/img/downMaterial/yw/8.jpg',
+            'title': '告别演讲恐惧症，迈出自信表达第一步！54G 表达秘籍带你练就一副好口才！丨绝密资料 ',
+            'text': '不夸张地说，这是一周练就演讲好口才的秘籍。',
+            'type': '表达力提升'
+          },
+          {
+            'img': './static/img/downMaterial/yw/9.jpg',
+            'title': '多邻国七月要出单项小分？7 天提升 20 分备考经验送上！丨多邻国资料免费领',
+            'text': '多邻国备考指南，扫码回复【多邻国】更能领取资料大礼包！',
+            'type': '表达力提升'
+          },
+          {
+            'img': './static/img/downMaterial/yw/10.jpg',
+            'title': '雅思托福双“G”复考在即，毫无准备的你确定不来抱下佛脚？丨绝密资料',
+            'text': '超全雅思/托福/GRE/GMAT复习资料一站式配齐！扫码回复【家考】免费领取！',
+            'type': '表达力提升'
+          }
+        ],
+        [
+          {
+            'img': './static/img/downMaterial/bjts/2.jpg',
+            'title': '寒假逆袭的 N 种方案！冬季学校、大厂实习、交流课程……等背景提升利器已备好！丨绝密资料 ',
+            'text': '2020寒校合集&实习内推&寒假课程……',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/3.jpg',
+            'title': '暑研=牛推+学术背景?🤐别傻了，申请之前看看这个！丨绝密资料 ',
+            'text': '“暑研真实留学万能灵药啊！”醒醒了，同学，你知道怎么申请吗？',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/4.jpg',
+            'title': '200+暑期项目启动！海内外实习/暑期科研/国际义工/旅行攻略……走！这个夏天做点不一样的！丨绝密资料',
+            'text': '扫码回复【暑假】领取2019海内外暑期实习/义工/科研项目资料……',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/5.jpg',
+            'title': '你还没穿秋裤，2019 年的暑研、夏校、实习已经开始申请了🤣丨绝密资料 ',
+            'text': '暑期研究攻略、国内外summer school、暑期实习项目……回复【暑期】领取',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/6.jpg',
+            'title': '转专业没上先修课，成绩再高都白搭？防失学秘籍来了！丨绝密资料',
+            'text': '先修课程弥补计划已开启！',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/7.jpg',
+            'title': '500+ 海外义工旅行项目 & 暑期实习资源大放送，这个夏天不虚度！丨绝密项目 ',
+            'text': '嗨，你好呀~马上就要到暑假了，想不想在暑假干一些更有意义的项目',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/8.jpg',
+            'title': '那些科研背景过硬、拿下牛推、进入名校的同学都做了些什么？丨绝密资料 ',
+            'text': '想提升个人学术背景？想为留学保研助力？回复【科研】限时免费领取',
+            'type': '背景提升'
+          },
+          {
+            'img': './static/img/downMaterial/bjts/9.jpg',
+            'title': '留学、保研“大杀器”！数学建模了解一下？丨绝密资料 ',
+            'text': '新手小白入门数学建模：数模论文、算法、软件、基本模型……回复【数模】限时免费领取',
+            'type': '背景提升'
+          }
+        ],
+        [
+          {
+            'img': './static/img/downMaterial/sqgh/1.jpg',
+            'title': '好就业，高薪资，留美 STEM 专业大盘点丨绝密资料',
+            'text': '如何确认就读的专业算不算STEM？回复【STEM】领取超全资料包！',
+            'type': '申请干货资料'
+          },
+          {
+            'img': './static/img/downMaterial/sqgh/2.jpg',
+            'title': '清华排名超耶鲁、哥大？四大排行榜究竟谁更靠谱？ ∣ 绝密资料',
+            'text': '世界大学排行榜大全。',
+            'type': '申请干货资料'
+          },
+          {
+            'img': './static/img/downMaterial/sqgh/3.jpg',
+            'title': '英国香港新加坡这么早就发 offer 了？这里有一份全套申请材料必备 checklist 等待你查收！|绝密资料',
+            'text': '揭秘英港新申请那些事~内附可打印申请材料清单！',
+            'type': '申请干货资料'
+          },
+          {
+            'img': './static/img/downMaterial/sqgh/4.jpg',
+            'title': '我们整理了一个涵盖申请全程，从基础到进阶的超全留学资料包！限时免费送给你！丨绝密资料',
+            'text': '留学资料，一次get！',
+            'type': '申请干货资料'
+          }
+        ]
+      ],
       dynamicTypes: [
         {
-          name: '英文',
+          name: '表达力提升',
           img: require('../assets/img/downMaterial/guides/menu1.png'),
           img1: require('../assets/img/downMaterial/guides/menu1-1.png')
         },
-        {
-          name: '论文',
-          img: require('../assets/img/downMaterial/guides/menu2.png'),
-          img1: require('../assets/img/downMaterial/guides/menu2-1.png')
-        },
-        {
-          name: '演讲',
-          img: require('../assets/img/downMaterial/guides/menu3.png'),
-          img1: require('../assets/img/downMaterial/guides/menu3-1.png')
-        },
+        // {
+        //   name: '论文',
+        //   img: require('../assets/img/downMaterial/guides/menu2.png'),
+        //   img1: require('../assets/img/downMaterial/guides/menu2-1.png')
+        // },
+        // {
+        //   name: '演讲',
+        //   img: require('../assets/img/downMaterial/guides/menu3.png'),
+        //   img1: require('../assets/img/downMaterial/guides/menu3-1.png')
+        // },
         {
           name: '背景提升',
           img: require('../assets/img/downMaterial/guides/menu4.png'),
           img1: require('../assets/img/downMaterial/guides/menu4-1.png')
+        },
+        {
+          name: '申请干货资料',
+          img: require('../assets/img/downMaterial/guides/menu2.png'),
+          img1: require('../assets/img/downMaterial/guides/menu2-1.png')
         }
       ],
       banner1: '',
@@ -102,9 +234,22 @@ export default {
     }
   },
   created () {
-    this.guides = require('../../static/json/downMaterial.json')
+    // this.$nextTick(() => {
+    //   const axios = require('axios')
+    //   let that = this
+    //   // axios.get('http://www.palmdrive.cn/v2/static/json/downMaterial.json').then(
+    //   axios.get('http://localhost:8080/static/json/downMaterial.json').then(
+    //     (res) => {
+    //       that.guides = res.data
+    //       // that.$set(that, 'guides', res.data)
+    //       that.changeGuideType(that.currentType)
+    //     }
+    //   )
+    // }
+    // )
+
+    // this.guides = require('../../static/json/downMaterial.json')
     this.banner1 = require('../assets/img/downMaterial/banner1.png')
-    // this.selectedGuide = this.guides[this.currentType]
     this.changeGuideType(this.currentType)
   },
   mounted () {
@@ -131,11 +276,13 @@ export default {
         path: url
       })
     },
-    goToDetail (content) {
+    goToDetail (ind, index) {
       let routeUrl = this.$router.resolve({
         path: '/news',
         query: {
-          content: content
+          index1: ind,
+          index2: index,
+          jsonName: 'downMaterial.json'
         }
       })
       window.open(routeUrl.href, '_blank')
@@ -228,14 +375,16 @@ export default {
       text-align: center;
       padding: 0;
       margin: 66px auto 89px;
-      width: 630px;
+      width: 560px;
+      // width: 630px;
       background:rgba(250,255,255,1);
       box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
       opacity:1;
       border-radius:83px;
 
       li {
-        width: 150px;
+        width: 180px;
+        // width: 150px;
         height: 51px;
         opacity: 1;
         margin-right: 10px;

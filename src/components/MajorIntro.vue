@@ -24,9 +24,9 @@
           <div class="each-dynamic" v-for="(item, index) in eachArray" :key="index">
             <div class="logo">PALMDRIVE</div>
             <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="title" @click="goToDetail(item.content)">{{ item.title }}</div>
+            <div class="title" @click="goToDetail(currentType, 4 * ind + index)">{{ item.title }}</div>
             <div class="text">{{ item.text }}</div>
-            <div class="more" @click="goToDetail(item.content)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+            <div class="more" @click="goToDetail(currentType, 4 * ind + index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
             <div class="bottom-green"></div>
           </div>
         </div>
@@ -71,7 +71,165 @@ export default {
   name: 'Home',
   data () {
     return {
-      guides: [[]],
+      guides: [
+        [
+          {
+            'img': './static/img/majorIntro/wk/2.jpg',
+            'title': '在哈佛学反恐丨藤校中东研究真面目',
+            'text': '听说这里的中东没有恐怖主义和战乱',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/3.jpg',
+            'title': '开放又谨慎，老师比学生还多丨哥大东亚研究真面目',
+            'text': '你一定没有见过这样的常春藤',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/4.jpg',
+            'title': '连新垣结衣都喜欢的专业长啥样？ | 伦敦政治经济学院LLM项目真面目',
+            'text': 'LSE的教授都怎么样？申请LLM项目有哪些限制？点进来，满足你的好奇心',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/5.jpg',
+            'title': '你们的老公是我校友 | 伦敦大学学院经济、国家和社会研究专业真面目',
+            'text': '伦敦大学学员经济、国家和社会专业研究',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/6.jpg',
+            'title': '交一份学费 竟然能读到两个学位 | 哥伦比亚大学公共管理学真面目',
+            'text': '哥大公共管理专业大揭秘',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/7.jpg',
+            'title': '碧昂斯、蕾哈娜都不算啥，经手的巨星一把抓 | 伦敦国王学院文化创意专业真面目',
+            'text': '伦敦国王学院文化创意专业项目大揭秘~',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/8.jpg',
+            'title': '集老师、网红、卖煎饼于一身的专业究竟长啥样？ | 纽约大学对外英语教学真面目',
+            'text': '纽约大学对外英语教学大揭秘',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/9.jpg',
+            'title': '申请难度低、好移民、能打工的澳洲到底怎么样？| 麦考瑞大学国际传播专业真面目',
+            'text': '麦考瑞大学国际传播专业揭秘',
+            'type': '文科'
+          },
+          {
+            'img': './static/img/majorIntro/wk/10.jpg',
+            'title': '本科交流交换助力背景提升 | 加州大学洛杉矶分校本科交换项目真面目',
+            'text': '加州大学洛杉矶分校交换项目大揭秘',
+            'type': '文科'
+          }
+        ],
+        [
+          {
+            'img': './static/img/majorIntro/lgk/2.jpg',
+            'title': '美国总统的摇篮、图书馆孤本众多、斗牛犬是吉祥物丨耶鲁统计学真面目',
+            'text': '这大概是耶鲁大学统计学项目最全全全全全全的揭秘了',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/3.jpg',
+            'title': '被硅谷追着发offer是种什么体验？ | 斯坦福机械工程真面目',
+            'text': '斯坦福机械工程专业到底有多牛？棕榈给你全解析',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/4.jpg',
+            'title': '电锯杀人狂没碰上 石油倒是挖了一大把 | 德克萨斯石油工程真面目',
+            'text': '德克萨斯石油专业大起底~',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/5.jpg',
+            'title': '藏在湖光山色里的高贵 | 康奈尔大学经济学真面目',
+            'text': '康奈尔大学经济学大揭秘',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/6.jpg',
+            'title': '在美国顶尖会计名校就读是怎样一种体验？ | 美国大学会计专业真面目',
+            'text': '美国顶级会计名校推荐~',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/7.jpg',
+            'title': '就业万金油专业，金融、科研、咨询通通收入囊中 |哥伦比亚大学运筹学真面目',
+            'text': '哥伦比亚大学运筹学',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/8.jpg',
+            'title': '在“中西部哈佛”和耶鲁读生物统计是什么体验？ | 生物统计专业真面目',
+            'text': '生物统计项目大揭秘',
+            'type': '理工科'
+          },
+          {
+            'img': './static/img/majorIntro/lgk/9.jpg',
+            'title': '水校、网红扎堆？在哥大读DS的真实体验很颠覆！|哥大DS项目揭秘',
+            'text': '哥大读DS是一种怎样的体验？',
+            'type': '理工科'
+          }
+        ],
+        [
+          {
+            'img': './static/img/majorIntro/sk/2.jpg',
+            'title': '全美排名第四的MBA项目大揭秘 | 西北大学MBA项目真面目',
+            'text': '西北大学MBA项目揭秘',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/3.jpg',
+            'title': '谁说巴黎高商party多 也就一周一次而已嘛 | 巴黎高商国际商务专业真面目',
+            'text': '巴黎高商国际商务专业大揭秘',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/4.jpg',
+            'title': '毕业不需要写论文，毕业后还有三年OPT | 罗切斯特大学市场营销分析专业真面目',
+            'text': '罗切斯特大学 市场营销分析专业',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/5.jpg',
+            'title': '打败牛津剑桥 威廉王子最爱的学校长啥样 | 圣安德鲁斯大学市场营销真面目',
+            'text': '圣诞德鲁斯市场营销专业大起底',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/6.jpg',
+            'title': '被称为“南方哈佛”的学校到底有多牛？ | 杜克大学管理学真面目',
+            'text': '杜克大学管理学大揭秘',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/7.jpg',
+            'title': '​一年修完三学期课，毕业就职麦肯锡、高盛是什么神仙项目？ | JHU金融项目',
+            'text': '在 JHU读金融是一种什么体验？',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/8.jpg',
+            'title': '双非如何跨专业申请全美Top 30大学的BA项目？| 罗彻斯特大学商业分析项目',
+            'text': '从双非到全美top30大学，就读罗哒BA项目的一手体验是？',
+            'type': '商科'
+          },
+          {
+            'img': './static/img/majorIntro/sk/9.jpg',
+            'title': '全美前十商学院，毕业就业“包分配”？丨杜克 MQM 就读体验',
+            'text': '全美Top的真“南方哈佛”，头号商科热门项目的真实就读体验！',
+            'type': '商科'
+          }
+        ],
+        []
+      ],
       dynamicTypes: [
         {
           name: '文科',
@@ -101,9 +259,22 @@ export default {
     }
   },
   created () {
-    this.guides = require('../../static/json/majorIntro.json')
+    // this.$nextTick(() => {
+    //   const axios = require('axios')
+    //   let that = this
+    //   axios.get('http://www.palmdrive.cn/v2/static/json/majorIntro.json').then(
+    //   // axios.get('http://localhost:8080/static/json/majorIntro.json').then(
+    //     (res) => {
+    //       that.guides = res.data
+    //       // that.$set(that, 'guides', res.data)
+    //       that.changeGuideType(that.currentType)
+    //     }
+    //   )
+    // }
+    // )
+
+    // this.guides = require('../../static/json/majorIntro.json')
     this.banner1 = require('../assets/img/majorIntro/banner1.png')
-    // this.selectedGuide = this.guides[this.currentType]
     this.changeGuideType(this.currentType)
   },
   mounted () {
@@ -130,11 +301,14 @@ export default {
         path: url
       })
     },
-    goToDetail (content) {
+    goToDetail (ind, index) {
       let routeUrl = this.$router.resolve({
         path: '/news',
         query: {
-          content: content
+          index1: ind,
+          index2: index,
+          jsonName: 'majorIntro.json'
+
         }
       })
       window.open(routeUrl.href, '_blank')
@@ -320,6 +494,8 @@ export default {
           margin: 11px 0 17px;
           width: 218px;
           height: 141px;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
 
         .title {

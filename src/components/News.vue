@@ -50,12 +50,33 @@ export default {
   data () {
     return {
       banner1: '',
-      content: ''
+      content: '',
+      index1: '',
+      index2: '',
+      jsonName: ''
     }
   },
   created () {
+    this.$nextTick(() => {
+      const axios = require('axios')
+      let that = this
+      axios.get('http://www.palmdrive.cn/v2/static/json/' + that.jsonName).then(
+      // axios.get('http://localhost:8080/static/json/' + that.jsonName).then(
+        (res) => {
+          if (that.index1 !== '1000') {
+            that.content = res.data[that.index1][that.index2].content
+          } else {
+            that.content = res.data[that.index2].content
+          }
+        }
+      )
+    }
+    )
+
     this.banner1 = require('../assets/img/home/banner1.png')
-    this.content = this.$route.query.content
+    this.index1 = this.$route.query.index1
+    this.index2 = this.$route.query.index2
+    this.jsonName = this.$route.query.jsonName
   },
   mounted () {
     window.scrollTo(0, 0)
