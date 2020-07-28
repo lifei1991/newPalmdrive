@@ -25,7 +25,7 @@
       <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
       <div class='number-div'>
         <div class='title3'>数据汇总</div>
-        <div class='each-number-div'  v-for='(item, index) in numbers' :key='item.logo'>
+        <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
           <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
           <div class='number-into'>
             <div class='number-name'>{{ item.title }}</div>
@@ -39,14 +39,14 @@
 
       <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
         <div class='places-div'>
-          <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='item.img' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
+          <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
             <div class='place-title'>{{ item.title }}</div>
             <div class='place-number'>{{ item.number }}</div>
             <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
           </div>
         </div>
 
-        <div class='each-school-div' v-for='item in selectSchool' :key='item.logo'>
+        <div class='each-school-div' v-for='(item, index) in selectSchool' :key='index'>
           <div class='school-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
           <div class='school-into'>
             <div class='school-name'>{{ item.name }}</div>
@@ -173,17 +173,17 @@ export default {
             offer: 81
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/ysglby.png'),
             name: '英属哥伦比亚大学',
             offer: 21
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/mje.png'),
             name: '麦吉尔大学',
             offer: 12
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/dld.png'),
             name: '多伦多大学',
             offer: 44
           }
@@ -230,79 +230,79 @@ export default {
             offer: 11
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/adlygl.png'),
             name: '澳大利亚国立大学',
             offer: 39
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/meb.png'),
             name: '墨尔本大学',
             offer: 58
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/xn.png'),
             name: '悉尼大学',
             offer: 176
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/ksl.png'),
             name: '昆士兰大学',
             offer: 72
           }
         ],
         [
           {
-            logo: '',
+            logo: require('../assets/img/home/school/blgds.png'),
             name: '巴黎高等商学院',
             offer: 5
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/esades.png'),
             name: 'Esade 商学院',
             offer: 6
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/slslblg.png'),
             name: '苏黎世联邦理工学院',
             offer: 7
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/ESCP.png'),
             name: 'ESCP 商学院',
             offer: 9
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/las.png'),
             name: '里昂商学院',
             offer: 7
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/dfet.png'),
             name: '代尔夫特理工大学',
             offer: 15
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/hdb.png'),
             name: '海德堡大学',
             offer: 1
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/blzz.png'),
             name: '巴黎政治学院',
             offer: 3
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/blzy.png'),
             name: '柏林自由大学',
             offer: 1
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/ltdyslms.png'),
             name: '鹿特丹伊拉斯姆斯大学',
             offer: 6
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/rnwgjgjgx.png'),
             name: '日内瓦高级国际关系学院',
             offer: 9
           }
@@ -314,22 +314,22 @@ export default {
             offer: 60
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/xgkj.png'),
             name: '香港科技大学',
             offer: 54
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/xgzw.png'),
             name: '香港中文大学 ',
             offer: 84
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/nylg.png'),
             name: '南洋理工大学',
             offer: 31
           },
           {
-            logo: '',
+            logo: require('../assets/img/home/school/xjpgl.png'),
             name: '新加坡国立大学',
             offer: 74
           }
@@ -411,7 +411,7 @@ export default {
           {
             name: '张同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/njlfny.png'),
             admissionSchool: '南加利福尼亚大学',
             admissionMajor: 'Master of Laws(LLM)',
             collegeSchool: '郑州大学',
@@ -543,7 +543,7 @@ export default {
           {
             name: '袁同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/mtlgf.png'),
             admissionSchool: '蒙特雷高翻学院',
             admissionMajor: 'MA in Translation and localization management',
             collegeSchool: '北京交通大学',
@@ -556,7 +556,7 @@ export default {
           {
             name: '高同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/dld.png'),
             admissionSchool: '多伦多大学',
             admissionMajor: 'Masters of Information in User Experience Design (MI-UXD)',
             collegeSchool: '多伦多大学',
@@ -569,7 +569,7 @@ export default {
           {
             name: '唐同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/dld.png'),
             admissionSchool: '多伦多大学',
             admissionMajor: 'Master of Education, Educational Leadership and Policy',
             collegeSchool: '北京邮电大学',
@@ -648,7 +648,7 @@ export default {
           {
             name: '丁同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ny.png'),
             admissionSchool: '纽约大学',
             admissionMajor: 'MA in Politics',
             collegeSchool: '华中科技大学',
@@ -661,7 +661,7 @@ export default {
           {
             name: '喻同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ltdyslms.png'),
             admissionSchool: '鹿特丹伊拉斯姆斯大学',
             admissionMajor: 'Psychology of the Digital Media MSc',
             collegeSchool: '北京师范大学',
@@ -674,7 +674,7 @@ export default {
           {
             name: '蔡同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/bl.png'),
             admissionSchool: '布朗大学',
             admissionMajor: 'Master in Social Analysis and Research',
             collegeSchool: '本科：中国海洋大学 研究生：Rutgers',
@@ -701,7 +701,7 @@ export default {
           {
             name: '周同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
             admissionSchool: '约翰霍普金斯大学',
             admissionMajor: 'SAIS Master of Arts',
             collegeSchool: '',
@@ -715,7 +715,7 @@ export default {
           {
             name: '张同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ny.png'),
             admissionSchool: '纽约大学',
             admissionMajor: 'MA in Psychology',
             collegeSchool: '',
@@ -756,7 +756,7 @@ export default {
           {
             name: '高同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/soas.png'),
             admissionSchool: 'SOAS',
             admissionMajor: 'MA Chinese Studies',
             collegeSchool: '',
@@ -770,7 +770,7 @@ export default {
           {
             name: '侯同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/hsd.png'),
             admissionSchool: '华盛顿大学',
             admissionMajor: 'Master of Public Administration(Environment Policy and Management specialization)',
             collegeSchool: '',
@@ -784,7 +784,7 @@ export default {
           {
             name: '周同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/njlfny.png'),
             admissionSchool: '南加利福尼亚大学',
             admissionMajor: 'Master of Arts in Strategic Public Relations ',
             collegeSchool: '北京语言大学',
@@ -894,7 +894,7 @@ export default {
           {
             name: '刘同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/jzlg.png'),
             admissionSchool: '加州理工大学',
             admissionMajor: 'PHD in Chemical Engineering',
             collegeSchool: '浙江大学',
@@ -959,7 +959,7 @@ export default {
           {
             name: '朱同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ksl.png'),
             admissionSchool: '昆士兰大学',
             admissionMajor: 'Master of Veterinary Science',
             collegeSchool: '台湾中兴大学',
@@ -998,7 +998,7 @@ export default {
           {
             name: '孙同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/rdhjlg.png'),
             admissionSchool: '瑞士皇家理工学院',
             admissionMajor: "Master's programme in Sustainable Urban Planning and Design",
             collegeSchool: '重庆大学',
@@ -1011,7 +1011,7 @@ export default {
           {
             name: '周同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/rddl.png'),
             admissionSchool: '隆德大学',
             admissionMajor: 'Master in Information System',
             collegeSchool: '中山大学',
@@ -1037,7 +1037,7 @@ export default {
           {
             name: '李同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/dfet.png'),
             admissionSchool: '代尔夫特理工大学',
             admissionMajor: 'MSc Electrical Engineering',
             collegeSchool: '电子科技大学',
@@ -1115,7 +1115,7 @@ export default {
           {
             name: '由同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/jzdxlsjfx.png'),
             admissionSchool: '加州大学洛杉矶分校',
             admissionMajor: 'MS Civil Engineering',
             collegeSchool: '天津大学',
@@ -1128,7 +1128,7 @@ export default {
           {
             name: '王同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/zjylg.png'),
             admissionSchool: '佐治亚理工学院',
             admissionMajor: 'Master of Science in IndustrialEngineering',
             collegeSchool: '华东理工大学',
@@ -1141,7 +1141,7 @@ export default {
           {
             name: '黄同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/knjml.png'),
             admissionSchool: '卡内基梅隆',
             admissionMajor: 'M.S. in Software Engineering',
             collegeSchool: '滑铁卢大学',
@@ -1154,7 +1154,7 @@ export default {
           {
             name: '曹同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
             admissionSchool: '约翰霍普金斯大学',
             admissionMajor: 'MSE in Biomedical Engineering',
             collegeSchool: '',
@@ -1180,7 +1180,7 @@ export default {
           {
             name: '董同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/nylg.png'),
             admissionSchool: '南洋理工大学',
             admissionMajor: 'MSc  Mechanical Engineering ',
             collegeSchool: '西南交通大学+Leeds 2+2',
@@ -1206,7 +1206,7 @@ export default {
           {
             name: '程同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/lw.png'),
             admissionSchool: '鲁汶大学',
             admissionMajor: 'Master of Statistics MS',
             collegeSchool: '西南交通大学',
@@ -1245,7 +1245,7 @@ export default {
           {
             name: '陈同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/bl.png'),
             admissionSchool: '布朗大学',
             admissionMajor: 'MS in Physics',
             collegeSchool: '',
@@ -1258,7 +1258,7 @@ export default {
           {
             name: '丁同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/rdhjlg.png'),
             admissionSchool: '瑞士皇家理工学院',
             admissionMajor: 'PhD in Computer Science',
             collegeSchool: '上海交通大学本硕',
@@ -1271,7 +1271,7 @@ export default {
           {
             name: '卓同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/jzdxsdyg.png'),
             admissionSchool: '加州大学圣地亚哥分校',
             admissionMajor: 'MS in Computer Science and Engineering ',
             collegeSchool: '',
@@ -1310,7 +1310,7 @@ export default {
           {
             name: '王同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/jzdxdws.png'),
             admissionSchool: '加州大学戴维斯分校',
             admissionMajor: 'MS in Agricultural and Resource Economics',
             collegeSchool: 'UCD ',
@@ -1336,7 +1336,7 @@ export default {
           {
             name: '何同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/aebt.png'),
             admissionSchool: '阿尔伯塔大学',
             admissionMajor: 'MEng in ME',
             collegeSchool: '南开大学',
@@ -1377,7 +1377,7 @@ export default {
           {
             name: '杜同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ny.png'),
             admissionSchool: '纽约大学',
             admissionMajor: 'MS in Event Management',
             collegeSchool: '上海外国语大学',
@@ -1391,7 +1391,7 @@ export default {
             name: '曾同学',
             // 曾俊桦
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
             admissionSchool: '约翰·霍普金斯大学',
             admissionMajor: 'MS in Finance',
             collegeSchool: '北京林业大学',
@@ -1404,7 +1404,7 @@ export default {
           {
             name: '莫同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
             admissionSchool: '约翰·霍普金斯大学',
             admissionMajor: 'M.S. in Marketing ',
             collegeSchool: '国际关系学院',
@@ -1417,7 +1417,7 @@ export default {
           {
             name: '周同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/lqst.png'),
             admissionSchool: '罗切斯特大学',
             admissionMajor: 'M.S. in Marketing analytics',
             collegeSchool: '加州大学欧文分校',
@@ -1430,7 +1430,7 @@ export default {
           {
             name: '李同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/hsddxlys.png'),
             admissionSchool: '华盛顿大学圣路易斯分校',
             admissionMajor: 'MS in Business Analytics',
             collegeSchool: '浙江工业大学',
@@ -1443,7 +1443,7 @@ export default {
           {
             name: '董同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/jzdxow.png'),
             admissionSchool: '加利福尼亚大学欧文分校',
             admissionMajor: 'Master of Professional Accountancy',
             collegeSchool: 'University of Missouri–St. Louis',
@@ -1456,7 +1456,7 @@ export default {
           {
             name: '张同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/bsd.png'),
             admissionSchool: '波士顿大学',
             admissionMajor: 'MS in Media Science: Marketing Communication Research',
             collegeSchool: '厦门大学',
@@ -1508,7 +1508,7 @@ export default {
           {
             name: '厉同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xgkj.png'),
             admissionSchool: '香港科技大学',
             admissionMajor: 'Master of Science in Accounting',
             collegeSchool: '河海大学',
@@ -1521,7 +1521,7 @@ export default {
           {
             name: '罗同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xgkj.png'),
             admissionSchool: '香港科技大学',
             admissionMajor: 'Master of Science in Business Analytics',
             collegeSchool: '南方科技大学',
@@ -1534,7 +1534,7 @@ export default {
           {
             name: '敬同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xgzw.png'),
             admissionSchool: '香港中文大学',
             admissionMajor: 'MSc in Marketing',
             collegeSchool: '西南大学',
@@ -1547,7 +1547,7 @@ export default {
           {
             name: '张同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xgzw.png'),
             admissionSchool: '香港中文大学',
             admissionMajor: 'Master of Science in Finance',
             collegeSchool: '广东外语外贸大学',
@@ -1639,7 +1639,7 @@ export default {
           {
             name: '李同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/nylg.png'),
             admissionSchool: '南洋理工大学',
             admissionMajor: 'MSc Business Analytics',
             collegeSchool: '复旦大学',
@@ -1652,7 +1652,7 @@ export default {
           {
             name: '黄同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/nylg.png'),
             admissionSchool: '南洋理工大学',
             admissionMajor: 'Master of Science in Accountancy',
             collegeSchool: '海本',
@@ -1692,7 +1692,7 @@ export default {
           {
             name: '王同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xjpgli.png'),
             admissionSchool: '新加坡管理大学',
             admissionMajor: 'Master of Professional Accounting',
             collegeSchool: '浙江工商大学本科/北京外国语硕士',
@@ -1705,7 +1705,7 @@ export default {
           {
             name: '郭同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/xjpgli.png'),
             admissionSchool: '新加坡管理大学',
             admissionMajor: 'Master of IT in Business',
             collegeSchool: '上海大学',
@@ -1718,7 +1718,7 @@ export default {
           {
             name: '高同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ask.png'),
             admissionSchool: '埃塞克商学院',
             admissionMajor: 'Master in Finance',
             collegeSchool: '清华大学',
@@ -1731,7 +1731,7 @@ export default {
           {
             name: '徐同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ask.png'),
             admissionSchool: '埃塞克商学院',
             admissionMajor: 'MSc in Management',
             collegeSchool: '北京师范大学',
@@ -1744,7 +1744,7 @@ export default {
           {
             name: '曹同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/blgds.png'),
             admissionSchool: '巴黎高等商学院',
             admissionMajor: 'M2M HEC - YALE',
             collegeSchool: '密歇根大学安娜堡分校',
@@ -1757,7 +1757,7 @@ export default {
           {
             name: '宋同学',
             year: '',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/las.png'),
             admissionSchool: '里昂商学院',
             admissionMajor: 'MSc in Luxury Management & Marketing',
             collegeSchool: '洛桑酒店管理学院',
@@ -1772,7 +1772,7 @@ export default {
           {
             name: '李同学',
             year: '2019',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/zjgys.png'),
             admissionSchool: '芝加哥艺术学院',
             admissionMajor: 'MFA in Studio (Film, Video, New Media, and Animation)',
             collegeSchool: '北京师范大学',
@@ -1798,7 +1798,7 @@ export default {
           {
             name: '钟同学',
             year: '2019',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/mllg.png'),
             admissionSchool: '米兰理工大学',
             admissionMajor: 'Interior and Spatial Design',
             collegeSchool: '同济大学',
@@ -1811,7 +1811,7 @@ export default {
           {
             name: '王同学',
             year: '2019',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/nydy.png'),
             admissionSchool: 'New York Film Academy',
             admissionMajor: 'MFA in Screenwriting',
             collegeSchool: '北京大学',
@@ -1824,7 +1824,7 @@ export default {
           {
             name: '张同学',
             year: '2019',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/ygcyys.png'),
             admissionSchool: '英国创意艺术大学',
             admissionMajor: 'Filmmaking MA',
             collegeSchool: '四川音乐学院',
@@ -1850,7 +1850,7 @@ export default {
           {
             name: '董同学',
             year: '2019',
-            schoolLogo: '',
+            schoolLogo: require('../assets/img/home/school/hjzyyjyxj.png'),
             admissionSchool: '皇家中央演讲与戏剧学院',
             admissionMajor: 'Applied Theatre, MA',
             collegeSchool: '上海戏剧学院',

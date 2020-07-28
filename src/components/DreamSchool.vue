@@ -94,11 +94,11 @@
       </ul>
       <div class="teachers-div">
         <template v-for="(item, index) in selectedTeacher" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="item.school">
+          <div class="each-teacher" v-if="index < maxNumber" :key="item.school" @click="handleOpenDialog(item)">
             <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
             <div class="teacher-info-div">
               <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.school }}</div>
+              <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
             </div>
           </div>
         </template>
@@ -160,30 +160,16 @@
       </div>
     </div>
 
+    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
   </div>
 </template>
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
-
+import TeacherDialog from './common/teacherInfoDialog'
 export default {
   components: {
-    'remote-css': {
-      render (createElement) {
-        return createElement('link', { attrs: { rel: 'stylesheet', href: this.href } })
-      },
-      props: {
-        href: { type: String, required: true }
-      }
-    },
-    'remote-js': {
-      render (createElement) {
-        return createElement('script', { attrs: { type: 'text/javascript', src: this.src } })
-      },
-      props: {
-        src: { type: String, required: true }
-      }
-    }
+    TeacherDialog
   },
   name: 'Home',
   data () {
@@ -426,146 +412,230 @@ export default {
           {
             img: require('../assets/img/home/teachers/Z.png'),
             name: 'Z 导师',
-            school: '加州大学伯克利分校 计算机科学硕士'
+            phdSchool: '',
+            school: '加州大学伯克利分校，计算机科学硕士',
+            baSchool: '北京航空航天大学，电子工程',
+            experience: '曾在国内计算机视觉创业公司做算法实习生；国家留学基金委全额奖学金优秀本科生交换，意大利米兰理工大学；爱好篮球，排球；现在Oracle做软件工程师',
+            expertise: '计算机科学，电子工程，电子与计算机工程',
+            demo: '加州大学伯克利分校，电子工程与计算机科学硕士<br/>康奈尔大学，计算机科学硕士<br/>宾夕法尼亚大学，计算机图形学与游戏技术硕士<br/>布朗大学，计算机科学硕士<br/>哥伦比亚大学，计算机科学硕士<br/>南加州大学，计算机科学硕士（游戏开发）<br/>华盛顿大学，电子工程硕士<br/>南加州大学，电子工程硕士<br/>加州大学圣迭戈分校，电子与计算机工程硕士<br/>波士顿大学，电子工程硕士<br/>加州大学尔湾分校，电子与计算机工程硕士'
           },
           {
             img: require('../assets/img/home/teachers/H.png'),
             name: 'H 导师',
-            school: '卡耐基梅隆大学 计算机科学硕士'
+            phdSchool: '',
+            school: '卡耐基梅隆大学，计算机科学硕士',
+            baSchool: '复旦大学，计算机科学 ',
+            experience: '考试+申请+准备材料+学习的三个月，完成了一场从零开始的申请；现在Pinterest做软件工程师',
+            expertise: '计算机科学',
+            demo: '布朗大学，计算机科学硕士<br/>加州大学圣迭戈分校, 计算机科学与工程硕士<br/>加州大学尔湾分校，计算机科学硕士<br/>佐治亚理工大学，计算机科学硕士<br/>伊利诺伊大学厄巴纳-香槟分校，计算机科学硕士<br/>哥伦比亚大学，计算机科学硕士<br/>华盛顿大学（圣路易斯），计算机科学硕士<br/>杜克大学，电子与计算机工程硕士<br/>南加州大学，计算机科学硕士<br/>莱斯大学，计算机科学硕士<br/>乔治·华盛顿大学，计算机科学硕士<br/>约翰霍普金斯大学，计算机科学硕士<br/>罗彻斯特大学，计算机科学硕士<br/>佛罗里达大学，计算机科学硕士<br/>雪城大学，计算机科学硕士<br/>匹兹堡大学，计算机科学硕士'
           },
           {
             img: require('../assets/img/home/teachers/Y.png'),
             name: 'Y 导师',
-            school: '斯坦福大学 物理学博士'
+            phdSchool: '斯坦福大学，物理学博士',
+            school: '',
+            baSchool: '中国科学技术大学，应用物理',
+            experience: '曾在微软做数据科学家岗位实习，之后曾就职于Adobe、Helios DataInc.，现在宽凳科技担任研发总监。',
+            expertise: '物理学',
+            demo: '耶鲁大学，电子工程博士<br/>芝加哥大学，物理学博士<br/>伊利诺伊大学厄巴纳-香槟分校，材料科学博士'
           },
           {
             img: require('../assets/img/home/teachers/C.png'),
             name: 'C 导师',
-            school: '斯坦福大学 教育学硕士'
+            phdSchool: '',
+            school: '斯坦福大学，教育学硕士',
+            baSchool: '中央民族大学，对外汉语',
+            experience: 'HenryM.Gunn高中,中文老师',
+            expertise: '教育学',
+            demo: '哥伦比亚大学，教育心理硕士<br/>纽约大学，对比教育硕士'
           },
           {
             img: require('../assets/img/home/teachers/L.png'),
             name: 'L 导师',
-            school: '杜克大学 管理学硕士'
+            phdSchool: '',
+            school: '杜克大学，管理学硕士',
+            baSchool: '上海财经大学，会计学',
+            experience: '高盛（香港）、波士顿咨询、国泰君安、安永',
+            expertise: '管理学',
+            demo: '香港大学，金融学硕士<br/>香港科技大学，商业管理硕士<br/>帝国理工大学，金融学硕士<br/>博科尼大学，会计学硕士'
           },
           {
             img: require('../assets/img/home/teachers/Z2.png'),
             name: 'Z 导师',
-            school: '麻省理工大学 政治科学博士'
+            phdSchool: '麻省理工大学，政治科学博士',
+            school: '约翰霍普金斯大学&清华大学，国际关系',
+            baSchool: '人民大学，国际关系',
+            experience: '曾就职于清华·卡内基全球政策研究中心、国务院发展研究中心、国家能源局、旧金山奥杜邦环境保护组织等；曾获得留学基金委“国际区域研究与外语高层次人才”奖学金、中国人民大学校长奖学金等；发起创办清华大学青思智库',
+            expertise: '政治科学，国际商务与贸易，国际关系，国际发展，东亚研究，数据科学，统计学',
+            demo: '乔治华盛顿大学，统计学硕士<br/>纽约大学，社会科学应用统计学硕士<br/>加州大学圣迭戈分校，国际研究硕士<br/>华盛顿大学，国际研究硕士<br/>雪城大学，国际关系硕士<br/>华威大学，国际关系硕士<br/>伦敦大学亚非学院，太平洋亚洲研究硕士'
           },
           {
             img: require('../assets/img/home/teachers/Z3.png'),
             name: 'Z 导师',
-            school: '哥伦比亚大学 艺术管理硕士'
+            phdSchool: '',
+            school: '哥伦比亚大学，艺术管理硕士',
+            baSchool: '德雷赛尔大学，电视制作与媒体管理',
+            experience: '曾在费城艺术联盟工作，协作宋东、尹秀珍的大型展览《筷道》;曾在费城艺术博物馆、古根海姆美术馆、ART21、豪瑟沃斯画廊等艺术机构工作。本科及研究生都是DIY申请拿到多所高校奖学金，坚信看透自己、理解自己、善用经历才是申请的关键。如果你也准备好献身美术馆、拍卖行、或是艺术教育，选择艺术管理项目将是你人生的转折点',
+            expertise: '艺术管理，文化管理，数字媒体，电视制作，行为艺术，策展等',
+            demo: '哥伦比亚大学，艺术管理硕士<br/>宾夕法尼亚大学，非营利组织领导管理硕士<br/>纽约大学，行为艺术管理硕士<br/>南加州大学，策展实践及公共领域硕士<br/>波士顿大学，电视制作硕士<br/>东北大学，音乐产业领导管理硕士<br/>伦敦大学学院，数字媒体硕士<br/>曼彻斯特大学，艺术管理硕士<br/>悉尼大学，艺术策展硕士<br/>阿姆斯特丹大学，艺术与文化硕士<br/>普瑞特艺术学院，艺术与文化管理硕士<br/>莱顿大学，全球艺术及现代艺术硕士'
           },
           {
             img: require('../assets/img/home/teachers/W.png'),
             name: 'W 导师',
-            school: '麻省理工学院 金融硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/C2.png'),
-            name: 'C 导师',
-            school: '卡耐基梅隆大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/Y2.png'),
-            name: 'Y 导师',
-            school: '范德堡大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/D.png'),
-            name: 'D 导师',
-            school: '多伦多大学 航空工程'
-          },
-          {
-            img: require('../assets/img/home/teachers/L2.png'),
-            name: 'L 导师',
-            school: '哥伦比亚大学 电子工程硕士'
+            phdSchool: '',
+            school: '麻省理工学院，金融硕士',
+            baSchool: '波士顿学院，数学/哲学专业',
+            experience: '在纽约资产管理公司任研究员，Cogitr.Inc联合创始人，热衷于马拉松长跑',
+            expertise: '金融，金融工程，金融数学',
+            demo: '纽约大学，金融数学硕士<br/>芝加哥大学，金融数学硕士'
           }
         ],
         [
           {
-            img: require('../assets/img/teachers/graduate/Claire.png'),
-            name: 'Claire',
-            school: '香港中文大学 视觉文化研究专业'
-          },
-          {
-            img: require('../assets/img/teachers/graduate/Hailey.png'),
-            name: 'Hailey',
-            school: '宾夕法尼亚大学 跨文化传播专业'
+            img: require('../assets/img/teachers/graduate/Winnie.png'),
+            name: 'Winnie',
+            school: '伦敦政治经济学院 国际关系专业',
+            baSchool: '',
+            experience: '本科就读于密歇根大学安娜堡分校，主修历史并辅修亚洲研究，主要研究方向有英国现代史、中国政治和美国亚裔影视文化等。研究生 DIY 申请获得英国和加拿大多所名校的 offer，硕士就读期间的研究侧重建构主义、女权主义、民族主义和国际组织等方面。',
+            expertise: '亚洲研究，公共政策，公共管理，国际政治，文学',
+            demo: '哥伦比亚大学 东亚语言和文化<br/>杜克大学 分析政治经济学 <br/>清华-约翰斯霍普金斯大学双学位 全球政治和经济<br/> 宾夕法尼亚大学 国际公共管理 <br/>乔治城大学 公共管理 <br/>南加州大学 传播管理 <br/>牛津大学 传统东亚研究 <br/>伦敦政治经济学院 比较视角的中国研究 <br/>伦敦国王大学 国际争端研究'
           },
           {
             img: require('../assets/img/teachers/graduate/Tangning.png'),
             name: 'Tangning',
-            school: '乔治城大学 公共政策专业'
+            school: '乔治城大学 公共政策专业',
+            baSchool: '',
+            experience: '能文能“舞”，英美德三国留学经历，曾参与 2014APEC 领导人峰会筹办，在世界自然保护联盟主席办公室实习。',
+            expertise: '传媒，公共管理，政治学，国际发展',
+            demo: '哥伦比亚大学 公共管理硕士<br/>约翰霍普金斯大学-清华 国际事务与法学双学位硕士<br/>乔治城大学 公共政策硕士<br/>宾夕法尼亚大学 社会政策硕士<br/>康奈尔大学 公共管理硕士<br/>布朗大学 公共管理硕士<br/>哈佛大学 人类发展与心理学硕士<br/>哥伦比亚大学 发展心理学硕士<br/>宾夕法尼亚大学 人类发展硕士<br/>南加州大学 战略公共关系硕士<br/>乔治城大学 传媒、文化和科技硕士<br/>华盛顿大学圣路易斯大学 东亚研究硕士<br/>伦敦政经学院-复旦大学 全球政治经济双学位硕士<br/>伦敦政经学院 性别、政策与不平等硕士<br/>伦敦政经学院 国际社会与公共政策硕士'
           },
           {
             img: require('../assets/img/teachers/graduate/Elio.png'),
             name: 'Elio',
-            school: '帝国理工学院 创新创业与管理学专业'
+            school: '帝国理工学院 创新创业与管理学专业',
+            baSchool: '',
+            experience: '6 年留学经验，去过 31 个国家参与商业比赛和志愿者项目。高考以远超录取线成绩选择宁波诺丁汉大学，大三在英国本部交换时获得院长奖学金、梦想奖学金。而后研究生选择在帝国理工商学院管理学创投方向深造，期间带领团队参与 LVMH 等商赛并获得名次。工作和实习经历涉足广泛，包括国内券商投行部、美资管理咨询、500 强快消市场和公关部、互联网产品部等。',
+            expertise: '管理学，商业分析，金融，市场',
+            demo: '牛津大学<br/>帝国理工大学<br/>伦敦政经学院<br/>伦敦大学学院<br/>哥伦比亚大学<br/>卡耐基梅隆大学<br/>圣路易斯华盛顿大学<br/>南加州大学、罗切斯特大学<br/>伊利诺伊香槟分校<br/>波士顿大学<br/>加州大学圣地亚哥分校'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Xinyi.png'),
+            name: 'Xinyi',
+            school: '哥伦比亚大学 体育管理硕士',
+            baSchool: '',
+            experience: '本科毕业于曼荷莲女子学院，主修欧洲历史并辅修意大利语。在校期间一直不仅保持着专业 ',
+            expertise: '商业分析，金融，市场，体育管理',
+            demo: '麻省理工学院<br/>耶鲁大学<br/>哥伦比亚大学<br/>宾夕法尼亚大学<br/>芝加哥大学<br/>西北大学<br/>卡耐基梅隆大学<br/>杜克大学<br/>伦敦政经学院<br/>帝国理工<br/>香港科技大学<br/>南洋理工大学<br/>华盛顿圣路易斯大学<br/>范德堡大学'
           },
           {
             img: require('../assets/img/teachers/graduate/Cookie.png'),
             name: 'Cookie',
-            school: '美国埃默里大学 公共卫生硕士 – 医疗政策与管理专业'
+            school: '美国埃默里大学 公共卫生硕士 – 医疗政策与管理专业',
+            baSchool: '',
+            experience: '从广告圈到医疗产业，最终赴美前往 Emory University 攻读公共卫生政策及管理硕士。毕业设计成绩达到全班前五名，在读期间更是被健康经济学教授邀请成为研究生课程助教。',
+            expertise: '生物统计，生物科学，公共卫生',
+            demo: '哈佛大学 免疫医学硕士<br/>耶鲁大学 生物医学工程硕士 生物统计硕士<br/>哥伦比亚大学 生物医学工程硕士 生物统计硕士<br/>宾夕法尼亚大学 细胞与分子学博士，生物技术硕士，医学物理硕士<br/>西北大学 生物医学工程硕士，生物技术硕士<br/>杜克大学 生物医学工程硕士，生物统计硕士<br/>约翰斯.霍普金斯大学 生物医学工程硕士，公共卫生硕士<br/>康奈尔大学 航空和航天工程硕士，生物统计硕士，电子电器工程硕士<br/>莱斯大学 生物工程硕士<br/>圣路易斯华盛顿大学 生物医学工程博士，分子与细胞生物学博士<br/>加州大学洛杉矶分校 生物统计硕士<br/>南加州大学 计算机科学硕士，生物医学工程硕士<br/>密歇根大学-安娜堡分校 生物与生命科学，生物统计<br/>纽约大学 计算机科学硕士<br/>佛罗里达大学 公卫流行病学博士'
           },
           {
             img: require('../assets/img/teachers/graduate/Sarah.png'),
             name: 'Sarah',
-            school: '香港大学 环境管理专业 '
+            school: '香港大学 环境管理专业 ',
+            baSchool: '',
+            experience: '本硕期间交叉学习理工和商科课程，在食品质检院、英国 Vegware 公司和香港安永实习，在上海一家环境咨询公司工作。',
+            expertise: '环境工程/环境管理/环境科学，土木工程，材料科学，生物医学工程，公共卫生，统计，食品与营养，计算机科学，电子电器工程',
+            demo: '卡耐基梅隆 土木和环境工程硕士<br/>卡耐基梅隆 材料科学硕士<br/>卡耐基梅隆 生物医学工程硕士<br/>西北大学 土木和环境工程硕士<br/>芝加哥大学 计算机科学博士<br/>帝国理工学院 公共卫生硕士<br/>哥伦比亚大学 营养学硕士<br/>杜克大学 环境管理硕士<br/>宾夕法尼亚大学 环境科学与政策硕士<br/>康奈尔大学 土木工程硕士<br/>康奈尔大学 运筹学硕士<br/>加州大学伯克利分校 统计硕士<br/>加州大学伯克利分校 工业工程与运筹学硕士<br/>加州大学洛杉矶分校 生物工程硕士<br/>'
           },
           {
-            img: require('../assets/img/teachers/graduate/Xiaohan.png'),
-            name: 'Xiaohan',
-            school: '哥伦比亚大学 公共管理专业'
+            img: require('../assets/img/teachers/graduate/Hanyun.png'),
+            name: 'Hanyun',
+            school: '爱尔兰都柏林圣三一学院 金融风险管理专业',
+            baSchool: '',
+            experience: '本科在天普大学学习风险管理与保险专业，研究生就读于都柏林圣三一学院金融风险管理专业。本科在校时期获得美国公众风险控制联合组织（PRIMA）年度学生奖学金以及学校多项纪念奖学金。大三暑假以突出的学业成绩被推荐到纽约州萨拉托加市政府实习，积极参与风险研究，并成功构思起草新的风险登记表，并且被多个部门采用。<br/><br/> 本科毕业后 DIY 申请到成功申请到澳洲悉尼大学，德国慕尼黑大学，都柏林圣三一学院，最后选择进入圣三一学院学习金融风险管理知识，并将以一等荣誉毕业。',
+            expertise: '城市规划，药学，工商管理',
+            demo: '伦敦大学学院 药物发现与开发硕士<br/伦敦大学学院 能源与环境材料硕士<br/>蒙特雷国际研究学院 笔译，口译和语言教育硕士<br/>爱丁堡大学 城市规划与设计硕士<br/>伦敦国王学院 制药技术理学硕士<br/>伦敦国王学院 药物分析与质量管理理学硕士<br/>华威大学  行为经济理学硕士<br/>巴斯大学 口译与笔译硕士<br/>德国慕尼黑大学 工商管理硕士'
           },
           {
-            img: require('../assets/img/teachers/graduate/June.png'),
-            name: 'June',
-            school: '香港大学 TESOL专业'
+            img: require('../assets/img/teachers/graduate/aofu.png'),
+            name: '奥夫',
+            school: '伦敦政治经济学院 中国比较研究',
+            baSchool: '',
+            experience: '在中央部委与大型媒体混迹多年的中英韩三语掌握者，喜欢倾听世界的北外人。',
+            expertise: '国际关系，政治学，MPP，新闻，经济学',
+            demo: '牛津大学 当代中国研究硕士 <br/>伦敦政治经济学院 经济学硕士 <br/>伦敦政治经济学院 复旦-LSE 全球政治经济学硕士 <br/>伦敦政治经济学院 环境经济学与气候变化硕士 <br/>伦敦政治经济学院 会计金融硕士 <br/>伦敦政治经济学院 中国比较研究硕士 <br/>伦敦政治经济学院 城市化与发展硕士 <br/>伦敦政治经济学院 国际社会与公共政策硕士 <br/>帝国理工学院 环境金融硕士 <br/>伦敦大学学院 数字人文硕士 <br/>伦敦大学学院 比较经济政策硕士 <br/>伦敦大学学院 比较商业经济硕士 <br/>伦敦国王学院 数字社会与文化硕士 <br/>伦敦国王学院 新兴市场与国际发展硕士 <br/>伦敦国王学院 国际政治经济学硕士'
           }
         ],
         [
           {
             img: require('../assets/img/teachers/foreigners/RachelCrovello.png'),
             name: 'Rachel Crovello',
-            school: '斯坦福大学 语言学及翻译专业'
+            school: '斯坦福大学 语言学及翻译专业',
+            experience: 'Rachel在斯坦福大学获得语言学学士学位。双辅修翻译研究和阿拉伯语的Rachel每天都会用到她的语言能力。Rachel多年来一直参与培训非英语母语的学生，这些经历让她能够有效地帮助学生熟练掌握英文写作流程，增强他们对英文写作的信心。她在棕榈工作中最开心的就是看到她的语言能力能对学生有所帮助，让他们可以迅速掌握新的语法概念。除了编辑，Rachel业余还会为Dalkey Archive Press翻译小说、演奏小提琴、或辅导斯坦福的学生。',
+            baSchool: '',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/KristenPierce.png'),
             name: 'Kristen Pierce',
-            school: '哥伦比亚大学 英语教育专业'
+            school: '哥伦比亚大学 英语教育专业',
+            baSchool: '',
+            experience: 'Kristen在锡耶纳学院取得英语学士学位，在哥伦比亚大学教育学院取得英语教育硕士学位。作为美国学校七年级的教师，Kristen利用她的教育背景帮助她的学生成长为写作者，思考者和建立独立人格。很多不同年龄段的学生都对专业写作深感头疼，她希望帮助他们培养写作技能并获得成功。在棕榈大道，她很喜欢帮助学生润色写作，让学生们能够追求自己的学术目标或者事业发展。在编辑和教学之余，她喜欢阅读推理小说和环游世界。',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/JakeIngrassia.png'),
             name: 'Jake Ingrassia',
-            school: '南加州大学 新闻专业'
+            school: '南加州大学 新闻专业',
+            baSchool: '',
+            experience: 'Jake在南加大取得了传媒硕士学位。他现在就职于ABC News，参与制作国际新闻和“早安美国”等节目。Jake在写作和新闻撰写方面有着出色的能力和经验。他期待用他的写作技巧为更多同学润色文章，让文章的表述更加自然地道。在编辑工作之余，Jake喜欢参加各种音乐会，不断追寻新的音乐灵感。Jake期待和大家一起工作！',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/ElizabethPollack.png'),
             name: 'Elizabeth Pollack',
-            school: '卓克索大学 剧本创作专业'
+            school: '卓克索大学 剧本创作专业',
+            baSchool: '',
+            experience: 'Elizabeth 在卓克索大学取得编剧学士学位，辅修英语，同时拥有写作与出版证书。她有两年的研究生申请文书和简历编辑经验。Elizabeth对书面文字的热情是她经手的文书和简历的质量保证，她确信每篇文章都能够完美展现出学生的经验和申请亮点。在编辑工作之余，Elizabeth会撰写剧本和文章，她也是塑形芭蕾健身课的老师。',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/AlexandraNichipor.png'),
             name: 'Alexandra Nichipor',
-            school: '哈佛大学 神学专业'
+            school: '哈佛大学 神学专业',
+            baSchool: '',
+            experience: 'Alexandra是哈佛大学神学院的毕业生。她在本科时当过录取大使，因而很了解录取官看重什么。本科毕业之后，她曾经在中国河北省保定市的河北大学当英语教师，之后回到美国在哈佛进行研究生学习，并且为非英语母语的学生提供辅导，帮他们准备英语能力测试。除了目前在棕榈的工作之外，她还为大部头文学作品撰写导读。在她的空余时间，Alexandra喜欢阅读、烹饪和跳舞。',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/WaheedGardezi.png'),
             name: 'Waheed Gardezi ',
-            school: '哈佛大学 中东研究专业'
+            school: '哈佛大学 中东研究专业',
+            baSchool: '',
+            experience: 'Waheed曾担任哈佛本科部的招生官，对名校申请有着一手的丰富经验。作为SAT满分（1600）获得者，他利用自己的学术能力帮助过许多同学实现梦想。无论是在Ernst & Young做咨询官，还是在亚洲教授英语，教育始终是他的激情所在，他享受帮助同学写出完美文书的过程。在棕榈，Waheed希望能帮助更多同学写出出色的文书。在他的空余时间，Waheed喜欢冲浪，爬山，参与社区志愿者活动。',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/VictoriaGaffney.png'),
             name: 'Victoria Gaffney ',
-            school: '约翰·霍普金斯大学 写作专业'
+            school: '约翰·霍普金斯大学 写作专业',
+            baSchool: '',
+            experience: 'Victoria在JHU取得了写作专业的硕士学位。她对学术写作和创意写作都充满热情。她尤其喜爱个人文书的写作，这也是她加入棕榈最重要的原因。作为在语言学和句法领域有相当深造的写作者，她希望能够帮助更多国际学生写出优秀的文书。Victoria目前在一家非营利性机构工作，并教授儿童创意写作。',
+            expertise: '',
+            demo: ''
           },
           {
             img: require('../assets/img/teachers/foreigners/NoahTeachy.png'),
             name: 'Noah Teachy',
-            school: '哥伦比亚大学 音乐教育专业'
+            school: '哥伦比亚大学 音乐教育专业',
+            baSchool: '',
+            experience: 'Jake在南加大取得了传媒硕士学位。他现在就职于ABC News，参与制作国际新闻和“早安美国”等节目。Jake在写作和新闻撰写方面有着出色的能力和经验。他期待用他的写作技巧为更多同学润色文章，让文章的表述更加自然地道。在编辑工作之余，Jake喜欢参加各种音乐会，不断追寻新的音乐灵感。Jake期待和大家一起工作！',
+            expertise: '',
+            demo: ''
           }
         ],
         [
@@ -634,7 +704,9 @@ export default {
       maxNumber: 8,
       show: false,
       currentType: 0,
-      selectedTeacher: []
+      selectedTeacher: [],
+      dialogVisible: false,
+      selectTeacher: {}
     }
   },
   created () {
@@ -706,6 +778,13 @@ export default {
         }
       })
       window.open(routeUrl.href, '_blank')
+    },
+    handleOpenDialog (item) {
+      this.dialogVisible = false
+      if (this.currentType !== 3) {
+        this.dialogVisible = true
+        this.selectTeacher = item
+      }
     }
   }
 }
@@ -1053,6 +1132,7 @@ export default {
         margin: 0 20px 45px;
         display: inline-block;
         vertical-align: top;
+        cursor: pointer;
 
         .teacher-img {
           width:100%;
@@ -1086,6 +1166,11 @@ export default {
             margin-top: 7px;
           }
         }
+      }
+
+      .each-teacher:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
       }
 
       .more-teachers {

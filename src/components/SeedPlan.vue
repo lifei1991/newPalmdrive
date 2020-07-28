@@ -51,11 +51,11 @@
       </ul>
       <div class="teachers-div">
         <template v-for="(item, index) in selectedTeacher" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="index">
+          <div class="each-teacher" v-if="index < maxNumber" :key="index" @click="handleOpenDialog(item)">
             <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
             <div class="teacher-info-div" :style="{'background-color':(currentType == 2 ? '#FEE51F':'#F1FAFA')}">
               <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.school }}</div>
+              <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
             </div>
           </div>
         </template>
@@ -126,30 +126,17 @@
       </div>
     </div>
 
+    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
+
   </div>
 </template>
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
-
+import TeacherDialog from './common/teacherInfoDialog'
 export default {
   components: {
-    'remote-css': {
-      render (createElement) {
-        return createElement('link', { attrs: { rel: 'stylesheet', href: this.href } })
-      },
-      props: {
-        href: { type: String, required: true }
-      }
-    },
-    'remote-js': {
-      render (createElement) {
-        return createElement('script', { attrs: { type: 'text/javascript', src: this.src } })
-      },
-      props: {
-        src: { type: String, required: true }
-      }
-    }
+    TeacherDialog
   },
   name: 'Home',
   data () {
@@ -220,106 +207,166 @@ export default {
       teachers: [
         [
           {
-            img: require('../assets/img/teachers/graduate/Vivian.png'),
-            name: 'Vivian 老师',
-            school: '伦敦国王学院 文化创意产业 硕士'
+            img: require('../assets/img/teachers/graduate/Jasmine.png'),
+            name: 'Jasmine 老师',
+            phdSchool: '',
+            school: '纽约州立大学奥尔巴尼分校 公共管理 硕士',
+            baSchool: '',
+            experience: '研究生毕业后在纽约州政府担任商业分析员，之后到大型NGO担任会计经理；回国以后致力于留学行业担任留学导师和职业导师。',
+            expertise: '文商科同学背景提升',
+            demo: '辅导同学拿到安永、宽奇资产、国观智库、经纬创投、ABC美好社会咨询社、北京生命科学研究所、京东金融等实习/科研offer：辅导学生成功申请包括哈佛大学、加州大学伯克利分校以及哥伦比亚大学等美国TOP30高校的暑期课程。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Olivia.png'),
-            name: 'Olivia 老师',
-            school: '哥伦比亚大学 教育学 硕士'
+            img: require('../assets/img/teachers/graduate/Serena.png'),
+            name: 'Serena 老师',
+            phdSchool: '',
+            school: ' 爱丁堡大学 教育学硕士',
+            baSchool: '',
+            experience: '毕业后在上交大高教院担任RA，协助进行世界一流大学排名研究和对外咨询。之后在英语教学机构从事教学及教研。后加入棕榈大道，成为全职种子主导师。',
+            expertise: '理工科同学背景提升',
+            demo: ' 辅导同学拿到平安产险、银河证券、GEC助教、西门子、MITACS、Global Ladder等实习/科研offer；拿到包括哥伦比亚大学、加州大学洛杉矶分校、伦敦政治经济学院在内的英美TOP50高校交换交流机会。'
           },
           {
             img: require('../assets/img/teachers/graduate/Xiaohan.png'),
             name: 'Xiaohan 老师',
-            school: '哥伦比亚大学 公共管理 硕士'
+            phdSchool: '',
+            school: '哥伦比亚大学 公共管理硕士',
+            baSchool: '',
+            experience: '本科和硕士时期都在研究国际发展/反贫困事务，非洲、东南亚都留下了实践的足迹。自己当年申请遇见了坑，今天一定要让学弟学妹们避雷脱坑~',
+            expertise: '理工科同学背景提升',
+            demo: '辅导学生拿到BCG PTA 、罗兰贝格PTA 、安永、毕马威、国观智库、招商银行、字节跳动、环球时报等的实习offer。辅导学生成功申请到慕尼黑工业大学、卡内基梅隆大学、卡迪夫大学、香港科技大学、芝加哥大学、加州大学圣迭戈分校等校的暑期科研offer，加州大学伯克利分校、剑桥大学、南洋理工大学等校的交换交流机会。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Cheryl.png'),
-            name: 'Cheryl 老师',
-            school: '伦敦大学学院 应用语言学 硕士'
+            img: require('../assets/img/teachers/graduate/Ruitao.png'),
+            name: 'Ruitao 老师',
+            phdSchool: '',
+            school: '广东外语外贸大学 翻译硕士',
+            baSchool: '',
+            experience: '本硕连读期间做过英语教学、自由译者、报社编辑、新媒体运营、猎头等相关实习和工作。一路走来，体验过不同行业的工作环境，也不断在寻找和靠近自己理想的工作和生活。作为一名种子主导师，希望把自己这一路走来的所思所想分享给大家，帮助和陪伴同学在大学期间筑梦、逐梦和圆梦！',
+            expertise: '文商科同学背景提升',
+            demo: '辅导同学拿到四大、滴滴出行、爱奇艺、雅培、施耐德、久谦咨询、海国图智、欧盟商会等多个实习offer，以及美国TOP50交换交流机会。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Wendy.png'),
-            name: 'Wendy 老师',
-            school: '北科罗拉多大学大学 TESOL 硕士'
+            img: require('../assets/img/teachers/graduate/ShuYang.png'),
+            name: 'ShuYang 老师',
+            phdSchool: '',
+            school: '河北工业大学 英语学士',
+            baSchool: '',
+            experience: '从事留学工作8年，曾担任文书顾问和申请顾问，拥有丰富的留学申请经验。加入棕榈大道担任种子主导师后，希望能借助自己多年的积累，帮助同学们更早明确申请意向，更精准规划自己的留学之路。',
+            expertise: '文商科同学背景提升',
+            demo: '辅导同学拿到京东、西门子、字节跳动、腾讯、电通安吉斯、麦肯光明、凤凰网、罗德公关等多个实习offer，以及英国G5院校和美国TOP50院校的交流交换机会。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Claire.png'),
-            name: 'Claire 老师',
-            school: '香港中文大学 视觉文化研究 硕士'
+            img: require('../assets/img/teachers/graduate/Lulu.png'),
+            name: 'Lulu 老师',
+            phdSchool: '',
+            school: '伦敦大学学院 教育学硕士',
+            baSchool: '',
+            experience: '本科和硕士期间积累第二语言教学经验（汉语/英语），毕业后曾在国际学校A-level课程中心全职任教，此后加入棕榈，为学生提供个性化的背景提升方案与辅导。',
+            expertise: '文商科同学背景提升',
+            demo: ' 辅导同学拿到安永、强生、社科院、中国发展基金会、广发银行、海国图智、伟达公关、搜狐等实习offer，以及全球TOP50院校交流交换、暑研机会。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Vanessa.png'),
-            name: 'Vanessa 老师',
-            school: '华威大学 人力资源管理 硕士'
+            img: require('../assets/img/teachers/graduate/Vicky.png'),
+            name: 'Vicky 老师',
+            phdSchool: '',
+            school: '俄亥俄州立大学 营养学学士',
+            baSchool: '',
+            experience: '6年教育及留学行业工作经验，曾担任国际部升学指导老师，成功指导学生申请到世界名校。后加入棕榈大道成为全职种子主导师，辅导同学在种子阶段做好各项背景提升任务，冲刺理想的彼岸。',
+            expertise: '理工科同学背景提升',
+            demo: '辅导同学拿到MITACS、方正证券、万博宣伟、拜耳、ABC美好社会咨询社、中科院地理科学与资源研究所等多个实习/科研offer，以及美国TOP50院校的交换交流机会。'
           },
           {
-            img: require('../assets/img/teachers/graduate/Jiaqi.png'),
-            name: 'Jiaqi 老师',
-            school: '芝加哥洛约拉大学 会记学 硕士'
+            img: require('../assets/img/teachers/graduate/Sophie.png'),
+            name: 'Sophie 老师',
+            phdSchool: '',
+            school: '杜伦大学 教育学硕士',
+            baSchool: '',
+            experience: '在英国完成教育学研究生学业，回国后曾在世界500强公司担任管培生，后加入棕榈大道担任种子主导师，希望给予留学路上迷茫的孩子专业的指导，精细的规划，留学的路上你不再孤单。',
+            expertise: '理工科同学背景提升',
+            demo: '辅导同学拿到耶鲁大学、香港科技大学、腾讯、人民在线、四大、天风证券、中国太平洋保险等实习/科研offer，以及全球TOP50院校交换交流机会。'
           }
         ],
         [
           {
             img: require('../assets/img/home/teachers/Z.png'),
             name: 'Z 导师',
-            school: '加州大学伯克利分校 计算机科学硕士'
+            phdSchool: '',
+            school: '加州大学伯克利分校，计算机科学硕士',
+            baSchool: '北京航空航天大学，电子工程',
+            experience: '曾在国内计算机视觉创业公司做算法实习生；国家留学基金委全额奖学金优秀本科生交换，意大利米兰理工大学；爱好篮球，排球；现在Oracle做软件工程师',
+            expertise: '计算机科学，电子工程，电子与计算机工程',
+            demo: '加州大学伯克利分校，电子工程与计算机科学硕士<br/>康奈尔大学，计算机科学硕士<br/>宾夕法尼亚大学，计算机图形学与游戏技术硕士<br/>布朗大学，计算机科学硕士<br/>哥伦比亚大学，计算机科学硕士<br/>南加州大学，计算机科学硕士（游戏开发）<br/>华盛顿大学，电子工程硕士<br/>南加州大学，电子工程硕士<br/>加州大学圣迭戈分校，电子与计算机工程硕士<br/>波士顿大学，电子工程硕士<br/>加州大学尔湾分校，电子与计算机工程硕士'
           },
           {
             img: require('../assets/img/home/teachers/H.png'),
             name: 'H 导师',
-            school: '卡耐基梅隆大学 计算机科学硕士'
+            phdSchool: '',
+            school: '卡耐基梅隆大学，计算机科学硕士',
+            baSchool: '复旦大学，计算机科学 ',
+            experience: '考试+申请+准备材料+学习的三个月，完成了一场从零开始的申请；现在Pinterest做软件工程师',
+            expertise: '计算机科学',
+            demo: '布朗大学，计算机科学硕士<br/>加州大学圣迭戈分校, 计算机科学与工程硕士<br/>加州大学尔湾分校，计算机科学硕士<br/>佐治亚理工大学，计算机科学硕士<br/>伊利诺伊大学厄巴纳-香槟分校，计算机科学硕士<br/>哥伦比亚大学，计算机科学硕士<br/>华盛顿大学（圣路易斯），计算机科学硕士<br/>杜克大学，电子与计算机工程硕士<br/>南加州大学，计算机科学硕士<br/>莱斯大学，计算机科学硕士<br/>乔治·华盛顿大学，计算机科学硕士<br/>约翰霍普金斯大学，计算机科学硕士<br/>罗彻斯特大学，计算机科学硕士<br/>佛罗里达大学，计算机科学硕士<br/>雪城大学，计算机科学硕士<br/>匹兹堡大学，计算机科学硕士'
           },
           {
             img: require('../assets/img/home/teachers/Y.png'),
             name: 'Y 导师',
-            school: '斯坦福大学 物理学博士'
+            phdSchool: '斯坦福大学，物理学博士',
+            school: '',
+            baSchool: '中国科学技术大学，应用物理',
+            experience: '曾在微软做数据科学家岗位实习，之后曾就职于Adobe、Helios DataInc.，现在宽凳科技担任研发总监。',
+            expertise: '物理学',
+            demo: '耶鲁大学，电子工程博士<br/>芝加哥大学，物理学博士<br/>伊利诺伊大学厄巴纳-香槟分校，材料科学博士'
           },
           {
             img: require('../assets/img/home/teachers/C.png'),
             name: 'C 导师',
-            school: '斯坦福大学 教育学硕士'
+            phdSchool: '',
+            school: '斯坦福大学，教育学硕士',
+            baSchool: '中央民族大学，对外汉语',
+            experience: 'HenryM.Gunn高中,中文老师',
+            expertise: '教育学',
+            demo: '哥伦比亚大学，教育心理硕士<br/>纽约大学，对比教育硕士'
           },
           {
             img: require('../assets/img/home/teachers/L.png'),
             name: 'L 导师',
-            school: '杜克大学 管理学硕士'
+            phdSchool: '',
+            school: '杜克大学，管理学硕士',
+            baSchool: '上海财经大学，会计学',
+            experience: '高盛（香港）、波士顿咨询、国泰君安、安永',
+            expertise: '管理学',
+            demo: '香港大学，金融学硕士<br/>香港科技大学，商业管理硕士<br/>帝国理工大学，金融学硕士<br/>博科尼大学，会计学硕士'
           },
           {
             img: require('../assets/img/home/teachers/Z2.png'),
             name: 'Z 导师',
-            school: '麻省理工大学 政治科学博士'
+            phdSchool: '麻省理工大学，政治科学博士',
+            school: '约翰霍普金斯大学&清华大学，国际关系',
+            baSchool: '人民大学，国际关系',
+            experience: '曾就职于清华·卡内基全球政策研究中心、国务院发展研究中心、国家能源局、旧金山奥杜邦环境保护组织等；曾获得留学基金委“国际区域研究与外语高层次人才”奖学金、中国人民大学校长奖学金等；发起创办清华大学青思智库',
+            expertise: '政治科学，国际商务与贸易，国际关系，国际发展，东亚研究，数据科学，统计学',
+            demo: '乔治华盛顿大学，统计学硕士<br/>纽约大学，社会科学应用统计学硕士<br/>加州大学圣迭戈分校，国际研究硕士<br/>华盛顿大学，国际研究硕士<br/>雪城大学，国际关系硕士<br/>华威大学，国际关系硕士<br/>伦敦大学亚非学院，太平洋亚洲研究硕士'
           },
           {
             img: require('../assets/img/home/teachers/Z3.png'),
             name: 'Z 导师',
-            school: '哥伦比亚大学 艺术管理硕士'
+            phdSchool: '',
+            school: '哥伦比亚大学，艺术管理硕士',
+            baSchool: '德雷赛尔大学，电视制作与媒体管理',
+            experience: '曾在费城艺术联盟工作，协作宋东、尹秀珍的大型展览《筷道》;曾在费城艺术博物馆、古根海姆美术馆、ART21、豪瑟沃斯画廊等艺术机构工作。本科及研究生都是DIY申请拿到多所高校奖学金，坚信看透自己、理解自己、善用经历才是申请的关键。如果你也准备好献身美术馆、拍卖行、或是艺术教育，选择艺术管理项目将是你人生的转折点',
+            expertise: '艺术管理，文化管理，数字媒体，电视制作，行为艺术，策展等',
+            demo: '哥伦比亚大学，艺术管理硕士<br/>宾夕法尼亚大学，非营利组织领导管理硕士<br/>纽约大学，行为艺术管理硕士<br/>南加州大学，策展实践及公共领域硕士<br/>波士顿大学，电视制作硕士<br/>东北大学，音乐产业领导管理硕士<br/>伦敦大学学院，数字媒体硕士<br/>曼彻斯特大学，艺术管理硕士<br/>悉尼大学，艺术策展硕士<br/>阿姆斯特丹大学，艺术与文化硕士<br/>普瑞特艺术学院，艺术与文化管理硕士<br/>莱顿大学，全球艺术及现代艺术硕士'
           },
           {
             img: require('../assets/img/home/teachers/W.png'),
             name: 'W 导师',
-            school: '麻省理工学院 金融硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/C2.png'),
-            name: 'C 导师',
-            school: '卡耐基梅隆大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/Y2.png'),
-            name: 'Y 导师',
-            school: '范德堡大学 电子工程硕士'
-          },
-          {
-            img: require('../assets/img/home/teachers/D.png'),
-            name: 'D 导师',
-            school: '多伦多大学 航空工程'
-          },
-          {
-            img: require('../assets/img/home/teachers/L2.png'),
-            name: 'L 导师',
-            school: '哥伦比亚大学 电子工程硕士'
+            phdSchool: '',
+            school: '麻省理工学院，金融硕士',
+            baSchool: '波士顿学院，数学/哲学专业',
+            experience: '在纽约资产管理公司任研究员，Cogitr.Inc联合创始人，热衷于马拉松长跑',
+            expertise: '金融，金融工程，金融数学',
+            demo: '纽约大学，金融数学硕士<br/>芝加哥大学，金融数学硕士'
           }
         ],
         [
@@ -497,7 +544,9 @@ export default {
       maxNumber: 8,
       show: false,
       currentType: 0,
-      selectedTeacher: []
+      selectedTeacher: [],
+      dialogVisible: false,
+      selectTeacher: {}
     }
   },
   created () {
@@ -568,6 +617,13 @@ export default {
         }
       })
       window.open(routeUrl.href, '_blank')
+    },
+    handleOpenDialog (item) {
+      this.dialogVisible = false
+      if (this.currentType !== 3 && this.currentType !== 2) {
+        this.dialogVisible = true
+        this.selectTeacher = item
+      }
     }
   }
 }
@@ -830,6 +886,7 @@ export default {
         margin: 0 20px 45px;
         display: inline-block;
         vertical-align: top;
+        cursor: pointer;
 
         .teacher-img {
           width:100%;
@@ -863,6 +920,11 @@ export default {
             margin-top: 7px;
           }
         }
+      }
+
+      .each-teacher:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
       }
     }
   }
