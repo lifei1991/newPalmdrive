@@ -57,6 +57,33 @@
       </div>
     </div>
 
+    <div class="banner12-div">
+      <div class="carousel-div">
+        <div class="each-product" v-for="(item, index) in products" :key="index" @click="showProductDetail(index)">
+          <div class="product-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+          <div class="product-top-div" :style="{background: item.color}">
+            <div>{{item.title}}</div>
+          </div>
+          <div class="product-bottom-div">
+            <div v-for="(item, index) in item.text" :key="index">{{item}}</div>
+          </div>
+          <div v-show="(currentShowDot == index) && showDetailDiv" class="dot" :style="{background: item.color}"></div>
+        </div>
+      </div>
+    </div>
+
+    <transition name="slide-fade">
+      <div class="banner13-div" v-if="showDetailDiv" :style="{backgroundImage:'url(' + banner13 + ')'}">
+        <div class="detail-div">
+          <div class="each-program-detail" v-for="(item, index) in selectProductDetail" :key="index" :style="{'width':(currentShowDot == 1 ? '148px':'225px'), 'margin': (currentShowDot == 0 ? '0 55px':'0 26px')}" >
+            <div class="detail-index">{{ item.index }}</div>
+            <div class="detail-title">{{ item.title }}</div>
+            <div class="detail-text" v-for="(one, index) in item.text" :key="index">{{ one }}</div>
+          </div>
+        </div>
+      </div>
+    </transition>
+
     <div class="banner4-div">
       <div class="title">四对一辅导模式</div>
       <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
@@ -437,15 +464,24 @@ export default {
           demo: '卡耐基梅隆大学，电子与计算机工程硕士<br/>康奈尔大学，电子与计算机工程硕士<br/>宾夕法尼亚大学，电子工程硕士<br/>西北大学，电子工程硕士<br/>莱斯大学，电子工程硕士<br/>威斯康星大学麦迪逊分校，电子工程硕士<br/>南加州大学，电子工程硕士<br/>约翰霍普金斯大学，电子工程硕士<br/>纽约大学，电子工程硕士<br/>杜克大学，电子与计算机工程硕士<br/>范德堡大学，电子工程硕士<br/>英属哥伦比亚大学，电子工程硕士<br/>曼彻斯特大学，通信和信号处理硕士<br/>帝国理工大学，通信和信号处理硕士<br/>俄亥俄州立大学，电子与计算机工程硕士'
         }
       ],
-      programs: [
+      products: [
         {
-          img: require('../assets/img/home/programs/program1.png')
+          img: require('../assets/img/home/product/product1.png'),
+          title: '专 业',
+          text: ['全程专业的细致辅导', '强大全面的数据库', '真诚负责的辅导态度'],
+          color: '#3980D3'
         },
         {
-          img: require('../assets/img/home/programs/program2.png')
+          img: require('../assets/img/home/product/product2.png'),
+          title: '透 明',
+          text: ['费用透明   合同透明', '师资透明   流程透明', '数据透明'],
+          color: '#A9C669'
         },
         {
-          img: require('../assets/img/home/programs/program3.png')
+          img: require('../assets/img/home/product/product3.png'),
+          title: '全心为你',
+          text: ['订制化留学套餐', '及时的反馈机制', '一站式留学辅导平台', '干货分享-信诚则立'],
+          color: '#23D0C9'
         }
       ],
       activities: [
@@ -517,10 +553,93 @@ export default {
           text: '低标化却全申请冲击的极限操作~'
         }
       ],
+      productsDetail: [
+        [
+          {
+            index: '01',
+            title: '全程专业的细致辅导',
+            text: ['从选校定位，申请规划，实习科研，交流交换，再到最后的文书和网申，棕榈通过海量成功经验为你总结出最优道路', '文书精细打磨：导师团队，督导及外教层层把关', '棕榈内部每年针对辅导团队进行严格考核培训，确保高辅导质量']
+          },
+          {
+            index: '02',
+            title: '强大全面的数据库',
+            text: ['案例库：追踪每位学生标化、经历和录取，海量数据辅助精准定位', '导师库：涵盖导师学历、录取院校、就业等海量数据', '选校库：助力硕博定位', '文书素材挖掘器：启发写作思路', '文书宝库：过来人授权公开的文书样例', '申请进度管理器：提升申请效率', '背景提升资源库：常规申请和内推实习科研资源查找', '专业手册：各专业项目深度介绍']
+          },
+          {
+            index: '03',
+            title: '真诚负责的辅导态度',
+            text: ['棕榈的导师经过严格的培训，会在与学生沟通的过程中做到及时高效、真诚可靠', '棕榈承诺所有申请信息完全透明', '棕榈承诺做到平等对待每一位同学，个性化辅导']
+          }
+        ],
+        [
+          {
+            index: '01',
+            title: '费用透明',
+            text: ['清楚地告诉消费者每一笔钱的去向，不花冤枉钱', '成本结构透明，确保导师团队劳有所获', '产品费用透明，后期无隐形费用加收']
+          },
+          {
+            index: '02',
+            title: '合同透明',
+            text: ['申请结果不达标立即退费，无霸王条款', '尊重甲方权益，不强制保校', '严格履行乙方义务，悉数履行合同承诺', '辅导分阶段，退费比例合理清晰']
+          },
+          {
+            index: '03',
+            title: '师资透明',
+            text: ['所有全职主导师和专业导师的各项资质均可追溯，包括学历背景、工作经验、申请战绩等']
+          },
+          {
+            index: '04',
+            title: '流程透明',
+            text: ['申请信息绝对共享，无任何暗箱操作，申请进度随时可查看', '申请过程确保学员参与度，不做留学小白', '申请院校自主透明选择，所申即所想']
+          },
+          {
+            index: '05',
+            title: '数据透明',
+            text: ['棕榈承诺将后台数据库前台化，案例库中所有案例均保证真实可追溯', '不删网络差评，保留公开反馈通道，保证正面回应问题']
+          }
+        ],
+        [
+          {
+            index: '01',
+            title: '订制化留学套餐',
+            text: ['业内首创四位一体模式，根据每位同学的实际需求制定留学套餐，每一分钱都花在能实际提升录取概率的服务上', '棕榈承诺前期咨询师提供的承诺和后期服务一致', '申请季服务时间和文书修改次数均不设上限，全方位保障学生申请质量']
+          },
+          {
+            index: '02',
+            title: '及时的反馈机制',
+            text: ['完善的监督和反馈体系。导师24小时内回复，不会无故失联超过 3 天。同学对服务团队中的任何人或者服务产生不满，可以随时向第三方（树洞君）进行反馈。督导团队会第一时间解决问题并给出客户满意的解决方案。']
+          },
+          {
+            index: '03',
+            title: '一站式留学辅导平台',
+            text: ['核桃英语高质量语言线上班课，留学语培一把抓', '棕榈学院 Project Based Learning 课程，学术公开课，科研论文辅导，为提升研究背景铺路', '专职背景提升部门，开发高性价比实习科研项目，建立高质量内推合作安置，助力解决背景提升资源难题', '种子计划—业内首创专职种子导师团队辅导大一到大三非当季同学，融合以上所有资源，一站式解决留学所有问题']
+          },
+          {
+            index: '04',
+            title: '干货分享-信诚则立',
+            text: ['棕榈大道生产超过 5000+ 篇微信、知乎留学干货文章', '线上线下讲座超过1200场', '活动参与人数累积超过30000人次', '生产 110 万+字绝密资料，超过 100 万人领取', '通过棕榈干货输出，打破行业信息不对称，每年直接或间接助力 20 万人申请']
+          }
+        ]
+      ],
+      programs: [
+        {
+          img: require('../assets/img/home/programs/program1.png')
+        },
+        {
+          img: require('../assets/img/home/programs/program2.png')
+        },
+        {
+          img: require('../assets/img/home/programs/program3.png')
+        }
+      ],
       banner1: '',
+      banner13: '',
       maxNumber: 8,
       dialogVisible: false,
-      selectTeacher: {}
+      selectTeacher: {},
+      showDetailDiv: false,
+      currentShowDot: 99,
+      selectProductDetail: []
     }
   },
   created () {
@@ -529,6 +648,8 @@ export default {
     // )
 
     this.banner1 = require('../assets/img/home/banner1.png')
+    this.banner13 = require('../assets/img/home/banner13.png')
+    this.selectProductDetail = this.productsDetail[0]
   },
   mounted () {
     this.$nextTick(function () {
@@ -587,6 +708,16 @@ export default {
     handleOpenDialog (item) {
       this.dialogVisible = true
       this.selectTeacher = item
+    },
+
+    showProductDetail (index) {
+      if (this.currentShowDot === index) {
+        this.showDetailDiv = !this.showDetailDiv
+      } else {
+        this.currentShowDot = index
+        this.showDetailDiv = true
+      }
+      this.selectProductDetail = this.productsDetail[index]
     }
   }
 }
@@ -1503,6 +1634,154 @@ export default {
         }
       }
     }
+  }
+
+  .banner12-div {
+    padding: 58px 0 42px;
+    background-color: #EFF3F4;
+    text-align: center;
+    font-size: 30px;
+    // display: none;
+
+    .carousel-div {
+      // width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      display: inline-block;
+
+      .each-product {
+        width: 296px;
+        // height: 283px;
+        display: inline-block;
+        margin: 0 35px;
+        cursor: pointer;
+        vertical-align: top;
+
+        .product-img {
+          width: 130px;
+          height:130px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          // box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.07);
+          border-radius: 50%;
+          margin: 0 auto;
+          position: relative;
+          // background-color: #fff;
+          z-index: 10;
+        }
+
+        .product-top-div {
+          width:100%;
+          height:53px;
+          background:rgba(57,128,211,1);
+          box-shadow:6px 6px 12px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:15px;
+          margin-top: -67px;
+          position: relative;
+
+          font-size:24px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:41px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+          padding-top: 65px;
+        }
+
+        .product-bottom-div {
+          width:100%;
+          height:133px;
+          background:#fff;
+          box-shadow:6px 6px 12px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:15px;
+          margin-top: -67px;
+          margin-top: -30px;
+          text-align: center;
+
+          font-size:18px;
+          font-family:SourceHanSansCN;
+          font-weight:500;
+          line-height:24px;
+          color:rgba(75,75,75,1);
+          opacity:1;
+          padding-top: 70px;
+        }
+
+        .dot {
+          width:42px;
+          height:11px;
+          opacity:1;
+          border-radius:6px;
+          margin: 44px auto 0px;
+        }
+      }
+    }
+  }
+
+  .banner13-div {
+    padding: 113px 0 45px;
+    background-color: #E3F3F3;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .detail-div {
+      // width: 950px;
+      margin: 0 auto;
+
+      .each-program-detail {
+        margin-bottom: 45px;
+        width: 216px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 26px;
+
+        .detail-index {
+          font-size:52px;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:62px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
+
+        .detail-title {
+          font-size:24px;
+          font-family:SourceHanSansCN;
+          font-weight:800;
+          line-height:41px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+          margin: 11px 0 26px;
+        }
+
+        .detail-text {
+          font-size:16px;
+          font-family:SourceHanSansCN;
+          font-weight:500;
+          line-height:24px;
+          color:#fff;
+          margin-bottom: 21px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  /* 可以设置不同的进入和离开动画 */
+  /* 设置持续时间和动画函数 */
+  .slide-fade-enter-active {
+  transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
   }
 }
 </style>

@@ -128,6 +128,24 @@
             </div>
           </div>
         </div>
+
+        <div class="other-contact">
+          <a href="https://weibo.com/u/3384549622" target="_blank">
+            <div class="each-contact left">
+              <div class="each-img" :style="{backgroundImage:'url(' + otherContact1 + ')'}"></div>
+            </div>
+          </a>
+          <a href="http://www.zhihu.com/org/zong-lu-da-dao" target="_blank">
+            <div class="each-contact">
+              <div class="each-img" :style="{backgroundImage:'url(' + otherContact2 + ')'}"></div>
+            </div>
+          </a>
+          <a href="https://space.bilibili.com/480551209" target="_blank">
+            <div class="each-contact right">
+              <div class="each-img" :style="{backgroundImage:'url(' + otherContact3 + ')'}"></div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -576,8 +594,16 @@ export default {
       current: 0,
       showMenus: false,
       currentType: '99',
-      selectedMenu: {}
+      selectedMenu: {},
+      otherContact1: '',
+      otherContact2: '',
+      otherContact3: ''
     }
+  },
+  created () {
+    this.otherContact1 = require('./assets/img/home/foot/otherContact1.png')
+    this.otherContact2 = require('./assets/img/home/foot/otherContact2.png')
+    this.otherContact3 = require('./assets/img/home/foot/otherContact3.png')
   },
   mounted () {
     this.$nextTick(function () {
@@ -1063,7 +1089,7 @@ body {
       vertical-align: top;
 
       .contact {
-        width:338px;
+        width:300px;
         height:122px;
         background:rgba(36,195,182, 0.83);
         border-radius:13px;
@@ -1148,6 +1174,45 @@ body {
               margin-bottom: 9px;
             }
           }
+
+          .each-code:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      .other-contact {
+        width:146px;
+        height:27px;
+        background:rgba(36,195,182,.83);
+        border-radius:18px;
+        margin-top: 20px;
+        float: right;
+        padding: 4px;
+
+        .each-contact {
+          width:23px;
+          height:23px;
+          background:rgba(34,114,119,1);
+          border-radius:50%;
+          opacity:1;
+          padding: 2px;
+          display: inline-block;
+
+          .each-img {
+            width: 23px;
+            height: 23px;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        .left {
+          float: left;
+        }
+
+        .right {
+          float: right;
         }
       }
     }

@@ -684,6 +684,8 @@ export default {
     this.banner1 = require('../assets/img/ability/banner1.png')
     this.banner3 = require('../assets/img/ability/banner3.png')
     this.palmdriveBanner3 = require('../assets/img/ability/banner3-2.png')
+    this.selectProgramsDetail = this.programsDetail[0]
+    this.selectPDProgramsDetail = this.palmdriveProgramsDetail[0]
   },
   mounted () {
     this.$nextTick(function () {
