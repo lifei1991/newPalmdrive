@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="more-offer">
-          <a href="http://palmdrive.cn/graduate_showcase" target="_blank">
+          <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
             查看更多offer<img src="../assets/img/home/more.png" class="more-img" />
           </a>
         </div>
@@ -151,9 +151,12 @@
           </div>
         </template>
 
-        <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8">
+        <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
+        <div class="more-teachers" v-if="maxNumber <= 8">
           <div>
-            查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
+            <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
+              查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
+            </a>
           </div>
         </div>
       </div>
@@ -162,7 +165,9 @@
     <div class="banner7-div">
       <div class="title">辅导项目</div>
       <div>
-        <div class="each-program" v-for="item in programs" :key="item.img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+        <a :href="item.url" target="_blank" v-for="item in programs" :key="item.img">
+          <div class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+        </a>
       </div>
     </div>
 
@@ -623,13 +628,16 @@ export default {
       ],
       programs: [
         {
-          img: require('../assets/img/home/programs/program1.png')
+          img: require('../assets/img/home/programs/program1.png'),
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/dream'
         },
         {
-          img: require('../assets/img/home/programs/program2.png')
+          img: require('../assets/img/home/programs/program2.png'),
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/seed'
         },
         {
-          img: require('../assets/img/home/programs/program3.png')
+          img: require('../assets/img/home/programs/program3.png'),
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/ability'
         }
       ],
       banner1: '',

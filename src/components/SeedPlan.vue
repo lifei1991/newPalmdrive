@@ -60,7 +60,29 @@
           </div>
         </template>
       </div>
+
+      <div class="more-teachers" @click="show = !show" v-if="currentType == 0 || currentType == 1">
+        <div>
+          查看更多
+        </div>
+        <div class="open-ask"></div>
+      </div>
     </div>
+
+    <transition name="slide-fade">
+        <div v-if="show" class="banner6-div" :style="{backgroundImage:'url(' + banner6 + ')'}">
+            <div class="ask-div">
+                <div class="ercode" :style="{backgroundImage:'url(' + askErcode + ')'}"></div>
+                <div class="ask-text">
+                    <div class="text1">想要了解更多导师信息和留学服务内容，可扫码咨询留学小助手。</div>
+                    <div class="text2">咨询暗号</div>
+                    <div class="text3">种 子</div>
+                </div>
+                <div class="close-ask" @click="show = !show"></div>
+            </div>
+            <div></div>
+        </div>
+    </transition>
 
     <div class="banner4-div">
         <div class="title">种子计划优势</div>
@@ -537,6 +559,7 @@ export default {
         }
       ],
       banner1: '',
+      banner6: '',
       banner8: '',
       dreamSchoolPlan: '',
       planButton: '',
@@ -566,6 +589,7 @@ export default {
 
     // this.stories = require('../../static/json/seedPlan.json')
     this.banner1 = require('../assets/img/seedPlan/banner1.png')
+    this.banner6 = require('../assets/img/dreamSchool/banner6.png')
     this.banner8 = require('../assets/img/seedPlan/banner8.png')
     this.dreamSchoolPlan = require('../assets/img/dreamSchool/plan/dreamSchoolPlan.png')
     this.planButton = require('../assets/img/dreamSchool/plan/plan-button.png')
@@ -927,6 +951,47 @@ export default {
         transition-duration: 0.5s;
       }
     }
+
+    .more-teachers {
+        font-size:15px;
+        font-family:PingFang SC;
+        font-weight:500;
+        color:rgba(57,60,61,1);
+        opacity:1;
+        cursor: pointer;
+
+        width: 142px;
+        text-align: center;
+        margin: 0 auto;
+        height: 36px;
+        line-height: 36px;
+        border: 1px solid rgba(151,151,151,1);
+        border-radius: 21px;
+
+        a {
+          text-decoration: none;
+          color:rgba(57,60,61,1);
+        }
+
+        .more-img {
+          width: 17px;
+          height: 17px;
+          margin-left: 15px;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+
+        .open-ask {
+            width: 26px;
+            height: 10px;
+            // background: #21C3B6;
+            margin: 13px auto 36px;
+            cursor: pointer;
+            background-image: url("../assets/img/dreamSchool/openArrow.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+      }
   }
 
   .banner4-div {
@@ -1107,6 +1172,83 @@ export default {
     }
   }
 
+  .banner6-div {
+      background-color: #21C3B6;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: auto;
+
+      .ask-div {
+          margin: 77px auto 0;
+          text-align: center;
+
+          .ercode {
+              width: 254px;
+              height: 254px;
+              background-repeat: no-repeat;
+              background-size: contain;
+              display: inline-block;
+            //   border: 12px solid #fff;
+            //   background-color: #fff;
+          }
+
+          .ask-text {
+              display: inline-block;
+              margin: 33px 0 0 61px;
+              width: 433px;
+              text-align: left;
+              vertical-align: top;
+
+              .text1 {
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:33px;
+                color:rgba(255,255,255,1);
+                opacity:1;
+              }
+
+              .text2 {
+                margin-top: 45px;
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:41px;
+                color:#FFFFFF;
+                opacity:1;
+                display: inline-block;
+              }
+
+              .text3 {
+                display: inline-block;
+                width:100px;
+                height:35px;
+                background:rgba(255,255,255,1);
+                opacity:1;
+                border-radius:20px;
+                font-size:24px;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:35px;
+                color: #36B2B3;
+                text-align: center;
+                margin-left: 20px;
+              }
+          }
+
+          .close-ask {
+              width: 26px;
+              height: 10px;
+              // background: #fff;
+              margin: 43px auto 36px;
+              cursor: pointer;
+              background-image: url("../assets/img/dreamSchool/closeArrow.png");
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+      }
+  }
+
   .banner7-div {
     padding: 78px 0 26px;
     background-color: #F3F6FB;
@@ -1277,18 +1419,18 @@ export default {
     }
   }
 
-    /* 可以设置不同的进入和离开动画 */
-    /* 设置持续时间和动画函数 */
-    .slide-fade-enter-active {
+  /* 可以设置不同的进入和离开动画 */
+  /* 设置持续时间和动画函数 */
+  .slide-fade-enter-active {
     transition: all .3s ease;
-    }
-    .slide-fade-leave-active {
+  }
+  .slide-fade-leave-active {
     transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    }
-    .slide-fade-enter, .slide-fade-leave-to
+  }
+  .slide-fade-enter, .slide-fade-leave-to
     /* .slide-fade-leave-active for below version 2.1.8 */ {
     transform: translateX(10px);
     opacity: 0;
-    }
+  }
 }
 </style>
