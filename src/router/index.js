@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home'
-import DreamSchool from '@/components/DreamSchool'
-import SeedPlan from '@/components/SeedPlan'
-import ApplicationGuide from '@/components/ApplicationGuide'
-import News from '@/components/News'
-import DownMaterial from '@/components/DownMaterial'
-import MajorIntro from '@/components/MajorIntro'
-import Ability from '@/components/Ability'
-import TeacherIntro from '@/components/TeacherIntro'
-import FourToOne from '@/components/FourToOne'
-import StudentStory from '@/components/StudentStory'
-import Offers from '@/components/Offers'
-import BgPromote from '@/components/BgPromote'
+// import Home from '@/components/Home'
+// import DreamSchool from '@/components/DreamSchool'
+// import SeedPlan from '@/components/SeedPlan'
+// import ApplicationGuide from '@/components/ApplicationGuide'
+// import News from '@/components/News'
+// import DownMaterial from '@/components/DownMaterial'
+// import MajorIntro from '@/components/MajorIntro'
+// import Ability from '@/components/Ability'
+// import TeacherIntro from '@/components/TeacherIntro'
+// import FourToOne from '@/components/FourToOne'
+// import StudentStory from '@/components/StudentStory'
+// import Offers from '@/components/Offers'
+// import BgPromote from '@/components/BgPromote'
 
 Vue.use(Router)
 
@@ -22,7 +22,8 @@ export default new Router({
     {
       path: '/graduate',
       name: 'Home',
-      component: Home,
+      // component: Home,
+      component: resolve => (require(['@/components/Home'], resolve)),
       meta: {
         title: '研究生服务介绍'
       }
@@ -30,7 +31,7 @@ export default new Router({
     {
       path: '/news',
       name: 'News',
-      component: News
+      component: resolve => (require(['@/components/News'], resolve))
     },
     {
       path: '/hello',
@@ -40,7 +41,7 @@ export default new Router({
     {
       path: '/dream',
       name: 'DreamSchool',
-      component: DreamSchool,
+      component: resolve => (require(['@/components/DreamSchool'], resolve)),
       meta: {
         title: '梦校计划'
       }
@@ -48,7 +49,7 @@ export default new Router({
     {
       path: '/seed',
       name: 'SeedPlan',
-      component: SeedPlan,
+      component: resolve => (require(['@/components/SeedPlan'], resolve)),
       meta: {
         title: '种子计划'
       }
@@ -56,7 +57,7 @@ export default new Router({
     {
       path: '/guide',
       name: 'ApplicationGuide',
-      component: ApplicationGuide,
+      component: resolve => (require(['@/components/ApplicationGuide'], resolve)),
       meta: {
         title: '申请指南'
       }
@@ -64,7 +65,7 @@ export default new Router({
     {
       path: '/major',
       name: 'MajorIntro',
-      component: MajorIntro,
+      component: resolve => (require(['@/components/MajorIntro'], resolve)),
       meta: {
         title: '专业介绍'
       }
@@ -72,7 +73,7 @@ export default new Router({
     {
       path: '/material',
       name: 'DownMaterial',
-      component: DownMaterial,
+      component: resolve => (require(['@/components/DownMaterial'], resolve)),
       meta: {
         title: '资料下载'
       }
@@ -80,7 +81,7 @@ export default new Router({
     {
       path: '/ability',
       name: 'Ability',
-      component: Ability,
+      component: resolve => (require(['@/components/Ability'], resolve)),
       meta: {
         title: '能力提升'
       }
@@ -88,7 +89,7 @@ export default new Router({
     {
       path: '/teachers',
       name: 'TeacherIntro',
-      component: TeacherIntro,
+      component: resolve => (require(['@/components/TeacherIntro'], resolve)),
       meta: {
         title: '导师介绍'
       }
@@ -96,7 +97,7 @@ export default new Router({
     {
       path: '/four_to_one',
       name: 'FourToOne',
-      component: FourToOne,
+      component: resolve => (require(['@/components/FourToOne'], resolve)),
       meta: {
         title: '四位一体'
       }
@@ -104,7 +105,7 @@ export default new Router({
     {
       path: '/story',
       name: 'StudentStory',
-      component: StudentStory,
+      component: resolve => (require(['@/components/StudentStory'], resolve)),
       meta: {
         title: '学员故事'
       }
@@ -112,7 +113,7 @@ export default new Router({
     {
       path: '/offers',
       name: 'Offers',
-      component: Offers,
+      component: resolve => (require(['@/components/Offers'], resolve)),
       meta: {
         title: '申请季offer'
       }
@@ -120,7 +121,7 @@ export default new Router({
     {
       path: '/bg_promote',
       name: 'BgPromote',
-      component: BgPromote,
+      component: resolve => (require(['@/components/BgPromote'], resolve)),
       meta: {
         title: '背景提升'
       }

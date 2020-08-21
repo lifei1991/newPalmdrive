@@ -102,5 +102,10 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+
+  externals: {
+    'element-ui': 'ELEMENT',
+    'vue': 'Vue',
+  },
 }
