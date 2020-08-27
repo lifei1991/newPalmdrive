@@ -160,6 +160,37 @@
       </div>
     </div>
 
+    <!-- 左下角二维码弹框 -->
+    <div class="contact-info hidden-phone" id="contact-info" style="display: block;">
+      <div class="contact-circle">
+        <div class="circle-dot center size-xs white">
+          <!-- <i class="fa fa-lg fa-phone white"></i> -->
+          <i class="el-icon-phone-outline size16"></i>
+          <br>
+          <div class="black">4000-062-153</div>
+          <div class="size-s">
+            OR
+          </div>
+          <div class="pull-right black">
+            扫描二维码
+            <br>咨询详情<br>
+          </div>
+        </div>
+      </div>
+      <div class="contact-square">
+        <div class="square-dot">
+          <img src="./assets/img/left-contact.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <!-- 手机端自定义七陌聊天按钮 -->
+    <a v-if="isMobile" href="https://webchat.7moor.com/wapchat.html?accessId=9155aa90-e5c5-11ea-85fa-319a5fe89624&fromUrl=http://www.palmdrive.cn/v2/graduate.html#/graduate&urlTitle=%E7%A0%94%E7%A9%B6%E7%94%9F%E9%A1%B5">
+      <div id="chatBtn" class="chatBtn" style="display: block; background-color: rgb(25, 202, 166); border-radius: 50%; width: 100px; height: 100px; padding: 15px; right: 18px; bottom: 18px;">
+        <img width="100px" height="100px" src="//webchat.7moor.com/images/1.png?1221" style="width: 100px; height: 100px; margin: 0px; padding: 0px; transform: unset; transition: unset;"><span></span><span id="qimo_badge"></span>
+      </div>
+    </a>
+
   </div>
 </template>
 
@@ -597,18 +628,28 @@ export default {
       selectedMenu: {},
       otherContact1: '',
       otherContact2: '',
-      otherContact3: ''
+      otherContact3: '',
+      isMobile: false,
+      lastScrollTop: 0
     }
   },
   created () {
     this.otherContact1 = require('./assets/img/home/foot/otherContact1.png')
     this.otherContact2 = require('./assets/img/home/foot/otherContact2.png')
     this.otherContact3 = require('./assets/img/home/foot/otherContact3.png')
+    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      this.isMobile = false
+    } else {
+      this.isMobile = false
+    }
   },
   mounted () {
     this.$nextTick(function () {
       this.selectedCity = this.cities[0]
     })
+
+    // 监听页面滚动条
+    window.addEventListener('scroll', this.handleScroll)
   },
   methods: {
     clearAll () {
@@ -631,6 +672,22 @@ export default {
       this.showMenus = false
       this.$router.push({
         path: url
+      })
+    },
+
+    handleScroll () {
+      $(window).scroll(function () {
+        var st = $(this).scrollTop()
+        if (st > this.lastScrollTop) {
+          // downscroll code
+          $('#contact-info').removeClass('contact-info-fadeout')
+          $('#contact-info').css('display', 'block')
+        } else if (st < this.lastScrollTop) {
+          // upscroll code
+          $('#contact-info').addClass('contact-info-fadeout')
+          // $('#contact-info').css('display', 'none')
+        }
+        this.lastScrollTop = st
       })
     }
   }
@@ -1249,6 +1306,114 @@ body {
         }
       }
     }
+  }
+
+  @keyframes popin {
+    0% {
+      right:-170px;
+      bottom:-170px;
+    }
+    100% {
+      right:0px;
+      bottom:0px
+    }
+  }
+
+  @keyframes popout {
+    0% {
+      right:0px;
+      bottom:0px
+    }
+    100% {
+      right:-170px;
+      bottom:-170px
+    }
+  }
+
+  // 左下角二维码弹框
+  .contact-info {
+    display: none;
+    z-index: 999;
+    position: fixed;
+    width: 170px;
+    height: 170px;
+    left: 0;
+    bottom: 0;
+    animation: popin 1s;
+    .contact-circle {
+      box-shadow: -2px -2px 14px #ccc;
+      width: 140px;
+      height: 140px;
+      padding: 15px;
+      border-radius: 50%;
+      background-color: #56ccca;
+      .circle-dot {
+        padding: 5px;
+        width: 126px;
+        height: 126px;
+        border-radius: 50%;
+        border: 2px dashed white;
+        background-color: #56ccca;
+        font-size: 12px;
+      }
+    }
+    .contact-square {
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      width: 85px;
+      height: 85px;
+      background-color: #56ccca;
+      .square-dot {
+        margin-left: 15px;
+        padding: 5px;
+        width: 58px;
+        height: 58px;
+        border-bottom: 2px dashed white;
+        border-left: 2px dashed white;
+        background-color: #56ccca;
+      }
+    }
+
+    .white {
+      color: white;
+    }
+
+    .pull-right {
+      float: right;
+    }
+
+    .size-s {
+      font-size: 14px;
+    }
+
+    .black {
+      color: #393c3d;
+    }
+
+    .size16 {
+      font-size: 16px;
+    }
+  }
+
+  .contact-info-fadeout {
+      animation: popout 1s forwards;
+  }
+
+  #chatBtn {
+    position: fixed;
+    background-color: #19caa6;
+    font-family: 'Helvetica Neue',Helvetica,'Microsoft Yahei',Arial,sans-serif;
+    font-size: 16px;
+    right: 0;
+    bottom: -48px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    z-index: 2147483645;
+    width: 100%;
+    box-sizing: content-box!important;
   }
 
 </style>

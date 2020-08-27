@@ -24,7 +24,7 @@
 
     <div class="banner2-div">
       <div class="title">offer 战绩</div>
-      <div class="title2">4000+世界名校毕业生导师，涵盖192+专业。</div>
+      <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
       <div class="school-div">
         <div class="each-school-div" v-for="item in schools" :key="item.logo">
           <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
@@ -139,7 +139,7 @@
     </div>
 
     <div class="banner6-div">
-      <div class="title">导师团队</div>
+      <div class="title">导师团队精选</div>
       <div class="teachers-div">
         <template v-for="(item, index) in teachers" >
           <div class="each-teacher" v-if="index < maxNumber" :key="item.school" @click="handleOpenDialog(item)">
@@ -297,12 +297,12 @@ export default {
         {
           logo: require('../assets/img/home/number/number1.png'),
           title: '学生总数',
-          number: '4000+'
+          number: '5000+'
         },
         {
           logo: require('../assets/img/home/number/number2.png'),
           title: '硕博Top100 offer',
-          number: '5000+'
+          number: '10000+'
         },
         {
           logo: require('../assets/img/home/number/number3.png'),
@@ -319,7 +319,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '5000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '6000+ 世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),

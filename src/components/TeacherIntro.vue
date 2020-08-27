@@ -5,11 +5,13 @@
 
     <div class="banner1-div">
       <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+        <div class="text1">6000+ 世界名校毕业导师</div>
+        <div class="text2">精准辅导 200+ 多个专业，专业标准化管理，半年度导师培训， 导师筛选通过率仅 33.6%</div>
       </div>
     </div>
 
     <div class="banner5-div">
-      <div class="title">导师团队</div>
+      <div class="title">导师团队精选</div>
       <!-- <ul class="teacher-item-div" >
         <li v-for="(item, index) in teacherTypes" :key="item.name" v-html="item.name" @click="changeTeacherType(index)" v-bind:class="{ 'teacher-bg-colors' : index == currentType }"></li>
       </ul> -->
@@ -481,61 +483,26 @@ export default {
       background-repeat: no-repeat;
       background-size: cover;
 
-      .info1-div {
-        position: absolute;
-        top: 282px;
-        left: 59px;
+      .text1 {
+        font-size: 26px;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 30px;
+        color: rgba(255,255,255,1);
+        opacity: 1;
+        width: 555px;
+        padding-top: 210px;
       }
 
-      .info2-div {
-        position: absolute;
-        top: 342px;
-        left: 59px;
-      }
-
-      .info3-div {
-        position: absolute;
-        top: 401px;
-        left: 59px;
-      }
-
-      .info-number {
-        width: 75px;
-        font-size:28px;
-        font-family:Biko;
-        font-weight:bold;
-        line-height:35px;
-        color:rgba(40,167,169,1);
-        opacity:1;
-        margin-right: 12px;
-        display: inline-block;
-        height: 28px;
-      }
-
-      .info-text {
-        width: 93px;
-        font-size:12px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:14px;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        display: inline-block;
-        height: 28px;
-        vertical-align: top;
-      }
-
-      .text {
-        position: absolute;
-        top: 450px;
-        left: 24px;
-
-        font-size:12px;
-        font-family:Biko;
-        font-weight:400;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
+      .text2 {
+        font-size: 20px;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 30px;
+        color: rgba(255,255,255,1);
+        opacity: 1;
+        width: 555px;
+        padding-top: 5px;
       }
     }
   }

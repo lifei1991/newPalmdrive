@@ -52,7 +52,7 @@
     </div>
 
     <div class="banner3-div">
-      <div class="title">成功案例</div>
+      <div class="title">部分成功案例</div>
       <div class="story-div">
         <template v-for="(item, index) in selectedStory" >
           <div class="each-story" :key="index">

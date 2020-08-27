@@ -63,7 +63,7 @@
     </div>
 
     <div class='banner3-div'>
-      <div class='title'>成功案例</div>
+      <div class='title'>部分成功案例</div>
 
       <ul class='guide-item-div'>
         <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">

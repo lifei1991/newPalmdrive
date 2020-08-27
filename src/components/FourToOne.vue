@@ -669,7 +669,7 @@ export default {
           img1: require('../assets/img/fourToOne/guides/menu1-1.png')
         },
         {
-          name: '同专业主导师',
+          name: '同专业导师',
           img: require('../assets/img/fourToOne/guides/menu2.png'),
           img1: require('../assets/img/fourToOne/guides/menu2-1.png')
         },
@@ -899,7 +899,7 @@ export default {
       text-align: center;
       padding: 0;
       margin: 36px auto 85px;
-      width: 822px;
+      width: 805px;
       background:#FFFFFF;
       box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
       opacity:1;
