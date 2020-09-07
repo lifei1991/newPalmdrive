@@ -171,7 +171,7 @@
       </div>
     </div>
 
-    <div class="banner8-div">
+    <!-- <div class="banner8-div">
       <div class="title">近期活动</div>
       <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
       <div class="carousel-div">
@@ -181,6 +181,22 @@
               <div class="title">{{ item.title }}</div>
               <div class="time">{{ item.time }}</div>
             </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="banner8-2-div">
+      <div class="title">近期活动</div>
+      <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
+      <div class="activity-div">
+        <div v-show="index < activityShowNumber" v-for="(item, index) in activities2" :key="item.img" class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}" @click="handleOpenActivityDialog(index)"></div>
+
+        <div class="more-activity" v-if="activityShowNumber <= 3">
+          <div>
+            <div @click="activityShowNumber = 100">
+              查看更多讲座<img src="../assets/img/home/more.png" class="more-img" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -203,6 +219,39 @@
     </div>
 
     <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
+
+    <div class="acticityInfoDialog">
+      <el-dialog
+        customClass="customDialog"
+        :visible.sync="dialogActivity"
+        width="892px">
+        <div class="activity-detail-div">
+          <div class="left-div">
+            <div class="each-title-div" v-for="(item, index) in selectedActivityTheme" :key="index">
+              <div :style="{backgroundImage:'url(' + item.img + ')'}" class="theme-logo"></div>
+              <span class="title">{{item.title}}</span>
+              <div class="title2">{{item.title2}}</div>
+            </div>
+          </div>
+          <div class="right-div">
+            <div class="div1">
+              <img src="../assets/img/home/activity/activity-code.png" class="more-img" width="132px"/>
+            </div>
+            <div class="div2">
+              <div class="way">方式一</div>
+              <div class="way-text">扫描二维码添加</div>
+              <div class="way-text">小助手咨询</div>
+
+              <div class="way way2">方式二</div>
+              <div class="way-text">输入微信号添加小助手</div>
+              <div class="way-text">微信号：pdpr19</div>
+              <div class="way-text">或 18026424935</div>
+            </div>
+          </div>
+        </div>
+      </el-dialog>
+    </div>
+
   </div>
 </template>
 
@@ -536,6 +585,35 @@ export default {
           time: '2019-08-18(周四) 16:00-17:00'
         }
       ],
+      activities2: [
+        {
+          img: require('../assets/img/home/activity/activity2-1.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-2.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-3.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-4.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-5.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-6.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-7.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-8.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-9.png')
+        }
+      ],
       dynamics: [
         {
           img: require('../assets/img/home/activity/activity2.png'),
@@ -640,6 +718,251 @@ export default {
           url: 'http://www.palmdrive.cn/v2/graduate.html#/ability'
         }
       ],
+      activityThemes: [
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '法学专业讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月1日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请法学的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请拥有英美硕士、藤校博士经历的导师来讲述法学的纵横申请对比，包括法学学位科普、英美与其他小众国家法学项目科普、出国读硕士的动机和优势分析、未来职业规划的内容。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '背景提升配对馆'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月2日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '大一至大三（非申请季）、有留学意向的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '门诊 + 背景提升资料礼包'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '本次活动为同学匹配对应的文、商、理工的导师，与同学进行在线的一对一咨询，针对每位同学关于背景提升的疑问给出相应的解答及对应的建议。咨询结束后，同学们将获得棕榈精心准备的留学背提大礼包。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '商科申请规划'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月6日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请商科的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '留学规划手册（PDF）'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '本次活动会针对每位学生的背景以及之后的申请方向针对性制作规划表 。大一至大三的学生主要以留学申请规划的建议以及学校推荐的留学规划手册，针对大四即将申请的同学主要是给申请季的准备建议以及学校推荐。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '转专业避雷讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月7日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '大三想要转专业的学生和大四转专业申请的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '针对大三转专业同学给出：常见转专业策略、转专业背景提升策略、申请季转专业申请流程和技巧、转专业的常见误区和雷区'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '大学规划锦囊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月8日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '大一至大三（非申请季）、有留学意向的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座 + 规划报告福利（限量）'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '在新学期开始之初，邀请经验丰富的导师为同学们带来大学各阶段的规划建议。按照时间线划分，锁定大一至大四的重点提升规划，包括找实习、做科研的时间节点、先修课的补充等。除此之外，大牛导师还将分享个人的大学规划经历，以供学生借鉴参考。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '小文书讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月15日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请专业需要写小文书的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑+一对一门诊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '讲座思路从RP和phs外，文理工商，突出要写小文书的有哪些项目case?小文书的重要性，学校设置小文书的目的，小文书的类型，什么样的小文书是优秀的？如何写好小文书？'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: 'Dream school Pass Card'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月17日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '当季申请者，正在筹备PS的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '（290元）获取45分钟导师一对一咨询+文书大礼包'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '活动针对同学目前的文书写作进度，匹配文书写作水准超高的专业导师，给到同学一对一指导，教同学写出好文书。给同学专业度高、干货性强、拒绝模板套路的文书辅导体验。注意，还有超值福利大礼包回馈哦！'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '传媒大神养成计划'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月22日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '意向申请传媒类专业的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '本次活动将邀请兼具传媒申请与就业经验的导师，结合个人的申请经历与就读院校的资源讲解，与大家分享传媒申请的核心知识，涵盖：具体项目分析、背景提升路径、选校定位指南等内容。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '大学课外活动主题讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '9月24日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '开学大二大三、有留学背景提升要求的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '针对开学大二大三准备留学的人群，解答如何在未来的一道两年安排好软背景提升。比如：不同课外活动对申请的帮助？不同时间段应该如何安排课外活动？不同专业应当如何取舍课外活动？'
+          }
+        ]
+      ],
       banner1: '',
       banner13: '',
       maxNumber: 8,
@@ -647,7 +970,10 @@ export default {
       selectTeacher: {},
       showDetailDiv: false,
       currentShowDot: 99,
-      selectProductDetail: []
+      selectProductDetail: [],
+      activityShowNumber: 3,
+      dialogActivity: false,
+      selectedActivityTheme: []
     }
   },
   created () {
@@ -726,6 +1052,11 @@ export default {
         this.showDetailDiv = true
       }
       this.selectProductDetail = this.productsDetail[index]
+    },
+
+    handleOpenActivityDialog (index) {
+      this.dialogActivity = true
+      this.selectedActivityTheme = this.activityThemes[index]
     }
   }
 }
@@ -1331,6 +1662,68 @@ export default {
     }
   }
 
+  .banner8-2-div {
+    padding: 70px 0 87px;
+    background-color: #fff;
+
+    .title {
+      font-size:24px;
+      font-family:SourceHanSansCN;
+      font-weight:bold;
+      line-height:24px;
+      color:rgba(60,60,60,1);
+      opacity:1;
+    }
+
+    .title2 {
+      font-size:18px;
+      font-family:PingFang SC;
+      font-weight:400;
+      line-height:18px;
+      color:rgba(85,85,85,1);
+      opacity:1;
+      margin: 12px 0 61px;
+    }
+
+    .activity-div {
+      width: 880px;
+      margin: 0 auto;
+
+      .each-program {
+        width:249px;
+        height:129px;
+        // box-shadow: 0px 5px 6px rgba(189,189,189,1);
+        // border-radius: 15px;
+        opacity:1;
+        display: inline-block;
+        margin: 0 21px 54px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .more-activity {
+        font-size:15px;
+        font-family:PingFang SC;
+        font-weight:500;
+        line-height:15px;
+        color:rgba(57,60,61,1);
+        opacity:1;
+        text-align: right;
+        margin-right: 20px;
+        cursor: pointer;
+        margin-right: -120px;
+
+        .more-img {
+          width: 17px;
+          height: 17px;
+          margin-left: 15px;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+      }
+  }
+
   .banner9-div {
     padding: 65px 0 70px;
     background-color: #F1F7FA;
@@ -1778,6 +2171,102 @@ export default {
     }
   }
 
+  .acticityInfoDialog {
+
+    .activity-detail-div {
+      text-align: left;
+      padding: 29px 0 29px 73px;
+
+      .left-div {
+        width: 55%;
+        display: inline-block;
+
+        .each-title-div:first-child .theme-logo {
+          width: 29px;
+        }
+
+        .each-title-div {
+          width: 49%;
+          display: inline-block;
+          margin-bottom: 18px;
+          vertical-align: top;
+
+          .theme-logo {
+            width: 21px;
+            height: 21px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+          }
+
+          .title {
+            font-size:18px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            color: #25C2B5;
+            margin-left: 5px;
+            vertical-align: super;
+          }
+
+          .title2 {
+            font-size:14px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            margin-left: 30px;
+            width: 60%;
+          }
+        }
+
+        .each-title-div:last-child {
+          width: 128%;
+        }
+      }
+
+      .right-div {
+        display: inline-block;
+        width: 39%;
+        vertical-align: top;
+
+        .div1 {
+          display: inline-block;
+          margin-top: 47px;
+        }
+
+        .div2 {
+          display: inline-block;
+          margin-left: 18px;
+          vertical-align: top;
+          margin-top: 24px;
+
+          .way {
+            color: #fff;
+            width: 68px;
+            height: 20px;
+            background: #25C2B5;
+            opacity: 1;
+            border-radius: 10px;
+            text-align: center;
+          }
+
+          .way-text {
+            margin-top: 8px;
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            line-height: 12px;
+            color: #333333;
+            opacity: 1;
+            margin-left: 14px;
+          }
+
+          .way2 {
+            margin-top: 29px;
+          }
+        }
+      }
+    }
+  }
+
   /* 可以设置不同的进入和离开动画 */
   /* 设置持续时间和动画函数 */
   .slide-fade-enter-active {
@@ -1792,4 +2281,11 @@ export default {
   opacity: 0;
   }
 }
+</style>
+
+<style>
+  .customDialog {
+    border-radius: 14px !important;
+    width: 1000px;
+  }
 </style>
