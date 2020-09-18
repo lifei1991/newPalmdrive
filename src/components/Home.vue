@@ -1699,6 +1699,7 @@ export default {
         margin: 0 21px 54px;
         background-repeat: no-repeat;
         background-size: cover;
+        cursor: pointer;
       }
     }
 
