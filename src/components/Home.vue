@@ -378,7 +378,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro3.png'),
           title: '全能主导师',
-          text: '8,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
+          text: '10,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
         },
         {
           logo: require('../assets/img/home/intros/intro4.png'),
@@ -609,9 +609,6 @@ export default {
         },
         {
           img: require('../assets/img/home/activity/activity2-8.png')
-        },
-        {
-          img: require('../assets/img/home/activity/activity2-9.png')
         }
       ],
       dynamics: [
@@ -723,17 +720,17 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '法学专业讲座'
+            title2: '简历写作指南讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月1日'
+            title2: '10月14日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请法学的学生'
+            title2: '所有申请的对简历有疑问的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -743,78 +740,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请拥有英美硕士、藤校博士经历的导师来讲述法学的纵横申请对比，包括法学学位科普、英美与其他小众国家法学项目科普、出国读硕士的动机和优势分析、未来职业规划的内容。'
+            title2: '邀申请简历的结构、作用、写法以及常见误区解读，申请简历和其他简历的区别，让学生全面了解申请简历的构成、作用以及撰写技巧。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '背景提升配对馆'
+            title2: 'MKT专业研究'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月2日'
+            title2: '10月15日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '大一至大三（非申请季）、有留学意向的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '门诊 + 背景提升资料礼包'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '本次活动为同学匹配对应的文、商、理工的导师，与同学进行在线的一对一咨询，针对每位同学关于背景提升的疑问给出相应的解答及对应的建议。咨询结束后，同学们将获得棕榈精心准备的留学背提大礼包。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '商科申请规划'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '9月6日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '申请商科的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '留学规划手册（PDF）'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '本次活动会针对每位学生的背景以及之后的申请方向针对性制作规划表 。大一至大三的学生主要以留学申请规划的建议以及学校推荐的留学规划手册，针对大四即将申请的同学主要是给申请季的准备建议以及学校推荐。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '转专业避雷讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '9月7日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '大三想要转专业的学生和大四转专业申请的学生'
+            title2: '申请市场营销相关专业的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -824,132 +767,105 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '针对大三转专业同学给出：常见转专业策略、转专业背景提升策略、申请季转专业申请流程和技巧、转专业的常见误区和雷区'
+            title2: '邀请拥有英国ic就读经历的导师来讲述市场营销专业的申请要点，包括专业项目选择、申请要求、课程设置、专业准备要点、就业方向分析等等内容。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '大学规划锦囊'
+            title2: '“选校 list 孵化”活动'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月8日'
+            title2: '10月18日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '大一至大三（非申请季）、有留学意向的学生'
+            title2: '申请季及大三学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '线上讲座 + 规划报告福利（限量）'
+            title2: '选校报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '在新学期开始之初，邀请经验丰富的导师为同学们带来大学各阶段的规划建议。按照时间线划分，锁定大一至大四的重点提升规划，包括找实习、做科研的时间节点、先修课的补充等。除此之外，大牛导师还将分享个人的大学规划经历，以供学生借鉴参考。'
+            title2: '导师团队由来自牛津大学、耶鲁大学、康奈尔大学、宾夕法尼亚大学等知名院校的大牛组成，覆盖文商理工艺医大类的各专业，将基于大家目前的综合背景，输出一份选校参考列表，列举出相应的冲刺校、主申校、保底校，并逐一分享各校的优势，助你摆脱选校困难综合症。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '小文书讲座'
+            title2: '文科如何转数据分析讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月15日'
+            title2: '10月19日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请专业需要写小文书的同学'
+            title2: '想转数据分析的文科生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '线上讲座+答疑+一对一门诊'
+            title2: '线上讲座+答疑'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '讲座思路从RP和phs外，文理工商，突出要写小文书的有哪些项目case?小文书的重要性，学校设置小文书的目的，小文书的类型，什么样的小文书是优秀的？如何写好小文书？'
+            title2: '以导师个人经历来串联她从传媒文科转向MKT以及BA的经历，解读转专业友好的商科数据类专业，以及文科生需要在本科期间做的实习、先修课、实践等背景提升规划。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: 'Dream school Pass Card'
+            title2: '英国留学申请讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月17日'
+            title2: '10月20日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '当季申请者，正在筹备PS的同学'
+            title2: '有意向申请英国留学的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '（290元）获取45分钟导师一对一咨询+文书大礼包'
+            title2: '线上讲座+答疑'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '活动针对同学目前的文书写作进度，匹配文书写作水准超高的专业导师，给到同学一对一指导，教同学写出好文书。给同学专业度高、干货性强、拒绝模板套路的文书辅导体验。注意，还有超值福利大礼包回馈哦！'
+            title2: '分析英国就读的优势以及申请形势；讲解英国各梯度学校介绍以及录取门槛/偏好；分别针对申请季和非申请季的学生，教大家如何突出自身优势，以获得名校青睐；解析典型案例，听听“过来人”的申请/逆袭/避坑经验。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '传媒大神养成计划'
+            title2: 'MPP/MPA 学霸说'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '9月22日'
+            title2: '10月21日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '意向申请传媒类专业的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '本次活动将邀请兼具传媒申请与就业经验的导师，结合个人的申请经历与就读院校的资源讲解，与大家分享传媒申请的核心知识，涵盖：具体项目分析、背景提升路径、选校定位指南等内容。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '大学课外活动主题讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '9月24日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '开学大二大三、有留学背景提升要求的同学'
+            title2: '意向申请 MPP/MPA 专业 的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -959,7 +875,61 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '针对开学大二大三准备留学的人群，解答如何在未来的一道两年安排好软背景提升。比如：不同课外活动对申请的帮助？不同时间段应该如何安排课外活动？不同专业应当如何取舍课外活动？'
+            title2: '兼具扎实学术背景与丰富求职经历的导师，将从职场蓝图、专业解读、项目申请、院校选择、文书技巧及背景提升等多个核心维度出发，为大家揭秘 MPP/MPA 的申请全貌。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '欧洲国家申请详解'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '10月22日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '针对申请欧洲或者想要了解欧洲国家的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '围绕热门的欧洲留学国家（法国、意大利、荷兰），进行热门专业的申请要点解析，带领同学了解这些欧洲高校的项目特色、申请要求和准备要点。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '学长学姐1V1 Talk'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '10月28日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '意向申请人类学、历史学等小众专业的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '一对一线上门诊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请拥有人类学、历史学等专业背景的导师，与大家一对一在线沟通。在这里，你可以向他们请教任何关于申请的疑难与困惑：专业的课程设置如何？怎样完成背景提升？毕业后的求职方向有哪些？…… 在线击退你的申请疑难杂症'
           }
         ]
       ],

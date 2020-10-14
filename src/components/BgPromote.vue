@@ -316,7 +316,7 @@ export default {
         {
           logo: require('../assets/img/offers/number/number1.png'),
           title: '学生总数',
-          number: '4000+'
+          number: '5000+'
         },
         {
           logo: require('../assets/img/offers/number/number2.png'),
@@ -486,7 +486,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '5000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '6000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),
@@ -496,7 +496,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro3.png'),
           title: '全能主导师',
-          text: '8,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
+          text: '10,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
         },
         {
           logo: require('../assets/img/home/intros/intro4.png'),
