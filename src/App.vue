@@ -268,6 +268,15 @@ export default {
           ]
         },
         {
+          name: '南&nbsp;&nbsp;&nbsp;京',
+          place: [
+            {
+              text: '南京市栖霞区学津路8号仙林高创中心B座707室',
+              number: '15721439945'
+            }
+          ]
+        },
+        {
           name: '硅&nbsp;&nbsp;&nbsp;谷',
           place: [
             {
@@ -1097,7 +1106,7 @@ body {
           font-weight: 500;
           line-height: 14px;
           opacity: 1;
-          margin-right: 35px;
+          margin-right: 27px;
           display: inline-block;
           color: #fff;
           padding-bottom: 3px;

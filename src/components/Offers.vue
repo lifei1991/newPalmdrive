@@ -344,7 +344,7 @@ export default {
         {
           logo: require('../assets/img/offers/number/number2.png'),
           title: '硕博Top100 offer',
-          number: '5000+'
+          number: '10000+'
         },
         {
           logo: require('../assets/img/offers/number/number3.png'),
@@ -2223,7 +2223,7 @@ export default {
 
       .each-number-div {
         height: 84px;
-        width: 251px;
+        width: 252px;
         display: inline-block;
         margin: 0 24px;
 

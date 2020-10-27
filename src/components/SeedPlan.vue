@@ -14,7 +14,7 @@
           <div class="info-text" style="line-height:28px">背景提升率</div>
         </div>
         <div class="info3-div">
-          <div class="info-number">1700+</div>
+          <div class="info-number">3200+</div>
           <div class="info-text"  style="text-align: center"> 背景提升<br/>Offer</div>
         </div>
 
@@ -42,7 +42,7 @@
 
     <div class="banner3-div">
       <div class="title">核心种子力量</div>
-      <div class="title2">3000+同学的选择，多年背景提升，申请水到渠成。</div>
+      <div class="title2">1800+同学的选择，多年背景提升，申请水到渠成。</div>
       <ul class="teacher-item-div" >
         <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'teacher-bg-colors' : index == currentType }">
           <div class="img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
@@ -141,7 +141,7 @@
               <div class="title-div">
                 <div class="title1">种子计划</div>
                 <div class="title2">大一至大三，从背景提升到出国申请，一步到位</div>
-                <div class="title3">￥ 49,800 - ￥ 79,800</div>
+                <div class="title3">￥ 49,800 - ￥ 109,800</div>
                 <!-- <div class="plan-button" :style="{backgroundImage:'url(' + planButton + ')'}">我要咨询</div> -->
               </div>
           </div>
