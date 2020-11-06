@@ -609,6 +609,9 @@ export default {
         },
         {
           img: require('../assets/img/home/activity/activity2-8.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-9.png')
         }
       ],
       dynamics: [
@@ -720,17 +723,125 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '简历写作指南讲座'
+            title2: 'NYU、哥大、JHU高校专场'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '10月14日'
+            title2: '11月5日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '所有申请的对简历有疑问的学生'
+            title2: '申请NYU、哥大、JHU的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '一对一门诊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请8位来自NYU、哥大、JHU热门常申专业的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '留学话题讨论'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月12日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '有留学意向的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '群互动'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请有留学经历/求职经验/辅导经验的导师，选取时下关于留学的热门话题/争议做解读分析，零距离参与同学们的讨论，并作答疑解惑。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '王曼爱华高校专场'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月14日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请KCL、曼大、爱丁堡、华威的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '一对一门诊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请十余位来自KCL、曼大、爱丁堡、华威热门常申专业的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '专业混申计划通'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月14日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '想要申请多个专业方向的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '表单，表单内容偏重学校和专业，以及混申的注意事项等等'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '针对想要多申请几个专业增加自己录取概率的同学，帮助他们选择适合的专业组合，例如DS/CS/EE+MIS、传媒+文创-gender相关项目、金工金数+运筹学、金融+风险管理/会计与金融，在减小申请准备负担的同时，增加他们的申请打击面。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: 'BA与DS对比讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月16日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '有意向申请BA与DS的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -740,24 +851,78 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀申请简历的结构、作用、写法以及常见误区解读，申请简历和其他简历的区别，让学生全面了解申请简历的构成、作用以及撰写技巧。'
+            title2: '邀请多专业混申的BA硕士导师来为大家讲解BA和DS专业的区分。主要是专业项目推荐、课程设置、就业方向的异同。还会讲述导师自己的项目就读体验、项目选择的思考、申请的心路历程。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: 'MKT专业研究'
+            title2: '“留学小白训练营”'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '10月15日'
+            title2: '11月18日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请市场营销相关专业的学生'
+            title2: '大一大二有留学意向的萌新'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '社群干货分享+导师互动答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '在社群内，每天将不定时发送各种留学干货福利，并有助教在线解答大家关于留学申请的困惑；更邀请了拥有丰富申请经验的导师，为大家揭秘留学竞争力、背景提升、大学规划时间线、申请材料那些事儿。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '大二大三背景提升训练营'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月26日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '大二大三想要背景提升的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '群分享+导师互动'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '大二大三实习+科研党的核心问题在于找不到更多的机会，所以，我们希望通过这次的社群分享，让同学们认识更多和你一样寻求背景提升的人，获取背景提升所需要的知识，和棕榈种子计划导师互动解决你对背景提升的问题，更有更多实习/科研机会资源等你领。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '金工金数专业讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '11月30日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请金工/金数的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -767,51 +932,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请拥有英国ic就读经历的导师来讲述市场营销专业的申请要点，包括专业项目选择、申请要求、课程设置、专业准备要点、就业方向分析等等内容。'
+            title2: '邀请拥有英美港申请经历的导师来讲述金工金数的纵横申请对比，包括专业科普、各国/地区金工金数项目介绍、名校项目的录取偏好及有针对的背景提升策略、如何多国混申等内容。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '“选校 list 孵化”活动'
+            title2: '留学奖学金讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '10月18日'
+            title2: '11月19日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请季及大三学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '选校报告'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '导师团队由来自牛津大学、耶鲁大学、康奈尔大学、宾夕法尼亚大学等知名院校的大牛组成，覆盖文商理工艺医大类的各专业，将基于大家目前的综合背景，输出一份选校参考列表，列举出相应的冲刺校、主申校、保底校，并逐一分享各校的优势，助你摆脱选校困难综合症。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '文科如何转数据分析讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '10月19日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '想转数据分析的文科生'
+            title2: '有留学意向、想申请奖学金的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -821,115 +959,7 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '以导师个人经历来串联她从传媒文科转向MKT以及BA的经历，解读转专业友好的商科数据类专业，以及文科生需要在本科期间做的实习、先修课、实践等背景提升规划。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '英国留学申请讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '10月20日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '有意向申请英国留学的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '分析英国就读的优势以及申请形势；讲解英国各梯度学校介绍以及录取门槛/偏好；分别针对申请季和非申请季的学生，教大家如何突出自身优势，以获得名校青睐；解析典型案例，听听“过来人”的申请/逆袭/避坑经验。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: 'MPP/MPA 学霸说'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '10月21日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '意向申请 MPP/MPA 专业 的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '兼具扎实学术背景与丰富求职经历的导师，将从职场蓝图、专业解读、项目申请、院校选择、文书技巧及背景提升等多个核心维度出发，为大家揭秘 MPP/MPA 的申请全貌。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '欧洲国家申请详解'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '10月22日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '针对申请欧洲或者想要了解欧洲国家的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '围绕热门的欧洲留学国家（法国、意大利、荷兰），进行热门专业的申请要点解析，带领同学了解这些欧洲高校的项目特色、申请要求和准备要点。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '学长学姐1V1 Talk'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '10月28日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '意向申请人类学、历史学等小众专业的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '一对一线上门诊'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '邀请拥有人类学、历史学等专业背景的导师，与大家一对一在线沟通。在这里，你可以向他们请教任何关于申请的疑难与困惑：专业的课程设置如何？怎样完成背景提升？毕业后的求职方向有哪些？…… 在线击退你的申请疑难杂症'
+            title2: '申请已经陆续开放，有很多同学比较希望了解如何做到带奖录取，我们邀请了大牛导师，来科普奖学金的分类和构成，并带来申请奖学金的实用攻略，讲座适用于申请季、非申请季的所有同学。'
           }
         ]
       ],
