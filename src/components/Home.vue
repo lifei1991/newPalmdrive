@@ -3,261 +3,413 @@
     <!-- <remote-css rel="stylesheet" href="../assets/third/carousel/owl.theme.css"></remote-css>
     <remote-css rel="stylesheet" href="../assets/third/carousel/owl.carousel.css"></remote-css> -->
 
-    <div class="banner1-div">
-      <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
-        <div class="info1-div">
-          <div class="info-number">99.3%</div>
-          <div class="info-text" style="line-height:28px">学校申请成功率</div>
-        </div>
-        <div class="info2-div">
-          <div class="info-number">71.6%</div>
-          <div class="info-text">世界排名前50名校</div>
-        </div>
-        <div class="info3-div">
-          <div class="info-number">94.3%</div>
-          <div class="info-text">世界排名前100名校录取offer比例</div>
-        </div>
-
-        <div class="text">数据解释权归棕榈大道</div>
-      </div>
-    </div>
-
-    <div class="banner2-div">
-      <div class="title">offer 战绩</div>
-      <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
-      <div class="school-div">
-        <div class="each-school-div" v-for="item in schools" :key="item.logo">
-          <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="school-into">
-            <div class="school-name">{{ item.name }}</div>
-            <div class="school-offer">{{ item.offer }}</div>
-            <span class="offer-text">offer</span>
+    <div v-if="!isMobile" class="web-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class="info1-div">
+            <div class="info-number">99.3%</div>
+            <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
-        </div>
-        <div class="more-offer">
-          <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
-            查看更多offer<img src="../assets/img/home/more.png" class="more-img" />
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner3-div">
-      <div class="number-div">
-        <div class="each-number-div"  v-for="(item, index) in numbers" :key='item.logo'>
-          <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="number-into">
-            <div class="number-name">{{ item.title }}</div>
-            <div class="number">{{ item.number }}</div>
-            <span class="number-text" v-if="index == 0">位</span>
-            <span class="number-text" v-if="index == 1">份</span>
+          <div class="info2-div">
+            <div class="info-number">71.6%</div>
+            <div class="info-text">世界排名前50名校</div>
           </div>
-        </div>
-        <div class="number-dataLine">*数据截止到2019年1月</div>
-      </div>
-    </div>
-
-    <div class="banner12-div">
-      <div class="carousel-div">
-        <div class="each-product" v-for="(item, index) in products" :key="index" @click="showProductDetail(index)">
-          <div class="product-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-          <div class="product-top-div" :style="{background: item.color}">
-            <div>{{item.title}}</div>
+          <div class="info3-div">
+            <div class="info-number">94.3%</div>
+            <div class="info-text">世界排名前100名校录取offer比例</div>
           </div>
-          <div class="product-bottom-div">
-            <div v-for="(item, index) in item.text" :key="index">{{item}}</div>
-          </div>
-          <div v-show="(currentShowDot == index) && showDetailDiv" class="dot" :style="{background: item.color}"></div>
+
+          <div class="text">数据解释权归棕榈大道</div>
         </div>
       </div>
-    </div>
 
-    <transition name="slide-fade">
-      <div class="banner13-div" v-if="showDetailDiv" :style="{backgroundImage:'url(' + banner13 + ')'}">
-        <div class="detail-div">
-          <div class="each-program-detail" v-for="(item, index) in selectProductDetail" :key="index" :style="{'width':(currentShowDot == 1 ? '148px':'225px'), 'margin': (currentShowDot == 0 ? '0 55px':'0 26px')}" >
-            <div class="detail-index">{{ item.index }}</div>
-            <div class="detail-title">{{ item.title }}</div>
-            <div class="detail-text" v-for="(one, index) in item.text" :key="index">{{ one }}</div>
-          </div>
-        </div>
-      </div>
-    </transition>
-
-    <div class="banner4-div">
-      <div class="title">四对一辅导模式</div>
-      <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
-      <div class="four-to-one-div">
-        <div class="each1 each">
-          <div class="each-title">全能主导师</div>
-          <div class="each-text">超越行业水平的师资团队， </div>
-          <div class="each-text">丰富的辅导经验和海外学习经历</div>
-        </div>
-        <div class="each2 each">
-          <div class="each-title">同专业导师</div>
-          <div class="each-text">覆盖全球广泛的名校优秀校友资源</div>
-          <div class="each-text">为学生提供独特的专业见解和职业建议</div>
-        </div>
-        <div class="each3 each">
-          <div class="each-title">名校外籍导师</div>
-          <div class="each-text">美国著名高校，修读专业为语言学、教育学</div>
-          <div class="each-text">丰富的文书写作经验，辅导3000+文书</div>
-        </div>
-        <div class="each4 each">
-          <div class="each-title">资深班主任</div>
-          <div class="each-text">申请材料准备指导，堪称申请流程的百科</div>
-          <div class="each-text">全书</div>
-        </div>
-
-        <div class="almightyMentor">
-          <div class="title3">全能主导师</div>
-          <div class="title4">深耕留学，申请专家</div>
-        </div>
-        <div class="seniorMentor">
-          <div class="title3">资深班主任</div>
-          <div class="title4">流程点拨，答疑百科</div>
-        </div>
-        <div class="sameMajorMentor">
-          <div class="title3">同专业导师</div>
-          <div class="title4">全球高校，精英网络</div>
-        </div>
-        <div class="foreignMentor">
-          <div class="title3">名校外籍导师</div>
-          <div class="title4">妙笔生花，纯正表达</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner5-div">
-      <div class="intos-div">
-        <div class="each-into-div" v-for="item in intros" :key="item.logo">
-          <div class="intro-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class="intro-title">{{ item.title }}</div>
-          <div class="intro-text">{{ item.text }}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner6-div">
-      <div class="title">导师团队精选</div>
-      <div class="teachers-div">
-        <template v-for="(item, index) in teachers" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="item.school" @click="handleOpenDialog(item)">
-            <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="teacher-info-div">
-              <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+      <div class="banner2-div">
+        <div class="title">offer 战绩</div>
+        <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
+        <div class="school-div">
+          <div class="each-school-div" v-for="item in schools" :key="item.logo">
+            <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class="school-into">
+              <div class="school-name">{{ item.name }}</div>
+              <div class="school-offer">{{ item.offer }}</div>
+              <span class="offer-text">offer</span>
             </div>
           </div>
-        </template>
-
-        <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
-        <div class="more-teachers" v-if="maxNumber <= 8">
-          <div>
-            <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
-              查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
+          <div class="more-offer">
+            <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
+              查看更多offer<img src="../assets/img/home/more.png" class="more-img" />
             </a>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="banner7-div">
-      <div class="title">辅导项目</div>
-      <div>
-        <a :href="item.url" target="_blank" v-for="item in programs" :key="item.img">
-          <div class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-        </a>
-      </div>
-    </div>
-
-    <!-- <div class="banner8-div">
-      <div class="title">近期活动</div>
-      <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
-      <div class="carousel-div">
-        <div id="owl-demo" class="owl-carousel  owl-theme">
-            <div class="each-activity" v-for="(item, index) in activities" :key="index">
-              <div class="activity-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title">{{ item.title }}</div>
-              <div class="time">{{ item.time }}</div>
+      <div class="banner3-div">
+        <div class="number-div">
+          <div class="each-number-div"  v-for="(item, index) in numbers" :key='item.logo'>
+            <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class="number-into">
+              <div class="number-name">{{ item.title }}</div>
+              <div class="number">{{ item.number }}</div>
+              <span class="number-text" v-if="index == 0">位</span>
+              <span class="number-text" v-if="index == 1">份</span>
             </div>
+          </div>
+          <div class="number-dataLine">*数据截止到2019年1月</div>
         </div>
       </div>
-    </div> -->
 
-    <div class="banner8-2-div">
-      <div class="title">近期活动</div>
-      <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
-      <div class="activity-div">
-        <div v-show="index < activityShowNumber" v-for="(item, index) in activities2" :key="item.img" class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}" @click="handleOpenActivityDialog(index)"></div>
+      <div class="banner12-div">
+        <div class="carousel-div">
+          <div class="each-product" v-for="(item, index) in products" :key="index" @click="showProductDetail(index)">
+            <div class="product-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+            <div class="product-top-div" :style="{background: item.color}">
+              <div>{{item.title}}</div>
+            </div>
+            <div class="product-bottom-div">
+              <div v-for="(item, index) in item.text" :key="index">{{item}}</div>
+            </div>
+            <div v-show="(currentShowDot == index) && showDetailDiv" class="dot" :style="{background: item.color}"></div>
+          </div>
+        </div>
+      </div>
 
-        <div class="more-activity" v-if="activityShowNumber <= 3">
-          <div>
-            <div @click="activityShowNumber = 100">
-              查看更多讲座<img src="../assets/img/home/more.png" class="more-img" />
+      <transition name="slide-fade">
+        <div class="banner13-div" v-if="showDetailDiv" :style="{backgroundImage:'url(' + banner13 + ')'}">
+          <div class="detail-div">
+            <div class="each-program-detail" v-for="(item, index) in selectProductDetail" :key="index" :style="{'width':(currentShowDot == 1 ? '148px':'225px'), 'margin': (currentShowDot == 0 ? '0 55px':'0 26px')}" >
+              <div class="detail-index">{{ item.index }}</div>
+              <div class="detail-title">{{ item.title }}</div>
+              <div class="detail-text" v-for="(one, index) in item.text" :key="index">{{ one }}</div>
+            </div>
+          </div>
+        </div>
+      </transition>
+
+      <div class="banner4-div">
+        <div class="title">四对一辅导模式</div>
+        <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
+        <div class="four-to-one-div">
+          <div class="each1 each">
+            <div class="each-title">全能主导师</div>
+            <div class="each-text">超越行业水平的师资团队， </div>
+            <div class="each-text">丰富的辅导经验和海外学习经历</div>
+          </div>
+          <div class="each2 each">
+            <div class="each-title">同专业导师</div>
+            <div class="each-text">覆盖全球广泛的名校优秀校友资源</div>
+            <div class="each-text">为学生提供独特的专业见解和职业建议</div>
+          </div>
+          <div class="each3 each">
+            <div class="each-title">名校外籍导师</div>
+            <div class="each-text">美国著名高校，修读专业为语言学、教育学</div>
+            <div class="each-text">丰富的文书写作经验，辅导3000+文书</div>
+          </div>
+          <div class="each4 each">
+            <div class="each-title">资深班主任</div>
+            <div class="each-text">申请材料准备指导，堪称申请流程的百科</div>
+            <div class="each-text">全书</div>
+          </div>
+
+          <div class="almightyMentor">
+            <div class="title3">全能主导师</div>
+            <div class="title4">深耕留学，申请专家</div>
+          </div>
+          <div class="seniorMentor">
+            <div class="title3">资深班主任</div>
+            <div class="title4">流程点拨，答疑百科</div>
+          </div>
+          <div class="sameMajorMentor">
+            <div class="title3">同专业导师</div>
+            <div class="title4">全球高校，精英网络</div>
+          </div>
+          <div class="foreignMentor">
+            <div class="title3">名校外籍导师</div>
+            <div class="title4">妙笔生花，纯正表达</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner5-div">
+        <div class="intos-div">
+          <div class="each-into-div" v-for="item in intros" :key="item.logo">
+            <div class="intro-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class="intro-title">{{ item.title }}</div>
+            <div class="intro-text">{{ item.text }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner6-div">
+        <div class="title">导师团队精选</div>
+        <div class="teachers-div">
+          <template v-for="(item, index) in teachers" >
+            <div class="each-teacher" v-if="index < maxNumber" :key="item.school" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
+          <div class="more-teachers" v-if="maxNumber <= 8">
+            <div>
+              <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
+                查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="banner9-div">
-      <div class="title">最新动态</div>
-      <div class="title2">右下角扫码关注公众号，及时获得最新动态。</div>
-      <div class="carousel-div">
-        <div id="owl-demo2" class="owl-carousel  owl-theme">
-            <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
-              <div class="logo">PALMDRIVE</div>
-              <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title" @click="goToDetail(1000, index)">{{ item.title }}</div>
-              <div class="text">{{ item.text }}</div>
-              <div class="more" @click="goToDetail(1000, index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
-              <div class="bottom-green"></div>
-            </div>
+      <div class="banner7-div">
+        <div class="title">辅导项目</div>
+        <div>
+          <a :href="item.url" target="_blank" v-for="item in programs" :key="item.img">
+            <div class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+          </a>
         </div>
+      </div>
+
+      <!-- <div class="banner8-div">
+        <div class="title">近期活动</div>
+        <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
+        <div class="carousel-div">
+          <div id="owl-demo" class="owl-carousel  owl-theme">
+              <div class="each-activity" v-for="(item, index) in activities" :key="index">
+                <div class="activity-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="title">{{ item.title }}</div>
+                <div class="time">{{ item.time }}</div>
+              </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="banner8-2-div">
+        <div class="title">近期活动</div>
+        <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
+        <div class="activity-div">
+          <div v-show="index < activityShowNumber" v-for="(item, index) in activities2" :key="item.img" class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}" @click="handleOpenActivityDialog(index)"></div>
+
+          <div class="more-activity" v-if="activityShowNumber <= 3">
+            <div>
+              <div @click="activityShowNumber = 100">
+                查看更多讲座<img src="../assets/img/home/more.png" class="more-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner9-div">
+        <div class="title">最新动态</div>
+        <div class="title2">右下角扫码关注公众号，及时获得最新动态。</div>
+        <div class="carousel-div">
+          <div id="owl-demo2" class="owl-carousel  owl-theme">
+              <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
+                <div class="logo">PALMDRIVE</div>
+                <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="title" @click="goToDetail(1000, index)">{{ item.title }}</div>
+                <div class="text">{{ item.text }}</div>
+                <div class="more" @click="goToDetail(1000, index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+                <div class="bottom-green"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
+
+      <div class="acticityInfoDialog">
+        <el-dialog
+          customClass="customDialog"
+          :visible.sync="dialogActivity"
+          width="892px">
+          <div class="activity-detail-div">
+            <div class="left-div">
+              <div class="each-title-div" v-for="(item, index) in selectedActivityTheme" :key="index">
+                <div :style="{backgroundImage:'url(' + item.img + ')'}" class="theme-logo"></div>
+                <span class="title">{{item.title}}</span>
+                <div class="title2">{{item.title2}}</div>
+              </div>
+            </div>
+            <div class="right-div">
+              <div class="div1">
+                <img src="../assets/img/home/activity/activity-code.png" class="more-img" width="132px"/>
+              </div>
+              <div class="div2">
+                <div class="way">方式一</div>
+                <div class="way-text">扫描二维码添加</div>
+                <div class="way-text">小助手咨询</div>
+
+                <div class="way way2">方式二</div>
+                <div class="way-text">输入微信号添加小助手</div>
+                <div class="way-text">微信号：pdpr19</div>
+                <div class="way-text">或 18026424935</div>
+              </div>
+            </div>
+          </div>
+        </el-dialog>
       </div>
     </div>
 
-    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
-
-    <div class="acticityInfoDialog">
-      <el-dialog
-        customClass="customDialog"
-        :visible.sync="dialogActivity"
-        width="892px">
-        <div class="activity-detail-div">
-          <div class="left-div">
-            <div class="each-title-div" v-for="(item, index) in selectedActivityTheme" :key="index">
-              <div :style="{backgroundImage:'url(' + item.img + ')'}" class="theme-logo"></div>
-              <span class="title">{{item.title}}</span>
-              <div class="title2">{{item.title2}}</div>
-            </div>
+    <div v-if="isMobile" class="mobile-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class="info1-div">
+            <div class="info-number">99.3%</div>
+            <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
-          <div class="right-div">
-            <div class="div1">
-              <img src="../assets/img/home/activity/activity-code.png" class="more-img" width="132px"/>
-            </div>
-            <div class="div2">
-              <div class="way">方式一</div>
-              <div class="way-text">扫描二维码添加</div>
-              <div class="way-text">小助手咨询</div>
+          <div class="info2-div">
+            <div class="info-number">71.6%</div>
+            <div class="info-text">世界排名前50名校录取offer比例</div>
+          </div>
+          <div class="info3-div">
+            <div class="info-number">94.3%</div>
+            <div class="info-text">世界排名前100名校录取offer比例</div>
+          </div>
 
-              <div class="way way2">方式二</div>
-              <div class="way-text">输入微信号添加小助手</div>
-              <div class="way-text">微信号：pdpr19</div>
-              <div class="way-text">或 18026424935</div>
+          <!-- <div class="text">数据解释权归棕榈大道</div> -->
+        </div>
+      </div>
+
+      <div class="banner2-div">
+        <div class="content">
+          <div class="title">offer 战绩</div>
+          <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
+          <div class="school-div">
+            <div class="each-school-div" v-for="(item, index) in schools" :key="item.logo" v-if="index < 8">
+              <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+              <div class="school-into">
+                <div class="school-name">{{ item.name }}</div>
+                <div class="school-offer">{{ item.offer }}</div>
+                <span class="offer-text">offer</span>
+              </div>
+            </div>
+            <div class="more-offer">
+              <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
+                查看更多offer
+              </a>
             </div>
           </div>
         </div>
-      </el-dialog>
-    </div>
+      </div>
 
+      <div class="banner3-div">
+        <div class="number-div">
+          <div class="each-number-div"  v-for="(item, index) in numbers" :key='item.logo'>
+            <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class="number-into">
+              <div class="number-name">{{ item.title }}</div>
+              <div class="number">{{ item.number }}</div>
+              <span class="number-text" v-if="index == 0">位</span>
+              <span class="number-text" v-if="index == 1">份</span>
+            </div>
+          </div>
+          <div class="number-dataLine">*数据截止到2019年1月</div>
+        </div>
+      </div>
+
+      <div class="banner12-div">
+        <div class="product-div">
+          <div class="each-product-div"  v-for="item in products" :key='item.logo'>
+             <div class="product-img" :style="{backgroundImage:'url(' + item.imgMB + ')'}"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner4-div">
+        <div class="title">四对一辅导模式</div>
+        <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
+        <div class="four-to-one-div"></div>
+        <div class="four-to-one-div2"></div>
+      </div>
+
+      <div class="banner5-div">
+        <div class="intos-div">
+          <div class="each-into-div" v-for="item in intros" :key="item.logo">
+            <div class="intro-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class="intro-title">{{ item.title }}</div>
+            <div class="intro-text">{{ item.text }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner6-div">
+        <div class="title">导师团队精选</div>
+        <div class="teachers-div">
+          <template v-for="(item, index) in teachers" >
+            <div class="each-teacher" v-if="index < 4" :key="item.school" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
+          <div class="more-teachers" v-if="maxNumber <= 8">
+            <div>
+              <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
+                查看更多导师
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner7-div">
+        <div class="title">辅导项目</div>
+        <div>
+          <a :href="item.url" target="_blank" v-for="item in programs" :key="item.img">
+            <div class="each-program"  :style="{backgroundImage:'url(' + item.imgMB + ')'}"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="banner8-2-div">
+        <div class="title">近期活动</div>
+        <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
+        <div class="activity-div">
+          <div v-show="index < activityShowNumberMB" v-for="(item, index) in activities2" :key="item.img" class="each-program"  :style="{backgroundImage:'url(' + item.img + ')'}" @click="handleOpenActivityDialog(index)"></div>
+
+          <div class="more-activity" v-if="activityShowNumberMB <= 4">
+            <div>
+              <div @click="activityShowNumberMB = 100">
+                查看更多讲座
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner9-div">
+        <div class="title">最新动态</div>
+        <div class="title2">右下角扫码关注公众号，及时获得最新动态。</div>
+        <div class="carousel-div">
+          <div id="owl-demo3" class="owl-carousel  owl-theme">
+              <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
+                <div class="logo">PALMDRIVE</div>
+                <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+                <div class="title" @click="goToDetail(1000, index)">{{ item.title }}</div>
+                <div class="text">{{ item.text }}</div>
+                <div class="more" @click="goToDetail(1000, index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+                <div class="bottom-green"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
 import TeacherDialog from './common/teacherInfoDialog'
+import Common from './common/common'
 export default {
   components: {
     TeacherDialog
@@ -265,6 +417,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      isMobile: Common.isMobile,
       schools: [
         {
           logo: require('../assets/img/home/school/hf.png'),
@@ -523,19 +676,22 @@ export default {
           img: require('../assets/img/home/product/product1.png'),
           title: '专 业',
           text: ['全程专业的细致辅导', '强大全面的数据库', '真诚负责的辅导态度'],
-          color: '#3980D3'
+          color: '#3980D3',
+          imgMB: require('../assets/img/home/mobile/product/product1.png')
         },
         {
           img: require('../assets/img/home/product/product2.png'),
           title: '透 明',
           text: ['费用透明   合同透明', '师资透明   流程透明', '数据透明'],
-          color: '#A9C669'
+          color: '#A9C669',
+          imgMB: require('../assets/img/home/mobile/product/product2.png')
         },
         {
           img: require('../assets/img/home/product/product3.png'),
           title: '全心为你',
           text: ['订制化留学套餐', '及时的反馈机制', '一站式留学辅导平台', '干货分享-信诚则立'],
-          color: '#23D0C9'
+          color: '#23D0C9',
+          imgMB: require('../assets/img/home/mobile/product/product3.png')
         }
       ],
       activities: [
@@ -707,15 +863,18 @@ export default {
       programs: [
         {
           img: require('../assets/img/home/programs/program1.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/dream'
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/dream',
+          imgMB: require('../assets/img/home/mobile/programs/program1.png')
         },
         {
           img: require('../assets/img/home/programs/program2.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/seed'
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/seed',
+          imgMB: require('../assets/img/home/mobile/programs/program2.png')
         },
         {
           img: require('../assets/img/home/programs/program3.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/ability'
+          url: 'http://www.palmdrive.cn/v2/graduate.html#/ability',
+          imgMB: require('../assets/img/home/mobile/programs/program3.png')
         }
       ],
       activityThemes: [
@@ -972,6 +1131,7 @@ export default {
       currentShowDot: 99,
       selectProductDetail: [],
       activityShowNumber: 3,
+      activityShowNumberMB: 4,
       dialogActivity: false,
       selectedActivityTheme: []
     }
@@ -981,7 +1141,7 @@ export default {
     // }
     // )
 
-    this.banner1 = require('../assets/img/home/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/home/mobile/banner1.png') : require('../assets/img/home/banner1.png')
     this.banner13 = require('../assets/img/home/banner13.png')
     this.selectProductDetail = this.productsDetail[0]
   },
@@ -1009,6 +1169,18 @@ export default {
         loop: true,
         autoplayHoverPause: true,
         navText: ["<i class='left-arrow home-dynamic-left-arrow'></i>", "<i class='right-arrow home-dynamic-right-arrow'></i>"]
+      })
+
+      $('#owl-demo3').owlCarousel({
+        items: 2,
+        margin: 2,
+        lazyLoad: true,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        loop: true,
+        autoplayHoverPause: true,
+        navText: []
       })
 
       // const axios = require('axios')
@@ -1067,937 +1239,1202 @@ export default {
 .home {
   text-align: center;
 
-  .banner1-div {
-    width: 100%;
-    padding: 16px 0 33px;
-    background-color: #1BBEB2;
+  .web-div {
+    .banner1-div {
+      width: 100%;
+      padding: 16px 0 33px;
+      background-color: #1BBEB2;
 
-    .banner1 {
-      width: 1073px;
-      height: 510px;
-      margin: 0 auto;
-      position: relative;
-      text-align: left;
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      .info1-div {
-        position: absolute;
-        top: 296px;
-        left: 59px;
-      }
-
-      .info2-div {
-        position: absolute;
-        top: 357px;
-        left: 59px;
-      }
-
-      .info3-div {
-        position: absolute;
-        top: 418px;
-        left: 59px;
-      }
-
-      .info-number {
-        width: 75px;
-        font-size:28px;
-        font-family:Biko;
-        font-weight:bold;
-        line-height:35px;
-        color:rgba(40,167,169,1);
-        opacity:1;
-        margin-right: 12px;
-        display: inline-block;
-        height: 28px;
-      }
-
-      .info-text {
-        width: 93px;
-        font-size:12px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:14px;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        display: inline-block;
-        height: 28px;
-        vertical-align: top;
-      }
-
-      .text {
-        position: absolute;
-        top: 468px;
-        left: 24px;
-
-        font-size:12px;
-        font-family:Biko;
-        font-weight:400;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-      }
-    }
-  }
-
-  .banner2-div {
-    background-color: #fff;
-    padding: 50px 0 54px;
-
-    .title {
-      font-size: 24px;
-      font-family: Campton, SourceHanSansCN;
-      font-weight: bold;
-      line-height: 24px;
-      color: rgba(57, 60, 61, 1);
-      opacity: 1;
-      margin: 0px auto 10px;
-    }
-
-    .title2 {
-      font-size: 16px;
-      font-family: Biko, SourceHanSansCN;
-      font-weight: 500;
-      line-height: 27px;
-      color: rgba(85, 85, 85, 1);
-      opacity: 1;
-      margin-bottom: 49px;
-    }
-
-    .school-div {
-      width: 1150px;
-      margin: 0 auto;
-      // align-items: center;
-      // display: flex;
-      // flex-direction: row;
-      // justify-content: center;
-
-      .each-school-div {
-        width: 189px;
-        display: inline-block;
-        margin: 0 20px 50px;
-
-        .school-logo {
-          width: 63px;
-          height: 58px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
-
-        .school-into {
-          display: inline-block;
-          width: 112px;
-          margin-left: 14px;
-          text-align: left;
-          vertical-align: top;
-
-          .school-name {
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:14px;
-            color:rgba(57,60,61,1);
-            opacity:1;
-            margin-bottom: 10px;
-            margin-top: 7px;
-          }
-
-          .school-offer {
-            font-size:25px;
-            font-family:Biko;
-            font-weight:bold;
-            line-height:25px;
-            color:rgba(1,138,141,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .offer-text {
-            font-size:15px;
-            font-family:Avenir;
-            font-weight:800;
-            line-height:20px;
-            color:rgba(117,117,117,1);
-            opacity:1;
-            margin-left: 9px;
-          }
-        }
-      }
-
-      .more-offer {
-        margin-top: -11px;
-        font-size:13px;
-        font-family:PingFangSC-Medium, Avenir-Heavy;
-        font-weight:800;
-        line-height:13px;
-        color:rgba(51,51,51,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 30px;
-
-        a {
-          text-decoration: none;
-          color: rgba(51,51,51,1);
-        }
-
-        .more-img {
-          width: 16px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
-      }
-    }
-  }
-
-  .banner3-div {
-    padding: 90px 0 77px;
-    background-color: #25C3B6;
-
-    .number-div {
-      text-align: center;
-      width: 1200px;
-      margin: 0 auto;
-
-      .each-number-div {
-        height: 75px;
-        width: 250px;
-        display: inline-block;
-        margin: 0 25px;
-
-        .number-logo {
-          width: 75px;
-          height: 100%;
-          display: inline-block;
-        }
-
-        .number-into {
-          display: inline-block;
-          margin-left: 25px;
-          text-align: left;
-          vertical-align: top;
-
-          .number-name {
-            font-size:18px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(0,106,101,1);
-            opacity:1;
-            margin: 7px 0 14px;
-          }
-
-          .number {
-            font-size:40px;
-            font-family:Biko;
-            font-weight:Bold;
-            line-height:40px;
-            color:rgba(238,238,238,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .number-text {
-            font-size: 20px;
-            display: inline-block;
-            color: #EEEEEE;
-            font-family: SourceHanSansCN;
-          }
-        }
-      }
-
-      .number-dataLine {
-        height:17px;
-        font-size:12px;
-        font-family:PingFang SC;
-        font-weight:400;
-        line-height:17px;
-        color:rgba(0,124,118,1);
-        opacity:1;
-        margin-top: 20px;
-        text-align: right;
-        margin-right: 45px;
-      }
-    }
-  }
-
-  .banner4-div {
-    padding: 112px 0 97px;
-    background-color: #fff;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title2 {
-      width: 720px;
-      font-size:16px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:23px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin: 18px auto 86px;
-    }
-
-    .four-to-one-div {
-      width: 1158px;
-      height: 638px;
-      margin: 0 auto;
-      background-image: url("../assets/img/home/fourToOne/fourtoone.png");
-      position: relative;
-      text-align: left;
-
-      .each {
-        width: 266px;
+      .banner1 {
+        width: 1073px;
+        height: 510px;
+        margin: 0 auto;
+        position: relative;
         text-align: left;
-        position: absolute;
-        right: 126px;
-      }
-
-      .each1 {
-        top: 126px;
-      }
-
-      .each2 {
-        top: 255px;
-      }
-
-      .each3 {
-        top: 385px;
-      }
-
-      .each4 {
-        top: 518px;
-      }
-
-      .each-title {
-        font-size:20px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:20px;
-        color:rgba(60,60,60,1);
-        opacity:1;
-        margin-bottom: 8px;
-      }
-
-      .each-text {
-        font-size:14px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:20px;
-        color:rgba(117,117,117,1);
-        opacity:1;
-      }
-
-      .almightyMentor {
-        position: absolute;
-        top: 34px;
-        left: 257px;
-      }
-
-      .seniorMentor {
-        position: absolute;
-        top: 102px;
-        left: 527px;
-      }
-
-      .sameMajorMentor {
-        position: absolute;
-        top: 530px;
-        left: 24px;
-      }
-
-      .foreignMentor {
-        position: absolute;
-        bottom: -44px;
-        left: 520px;
-      }
-    }
-
-    .title3 {
-      margin-top: 2px;
-      font-size:18px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:18px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title4 {
-      font-size:14px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:14px;
-      color:rgba(148,148,148,1);
-      opacity:1;
-      margin-top: 8px;
-    }
-  }
-
-  .banner5-div {
-    padding: 69px 0 32px;
-    background-color: #EFF3F4;
-
-    .intos-div {
-      width: 1100px;
-      margin: 0 auto;
-
-      .each-into-div {
-        margin: 0 42px 47px;
-        width: 273px;
-        display: inline-block;
-        text-align: left;
-
-        .intro-logo {
-          width: 29px;
-          height: 28px;
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
-
-        .intro-title {
-          margin: 14px 0 12px;
-          font-size:18px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:18px;
-          color:rgba(98,98,98,1);
-          opacity:1;
-        }
-
-        .intro-text {
-          font-size:13px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:20px;
-          color:rgba(94,94,94,1);
-          opacity:1;
-        }
-      }
-    }
-  }
-
-  .banner6-div {
-    padding: 75px 0 73px;
-    background-color: #fff;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 62px;
-    }
-
-    .teachers-div {
-      width: 1130px;
-      text-align: center;
-      margin: 0 auto;
-
-      .each-teacher {
-        width: 240px;
-        margin: 0 20px 45px;
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-
-        .teacher-img {
-          width:100%;
-          height:308px;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .teacher-info-div {
-          height: 96px;
-          background-color: #F1FAFA;
-          padding: 17px 20px 0 21px;
-          text-align: left;
-
-          .teacher-name {
-            font-size:18px;
-            font-family:Campton;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-          }
-
-          .teacher-school {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-            margin-top: 7px;
-          }
-        }
-      }
-
-      .each-teacher:hover {
-        transform: scale(1.1);
-        transition-duration: 0.5s;
-      }
-
-      .more-teachers {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        line-height:15px;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 20px;
-        cursor: pointer;
-
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
-      }
-    }
-  }
-
-  .banner7-div {
-    padding: 70px 0 87px;
-    background-color: #F1F7FA;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 61px;
-    }
-
-    .each-program {
-      width:324px;
-      height:199px;
-      box-shadow: 0px 5px 6px rgba(189,189,189,1);
-      border-radius: 15px;
-      opacity:1;
-      display: inline-block;
-      margin: 0 25px;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-
-  .banner8-div {
-    padding: 58px 0 50px;
-    background-color: #fff;
-    text-align: center;
-    font-size: 30px;
-    display: none;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title2 {
-      font-size:18px;
-      font-family:PingFang SC;
-      font-weight:400;
-      line-height:18px;
-      color:rgba(85,85,85,1);
-      opacity:1;
-      margin: 11px 0 52px;
-    }
-
-    .carousel-div {
-      width: 985px;
-      margin: 0 auto;
-      text-align: left;
-
-      .activity-img {
-        width:222px;
-        height:116px;
-      }
-
-      .title {
-        font-size:13px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:13px;
-        color:rgba(85,85,85,1);
-        opacity:1;
-        margin: 19px 0 11px;
-      }
-
-      .time {
-        font-size:11px;
-        font-family:SourceHanSansCN;
-        font-weight:500;
-        line-height:19px;
-        color:rgba(85,85,85,1);
-        opacity:1;
-      }
-    }
-  }
-
-  .banner8-2-div {
-    padding: 70px 0 87px;
-    background-color: #fff;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title2 {
-      font-size:18px;
-      font-family:PingFang SC;
-      font-weight:400;
-      line-height:18px;
-      color:rgba(85,85,85,1);
-      opacity:1;
-      margin: 12px 0 61px;
-    }
-
-    .activity-div {
-      width: 880px;
-      margin: 0 auto;
-
-      .each-program {
-        width:249px;
-        height:129px;
-        // box-shadow: 0px 5px 6px rgba(189,189,189,1);
-        // border-radius: 15px;
-        opacity:1;
-        display: inline-block;
-        margin: 0 21px 54px;
         background-repeat: no-repeat;
         background-size: cover;
-        cursor: pointer;
-      }
-    }
 
-    .more-activity {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        line-height:15px;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 20px;
-        cursor: pointer;
-        margin-right: -120px;
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
+        .info1-div {
+          position: absolute;
+          top: 296px;
+          left: 59px;
         }
-      }
-  }
 
-  .banner9-div {
-    padding: 65px 0 70px;
-    background-color: #F1F7FA;
-    text-align: center;
+        .info2-div {
+          position: absolute;
+          top: 357px;
+          left: 59px;
+        }
 
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(51,51,51,1);
-      opacity:1;
-    }
+        .info3-div {
+          position: absolute;
+          top: 418px;
+          left: 59px;
+        }
 
-    .title2 {
-      margin: 13px 0 51px;
-      font-size:18px;
-      font-family:PingFang SC;
-      font-weight:400;
-      line-height:18px;
-      color:rgba(85,85,85,1);
-      opacity:1;
-    }
-
-    .carousel-div {
-      width: 1100px;
-      margin: 0 auto;
-      text-align: left;
-
-      .each-dynamic {
-        padding: 18px 18px 0;
-        background:rgba(255,255,255,1);
-        box-shadow:5px 5px 6px rgba(47,47,47,0.21);
-        opacity:1;
-        width: 222px;
-
-        .logo {
-          font-size:12px;
-          font-family:Campton;
+        .info-number {
+          width: 75px;
+          font-size:28px;
+          font-family:Biko;
           font-weight:bold;
-          line-height:14px;
-          color:rgba(190,190,190,1);
+          line-height:35px;
+          color:rgba(40,167,169,1);
           opacity:1;
+          margin-right: 12px;
+          display: inline-block;
+          height: 28px;
         }
 
-        .dynamic-img {
-          margin: 11px 0 18px;
-          width: 222px;
-          height: 143px;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .title {
-          font-size:20px;
+        .info-text {
+          width: 93px;
+          font-size:12px;
           font-family:SourceHanSansCN;
           font-weight:bold;
-          line-height:30px;
-          color:rgba(0,0,0,1);
+          line-height:14px;
+          color:rgba(57,60,61,1);
           opacity:1;
-          cursor: pointer;
+          display: inline-block;
+          height: 28px;
+          vertical-align: top;
         }
 
         .text {
-          font-family:CamptonLight, SourceHanSansCN;
-          font-size:14px;
+          position: absolute;
+          top: 468px;
+          left: 24px;
+
+          font-size:12px;
+          font-family:Biko;
           font-weight:400;
-          line-height:22px;
-          color:rgba(82,82,82,1);
-          opacity:1;
-          margin: 12px 0 3px;
-        }
-
-        .more {
-          font-size:9px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:16px;
-          color:rgba(65,64,64,1);
-          opacity:1;
-          margin-bottom: 18px;
-          cursor: pointer;
-
-          .more-img {
-            width: 10px;
-            height: 10px;
-            display: inline-block;
-            margin-left: 8px;
-          }
-        }
-
-        .bottom-green {
-          height:5px;
-          background:rgba(34,195,182,1);
-          opacity:1;
-          margin: 0 -18px;
-        }
-      }
-    }
-  }
-
-  .banner10-div {
-    padding: 0px 0 38px;
-    background-color: #F1F7FA;
-    text-align: center;
-    background-image: url("../assets/img/home/foot/foot-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 330px;
-
-    .left-div {
-      width: 627px;
-      display: inline-block;
-      margin-top: 48px;
-      text-align: left;
-
-      .link {
-        font-size:15px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:15px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-
-        .link-img {
-          width: 13px;
-          height: 20px;
-          vertical-align: sub;
-          margin-right: 5px;
-        }
-      }
-
-      .heng-line {
-        width:31px;
-        height:0px;
-        border:1px solid rgba(1,183,183,1);
-        opacity:1;
-        margin: 8px 0 9px;
-      }
-
-      .link-item-div {
-        list-style: none;
-        text-align: left;
-        padding: 0;
-        margin-bottom: 46px;
-
-        li {
-          font-size:14px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:14px;
-          opacity:1;
-          margin-right: 36px;
-          display: inline-block;
-          color: #fff;
-
-          a {
-            text-decoration: none;
-            color: #fff;
-          }
-
-          a:hover {
-            color:rgba(1,183,183,1);
-          }
-        }
-      }
-
-      .location-item-div {
-        list-style: none;
-        text-align: left;
-        padding: 0;
-        margin-bottom: 21px;
-
-        li {
-          font-size: 14px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 14px;
-          opacity: 1;
-          margin-right: 39px;
-          display: inline-block;
-          color: #fff;
-          padding-bottom: 3px;
-          margin-top: 3px;
-          cursor: pointer;
-        }
-
-        .bg-colors {
-          color:rgba(1,183,183,1);
-          border-bottom: 3px solid rgba(1,183,183,1);
-        }
-      }
-
-      .place {
-        .text, .number {
-          font-size:11px;
-          font-family:PingFangSC-Regular, Biko;
-          font-weight:400;
-          line-height:16px;
+          line-height:12px;
           color:rgba(255,255,255,1);
           opacity:1;
         }
+      }
+    }
 
-        .place-line {
-          width:124px;
-          height:0px;
-          border:1px solid rgba(154,154,154,1);
+    .banner2-div {
+      background-color: #fff;
+      padding: 50px 0 54px;
+
+      .title {
+        font-size: 24px;
+        font-family: Campton, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 24px;
+        color: rgba(57, 60, 61, 1);
+        opacity: 1;
+        margin: 0px auto 10px;
+      }
+
+      .title2 {
+        font-size: 16px;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: 500;
+        line-height: 27px;
+        color: rgba(85, 85, 85, 1);
+        opacity: 1;
+        margin-bottom: 49px;
+      }
+
+      .school-div {
+        width: 1150px;
+        margin: 0 auto;
+        // align-items: center;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: center;
+
+        .each-school-div {
+          width: 189px;
+          display: inline-block;
+          margin: 0 20px 50px;
+
+          .school-logo {
+            width: 63px;
+            height: 58px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .school-into {
+            display: inline-block;
+            width: 112px;
+            margin-left: 14px;
+            text-align: left;
+            vertical-align: top;
+
+            .school-name {
+              font-size:14px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:14px;
+              color:rgba(57,60,61,1);
+              opacity:1;
+              margin-bottom: 10px;
+              margin-top: 7px;
+            }
+
+            .school-offer {
+              font-size:25px;
+              font-family:Biko;
+              font-weight:bold;
+              line-height:25px;
+              color:rgba(1,138,141,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .offer-text {
+              font-size:15px;
+              font-family:Avenir;
+              font-weight:800;
+              line-height:20px;
+              color:rgba(117,117,117,1);
+              opacity:1;
+              margin-left: 9px;
+            }
+          }
+        }
+
+        .more-offer {
+          margin-top: -11px;
+          font-size:13px;
+          font-family:PingFangSC-Medium, Avenir-Heavy;
+          font-weight:800;
+          line-height:13px;
+          color:rgba(51,51,51,1);
           opacity:1;
-          margin: 17px 0;
+          text-align: right;
+          margin-right: 30px;
+
+          a {
+            text-decoration: none;
+            color: rgba(51,51,51,1);
+          }
+
+          .more-img {
+            width: 16px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
         }
       }
     }
 
-    .middle-div {
-      height:237px;
-      border:1px solid rgba(255,255,255,1);
-      opacity:1;
-      display: inline-block;
-      vertical-align: top;
-      margin-top: 73px;
+    .banner3-div {
+      padding: 90px 0 77px;
+      background-color: #25C3B6;
+
+      .number-div {
+        text-align: center;
+        width: 1200px;
+        margin: 0 auto;
+
+        .each-number-div {
+          height: 75px;
+          width: 250px;
+          display: inline-block;
+          margin: 0 25px;
+
+          .number-logo {
+            width: 75px;
+            height: 100%;
+            display: inline-block;
+          }
+
+          .number-into {
+            display: inline-block;
+            margin-left: 25px;
+            text-align: left;
+            vertical-align: top;
+
+            .number-name {
+              font-size:18px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:18px;
+              color:rgba(0,106,101,1);
+              opacity:1;
+              margin: 7px 0 14px;
+            }
+
+            .number {
+              font-size:40px;
+              font-family:Biko;
+              font-weight:Bold;
+              line-height:40px;
+              color:rgba(238,238,238,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .number-text {
+              font-size: 20px;
+              display: inline-block;
+              color: #EEEEEE;
+              font-family: SourceHanSansCN;
+            }
+          }
+        }
+
+        .number-dataLine {
+          height:17px;
+          font-size:12px;
+          font-family:PingFang SC;
+          font-weight:400;
+          line-height:17px;
+          color:rgba(0,124,118,1);
+          opacity:1;
+          margin-top: 20px;
+          text-align: right;
+          margin-right: 45px;
+        }
+      }
     }
 
-    .right-div {
-      margin: 32px 0 0 57px;
-      display: inline-block;
-      vertical-align: top;
+    .banner4-div {
+      padding: 112px 0 97px;
+      background-color: #fff;
 
-      .contact {
-        width:338px;
-        height:141px;
-        background-image: url("../assets/img/home/foot/contact-us.png");
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title2 {
+        width: 720px;
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:23px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin: 18px auto 86px;
+      }
+
+      .four-to-one-div {
+        width: 1158px;
+        height: 638px;
+        margin: 0 auto;
+        background-image: url("../assets/img/home/fourToOne/fourtoone.png");
+        position: relative;
+        text-align: left;
+
+        .each {
+          width: 266px;
+          text-align: left;
+          position: absolute;
+          right: 126px;
+        }
+
+        .each1 {
+          top: 126px;
+        }
+
+        .each2 {
+          top: 255px;
+        }
+
+        .each3 {
+          top: 385px;
+        }
+
+        .each4 {
+          top: 518px;
+        }
+
+        .each-title {
+          font-size:20px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:20px;
+          color:rgba(60,60,60,1);
+          opacity:1;
+          margin-bottom: 8px;
+        }
+
+        .each-text {
+          font-size:14px;
+          font-family:SourceHanSansCN, Biko;
+          font-weight:500;
+          line-height:20px;
+          color:rgba(117,117,117,1);
+          opacity:1;
+        }
+
+        .almightyMentor {
+          position: absolute;
+          top: 34px;
+          left: 257px;
+        }
+
+        .seniorMentor {
+          position: absolute;
+          top: 102px;
+          left: 527px;
+        }
+
+        .sameMajorMentor {
+          position: absolute;
+          top: 530px;
+          left: 24px;
+        }
+
+        .foreignMentor {
+          position: absolute;
+          bottom: -44px;
+          left: 520px;
+        }
+      }
+
+      .title3 {
+        margin-top: 2px;
+        font-size:18px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:18px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title4 {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:14px;
+        color:rgba(148,148,148,1);
+        opacity:1;
+        margin-top: 8px;
+      }
+    }
+
+    .banner5-div {
+      padding: 69px 0 32px;
+      background-color: #EFF3F4;
+
+      .intos-div {
+        width: 1100px;
+        margin: 0 auto;
+
+        .each-into-div {
+          margin: 0 42px 47px;
+          width: 273px;
+          display: inline-block;
+          text-align: left;
+
+          .intro-logo {
+            width: 29px;
+            height: 28px;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .intro-title {
+            margin: 14px 0 12px;
+            font-size:18px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:18px;
+            color:rgba(98,98,98,1);
+            opacity:1;
+          }
+
+          .intro-text {
+            font-size:13px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:20px;
+            color:rgba(94,94,94,1);
+            opacity:1;
+          }
+        }
+      }
+    }
+
+    .banner6-div {
+      padding: 75px 0 73px;
+      background-color: #fff;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 62px;
+      }
+
+      .teachers-div {
+        width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-teacher {
+          width: 240px;
+          margin: 0 20px 45px;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+
+          .teacher-img {
+            width:100%;
+            height:308px;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .teacher-info-div {
+            height: 96px;
+            background-color: #F1FAFA;
+            padding: 17px 20px 0 21px;
+            text-align: left;
+
+            .teacher-name {
+              font-size:18px;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:18px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:15px;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+              margin-top: 7px;
+            }
+          }
+        }
+
+        .each-teacher:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+
+        .more-teachers {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:15px;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 20px;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+
+    .banner7-div {
+      padding: 70px 0 87px;
+      background-color: #F1F7FA;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 61px;
+      }
+
+      .each-program {
+        width:324px;
+        height:199px;
+        box-shadow: 0px 5px 6px rgba(189,189,189,1);
+        border-radius: 15px;
+        opacity:1;
+        display: inline-block;
+        margin: 0 25px;
         background-repeat: no-repeat;
         background-size: cover;
       }
+    }
 
-      .wechat-div {
-        margin: 23px 0 0 35px;
+    .banner8-div {
+      padding: 58px 0 50px;
+      background-color: #fff;
+      text-align: center;
+      font-size: 30px;
+      display: none;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title2 {
+        font-size:18px;
+        font-family:PingFang SC;
+        font-weight:400;
+        line-height:18px;
+        color:rgba(85,85,85,1);
+        opacity:1;
+        margin: 11px 0 52px;
+      }
+
+      .carousel-div {
+        width: 985px;
+        margin: 0 auto;
         text-align: left;
 
+        .activity-img {
+          width:222px;
+          height:116px;
+        }
+
         .title {
+          font-size:13px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:13px;
+          color:rgba(85,85,85,1);
+          opacity:1;
+          margin: 19px 0 11px;
+        }
+
+        .time {
+          font-size:11px;
+          font-family:SourceHanSansCN;
+          font-weight:500;
+          line-height:19px;
+          color:rgba(85,85,85,1);
+          opacity:1;
+        }
+      }
+    }
+
+    .banner8-2-div {
+      padding: 70px 0 87px;
+      background-color: #fff;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title2 {
+        font-size:18px;
+        font-family:PingFang SC;
+        font-weight:400;
+        line-height:18px;
+        color:rgba(85,85,85,1);
+        opacity:1;
+        margin: 12px 0 61px;
+      }
+
+      .activity-div {
+        width: 880px;
+        margin: 0 auto;
+
+        .each-program {
+          width:249px;
+          height:129px;
+          // box-shadow: 0px 5px 6px rgba(189,189,189,1);
+          // border-radius: 15px;
+          opacity:1;
+          display: inline-block;
+          margin: 0 21px 54px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          cursor: pointer;
+        }
+      }
+
+      .more-activity {
           font-size:15px;
           font-family:PingFang SC;
-          // font-weight:600;
+          font-weight:500;
+          line-height:15px;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 20px;
+          cursor: pointer;
+          margin-right: -120px;
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+    }
+
+    .banner9-div {
+      padding: 65px 0 70px;
+      background-color: #F1F7FA;
+      text-align: center;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(51,51,51,1);
+        opacity:1;
+      }
+
+      .title2 {
+        margin: 13px 0 51px;
+        font-size:18px;
+        font-family:PingFang SC;
+        font-weight:400;
+        line-height:18px;
+        color:rgba(85,85,85,1);
+        opacity:1;
+      }
+
+      .carousel-div {
+        width: 1100px;
+        margin: 0 auto;
+        text-align: left;
+
+        .each-dynamic {
+          padding: 18px 18px 0;
+          background:rgba(255,255,255,1);
+          box-shadow:5px 5px 6px rgba(47,47,47,0.21);
+          opacity:1;
+          width: 222px;
+
+          .logo {
+            font-size:12px;
+            font-family:Campton;
+            font-weight:bold;
+            line-height:14px;
+            color:rgba(190,190,190,1);
+            opacity:1;
+          }
+
+          .dynamic-img {
+            margin: 11px 0 18px;
+            width: 222px;
+            height: 143px;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .title {
+            font-size:20px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:30px;
+            color:rgba(0,0,0,1);
+            opacity:1;
+            cursor: pointer;
+          }
+
+          .text {
+            font-family:CamptonLight, SourceHanSansCN;
+            font-size:14px;
+            font-weight:400;
+            line-height:22px;
+            color:rgba(82,82,82,1);
+            opacity:1;
+            margin: 12px 0 3px;
+          }
+
+          .more {
+            font-size:9px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:16px;
+            color:rgba(65,64,64,1);
+            opacity:1;
+            margin-bottom: 18px;
+            cursor: pointer;
+
+            .more-img {
+              width: 10px;
+              height: 10px;
+              display: inline-block;
+              margin-left: 8px;
+            }
+          }
+
+          .bottom-green {
+            height:5px;
+            background:rgba(34,195,182,1);
+            opacity:1;
+            margin: 0 -18px;
+          }
+        }
+      }
+    }
+
+    .banner10-div {
+      padding: 0px 0 38px;
+      background-color: #F1F7FA;
+      text-align: center;
+      background-image: url("../assets/img/home/foot/foot-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 330px;
+
+      .left-div {
+        width: 627px;
+        display: inline-block;
+        margin-top: 48px;
+        text-align: left;
+
+        .link {
+          font-size:15px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
           line-height:15px;
           color:rgba(255,255,255,1);
           opacity:1;
 
-          img {
-            width: 19px;
-            height: 17px;
-            margin-right: 8px;
+          .link-img {
+            width: 13px;
+            height: 20px;
             vertical-align: sub;
+            margin-right: 5px;
           }
         }
 
-        .code-div {
-          margin: 11px 0 0 27px;
+        .heng-line {
+          width:31px;
+          height:0px;
+          border:1px solid rgba(1,183,183,1);
+          opacity:1;
+          margin: 8px 0 9px;
+        }
 
-          .each-code {
-            display: inline-block;
-            margin-right:31px;
+        .link-item-div {
+          list-style: none;
+          text-align: left;
+          padding: 0;
+          margin-bottom: 46px;
+
+          li {
             font-size:14px;
             font-family:SourceHanSansCN;
             font-weight:500;
             line-height:14px;
+            opacity:1;
+            margin-right: 36px;
+            display: inline-block;
+            color: #fff;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+            }
+
+            a:hover {
+              color:rgba(1,183,183,1);
+            }
+          }
+        }
+
+        .location-item-div {
+          list-style: none;
+          text-align: left;
+          padding: 0;
+          margin-bottom: 21px;
+
+          li {
+            font-size: 14px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 14px;
+            opacity: 1;
+            margin-right: 39px;
+            display: inline-block;
+            color: #fff;
+            padding-bottom: 3px;
+            margin-top: 3px;
+            cursor: pointer;
+          }
+
+          .bg-colors {
+            color:rgba(1,183,183,1);
+            border-bottom: 3px solid rgba(1,183,183,1);
+          }
+        }
+
+        .place {
+          .text, .number {
+            font-size:11px;
+            font-family:PingFangSC-Regular, Biko;
+            font-weight:400;
+            line-height:16px;
             color:rgba(255,255,255,1);
             opacity:1;
-            text-align: center;
+          }
+
+          .place-line {
+            width:124px;
+            height:0px;
+            border:1px solid rgba(154,154,154,1);
+            opacity:1;
+            margin: 17px 0;
+          }
+        }
+      }
+
+      .middle-div {
+        height:237px;
+        border:1px solid rgba(255,255,255,1);
+        opacity:1;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 73px;
+      }
+
+      .right-div {
+        margin: 32px 0 0 57px;
+        display: inline-block;
+        vertical-align: top;
+
+        .contact {
+          width:338px;
+          height:141px;
+          background-image: url("../assets/img/home/foot/contact-us.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .wechat-div {
+          margin: 23px 0 0 35px;
+          text-align: left;
+
+          .title {
+            font-size:15px;
+            font-family:PingFang SC;
+            // font-weight:600;
+            line-height:15px;
+            color:rgba(255,255,255,1);
+            opacity:1;
 
             img {
-              width: 66px;
-              height: 66px;
-              margin-bottom: 9px;
+              width: 19px;
+              height: 17px;
+              margin-right: 8px;
+              vertical-align: sub;
+            }
+          }
+
+          .code-div {
+            margin: 11px 0 0 27px;
+
+            .each-code {
+              display: inline-block;
+              margin-right:31px;
+              font-size:14px;
+              font-family:SourceHanSansCN;
+              font-weight:500;
+              line-height:14px;
+              color:rgba(255,255,255,1);
+              opacity:1;
+              text-align: center;
+
+              img {
+                width: 66px;
+                height: 66px;
+                margin-bottom: 9px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .banner11-div {
+      padding: 31px 0 30px;
+      background-color: #25C3B6;
+      text-align: left;
+
+      .content {
+        width: 1100px;
+        margin: 0 auto;
+
+        .content-title {
+          margin-bottom: 6px;
+          font-size:12px;
+          font-family:SourceHanSansCN, Biko;
+          font-weight:500;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
+
+        .content-title2 {
+          span {
+            margin-right: 38px;
+            font-size:12px;
+            font-family: SourceHanSansCN, Biko;
+            font-weight:500;
+            line-height:12px;
+            color:rgba(255,255,255,1);
+            opacity:1;
+          }
+        }
+      }
+    }
+
+    .banner12-div {
+      padding: 58px 0 42px;
+      background-color: #EFF3F4;
+      text-align: center;
+      font-size: 30px;
+      // display: none;
+
+      .carousel-div {
+        // width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        display: inline-block;
+
+        .each-product {
+          width: 296px;
+          // height: 283px;
+          display: inline-block;
+          margin: 0 35px;
+          cursor: pointer;
+          vertical-align: top;
+
+          .product-img {
+            width: 130px;
+            height:130px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            // box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.07);
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            // background-color: #fff;
+            z-index: 10;
+          }
+
+          .product-top-div {
+            width:100%;
+            height:53px;
+            background:rgba(57,128,211,1);
+            box-shadow:6px 6px 12px rgba(0,0,0,0.16);
+            opacity:1;
+            border-radius:15px;
+            margin-top: -67px;
+            position: relative;
+
+            font-size:24px;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:41px;
+            color:rgba(255,255,255,1);
+            opacity:1;
+            padding-top: 65px;
+          }
+
+          .product-bottom-div {
+            width:100%;
+            height:133px;
+            background:#fff;
+            box-shadow:6px 6px 12px rgba(0,0,0,0.16);
+            opacity:1;
+            border-radius:15px;
+            margin-top: -67px;
+            margin-top: -30px;
+            text-align: center;
+
+            font-size:18px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:24px;
+            color:rgba(75,75,75,1);
+            opacity:1;
+            padding-top: 70px;
+          }
+
+          .dot {
+            width:42px;
+            height:11px;
+            opacity:1;
+            border-radius:6px;
+            margin: 44px auto 0px;
+          }
+        }
+      }
+    }
+
+    .banner13-div {
+      padding: 113px 0 45px;
+      background-color: #E3F3F3;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .detail-div {
+        // width: 950px;
+        margin: 0 auto;
+
+        .each-program-detail {
+          margin-bottom: 45px;
+          width: 216px;
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 26px;
+
+          .detail-index {
+            font-size:52px;
+            font-family:Biko;
+            font-weight:bold;
+            line-height:62px;
+            color:rgba(255,255,255,1);
+            opacity:1;
+          }
+
+          .detail-title {
+            font-size:24px;
+            font-family:SourceHanSansCN;
+            font-weight:800;
+            line-height:41px;
+            color:rgba(255,255,255,1);
+            opacity:1;
+            margin: 11px 0 26px;
+          }
+
+          .detail-text {
+            font-size:16px;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:24px;
+            color:#fff;
+            margin-bottom: 21px;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .acticityInfoDialog {
+
+      .activity-detail-div {
+        text-align: left;
+        padding: 29px 0 29px 73px;
+
+        .left-div {
+          width: 55%;
+          display: inline-block;
+
+          .each-title-div:first-child .theme-logo {
+            width: 29px;
+          }
+
+          .each-title-div {
+            width: 49%;
+            display: inline-block;
+            margin-bottom: 18px;
+            vertical-align: top;
+
+            .theme-logo {
+              width: 21px;
+              height: 21px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              display: inline-block;
+            }
+
+            .title {
+              font-size:18px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              color: #25C2B5;
+              margin-left: 5px;
+              vertical-align: super;
+            }
+
+            .title2 {
+              font-size:14px;
+              font-family:SourceHanSansCN;
+              font-weight:500;
+              margin-left: 30px;
+              width: 60%;
+            }
+          }
+
+          .each-title-div:last-child {
+            width: 128%;
+          }
+        }
+
+        .right-div {
+          display: inline-block;
+          width: 39%;
+          vertical-align: top;
+
+          .div1 {
+            display: inline-block;
+            margin-top: 47px;
+          }
+
+          .div2 {
+            display: inline-block;
+            margin-left: 18px;
+            vertical-align: top;
+            margin-top: 24px;
+
+            .way {
+              color: #fff;
+              width: 68px;
+              height: 20px;
+              background: #25C2B5;
+              opacity: 1;
+              border-radius: 10px;
+              text-align: center;
+            }
+
+            .way-text {
+              margin-top: 8px;
+              font-size: 12px;
+              font-family: Source Han Sans CN;
+              font-weight: 500;
+              line-height: 12px;
+              color: #333333;
+              opacity: 1;
+              margin-left: 14px;
+            }
+
+            .way2 {
+              margin-top: 29px;
             }
           }
         }
@@ -2005,263 +2442,699 @@ export default {
     }
   }
 
-  .banner11-div {
-    padding: 31px 0 30px;
-    background-color: #25C3B6;
-    text-align: left;
+  .mobile-div {
+    .banner1-div {
+      width: 100%;
+      padding: 0.533333rem 0 0.213333rem;
+      background-color: #1BBEB2;
 
-    .content {
-      width: 1100px;
-      margin: 0 auto;
+      .banner1 {
+        width: 9.04rem;
+        height: 5.44rem;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
 
-      .content-title {
-        margin-bottom: 6px;
-        font-size:12px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-      }
+        .info1-div {
+          position: absolute;
+          top: 2.62rem;
+          left: 0.75rem;
+        }
 
-      .content-title2 {
-        span {
-          margin-right: 38px;
+        .info2-div {
+          position: absolute;
+          top: 3.44rem;
+          left: 0.75rem;
+        }
+
+        .info3-div {
+          position: absolute;
+          top: 4.266667rem;
+          left: 0.75rem;
+        }
+
+        .info-number {
+          width: 1.066667rem;
+          font-size:0.426667rem;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:0.746667rem;
+          color:rgba(40,167,169,1);
+          opacity:1;
+          margin-right: 0.15rem;
+          display: inline-block;
+          height: 0.746667rem;
+        }
+
+        .info-text {
+          width: 1.866667rem;
+          font-size:0.186667rem;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:0.3rem;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          display: inline-block;
+          height: 0.746667rem;
+          vertical-align: top;
+        }
+
+        .text {
+          position: absolute;
+          top: 468px;
+          left: 24px;
+
           font-size:12px;
-          font-family: SourceHanSansCN, Biko;
-          font-weight:500;
+          font-family:Biko;
+          font-weight:400;
           line-height:12px;
           color:rgba(255,255,255,1);
           opacity:1;
         }
       }
     }
-  }
 
-  .banner12-div {
-    padding: 58px 0 42px;
-    background-color: #EFF3F4;
-    text-align: center;
-    font-size: 30px;
-    // display: none;
+    .banner2-div {
+      background-color: #EDF6F8;
+      padding: 0.8rem 0 0.88rem;
 
-    .carousel-div {
-      // width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-      display: inline-block;
+      .content{
+        width: 10rem;
+        margin: 0 auto;
 
-      .each-product {
-        width: 296px;
-        // height: 283px;
-        display: inline-block;
-        margin: 0 35px;
-        cursor: pointer;
-        vertical-align: top;
+        .title {
+          font-size: 0.426667rem;
+          font-family: Campton, SourceHanSansCN;
+          font-weight: bold;
+          line-height: 0.426667rem;
+          color: rgba(57, 60, 61, 1);
+          opacity: 1;
+          margin: 0px auto 0.266667rem;
+        }
 
-        .product-img {
-          width: 130px;
-          height:130px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          // box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.07);
-          border-radius: 50%;
+        .title2 {
+          font-size: 0.32rem;
+          font-family: Biko, SourceHanSansCN;
+          font-weight: 500;
+          line-height: 0.32rem;
+          color: rgba(85, 85, 85, 1);
+          opacity: 1;
+          margin-bottom: 0.266667rem;
+        }
+
+        .school-div {
+          // width: 1150px;
           margin: 0 auto;
-          position: relative;
-          // background-color: #fff;
-          z-index: 10;
-        }
+          // align-items: center;
+          // display: flex;
+          // flex-direction: row;
+          // justify-content: center;
 
-        .product-top-div {
-          width:100%;
-          height:53px;
-          background:rgba(57,128,211,1);
-          box-shadow:6px 6px 12px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:15px;
-          margin-top: -67px;
-          position: relative;
+          .each-school-div {
+            width: 3.5rem;
+            display: inline-block;
+            margin: 0 0.266667rem 0.266667rem;
+            transform: skewX(-30deg);
+            background: #FFFFFF;
+            padding: 5px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.133333rem;
 
-          font-size:24px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:41px;
-          color:rgba(255,255,255,1);
-          opacity:1;
-          padding-top: 65px;
-        }
+            .school-logo {
+              width: 0.853333rem;
+              height: 0.853333rem;
+              display: inline-block;
+              background-repeat: no-repeat;
+              background-size: contain;
+              transform: skewX(30deg);
+              margin-left: 0.08rem;
+            }
 
-        .product-bottom-div {
-          width:100%;
-          height:133px;
-          background:#fff;
-          box-shadow:6px 6px 12px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:15px;
-          margin-top: -67px;
-          margin-top: -30px;
-          text-align: center;
+            .school-into {
+              display: inline-block;
+              width: 2.266667rem;
+              margin-left: 0.266667rem;
+              text-align: left;
+              vertical-align: top;
+              transform: skewX(30deg);
 
-          font-size:18px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:24px;
-          color:rgba(75,75,75,1);
-          opacity:1;
-          padding-top: 70px;
-        }
+              .school-name {
+                font-size:0.293333rem;
+                font-family:SourceHanSansCN;
+                font-weight:bold;
+                line-height:0.35rem;
+                color:rgba(57,60,61,1);
+                opacity:1;
+                margin-bottom: 0.133333rem;
+                margin-top: 0.026667rem;
+              }
 
-        .dot {
-          width:42px;
-          height:11px;
-          opacity:1;
-          border-radius:6px;
-          margin: 44px auto 0px;
+              .school-offer {
+                font-size:0.373333rem;
+                font-family:Biko;
+                font-weight:bold;
+                line-height:0.373333rem;
+                color:rgba(1,138,141,1);
+                opacity:1;
+                display: inline-block;
+              }
+
+              .offer-text {
+                font-size:0.24rem;
+                font-family:Avenir;
+                font-weight:800;
+                line-height:0.24rem;
+                color:#757575;
+                opacity:1;
+                margin-left: 5px;
+              }
+            }
+          }
+
+          .more-offer {
+            font-size:0.266667rem;
+            font-family:PingFangSC-Medium, Avenir-Heavy;
+            font-weight:800;
+            line-height:0.64rem;
+            color:#169CB4;
+            opacity:1;
+            width: 2.64rem;
+            height: 0.64rem;
+            background: rgba(53,185,196,0.14);
+            border-radius: 15px;
+            margin: 0.266667rem auto 0;
+
+            a {
+              text-decoration: none;
+              color: #169CB4;
+            }
+
+            .more-img {
+              width: 16px;
+              height: 17px;
+              margin-left: 15px;
+              display: inline-block;
+              vertical-align: bottom;
+            }
+          }
         }
       }
     }
-  }
 
-  .banner13-div {
-    padding: 113px 0 45px;
-    background-color: #E3F3F3;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    .banner3-div {
+      padding: 0.666667rem 0 0.666667rem;
+      background-color: #25C3B6;
 
-    .detail-div {
-      // width: 950px;
-      margin: 0 auto;
+      .number-div {
+        text-align: center;
+        // width: 1200px;
+        margin: 0 auto;
 
-      .each-program-detail {
-        margin-bottom: 45px;
-        width: 216px;
-        display: inline-block;
-        vertical-align: top;
-        margin: 0 26px;
+        .each-number-div {
+          // height: 1.493333rem;
+          width: 4.266667rem;
+          display: inline-block;
+          margin: 0.266667rem 0.293333rem;
+          text-align: left;
 
-        .detail-index {
-          font-size:52px;
-          font-family:Biko;
-          font-weight:bold;
-          line-height:62px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          .number-logo {
+            width: 1.493333rem;
+            height: 1.493333rem;
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+
+          .number-into {
+            display: inline-block;
+            margin-left: 0.186667rem;
+            text-align: left;
+            vertical-align: top;
+            width: 2.56rem;
+
+            .number-name {
+              font-size:0.266667rem;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:0.373333rem;
+              color:rgba(0,106,101,1);
+              opacity:1;
+              margin: 10px 0 10px;
+
+            }
+
+            .number {
+              font-size:0.506667rem;
+              font-family:Biko;
+              font-weight:Bold;
+              line-height:0.506667rem;
+              color:rgba(238,238,238,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .number-text {
+              font-size: 0.266667rem;
+              display: inline-block;
+              color: #EEEEEE;
+              font-family: SourceHanSansCN;
+            }
+          }
         }
 
-        .detail-title {
-          font-size:24px;
-          font-family:SourceHanSansCN;
-          font-weight:800;
-          line-height:41px;
-          color:rgba(255,255,255,1);
-          opacity:1;
-          margin: 11px 0 26px;
-        }
-
-        .detail-text {
-          font-size:16px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:24px;
-          color:#fff;
-          margin-bottom: 21px;
+        .each-number-div:last-child {
           text-align: left;
         }
+
+        .number-dataLine {
+          height:17px;
+          font-size:0.24rem;
+          font-family:PingFang SC;
+          font-weight:400;
+          line-height:17px;
+          color:#fff;
+          opacity:1;
+          // margin-top: 20px;
+          text-align: right;
+          margin-right: 0.533333rem;
+        }
       }
     }
-  }
 
-  .acticityInfoDialog {
+    .banner12-div {
+      padding: 0.666667rem 0 0.266667rem;
+      background-color: #F4FAFB;
 
-    .activity-detail-div {
-      text-align: left;
-      padding: 29px 0 29px 73px;
+      .product-div {
+        text-align: center;
 
-      .left-div {
-        width: 55%;
-        display: inline-block;
-
-        .each-title-div:first-child .theme-logo {
-          width: 29px;
+        .product-img {
+          width: 8.106667rem;
+          height: 2.88rem;
+          margin: 0 auto;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
+      }
+    }
 
-        .each-title-div {
-          width: 49%;
+    .banner4-div {
+      background-color: #F8F2F2;
+      padding: 0.8rem 0 0.88rem;
+
+      .title {
+        font-size: 0.426667rem;
+        font-family: Campton, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 0.426667rem;
+        color: rgba(57, 60, 61, 1);
+        opacity: 1;
+        margin: 0px auto 0.266667rem;
+      }
+
+      .title2 {
+        font-size: 0.32rem;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: 500;
+        line-height: 0.4rem;
+        color: rgba(85, 85, 85, 1);
+        opacity: 1;
+        margin-bottom: 0.266667rem;
+        width: 8.506667rem;
+        margin: 0 auto;
+      }
+
+      .four-to-one-div {
+        width: 8.16rem;
+        height: 8.72rem;
+        margin: 0.666667rem auto 0.906667rem;
+        background-image: url("../assets/img/home/mobile/fourToOne/fourtoone.png");
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .four-to-one-div2 {
+        width: 6.853333rem;
+        height: 9.146667rem;
+        margin: 0 auto;
+        background-image: url("../assets/img/home/mobile/fourToOne/fourtoone2.png");
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .title3 {
+        margin-top: 2px;
+        font-size:18px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:18px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title4 {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:14px;
+        color:rgba(148,148,148,1);
+        opacity:1;
+        margin-top: 8px;
+      }
+    }
+
+    .banner5-div {
+      padding: 1.333333rem 0 0.8rem;
+      background-color: #EFF3F4;
+
+      .intos-div {
+        // width: 1100px;
+        margin: 0 auto;
+
+        .each-into-div {
+          margin: 0 0.533333rem 0.773333rem;
+          width: 3.2rem;
           display: inline-block;
-          margin-bottom: 18px;
+          text-align: left;
           vertical-align: top;
 
-          .theme-logo {
-            width: 21px;
-            height: 21px;
+          .intro-logo {
+            width: 0.906667rem;
+            height: 0.906667rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .intro-title {
+            margin: 0.426667rem 0 0.346667rem;
+            font-size:0.373333rem;
+            font-family:SourceHanSansCN;
+            font-weight:bold;
+            line-height:0.373333rem;
+            color:rgba(98,98,98,1);
+            opacity:1;
+          }
+
+          .intro-text {
+            font-size:0.293333rem;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            line-height:0.426667rem;
+            color:rgba(94,94,94,1);
+            opacity:1;
+          }
+        }
+      }
+    }
+
+    .banner6-div {
+      padding: 1.173333rem 0 0.8rem;
+      background-color: #fff;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 0.8rem;
+      }
+
+      .teachers-div {
+        // width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-teacher {
+          width: 4.106667rem;
+          margin: 0 0.08rem 0.8rem;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+
+          .teacher-img {
+            width:100%;
+            height:4.933333rem;
             background-repeat: no-repeat;
             background-size: cover;
+          }
+
+          .teacher-info-div {
+            height: 1.626667rem;
+            background-color: #35C4C4;
+            padding: 0.346667rem 0.426667rem 0;
+            text-align: left;
+
+            .teacher-name {
+              font-size:0.373333rem;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:0.32rem;
+              color:#F6FBFB;
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:0.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:0.453333rem;
+              color:#F6FBFB;
+              opacity:1;
+              margin-top: 0.106667rem;
+            }
+          }
+        }
+
+        // .each-teacher:hover {
+        //   transform: scale(1.1);
+        //   transition-duration: 0.5s;
+        // }
+
+        .more-teachers {
+          font-size:0.266667rem;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:0.64rem;
+          color:#16B4B4;
+          opacity:1;
+          text-align: center;
+          margin: 0 auto;
+          width: 2.64rem;
+          height: 0.64rem;
+          background: rgba(53,185,196,0.14);
+          border-radius: 15px;
+
+          a {
+            text-decoration: none;
+            color: #16B4B4;
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
             display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+
+    .banner7-div {
+      padding: 0.533333rem 0 0;
+      background-color: #fff;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:0.426667rem;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 0.4rem;
+      }
+
+      .each-program {
+        width:10rem;
+        height:3.866667rem;
+        // box-shadow: 0px 5px 6px rgba(189,189,189,1);
+        // border-radius: 15px;
+        opacity:1;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .banner8-2-div {
+      padding: 0.8rem 0 0.8rem;
+      background-color: #fff;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:0.426667rem;
+        color:#3C3C3C;
+        opacity:1;
+      }
+
+      .title2 {
+        font-size:0.32rem;
+        font-family:PingFang SC;
+        font-weight:400;
+        line-height:0.32rem;
+        color:#555555;
+        opacity:1;
+        margin: 0.16rem 0 0.426667rem;
+      }
+
+      .activity-div {
+        // width: 880px;
+        margin: 0 auto;
+
+        .each-program {
+          width:3.973333rem;
+          height:2.16rem;
+          // box-shadow: 0px 5px 6px rgba(189,189,189,1);
+          // border-radius: 15px;
+          opacity:1;
+          display: inline-block;
+          margin: 0 0.133333rem 0.533333rem;
+          background-repeat: no-repeat;
+          background-size: cover;
+          cursor: pointer;
+        }
+      }
+
+      .more-activity {
+        font-size:0.266667rem;
+        font-family:PingFang SC;
+        font-weight:500;
+        line-height:0.64rem;
+        color:#16B4B4;
+        opacity:1;
+        text-align: center;
+        margin: 0 auto;
+        width: 2.64rem;
+        height: 0.64rem;
+        background: rgba(53,185,196,0.14);
+        border-radius: 15px;
+
+        .more-img {
+          width: 17px;
+          height: 17px;
+          margin-left: 15px;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+      }
+    }
+
+    .banner9-div {
+      padding: 0.8rem 0 0.666667rem;
+      background-color: #F1F7FA;
+      text-align: center;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:0.426667rem;
+        color:rgba(51,51,51,1);
+        opacity:1;
+      }
+
+      .title2 {
+        margin: 0.213333rem 0 0.533333rem;
+        font-size:0.32rem;
+        font-family:PingFang SC;
+        font-weight:400;
+        line-height:0.32rem;
+        color:rgba(85,85,85,1);
+        opacity:1;
+      }
+
+      .carousel-div {
+        width: 8.8rem;
+        margin: 0 auto;
+        text-align: left;
+
+        .each-dynamic {
+          padding: 0.266667rem 0.266667rem 0;
+          background:rgba(255,255,255,1);
+          box-shadow:5px 5px 6px rgba(47,47,47,0.21);
+          opacity:1;
+          width: 3.6rem;
+          // height: 5.866667rem;
+
+          .logo {
+            font-size:0.16rem;
+            font-family:Campton;
+            font-weight:bold;
+            line-height:0.16rem;
+            color:rgba(190,190,190,1);
+            opacity:1;
+          }
+
+          .dynamic-img {
+            margin: 0.18rem 0 0.266667rem;
+            width: 100%;
+            height: 1.786667rem;
+            background-repeat: no-repeat;
+            background-size: cover;
           }
 
           .title {
-            font-size:18px;
+            font-size:0.373333rem;
             font-family:SourceHanSansCN;
             font-weight:bold;
-            color: #25C2B5;
-            margin-left: 5px;
-            vertical-align: super;
+            line-height: 0.4rem;
+            color:rgba(0,0,0,1);
+            opacity:1;
+            cursor: pointer;
           }
 
-          .title2 {
-            font-size:14px;
+          .text {
+            font-family:CamptonLight, SourceHanSansCN;
+            font-size:0.32rem;
+            font-weight:400;
+            line-height:0.4rem;
+            color:rgba(82,82,82,1);
+            opacity:1;
+            margin: 0.213333rem 0 15px;
+            // height: 1.2rem;
+          }
+
+          .more {
+            font-size:0.32rem;
             font-family:SourceHanSansCN;
             font-weight:500;
-            margin-left: 30px;
-            width: 60%;
-          }
-        }
+            line-height:0.186667rem;
+            color:rgba(65,64,64,1);
+            opacity:1;
+            margin-bottom: 0.8rem;
 
-        .each-title-div:last-child {
-          width: 128%;
-        }
-      }
-
-      .right-div {
-        display: inline-block;
-        width: 39%;
-        vertical-align: top;
-
-        .div1 {
-          display: inline-block;
-          margin-top: 47px;
-        }
-
-        .div2 {
-          display: inline-block;
-          margin-left: 18px;
-          vertical-align: top;
-          margin-top: 24px;
-
-          .way {
-            color: #fff;
-            width: 68px;
-            height: 20px;
-            background: #25C2B5;
-            opacity: 1;
-            border-radius: 10px;
-            text-align: center;
+            .more-img {
+              width: 0.266667rem;
+              height: 0.266667rem;
+              display: inline-block;
+              margin-left: 0.106667rem;
+            }
           }
 
-          .way-text {
-            margin-top: 8px;
-            font-size: 12px;
-            font-family: Source Han Sans CN;
-            font-weight: 500;
-            line-height: 12px;
-            color: #333333;
-            opacity: 1;
-            margin-left: 14px;
-          }
-
-          .way2 {
-            margin-top: 29px;
+          .bottom-green {
+            height:5px;
+            background:rgba(34,195,182,1);
+            opacity:1;
+            margin: 0 -10px;
           }
         }
       }

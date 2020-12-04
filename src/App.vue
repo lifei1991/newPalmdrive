@@ -1,200 +1,300 @@
 <template>
-  <div id="app" v-cloak>
-    <!-- <img src="./assets/logo.png"> -->
-    <div class="head">
-      <div class="logo"></div>
+  <div id="app" v-cloak :style="{'min-width': isMobile ? '100%' : '1200px'}">
 
-      <ul>
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 0 }"><a href="http://palmdrive.cn/" target="_blank">首页</a></li>
+    <div v-if="!isMobile" class="web-div">
+      <!-- <img src="./assets/logo.png"> -->
+      <div class="head">
+        <div class="logo"></div>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 1 }"><a href="http://palmdrive.cn/highschool_services" target="_blank">申请初高中</a></li>
+        <ul>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 0 }"><a href="http://palmdrive.cn/" target="_blank">首页</a></li>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 1 }"><a href="http://palmdrive.cn/highschool_services" target="_blank">申请初高中</a></li>
 
-        <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li>
+          <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
 
-        <li v-bind:class="{ 'select-menu-colors' : currentType == 7 }"><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
-      </ul>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
 
-      <div class="register" >
-        <a href="http://cms.palmdrive.cn/signin" target="_blank">注 册</a>
-        <el-popover
-          placement="right"
-          width="100"
-          trigger="hover">
-          <div>4000-062-153</div>
-          <div slot="reference" class="phone"></div>
-        </el-popover>
-
-        <el-popover
-          placement="right"
-          width="100"
-          trigger="hover">
-            <img class="link-img" src="./assets/img/head/ercode-detail.png"
-            style="
-              width: 100px;
-              height: 100px;
-              background-image: url('./assets/img/head/ercode-detail.png');
-              background-repeat: no-repeat;
-              background-size: cover;"/>
-          <div class="ercode" slot="reference"></div>
-        </el-popover>
-      </div>
-
-      <transition name="fade">
-        <div v-if="showMenus" class="menus-div" @mouseleave="outMenu()">
-          <div class="menu-intro" @click="goUrl(selectedMenu.url)">
-            {{ selectedMenu.title }}
-            <div class="icon-new"></div>
-          </div>
-
-          <div class="each-menus" v-for="(menus, index) in selectedMenu.menus" :key="index">
-            <div class="each-menu-title">{{ menus.title }}</div>
-            <div class="menu" v-for="(item, ind) in menus.items" :key="ind" @click="goUrl(item.url)">
-              {{ item.name }}
-              <span class="menu-name2">{{ item.name2 }}</span>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </div>
-
-    <router-view/>
-
-    <div class="foot">
-      <div class="left-div">
-        <div class="link">
-          <img class="link-img" src="./assets/img/home/foot/lianjie.png"/>
-          站内链接
-        </div>
-        <div class="heng-line"></div>
-        <ul class="link-item-div">
-          <li><a href="http://palmdrive.cn/undergrad_services" target="_blank">本科服务介绍</a></li>
-          <li><a href="http://palmdrive.cn/highschool_services" target="_blank">初高中服务介绍</a></li>
-          <li><a href="http://palmdrive.cn/undergrad_services" target="#">研究生服务介绍</a></li>
-          <li><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
-          <li><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 7 }"><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
         </ul>
 
-        <div class="link">
-          <img class="link-img" src="./assets/img/home/foot/location.png"/>
-          公司地址
-        </div>
-        <div class="heng-line"></div>
-        <ul class="location-item-div" >
-          <li v-for="(item, index) in cities" :key="item.name" v-html="item.name" @click="addClass(index)" v-bind:class="{ 'bg-colors' : index == current }"></li>
-        </ul>
+        <div class="register" >
+          <a href="http://cms.palmdrive.cn/signin" target="_blank">注 册</a>
+          <el-popover
+            placement="right"
+            width="100"
+            trigger="hover">
+            <div>4000-062-153</div>
+            <div slot="reference" class="phone"></div>
+          </el-popover>
 
-        <div class="place" v-for="(item, index) in selectedCity.place" :key="index" >
-          <div class="text">{{ item.text }}</div>
-          <div class="number">{{ item.number }}</div>
-          <div class="place-line" v-if="selectedCity.place.length - 1 != index "></div>
+          <el-popover
+            placement="right"
+            width="100"
+            trigger="hover">
+              <img class="link-img" src="./assets/img/head/ercode-detail.png"
+              style="
+                width: 100px;
+                height: 100px;
+                background-image: url('./assets/img/head/ercode-detail.png');
+                background-repeat: no-repeat;
+                background-size: cover;"/>
+            <div class="ercode" slot="reference"></div>
+          </el-popover>
         </div>
 
+        <transition name="fade">
+          <div v-if="showMenus" class="menus-div" @mouseleave="outMenu()">
+            <div class="menu-intro" @click="goUrl(selectedMenu.url)">
+              {{ selectedMenu.title }}
+              <div class="icon-new"></div>
+            </div>
+
+            <div class="each-menus" v-for="(menus, index) in selectedMenu.menus" :key="index">
+              <div class="each-menu-title">{{ menus.title }}</div>
+              <div class="menu" v-for="(item, ind) in menus.items" :key="ind" @click="goUrl(item.url)">
+                {{ item.name }}
+                <span class="menu-name2">{{ item.name2 }}</span>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
 
-      <div class="middle-div"></div>
+      <router-view/>
 
-      <div class="right-div">
-        <div class="contact">
-          <div class="title">
-            <img src="./assets/img/home/foot/contact1.png" class="more-img" />联系我们
+      <div class="foot">
+        <div class="left-div">
+          <div class="link">
+            <img class="link-img" src="./assets/img/home/foot/lianjie.png"/>
+            站内链接
           </div>
-          <div class="text">
-            <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 4000-062-153
+          <div class="heng-line"></div>
+          <ul class="link-item-div">
+            <li><a href="http://palmdrive.cn/undergrad_services" target="_blank">本科服务介绍</a></li>
+            <li><a href="http://palmdrive.cn/highschool_services" target="_blank">初高中服务介绍</a></li>
+            <li><a href="http://palmdrive.cn/undergrad_services" target="#">研究生服务介绍</a></li>
+            <li><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
+            <li><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
+          </ul>
+
+          <div class="link">
+            <img class="link-img" src="./assets/img/home/foot/location.png"/>
+            公司地址
           </div>
-          <div class="text">
-            <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：pdpr19
+          <div class="heng-line"></div>
+          <ul class="location-item-div" >
+            <li v-for="(item, index) in cities" :key="item.name" v-html="item.name" @click="addClass(index)" v-bind:class="{ 'bg-colors' : index == current }"></li>
+          </ul>
+
+          <div class="place" v-for="(item, index) in selectedCity.place" :key="index" >
+            <div class="text">{{ item.text }}</div>
+            <div class="number">{{ item.number }}</div>
+            <div class="place-line" v-if="selectedCity.place.length - 1 != index "></div>
           </div>
-          <div class="text">
-            <img src="./assets/img/home/foot/contact4.png" class="contact2-img" />邮箱：suggestions@palmdrive.cn
+
+        </div>
+
+        <div class="middle-div"></div>
+
+        <div class="right-div">
+          <div class="contact">
+            <div class="title">
+              <img src="./assets/img/home/foot/contact1.png" class="more-img" />联系我们
+            </div>
+            <div class="text">
+              <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 4000-062-153
+            </div>
+            <div class="text">
+              <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：pdpr19
+            </div>
+            <div class="text">
+              <img src="./assets/img/home/foot/contact4.png" class="contact2-img" />邮箱：suggestions@palmdrive.cn
+            </div>
+          </div>
+          <div class="wechat-div">
+            <div class="title">
+              <img src="./assets/img/home/foot/wechat.png"/>
+              关注我们
+            </div>
+            <div class="code-div">
+              <div v-for="(item, index) in codes" :key="index" class="each-code">
+                <img :src="item.img" />
+                <div>{{ item.name }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="other-contact">
+            <a href="https://weibo.com/u/3384549622" target="_blank">
+              <div class="each-contact left">
+                <div class="each-img" :style="{backgroundImage:'url(' + otherContact1 + ')'}"></div>
+              </div>
+            </a>
+            <a href="http://www.zhihu.com/org/zong-lu-da-dao" target="_blank">
+              <div class="each-contact">
+                <div class="each-img" :style="{backgroundImage:'url(' + otherContact2 + ')'}"></div>
+              </div>
+            </a>
+            <a href="https://space.bilibili.com/480551209" target="_blank">
+              <div class="each-contact right">
+                <div class="each-img" :style="{backgroundImage:'url(' + otherContact3 + ')'}"></div>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="wechat-div">
-          <div class="title">
-            <img src="./assets/img/home/foot/wechat.png"/>
-            关注我们
+      </div>
+
+      <div class="copy-right">
+        <div class="content">
+          <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
+          <div class="content-title2">
+            <span>CopyRight©2017 棕榈大道教育科技(北京)有限公司</span>
+            <span>增值电信业务经营许可证：京B2-20191218</span>
+            <span>京ICP备14009960号</span>
           </div>
-          <div class="code-div">
-            <div v-for="(item, index) in codes" :key="index" class="each-code">
-              <img :src="item.img" />
-              <div>{{ item.name }}</div>
+        </div>
+      </div>
+
+      <!-- 左下角二维码弹框 -->
+      <div class="contact-info hidden-phone" id="contact-info" style="display: block;">
+        <div class="contact-circle">
+          <div class="circle-dot center size-xs white">
+            <!-- <i class="fa fa-lg fa-phone white"></i> -->
+            <i class="el-icon-phone-outline size16"></i>
+            <br>
+            <div class="black">4000-062-153</div>
+            <div class="size-s">
+              OR
+            </div>
+            <div class="pull-right black">
+              扫描二维码
+              <br>咨询详情<br>
             </div>
           </div>
         </div>
-
-        <div class="other-contact">
-          <a href="https://weibo.com/u/3384549622" target="_blank">
-            <div class="each-contact left">
-              <div class="each-img" :style="{backgroundImage:'url(' + otherContact1 + ')'}"></div>
-            </div>
-          </a>
-          <a href="http://www.zhihu.com/org/zong-lu-da-dao" target="_blank">
-            <div class="each-contact">
-              <div class="each-img" :style="{backgroundImage:'url(' + otherContact2 + ')'}"></div>
-            </div>
-          </a>
-          <a href="https://space.bilibili.com/480551209" target="_blank">
-            <div class="each-contact right">
-              <div class="each-img" :style="{backgroundImage:'url(' + otherContact3 + ')'}"></div>
-            </div>
-          </a>
+        <div class="contact-square">
+          <div class="square-dot">
+            <img src="./assets/img/left-contact.png" width="100%">
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="copy-right">
-      <div class="content">
-        <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
-        <div class="content-title2">
-          <span>CopyRight©2017 棕榈大道教育科技(北京)有限公司</span>
-          <span>增值电信业务经营许可证：京B2-20191218</span>
-          <span>京ICP备14009960号</span>
-        </div>
+    <div v-if="isMobile" class="mobile-div">
+      <div class="head">
+        <div class="logo"></div>
       </div>
-    </div>
 
-    <!-- 左下角二维码弹框 -->
-    <div class="contact-info hidden-phone" id="contact-info" style="display: block;">
-      <div class="contact-circle">
-        <div class="circle-dot center size-xs white">
-          <!-- <i class="fa fa-lg fa-phone white"></i> -->
-          <i class="el-icon-phone-outline size16"></i>
-          <br>
-          <div class="black">4000-062-153</div>
-          <div class="size-s">
-            OR
+      <router-view/>
+
+      <div class="foot">
+        <div class="foot-div">
+          <div class="title contact-us">
+            <div class="title-div">
+              <img src="./assets/img/home/mobile/foot/contact1.png" class="title-logo" />
+              <span class="title-text">联系我们</span>
+            </div>
+
+            <div class="link-list">
+              <div class="link">
+                <img src="./assets/img/home/mobile/foot/contact4.png" class="link-logo" />
+                <span>全国客服：4000-062-153</span>
+              </div>
+              <div class="link">
+                <img src="./assets/img/home/mobile/foot/contact5.png" class="link-logo" />
+                <span>留学辅导咨询微信：pdpr19</span>
+              </div>
+              <div class="link">
+                <img src="./assets/img/home/mobile/foot/contact6.png" class="link-logo" />
+                <span>邮箱：suggestions@palmdrive.cn</span>
+              </div>
+            </div>
           </div>
-          <div class="pull-right black">
-            扫描二维码
-            <br>咨询详情<br>
+
+          <div class="title care-us">
+            <div class="title-div">
+              <img src="./assets/img/home/mobile/foot/contact2.png" class="title-logo" />
+              <span class="title-text">关注我们</span>
+            </div>
+
+            <div class="code-div">
+              <div>
+                <div v-for="(item, index) in codes" :key="index" class="each-code">
+                  <img :src="item.img" />
+                  <div>{{ item.name }}</div>
+                </div>
+              </div>
+
+              <div class="other-contact">
+                <a href="https://weibo.com/u/3384549622" target="_blank">
+                  <div class="each-contact left">
+                    <div class="each-img" :style="{backgroundImage:'url(' + otherContact1 + ')'}"></div>
+                  </div>
+                </a>
+                <a href="http://www.zhihu.com/org/zong-lu-da-dao" target="_blank">
+                  <div class="each-contact">
+                    <div class="each-img" :style="{backgroundImage:'url(' + otherContact2 + ')'}"></div>
+                  </div>
+                </a>
+                <a href="https://space.bilibili.com/480551209" target="_blank">
+                  <div class="each-contact right">
+                    <div class="each-img" :style="{backgroundImage:'url(' + otherContact3 + ')'}"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="title address">
+            <div class="title-div">
+              <img src="./assets/img/home/mobile/foot/contact3.png" class="title-logo" />
+              <span class="title-text">公司地址</span>
+            </div>
+
+            <div class="address-div">
+              <ul class="location-item-div" >
+                <li v-for="(item, index) in cities" :key="item.name2" v-html="item.name2" @click="addClass(index)" v-bind:class="{ 'bg-colors' : index == current }"></li>
+              </ul>
+
+              <div class="place" v-for="(item, index) in selectedCity.place" :key="index" >
+                <div class="text">{{ item.text }}</div>
+                <div class="number">{{ item.number }}</div>
+                <div class="place-line" v-if="selectedCity.place.length - 1 != index "></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy-right">
+          <div class="content">
+            <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
+            <div class="content-title2">
+              <div class="line1">CopyRight©2017 棕榈大道教育科技(北京)有限公司</div>
+              <div>增值电信业务经营许可证：京B2-20191218 京ICP备14009960号</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="contact-square">
-        <div class="square-dot">
-          <img src="./assets/img/left-contact.png" width="100%">
+
+      <!-- 手机端自定义七陌聊天按钮 -->
+      <!-- <a v-if="isMobile" href="https://webchat.7moor.com/wapchat.html?accessId=9155aa90-e5c5-11ea-85fa-319a5fe89624&fromUrl=http://www.palmdrive.cn/v2/graduate.html#/graduate&urlTitle=%E7%A0%94%E7%A9%B6%E7%94%9F%E9%A1%B5">
+        <div id="chatBtn" class="chatBtn" style="display: block; background-color: rgb(25, 202, 166); border-radius: 50%; width: 100px; height: 100px; padding: 15px; right: 18px; bottom: 18px;">
+          <img width="100px" height="100px" src="//webchat.7moor.com/images/1.png?1221" style="width: 100px; height: 100px; margin: 0px; padding: 0px; transform: unset; transition: unset;"><span></span><span id="qimo_badge"></span>
         </div>
-      </div>
+      </a> -->
     </div>
-
-    <!-- 手机端自定义七陌聊天按钮 -->
-    <a v-if="isMobile" href="https://webchat.7moor.com/wapchat.html?accessId=9155aa90-e5c5-11ea-85fa-319a5fe89624&fromUrl=http://www.palmdrive.cn/v2/graduate.html#/graduate&urlTitle=%E7%A0%94%E7%A9%B6%E7%94%9F%E9%A1%B5">
-      <div id="chatBtn" class="chatBtn" style="display: block; background-color: rgb(25, 202, 166); border-radius: 50%; width: 100px; height: 100px; padding: 15px; right: 18px; bottom: 18px;">
-        <img width="100px" height="100px" src="//webchat.7moor.com/images/1.png?1221" style="width: 100px; height: 100px; margin: 0px; padding: 0px; transform: unset; transition: unset;"><span></span><span id="qimo_badge"></span>
-      </div>
-    </a>
-
   </div>
 </template>
 
 <script>
+import Common from './components/common/common'
 export default {
   name: 'App',
   data () {
@@ -202,6 +302,7 @@ export default {
       cities: [
         {
           name: '北&nbsp;&nbsp;&nbsp;京',
+          name2: '北京',
           place: [
             {
               text: '北京市海淀区北四环西路66号中国技术交易大厦A座1501室（总部）',
@@ -215,6 +316,7 @@ export default {
         },
         {
           name: '上&nbsp;&nbsp;&nbsp;海',
+          name2: '上海',
           place: [
             {
               text: '上海市黄浦区马当路388号 SOHO复兴广场A座1001',
@@ -224,6 +326,7 @@ export default {
         },
         {
           name: '广&nbsp;&nbsp;&nbsp;州',
+          name2: '广州',
           place: [
             {
               text: '广州市天河区花城大道85号高德置地春广场A座2801室',
@@ -233,6 +336,7 @@ export default {
         },
         {
           name: '深&nbsp;&nbsp;&nbsp;圳',
+          name2: '深圳',
           place: [
             {
               text: '深圳市福田区中心区益田路与福华路交汇处卓越时代广场1401',
@@ -242,6 +346,7 @@ export default {
         },
         {
           name: '武&nbsp;&nbsp;&nbsp;汉',
+          name2: '武汉',
           place: [
             {
               text: '武汉市洪山区珞瑜路10号群光中心写字楼16楼1606',
@@ -251,6 +356,7 @@ export default {
         },
         {
           name: '成&nbsp;&nbsp;&nbsp;都',
+          name2: '成都',
           place: [
             {
               text: '成都市锦江区红星路三段99号银石广场2311室',
@@ -260,6 +366,7 @@ export default {
         },
         {
           name: '沈&nbsp;&nbsp;&nbsp;阳',
+          name2: '沈阳',
           place: [
             {
               text: '沈阳市沈河区青年大街125号企业广场B座805',
@@ -269,6 +376,7 @@ export default {
         },
         {
           name: '南&nbsp;&nbsp;&nbsp;京',
+          name2: '南京',
           place: [
             {
               text: '南京市栖霞区学津路8号仙林高创中心B座707室',
@@ -278,6 +386,7 @@ export default {
         },
         {
           name: '硅&nbsp;&nbsp;&nbsp;谷',
+          name2: '硅谷',
           place: [
             {
               text: '2381 Zanker Rd, Ste 110, San Jose, CA, 95131',
@@ -638,7 +747,7 @@ export default {
       otherContact1: '',
       otherContact2: '',
       otherContact3: '',
-      isMobile: false,
+      isMobile: Common.isMobile,
       lastScrollTop: 0
     }
   },
@@ -646,11 +755,11 @@ export default {
     this.otherContact1 = require('./assets/img/home/foot/otherContact1.png')
     this.otherContact2 = require('./assets/img/home/foot/otherContact2.png')
     this.otherContact3 = require('./assets/img/home/foot/otherContact3.png')
-    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-      this.isMobile = false
-    } else {
-      this.isMobile = false
-    }
+    // if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    //   this.isMobile = true
+    // } else {
+    //   this.isMobile = false
+    // }
   },
   mounted () {
     this.$nextTick(function () {
@@ -717,7 +826,7 @@ export default {
 
 body {
   margin: 0;
-  min-width: 1200px;
+  // min-width: 1200px;
   font-family: SourceHanSansCN;
 }
 
@@ -828,207 +937,208 @@ body {
   src:url('./assets/font/Campton-LightDEMO.otf') format('truetype');
 }
 
-.head {
-  height:87px;
-  width: 100%;
-  // background:rgba(33,195,182,1);
-  opacity:1;
-  text-align: center;
-  // overflow: hidden;
-  position: relative;
-  background:rgba(31,195,181,1);
-  box-shadow:5px 5px 7px rgba(0,0,0,0.08);
+.web-div {
+  .head {
+    height:87px;
+    width: 100%;
+    // background:rgba(33,195,182,1);
+    opacity:1;
+    text-align: center;
+    // overflow: hidden;
+    position: relative;
+    background:rgba(31,195,181,1);
+    box-shadow:5px 5px 7px rgba(0,0,0,0.08);
 
-  .logo {
-    width: 113px;
-    height: 36px;
-    background-image: url("assets/img/head/logo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 38px 111px 0 0;
-    display: inline-block;
-    vertical-align: top;
-  }
+    .logo {
+      width: 113px;
+      height: 36px;
+      background-image: url("assets/img/head/logo.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 38px 111px 0 0;
+      display: inline-block;
+      vertical-align: top;
+    }
 
-  ul {
-    display: inline-block;
-    width: auto;
-    list-style-type: none;
-    white-space:nowrap;
-    overflow: hidden;
-    padding: 0;
-    height: 100%;
-
-    li {
-      float:left;
-      padding:0 18px;
-      position: relative;
+    ul {
+      display: inline-block;
+      width: auto;
+      list-style-type: none;
+      white-space:nowrap;
       overflow: hidden;
-      font-size:16px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:115px;
-      color:rgba(255,255,255,1);
-      opacity:1;
+      padding: 0;
       height: 100%;
-      cursor: pointer;
 
-      a {
-        display: block;
-        color:white;
-        text-align: center;
-        // padding: 3px 0px;
+      li {
+        float:left;
+        padding:0 18px;
+        position: relative;
         overflow: hidden;
-        text-decoration: none;
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:115px;
+        color:rgba(255,255,255,1);
+        opacity:1;
         height: 100%;
+        cursor: pointer;
+
+        a {
+          display: block;
+          color:white;
+          text-align: center;
+          // padding: 3px 0px;
+          overflow: hidden;
+          text-decoration: none;
+          height: 100%;
+        }
+      }
+
+      li:hover {
+        background: #35A79E;
       }
     }
 
-    li:hover {
-      background: #35A79E;
-    }
-  }
-
-  .register {
-    display: inline-block;
-    width:88px;
-    height:30px;
-    background:rgba(255,255,255,1);
-    opacity:1;
-    border-radius:17px;
-    font-size:13px;
-    font-family:SourceHanSansCN;
-    font-weight:bold;
-    line-height:30px;
-    color:rgba(34,195,182,1);
-    opacity:1;
-    vertical-align: bottom;
-    margin-left: 64px;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 13px;
-
-    a {
-      text-decoration: none;
-      color: rgba(34,195,182,1);
-    }
-
-    .phone {
-      width: 23px;
-      height: 23px;
-      position: absolute;
-      top: -32px;
-      left: 7px;
-      background-image: url("assets/img/head/phone.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .ercode {
-      width: 23px;
-      height: 23px;
-      position: absolute;
-      top: -32px;
-      right: 7px;
-      background-image: url("assets/img/head/ercode.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .ercode-detail {
-      background: chocolate;
-    }
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
-
-  .select-menu-colors {
-    background: #35A79E;
-  }
-
-  .menus-div {
-    width: 100%;
-    height: 233px;
-    background-color: #FFF;
-    z-index: 2;
-    position: absolute;
-
-    .menu-intro {
-      font-size:14px;
+    .register {
+      display: inline-block;
+      width:88px;
+      height:30px;
+      background:rgba(255,255,255,1);
+      opacity:1;
+      border-radius:17px;
+      font-size:13px;
       font-family:SourceHanSansCN;
       font-weight:bold;
-      line-height:14px;
-      color:rgba(57,60,61,1);
+      line-height:30px;
+      color:rgba(34,195,182,1);
       opacity:1;
-      margin-top: 48px;
+      vertical-align: bottom;
+      margin-left: 64px;
       position: relative;
-      display: inline-block;
-      margin-right: 139px;
       cursor: pointer;
+      margin-bottom: 13px;
 
-      .icon-new {
-        width: 31px;
-        height: 14px;
+      a {
+        text-decoration: none;
+        color: rgba(34,195,182,1);
+      }
+
+      .phone {
+        width: 23px;
+        height: 23px;
         position: absolute;
-        top: -15px;
-        right: -32px;
-        background-image: url("assets/img/head/icon-new.png");
+        top: -32px;
+        left: 7px;
+        background-image: url("assets/img/head/phone.png");
         background-repeat: no-repeat;
         background-size: cover;
       }
+
+      .ercode {
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        top: -32px;
+        right: 7px;
+        background-image: url("assets/img/head/ercode.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .ercode-detail {
+        background: chocolate;
+      }
     }
 
-    .menu-intro:hover {
-      color: rgba(1,183,183,1);
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
     }
 
-    .each-menus {
-      display: inline-block;
-      width: 186px;
-      text-align: left;
-      vertical-align: top;
-      margin-top: 36px;
+    .select-menu-colors {
+      background: #35A79E;
+    }
 
-      .each-menu-title {
+    .menus-div {
+      width: 100%;
+      height: 233px;
+      background-color: #FFF;
+      z-index: 2;
+      position: absolute;
+
+      .menu-intro {
         font-size:14px;
         font-family:SourceHanSansCN;
         font-weight:bold;
         line-height:14px;
-        color:rgba(74,74,74,1);
-        opacity:1;
-        padding-bottom: 8px;
-        border-bottom: 2px solid rgba(197,197,197,1);
-        width: 70px;
-      }
-
-      .menu {
-        font-size:14px;
-        font-family:SourceHanSansCN;
-        font-weight:500;
-        line-height:20px;
         color:rgba(57,60,61,1);
         opacity:1;
-        margin-top: 15px;
+        margin-top: 48px;
+        position: relative;
+        display: inline-block;
+        margin-right: 139px;
         cursor: pointer;
+
+        .icon-new {
+          width: 31px;
+          height: 14px;
+          position: absolute;
+          top: -15px;
+          right: -32px;
+          background-image: url("assets/img/head/icon-new.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
       }
 
-      .menu:hover {
+      .menu-intro:hover {
         color: rgba(1,183,183,1);
       }
 
-      .menu-name2 {
-        color: #A2A2A2;
+      .each-menus {
+        display: inline-block;
+        width: 186px;
+        text-align: left;
+        vertical-align: top;
+        margin-top: 36px;
+
+        .each-menu-title {
+          font-size:14px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:14px;
+          color:rgba(74,74,74,1);
+          opacity:1;
+          padding-bottom: 8px;
+          border-bottom: 2px solid rgba(197,197,197,1);
+          width: 70px;
+        }
+
+        .menu {
+          font-size:14px;
+          font-family:SourceHanSansCN;
+          font-weight:500;
+          line-height:20px;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          margin-top: 15px;
+          cursor: pointer;
+        }
+
+        .menu:hover {
+          color: rgba(1,183,183,1);
+        }
+
+        .menu-name2 {
+          color: #A2A2A2;
+        }
       }
     }
   }
-}
 
-.foot {
+  .foot {
     padding: 0px 0 38px;
     background-color: #F1F7FA;
     text-align: center;
@@ -1424,5 +1534,249 @@ body {
     width: 100%;
     box-sizing: content-box!important;
   }
+}
+
+.mobile-div {
+  .head {
+    height: 1.173333rem;
+    text-align: left;
+
+    .logo {
+      width: 2.133333rem;
+      height: 0.613333rem;
+      margin-top: 0.293333rem;
+      margin-left: 0.533333rem;
+      background-image: url("assets/img/head/mobile/logo.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .foot {
+    font-family: SourceHanSansCN;
+
+    .foot-div {
+      padding-top: 1.04rem;
+      padding-left: 0.853333rem;
+      padding-right: 1.6rem;
+      background: #4A494E;
+      text-align: left;
+      padding-bottom: 1.173333rem;
+
+      .title {
+        font-size: 0;
+        font-family: PingFang SC;
+        font-weight: 600;
+        line-height: 0.586667rem;
+        color: #FFFFFF;
+        opacity: 1;
+        margin-bottom: 13px;
+
+        .title-div {
+          margin-bottom: 0.346667rem;
+
+          .title-logo {
+            width: 0.666667rem;
+            height: 0.666667rem;
+            margin-right: 0.266667rem;
+            vertical-align: bottom;
+          }
+
+          .title-text {
+            font-size: 0.426667rem;
+            vertical-align: bottom;
+          }
+        }
+      }
+
+      .contact-us {
+        .link-list {
+          font-size: 0.32rem;
+          margin-left: 0.986667rem;
+          padding-bottom: 0.32rem;
+          border-bottom: 1px solid #FFF;
+          margin-bottom: 0.373333rem;
+
+          .link {
+            margin-bottom: 0.213333rem;
+            height: 0.4rem;
+
+            .link-logo {
+              width: 0.4rem;
+              height: 0.4rem;
+              margin-right: 0.133333rem;
+            }
+
+            span {
+              font-family: Campton;
+              line-height: 0.4rem;
+              vertical-align: text-top;
+            }
+          }
+        }
+      }
+
+      .care-us {
+        .code-div {
+          font-size: 0.32rem;
+          margin-left: 0.986667rem;
+          padding-bottom: 0.586667rem;
+          border-bottom: 1px solid #FFF;
+          margin-bottom: 0.373333rem;
+
+          .each-code {
+            display: inline-block;
+            margin-right:0.56rem;
+            font-family:SourceHanSansCN;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            opacity:1;
+            text-align: center;
+
+            img {
+              width: 1.76rem;
+              height: 1.76rem;
+              margin-bottom: 0.16rem;
+              display: block;
+            }
+          }
+
+          .each-code:last-child {
+            margin-right: 0px;
+          }
+
+          .other-contact {
+            text-align: center;
+            width:2.266667rem;
+            height:0.506667rem;
+            background:#E1E1E2;
+            border-radius:0.48rem;
+            margin-top: 0.266667rem;
+            padding: 0.053333rem;
+
+            .each-contact {
+              width:0.4rem;
+              height:0.4rem;
+              background:#4A494E;
+              border-radius:50%;
+              opacity:1;
+              padding: 0.053333rem;
+              display: inline-block;
+
+              .each-img {
+                width: 0.4rem;
+                height: 0.4rem;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+            }
+
+            .left {
+              float: left;
+            }
+
+            .right {
+              float: right;
+            }
+          }
+        }
+      }
+
+      .address {
+        .address-div {
+          font-size: 0.32rem;
+          margin-left: 0.986667rem;
+          padding-bottom: 0.586667rem;
+          margin-bottom: 0.373333rem;
+
+          .location-item-div {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin-bottom: 0.293333rem;
+
+            li {
+              font-size: 0.32rem;
+              font-family: SourceHanSansCN;
+              font-weight: 500;
+              line-height: 0.373333rem;
+              opacity: 1;
+              margin-right: 0.266667rem;
+              display: inline-block;
+              color: #fff;
+              padding-bottom: 0.08rem;
+              margin-top: 0.08rem;
+              cursor: pointer;
+            }
+
+            .bg-colors {
+              color:rgba(1,183,183,1);
+              border-bottom: 3px solid rgba(1,183,183,1);
+            }
+          }
+
+          .place {
+            .text, .number {
+              font-size:0.293333rem;
+              font-family:PingFangSC-Regular, Biko;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(255,255,255,1);
+              opacity:1;
+            }
+
+            .place-line {
+              width:2.24rem;
+              height:0px;
+              border:1px solid rgba(154,154,154,1);
+              opacity:1;
+              margin: 0.186667rem 0;
+            }
+          }
+        }
+      }
+    }
+
+    .copy-right {
+      padding: 0.853333rem 0 0.746667rem;
+      background-color: #25C3B6;
+      text-align: center;
+
+      .content {
+        margin: 0 auto;
+
+        .content-title {
+          margin-bottom: 6px;
+          font-size:0.32rem;
+          font-family:SourceHanSansCN, Biko;
+          font-weight:500;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
+
+        .content-title2 {
+          div {
+            text-align: center;
+            // margin-right: 38px;
+            font-size:0.32rem;
+            font-family: SourceHanSansCN, Biko;
+            font-weight:500;
+            line-height:0.32rem;
+            color:rgba(255,255,255,1);
+            opacity:1;
+          }
+
+          .line1 {
+            margin-top: 0.426667rem;
+            margin-bottom: 0.213333rem;
+          }
+        }
+      }
+    }
+  }
+}
 
 </style>
