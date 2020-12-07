@@ -768,6 +768,12 @@ export default {
         },
         {
           img: require('../assets/img/home/activity/activity2-9.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-10.png')
+        },
+        {
+          img: require('../assets/img/home/activity/activity2-11.png')
         }
       ],
       dynamics: [
@@ -882,17 +888,44 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: 'NYU、哥大、JHU高校专场'
+            title2: 'ESADE招生官分享讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '11月5日'
+            title2: '12月7日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请NYU、哥大、JHU的学生'
+            title2: '意向申请 ESADE 商学院的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请ESADE 商学院亚洲区的现任招生官为我们揭秘 ESADE 商学院及各大商科硕士项目，包含管理学、商业分析等，分享第一手信息帮助大家找准自己的申请方向；同时，还有一位毕业于该学院的学姐，为大家带来独家就读体验与申请经验。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '学长学姐一对一门诊-美国热门专业专场'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月8日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '有意向宾大、CMU、西北、芝大、乔治城的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -902,105 +935,51 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请8位来自NYU、哥大、JHU热门常申专业的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
+            title2: '邀请来自宾大教育学、CMU CS、西北IMC、芝大MPP/社会学、乔治城MPP的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '留学话题讨论'
+            title2: '商科实习配对书'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '11月12日'
+            title2: '12月9日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '有留学意向的学生'
+            title2: '意向申请商科的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '群互动'
+            title2: '定制类手册'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请有留学经历/求职经验/辅导经验的导师，选取时下关于留学的热门话题/争议做解读分析，零距离参与同学们的讨论，并作答疑解惑。'
+            title2: '邀请拥有各大热门商科专业背景的导师，从实习推荐、渠道资源、实习规划等角度出发，为大家带来量身定制的实习配对报告。无论你是想申请市场营销、管理学还是商业分析等其他专业，都可以找到适合自己的实习提升规划。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '王曼爱华高校专场'
+            title2: '留学入门必听课'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '11月14日'
+            title2: '12月9日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请KCL、曼大、爱丁堡、华威的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '一对一门诊'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '邀请十余位来自KCL、曼大、爱丁堡、华威热门常申专业的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '专业混申计划通'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '11月14日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '想要申请多个专业方向的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '表单，表单内容偏重学校和专业，以及混申的注意事项等等'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '针对想要多申请几个专业增加自己录取概率的同学，帮助他们选择适合的专业组合，例如DS/CS/EE+MIS、传媒+文创-gender相关项目、金工金数+运筹学、金融+风险管理/会计与金融，在减小申请准备负担的同时，增加他们的申请打击面。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: 'BA与DS对比讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '11月16日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '有意向申请BA与DS的学生'
+            title2: '针对尚在犹豫是否申请、对申请的准备难度并不了解的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1010,78 +989,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请多专业混申的BA硕士导师来为大家讲解BA和DS专业的区分。主要是专业项目推荐、课程设置、就业方向的异同。还会讲述导师自己的项目就读体验、项目选择的思考、申请的心路历程。'
+            title2: '讲座内容围绕：1、 留学申请需要经历怎样的过程？2、 哪些因素影响我们的录取结果？如何影响我们录取结果的？3、什么样的条件，能获得了哪些档次的offer？这三个核心问题，让同学们更深入的了解如何准备，如何规划留学的问题。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '“留学小白训练营”'
+            title2: '热门商科多国混申讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '11月18日'
+            title2: '12月10日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '大一大二有留学意向的萌新'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '社群干货分享+导师互动答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '在社群内，每天将不定时发送各种留学干货福利，并有助教在线解答大家关于留学申请的困惑；更邀请了拥有丰富申请经验的导师，为大家揭秘留学竞争力、背景提升、大学规划时间线、申请材料那些事儿。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '大二大三背景提升训练营'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '11月26日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '大二大三想要背景提升的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '群分享+导师互动'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '大二大三实习+科研党的核心问题在于找不到更多的机会，所以，我们希望通过这次的社群分享，让同学们认识更多和你一样寻求背景提升的人，获取背景提升所需要的知识，和棕榈种子计划导师互动解决你对背景提升的问题，更有更多实习/科研机会资源等你领。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '金工金数专业讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '11月30日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '申请金工/金数的学生'
+            title2: '对美国和加拿大商科有申请意愿的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1091,24 +1016,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请拥有英美港申请经历的导师来讲述金工金数的纵横申请对比，包括专业科普、各国/地区金工金数项目介绍、名校项目的录取偏好及有针对的背景提升策略、如何多国混申等内容。'
+            title2: '讲述为什么多国混申以及BA金融混申的经历，多国商科混申的优势项目、具体经验心得与tips。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '留学奖学金讲座'
+            title2: '四大实习讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '11月19日'
+            title2: '12月11日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '有留学意向、想申请奖学金的学生'
+            title2: '有留学意向，想去四大实习提升背景的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1118,7 +1043,142 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '申请已经陆续开放，有很多同学比较希望了解如何做到带奖录取，我们邀请了大牛导师，来科普奖学金的分类和构成，并带来申请奖学金的实用攻略，讲座适用于申请季、非申请季的所有同学。'
+            title2: '邀请有丰富辅导经验的主导师，她将揭秘四大实习生都在做些什么工作、分析四大喜欢什么样的实习生，以及教大家如何申请并拿到一份四大实习。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '留学“普人”申请指南'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月14日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '想要弥补院校、专业背景劣势的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '规划报表'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '并非所有同学都是“学霸”！这部分”普人“同学，更加注重留学申请的策略性和准备的方式。我们将为同学们匹配和你目标专业和院校一致的导师，为你制定个性化的留学申请攻略！'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '文科留学生就业形势分析讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月16日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '留学目标学科是文科的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请在国内外都有过丰富的求职经验的 Zitong 导师，解读文科热门专业的就业现状和就业前景，多维探讨文科生的出路选择，从求职现状启示，来给大家一些可参考的选专业/转专业/掌握技能的建议。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '加拿大申请专场讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月17日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请加拿大意向的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '加拿大会计硕士专导来讲述加拿大的项目、申请、求学体验与实习就业方向体验，再解读加拿大的签证福利和移民政策。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '教育学申请集训课'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月18日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '意向申请教育学的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请拥有丰富教育学申请经验的导师，从项目分支、院校选择、就业前景、背景提升等核心维度出发，为大家带来教育学申请的各种干货指南。同时，导师还将分享个人的申请经历与故事，为大家带来一定的参考价值。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '背提实操训练营'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '12月22日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '需要背景提升实际操作指导的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '训练营'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '“我知道要提升GPA，找实习，找科研，可我不知道该怎么做！”“我努力的背提，但是效果不高，GPA提升有限，实习和科研很水怎么办？”这次，我们将从实操层面，告诉你如何提升GPA，做实习和科研的时候，又应该注意些什么！'
           }
         ]
       ],
