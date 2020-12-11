@@ -3,45 +3,78 @@
     <!-- <remote-css rel="stylesheet" href="../assets/third/carousel/owl.theme.css"></remote-css>
     <remote-css rel="stylesheet" href="../assets/third/carousel/owl.carousel.css"></remote-css> -->
 
-    <div class="banner1-div">
-      <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
-        <div class="text1">6000+ 世界名校毕业导师</div>
-        <div class="text2">精准辅导 200+ 多个专业，专业标准化管理，半年度导师培训， 导师筛选通过率仅 33.6%</div>
+    <div v-if="!isMobile" class="web-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class="text1">6000+ 世界名校毕业导师</div>
+          <div class="text2">精准辅导 200+ 多个专业，专业标准化管理，半年度导师培训， 导师筛选通过率仅 33.6%</div>
+        </div>
       </div>
+
+      <div class="banner5-div">
+        <div class="title">导师团队精选</div>
+        <!-- <ul class="teacher-item-div" >
+          <li v-for="(item, index) in teacherTypes" :key="item.name" v-html="item.name" @click="changeTeacherType(index)" v-bind:class="{ 'teacher-bg-colors' : index == currentType }"></li>
+        </ul> -->
+        <div class="teachers-div">
+          <template v-for="(item, index) in selectedTeacher" >
+            <div class="each-teacher" v-if="index < maxNumber" :key="index" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class="more-teachers" @click="showMoreTeacher" v-if="maxNumber <= 8">
+            <div>
+              查看更多导师
+            </div>
+            <div class="open-ask"></div>
+          </div>
+        </div>
+      </div>
+
+      <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
     </div>
 
-    <div class="banner5-div">
-      <div class="title">导师团队精选</div>
-      <!-- <ul class="teacher-item-div" >
-        <li v-for="(item, index) in teacherTypes" :key="item.name" v-html="item.name" @click="changeTeacherType(index)" v-bind:class="{ 'teacher-bg-colors' : index == currentType }"></li>
-      </ul> -->
-      <div class="teachers-div">
-        <template v-for="(item, index) in selectedTeacher" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="index" @click="handleOpenDialog(item)">
-            <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="teacher-info-div">
-              <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+    <div v-if="isMobile" class="mobile-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+        </div>
+      </div>
+
+      <div class="banner6-div">
+        <div class="title">导师团队精选</div>
+        <div class="teachers-div">
+          <template v-for="(item, index) in selectedTeacher" >
+            <div class="each-teacher" v-if="index < maxNumber" :key="item.school" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
+          <div class="more-teachers" v-if="maxNumber <= 8" @click="showMoreTeacher">
+            <div>
+              查看更多导师
             </div>
           </div>
-        </template>
-
-        <div class="more-teachers" @click="showMoreTeacher" v-if="maxNumber <= 8">
-          <div>
-            查看更多导师
-          </div>
-          <div class="open-ask"></div>
         </div>
       </div>
     </div>
-
-    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
   </div>
 </template>
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
 import TeacherDialog from './common/teacherInfoDialog'
+import Common from './common/common'
+
 export default {
   components: {
     TeacherDialog
@@ -49,6 +82,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      isMobile: Common.isMobile,
       teachers: [
         [
           {
@@ -443,7 +477,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = require('../assets/img/teacherIntro/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/teacherIntro/mobile/banner1.png') : require('../assets/img/teacherIntro/banner1.png')
     this.selectedTeacher = this.teachers[this.currentType]
   },
   mounted () {
@@ -469,190 +503,305 @@ export default {
 .teacher-intro {
   text-align: center;
 
-  .banner1-div {
-    width: 100%;
-    padding: 92px 0 0px;
-    background-color: #1BBEB2;
+  .web-div {
+    .banner1-div {
+      width: 100%;
+      padding: 92px 0 0px;
+      background-color: #1BBEB2;
 
-    .banner1 {
-      width: 1109px;
-      height: 430px;
-      margin: 0 auto;
-      position: relative;
-      text-align: left;
-      background-repeat: no-repeat;
-      background-size: cover;
+      .banner1 {
+        width: 1109px;
+        height: 430px;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
 
-      .text1 {
-        font-size: 26px;
-        font-family: Biko, SourceHanSansCN;
-        font-weight: bold;
-        line-height: 30px;
-        color: rgba(255,255,255,1);
-        opacity: 1;
-        width: 555px;
-        padding-top: 210px;
-      }
-
-      .text2 {
-        font-size: 20px;
-        font-family: Biko, SourceHanSansCN;
-        font-weight: bold;
-        line-height: 30px;
-        color: rgba(255,255,255,1);
-        opacity: 1;
-        width: 555px;
-        padding-top: 5px;
-      }
-    }
-  }
-
-  .banner5-div {
-    padding: 87px 0 54px;
-    background-color: #F3F6FB;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 105px;
-    }
-
-    .teacher-item-div {
-        list-style: none;
-        text-align: center;
-        padding: 0;
-        margin-bottom: 64px;
-
-        li {
-          font-size: 18px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 18px;
+        .text1 {
+          font-size: 26px;
+          font-family: Biko, SourceHanSansCN;
+          font-weight: bold;
+          line-height: 30px;
+          color: rgba(255,255,255,1);
           opacity: 1;
-          margin: 0 40px;
-          display: inline-block;
-          color: rgba(175,175,175,1);
-          padding: 0 8px 8px;
-          cursor: pointer;
+          width: 555px;
+          padding-top: 210px;
         }
 
-        .teacher-bg-colors {
-          color:rgba(60,60,60,1);
-          font-weight:bold;
-          border-bottom: 3px solid rgba(1,183,183,1);
-        }
-      }
-
-    .teachers-div {
-      width: 1130px;
-      text-align: center;
-      margin: 0 auto;
-
-      .each-teacher {
-        width: 240px;
-        margin: 0 20px 45px;
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-
-        .teacher-img {
-          width:100%;
-          height:308px;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .teacher-info-div {
-          height: 96px;
-          background-color: #F1FAFA;
-          padding: 17px 20px 0 21px;
-          text-align: left;
-
-          .teacher-name {
-            font-size:18px;
-            font-family:Campton;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-          }
-
-          .teacher-school {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-            margin-top: 7px;
-          }
+        .text2 {
+          font-size: 20px;
+          font-family: Biko, SourceHanSansCN;
+          font-weight: bold;
+          line-height: 30px;
+          color: rgba(255,255,255,1);
+          opacity: 1;
+          width: 555px;
+          padding-top: 5px;
         }
       }
+    }
 
-      .each-teacher:hover {
-        transform: scale(1.1);
-        transition-duration: 0.5s;
-      }
+    .banner5-div {
+      padding: 87px 0 54px;
+      background-color: #F3F6FB;
 
-      .more-teachers {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
         opacity:1;
-        cursor: pointer;
+        margin-bottom: 105px;
+      }
 
-        width: 142px;
+      .teacher-item-div {
+          list-style: none;
+          text-align: center;
+          padding: 0;
+          margin-bottom: 64px;
+
+          li {
+            font-size: 18px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 18px;
+            opacity: 1;
+            margin: 0 40px;
+            display: inline-block;
+            color: rgba(175,175,175,1);
+            padding: 0 8px 8px;
+            cursor: pointer;
+          }
+
+          .teacher-bg-colors {
+            color:rgba(60,60,60,1);
+            font-weight:bold;
+            border-bottom: 3px solid rgba(1,183,183,1);
+          }
+        }
+
+      .teachers-div {
+        width: 1130px;
         text-align: center;
         margin: 0 auto;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid rgba(151,151,151,1);
-        border-radius: 21px;
 
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
+        .each-teacher {
+          width: 240px;
+          margin: 0 20px 45px;
           display: inline-block;
-          vertical-align: bottom;
-        }
+          vertical-align: top;
+          cursor: pointer;
 
-        .open-ask {
-            width: 26px;
-            height: 10px;
-            // background: #21C3B6;
-            margin: 13px auto 36px;
-            cursor: pointer;
-            background-image: url("../assets/img/dreamSchool/openArrow.png");
+          .teacher-img {
+            width:100%;
+            height:308px;
             background-repeat: no-repeat;
             background-size: cover;
+          }
+
+          .teacher-info-div {
+            height: 96px;
+            background-color: #F1FAFA;
+            padding: 17px 20px 0 21px;
+            text-align: left;
+
+            .teacher-name {
+              font-size:18px;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:18px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:15px;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+              margin-top: 7px;
+            }
+          }
+        }
+
+        .each-teacher:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+
+        .more-teachers {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 142px;
+          text-align: center;
+          margin: 0 auto;
+          height: 36px;
+          line-height: 36px;
+          border: 1px solid rgba(151,151,151,1);
+          border-radius: 21px;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: 26px;
+              height: 10px;
+              // background: #21C3B6;
+              margin: 13px auto 36px;
+              cursor: pointer;
+              background-image: url("../assets/img/dreamSchool/openArrow.png");
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
         }
       }
     }
   }
 
-    /* 可以设置不同的进入和离开动画 */
-    /* 设置持续时间和动画函数 */
-    .slide-fade-enter-active {
-    transition: all .3s ease;
+  .mobile-div {
+    .banner1-div {
+      width: 100%;
+      padding: 1.066667rem 0 0;
+      background-color: #1BBEB2;
+
+      .banner1 {
+        width: 8.88rem;
+        height: 5.253333rem;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
-    .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+
+    .banner6-div {
+      padding: 1.04rem 0 0.8rem;
+      background-color: #fff;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 0.8rem;
+      }
+
+      .teachers-div {
+        // width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-teacher {
+          width: 4.106667rem;
+          margin: 0 0.08rem 0.8rem;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+
+          .teacher-img {
+            width:100%;
+            height:4.933333rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .teacher-info-div {
+            height: 1.626667rem;
+            background-color: #35C4C4;
+            padding: 0.346667rem 0.426667rem 0;
+            text-align: left;
+
+            .teacher-name {
+              font-size:0.373333rem;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:0.32rem;
+              color:#F6FBFB;
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:0.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:0.453333rem;
+              color:#F6FBFB;
+              opacity:1;
+              margin-top: 0.106667rem;
+            }
+          }
+        }
+
+        // .each-teacher:hover {
+        //   transform: scale(1.1);
+        //   transition-duration: 0.5s;
+        // }
+
+        .more-teachers {
+          font-size:0.266667rem;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:0.64rem;
+          color:#16B4B4;
+          opacity:1;
+          text-align: center;
+          margin: 0 auto;
+          width: 2.64rem;
+          height: 0.64rem;
+          background: rgba(53,185,196,0.14);
+          border-radius: 15px;
+
+          a {
+            text-decoration: none;
+            color: #16B4B4;
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+      }
     }
-    .slide-fade-enter, .slide-fade-leave-to
-    /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateX(10px);
-    opacity: 0;
-    }
+  }
+
+  /* 可以设置不同的进入和离开动画 */
+  /* 设置持续时间和动画函数 */
+  .slide-fade-enter-active {
+  transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+  }
 }
 </style>
