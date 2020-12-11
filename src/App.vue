@@ -899,6 +899,22 @@ body {
   right: -58px;
 }
 
+.ability-program-left-arrow-mobile {
+  position: absolute;
+  top: 30%;
+  left: -30px !important;
+  width: .586667rem !important;
+  height: .586667rem !important;
+}
+
+.ability-program-right-arrow-mobile {
+  position: absolute;
+  top: 30%;
+  right: -30px !important;
+  width: .586667rem !important;
+  height: .586667rem !important;
+}
+
 @media not all and (min-resolution:.001dpcm) {
   body {
     letter-spacing: -1px;
