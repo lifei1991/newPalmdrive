@@ -1619,11 +1619,11 @@ export default {
         }
 
         .info-text {
-          width: 1.3rem;
+          width: 1.5rem;
           font-size:0.186667rem;
           font-family:SourceHanSansCN;
           font-weight:bold;
-          line-height:0.3rem;
+          line-height:0.7rem;
           color:rgba(57,60,61,1);
           opacity:1;
           display: inline-block;
