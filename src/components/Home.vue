@@ -219,8 +219,6 @@
         </div>
       </div>
 
-      <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
-
       <div class="acticityInfoDialog">
         <el-dialog
           customClass="customDialog"
@@ -403,6 +401,8 @@
       </div>
 
     </div>
+
+    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
   </div>
 </template>
 

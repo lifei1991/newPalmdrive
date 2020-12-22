@@ -160,8 +160,6 @@
             </div>
         </div>
       </div>
-
-      <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
     </div>
 
     <div v-if="isMobile" class="mobile-div">
@@ -285,6 +283,8 @@
         </div>
       </div>
     </div>
+
+    <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
   </div>
 </template>
 
