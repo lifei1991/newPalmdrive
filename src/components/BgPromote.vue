@@ -1,78 +1,142 @@
 <template>
   <div class='home'>
 
-    <div class='banner1-div'>
-      <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
-        <div class='info1-div'>
-          <div class='info-number'>1350<span> 个</span></div>
-          <div class='info-text'>棕榈种子学员共拿到 背景提升 offer</div>
-        </div>
-        <div class='info2-div'>
-          <div class='info-number'>95%</div>
-          <div class='info-text'>棕榈种子学员拿到 背景提升 offer </div>
-        </div>
-        <div class='info3-div'>
-          <div class='info-number'>85%</div>
-          <div class='info-text'>棕榈种子学员申请季 拿到世界 Top50 的 offer</div>
-        </div>
+    <div v-if="!isMobile" class="web-div">
+      <div class='banner1-div'>
+        <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class='info1-div'>
+            <div class='info-number'>1350<span> 个</span></div>
+            <div class='info-text'>棕榈种子学员共拿到 背景提升 offer</div>
+          </div>
+          <div class='info2-div'>
+            <div class='info-number'>95%</div>
+            <div class='info-text'>棕榈种子学员拿到 背景提升 offer </div>
+          </div>
+          <div class='info3-div'>
+            <div class='info-number'>85%</div>
+            <div class='info-text'>棕榈种子学员申请季 拿到世界 Top50 的 offer</div>
+          </div>
 
-        <!-- <div class='text'>数据解释权归棕榈大道</div> -->
+          <!-- <div class='text'>数据解释权归棕榈大道</div> -->
+        </div>
       </div>
-    </div>
 
-    <div class='banner2-div'>
-      <!-- <div class='title'>成功案例</div> -->
+      <div class='banner2-div'>
+        <!-- <div class='title'>成功案例</div> -->
 
-      <ul class='guide-item-div'>
-        <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
-          <div class='text'>{{ item.name }}</div>
-        </li>
-      </ul>
+        <ul class='guide-item-div'>
+          <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class='text'>{{ item.name }}</div>
+          </li>
+        </ul>
 
-      <div class='demos-div'>
-        <template v-for='(item, index) in selectedDemo' >
-          <div class='each-demo' v-if='index < maxNumber' :key='index' :style="{background: item.bgColor}">
+        <div class='demos-div'>
+          <template v-for='(item, index) in selectedDemo' >
+            <div class='each-demo' v-if='index < maxNumber' :key='index' :style="{background: item.bgColor}">
+              <div>
+                <div class='demo-img' :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              </div>
+              <div class='demo-info-div'>
+                <div class='demo-number'>{{ item.number }} <span>份</span></div>
+                <div class='demo-text' :title='item.admissionMajor'>{{ item.text }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 4 && maxNumber != 100'>
             <div>
-              <div class='demo-img' :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            </div>
-            <div class='demo-info-div'>
-              <div class='demo-number'>{{ item.number }} <span>份</span></div>
-              <div class='demo-text' :title='item.admissionMajor'>{{ item.text }}</div>
+              查看更多
+              <span class='open-ask'></span>
             </div>
           </div>
-        </template>
+        </div>
+      </div>
 
-        <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 4 && maxNumber != 100'>
-          <div>
-            查看更多
-            <span class='open-ask'></span>
-          </div>
+      <div class="banner3-div">
+        <div class="title">部分成功案例</div>
+        <div class="story-div">
+          <template v-for="(item, index) in selectedStory" >
+            <div class="each-story" :key="index">
+              <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}">
+                <div class="company">{{ item.company }}</div>
+              </div>
+              <div class="story-info-div">
+                <div class="story-text">岗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{ item.position }}</div>
+                <div class="story-text">实习亮点：{{ item.light }}</div>
+                <div class="story-text time-div">持续时间：{{ item.time }}</div>
+                <div class="story-text">获得offer的年级：{{ item.grade }}</div>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="more-teachers" @click="showMoreStories" v-if="!(maxStoryNumber > 8 || stories.length <=8)">
+            <div>
+              查看更多案例<img src="../assets/img/home/more.png" class="more-img" />
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
 
-    <div class="banner3-div">
-      <div class="title">部分成功案例</div>
-      <div class="story-div">
-        <template v-for="(item, index) in selectedStory" >
-          <div class="each-story" :key="index">
-            <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}">
-              <div class="company">{{ item.company }}</div>
-            </div>
-            <div class="story-info-div">
-              <div class="story-text">岗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{ item.position }}</div>
-              <div class="story-text">实习亮点：{{ item.light }}</div>
-              <div class="story-text time-div">持续时间：{{ item.time }}</div>
-              <div class="story-text">获得offer的年级：{{ item.grade }}</div>
-            </div>
-          </div>
-        </template>
+    <div v-if="isMobile" class="mobile-div">
+      <div class='banner1-div'>
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}"></div>
+      </div>
 
-        <!-- <div class="more-teachers" @click="showMoreStories" v-if="!(maxStoryNumber > 8 || stories.length <=8)">
-          <div>
-            查看更多案例<img src="../assets/img/home/more.png" class="more-img" />
+      <div class='banner2-div'>
+        <!-- <div class='title'>成功案例</div> -->
+
+        <ul class='guide-item-div'>
+          <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class='text'>{{ item.name }}</div>
+          </li>
+        </ul>
+
+        <div class='demos-div'>
+          <template v-for='(item, index) in selectedDemo' >
+            <div class='each-demo' v-if='index < maxNumber' :key='index' :style="{background: item.bgColor}">
+              <div>
+                <div class='demo-img' :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              </div>
+              <div class='demo-info-div'>
+                <div class='demo-number'>{{ item.number }} <span>份</span></div>
+                <div class='demo-text' :title='item.admissionMajor'>{{ item.text }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 4 && maxNumber != 100'>
+            <div>
+              查看更多
+              <span class='open-ask'></span>
+            </div>
           </div>
-        </div> -->
+        </div>
+      </div>
+
+      <div class="banner3-div">
+        <div class="title">部分成功案例</div>
+        <div class="story-div">
+          <template v-for="(item, index) in selectedStory" >
+            <div class="each-story" :key="index">
+              <div class="story-img" :style="{backgroundImage:'url(' + item.img + ')'}">
+                <div class="company">{{ item.company }}</div>
+              </div>
+              <div class="story-info-div">
+                <div class="story-text">岗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{ item.position }}</div>
+                <div class="story-text">实习亮点：{{ item.light }}</div>
+                <div class="story-text time-div">持续时间：{{ item.time }}</div>
+                <div class="story-text">获得offer的年级：{{ item.grade }}</div>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="more-teachers" @click="showMoreStories" v-if="!(maxStoryNumber > 8 || stories.length <=8)">
+            <div>
+              查看更多案例<img src="../assets/img/home/more.png" class="more-img" />
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -80,6 +144,7 @@
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
+import Common from './common/common'
 
 export default {
   components: {
@@ -87,6 +152,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      isMobile: Common.isMobile,
       schools: [
         [
           {
@@ -1091,7 +1157,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = require('../assets/img/bgPromote/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/bgPromote/mobile/banner1.png') : require('../assets/img/bgPromote/banner1.png')
     this.selectSchool = this.schools[0]
     this.selectedDemo = this.demos[0]
     this.selectedStory = this.stories[0]
@@ -1120,366 +1186,726 @@ export default {
 .home {
   text-align: center;
 
-  .banner1-div {
-    width: 100%;
-    // padding: 16px 0 33px;
-    background-color: #1BBEB2;
-    height: 586px;
-    position: relative;
-
-    .banner1 {
-      width: 1085px;
-      height: 599px;
-      margin: 0 auto;
+  .web-div {
+    .banner1-div {
+      width: 100%;
+      // padding: 16px 0 33px;
+      background-color: #1BBEB2;
+      height: 586px;
       position: relative;
-      text-align: left;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: absolute;
-      top: 67px;
-      left: 50%;
-      margin-left: -535px;
 
-      .info1-div {
+      .banner1 {
+        width: 1085px;
+        height: 599px;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
         position: absolute;
-        bottom: 65px;
-        left: 26px;
-        text-align: center;
-      }
+        top: 67px;
+        left: 50%;
+        margin-left: -535px;
 
-      .info2-div {
-        position: absolute;
-        bottom: 65px;
-        left: 203px;
-        text-align: center;
-      }
-
-      .info3-div {
-        position: absolute;
-        bottom: 65px;
-        left: 381px;
-        text-align: center;
-      }
-
-      .info-number {
-        // width: 75px;
-        font-size:35px;
-        font-family:Biko;
-        font-weight:bold;
-        line-height:35px;
-        color:rgba(33,33,33,1);
-        opacity:1;
-        // margin-right: 12px;
-        // display: inline-block;
-        height: 28px;
-
-        span {
-            font-size:18px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:35px;
-            color:rgba(33,33,33,1);
-            opacity:1;
+        .info1-div {
+          position: absolute;
+          bottom: 65px;
+          left: 26px;
+          text-align: center;
         }
-      }
 
-      .info-text {
-        width: 120px;
-        font-size:13px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:16px;
-        color:rgba(54,136,132,1);
-        opacity:1;
-        // display: inline-block;
-        height: 28px;
-        vertical-align: top;
-        margin-top: 15px;
-      }
+        .info2-div {
+          position: absolute;
+          bottom: 65px;
+          left: 203px;
+          text-align: center;
+        }
 
-      .text {
-        position: absolute;
-        top: 468px;
-        left: 24px;
+        .info3-div {
+          position: absolute;
+          bottom: 65px;
+          left: 381px;
+          text-align: center;
+        }
 
-        font-size:12px;
-        font-family:Biko;
-        font-weight:400;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-      }
-    }
-  }
-
-  .banner2-div {
-    padding: 102px 0 41px;
-    background-color: #fff;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(0,0,0,1);
-      opacity:1;
-    }
-
-    .guide-item-div {
-      list-style: none;
-      text-align: center;
-      padding: 0;
-      margin: 26px auto 47px;
-      width: 573px;
-      background:#F7FFFE;
-      box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
-      opacity:1;
-      border-radius:83px;
-
-      li {
-        opacity: 1;
-        display: inline-block;
-        color: rgba(57,60,61,1);
-        cursor: pointer;
-        text-align: center;
-        padding: 0 28px;
-        width: 77px;
-        height: 37px;
-        margin: 5px;
-
-        .img {
-          width:24px;
-          height:24px;
-          // background:rgba(255,255,255,1);
-          box-shadow:3px 3px 6px rgba(0,0,0,0.16);
-          border-radius:50%;
+        .info-number {
+          // width: 75px;
+          font-size:35px;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:35px;
+          color:rgba(33,33,33,1);
           opacity:1;
-          // margin-top: 13px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          display: inline-block;
-          margin-right: 10px;
+          // margin-right: 12px;
+          // display: inline-block;
+          height: 28px;
+
+          span {
+              font-size:18px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:35px;
+              color:rgba(33,33,33,1);
+              opacity:1;
+          }
+        }
+
+        .info-text {
+          width: 120px;
+          font-size:13px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:16px;
+          color:rgba(54,136,132,1);
+          opacity:1;
+          // display: inline-block;
+          height: 28px;
+          vertical-align: top;
+          margin-top: 15px;
         }
 
         .text {
-          display: inline-block;
-          font-size: 16px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 37px;
-          // margin-top: 13px;
-          vertical-align: top;
-          height: 24px;
-        }
-      }
+          position: absolute;
+          top: 468px;
+          left: 24px;
 
-      .guide-bg-colors {
-        color:#FFFFFF;
-        font-weight:bold;
-        background:rgba(29,195,182,1);
-        box-shadow:0px 3px 6px rgba(0,0,0,0.16);
-        opacity:1;
-        border-radius:83px;
+          font-size:12px;
+          font-family:Biko;
+          font-weight:400;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
       }
     }
 
-    .demos-div {
-      width: 900px;
-      text-align: center;
-      margin: 0 auto;
+    .banner2-div {
+      padding: 102px 0 41px;
+      background-color: #fff;
 
-      .each-demo {
-        width: 190px;
-        margin: 18px 15px;
-        display: inline-block;
-        vertical-align: top;
-        padding: 28px 0;
-        background: #FFFFFF;
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(0,0,0,1);
         opacity:1;
-        border-radius:34px;
-        text-align: left;
-        height: 296px;
+      }
 
-        .demo-img {
-          width:125px;
-          height:125px;
-          background-repeat: no-repeat;
-          background-size: contain;
-          margin: 0 auto 25px;
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 26px auto 47px;
+        width: 573px;
+        background:#F7FFFE;
+        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
+
+        li {
+          opacity: 1;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+          padding: 0 28px;
+          width: 77px;
+          height: 37px;
+          margin: 5px;
+
+          .img {
+            width:24px;
+            height:24px;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            // margin-top: 13px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: 16px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 37px;
+            // margin-top: 13px;
+            vertical-align: top;
+            height: 24px;
+          }
         }
 
-        .demo-info-div {
-          text-align: center;
-
-          .demo-number {
-            font-size:35px;
-            font-family:Biko, SourceHanSansCN;
-            font-weight:bold;
-            line-height:35px;
-            color:#212121;
-            opacity:1;
-            margin: 25px 0 20px;
-          }
-
-          .demo-text {
-            width: 130px;
-            text-align: left;
-            font-size:13px;
-            font-family:SourceHanSansCN, Campton;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-            margin: 0 auto;
-          }
-
-          .line3 {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-          }
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
         }
       }
 
-      .more-demos {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        cursor: pointer;
-
-        width: 142px;
+      .demos-div {
+        width: 900px;
         text-align: center;
-        margin: 17px auto 0;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid #2aa7aa;
-        border-radius: 21px;
+        margin: 0 auto;
 
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
+        .each-demo {
+          width: 190px;
+          margin: 18px 15px;
           display: inline-block;
-          vertical-align: bottom;
-        }
+          vertical-align: top;
+          padding: 28px 0;
+          background: #FFFFFF;
+          opacity:1;
+          border-radius:34px;
+          text-align: left;
+          height: 296px;
 
-        .open-ask {
-            width: 18px;
-            height: 8px;
-            display: inline-block;
-            cursor: pointer;
-            background-image: url('../assets/img/dreamSchool/openArrow.png');
+          .demo-img {
+            width:125px;
+            height:125px;
             background-repeat: no-repeat;
             background-size: contain;
+            margin: 0 auto 25px;
+          }
+
+          .demo-info-div {
+            text-align: center;
+
+            .demo-number {
+              font-size:35px;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:bold;
+              line-height:35px;
+              color:#212121;
+              opacity:1;
+              margin: 25px 0 20px;
+            }
+
+            .demo-text {
+              width: 130px;
+              text-align: left;
+              font-size:13px;
+              font-family:SourceHanSansCN, Campton;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+              margin: 0 auto;
+            }
+
+            .line3 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .more-demos {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 142px;
+          text-align: center;
+          margin: 17px auto 0;
+          height: 36px;
+          line-height: 36px;
+          border: 1px solid #2aa7aa;
+          border-radius: 21px;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: 18px;
+              height: 8px;
+              display: inline-block;
+              cursor: pointer;
+              background-image: url('../assets/img/dreamSchool/openArrow.png');
+              background-repeat: no-repeat;
+              background-size: contain;
+          }
+        }
+      }
+    }
+
+    .banner3-div {
+      padding: 54px 0 33px;
+      background-color: #fff;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 41px;
+      }
+
+      .story-div {
+        width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-story {
+          width: 245px;
+          margin: 42px 15px;
+          display: inline-block;
+          vertical-align: top;
+
+          .story-img {
+            width:100%;
+            height:157px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 20px;
+            position: relative;
+
+            .company {
+              font-size:14px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:28px;
+              color:rgba(255,255,255,1);
+              opacity:1;
+              // height:33px;
+              height: auto;
+              background:rgba(40,173,162,.86);
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+            }
+          }
+
+          .story-info-div {
+            padding-top: 4px;
+            text-align: left;
+            overflow: hidden;
+
+            .story-text {
+              font-size:15px;
+              font-family:SourceHanSansCN;
+              font-weight:500;
+              line-height:23px;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              margin-top: 2px;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+
+            .time-div {
+              margin-top: 20px;
+            }
+          }
+        }
+
+        .more-teachers {
+          font-size:13px;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:15px;
+          color:rgba(51,51,51,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 20px;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
         }
       }
     }
   }
 
-  .banner3-div {
-    padding: 54px 0 33px;
-    background-color: #fff;
+  .mobile-div {
+    .banner1-div {
+      width: 100%;
+      // padding: 16px 0 33px;
+      background-color: #1BBEB2;
+      height: 6.293333rem;
+      position: relative;
 
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 41px;
+      .banner1 {
+        width: 8.986667rem;
+        height: 6.8rem;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: .8rem;
+        left: 50%;
+        margin-left: -4.48rem;
+
+        .info1-div {
+          position: absolute;
+          bottom: 60px;
+          left: 28px;
+          text-align: center;
+        }
+
+        .info2-div {
+          position: absolute;
+          bottom: 60px;
+          left: 203px;
+          text-align: center;
+        }
+
+        .info3-div {
+          position: absolute;
+          bottom: 60px;
+          left: 375px;
+          text-align: center;
+        }
+
+        .info-number {
+          // width: 75px;
+          font-size:35px;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:35px;
+          color:rgba(33,33,33,1);
+          opacity:1;
+          // margin-right: 12px;
+          // display: inline-block;
+          height: 28px;
+        }
+
+        .info-text {
+          width: 116px;
+          font-size:13px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:16px;
+          color:rgba(54,136,132,1);
+          opacity:1;
+          // display: inline-block;
+          height: 28px;
+          vertical-align: top;
+          margin-top: 15px;
+        }
+
+        .text {
+          position: absolute;
+          top: 468px;
+          left: 24px;
+
+          font-size:12px;
+          font-family:Biko;
+          font-weight:400;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
+      }
     }
 
-    .story-div {
-      width: 1130px;
-      text-align: center;
-      margin: 0 auto;
+    .banner2-div {
+      padding: 1.146667rem 0 1.52rem;
+      background-color: #fff;
 
-      .each-story {
-        width: 245px;
-        margin: 42px 15px;
-        display: inline-block;
-        vertical-align: top;
+      .title {
+        font-size:.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:.426667rem;
+        color:rgba(0,0,0,1);
+        opacity:1;
+      }
 
-        .story-img {
-          width:100%;
-          height:157px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          margin-bottom: 20px;
-          position: relative;
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: .506667rem auto .506667rem;
+        width: 8.933333rem;
+        background:#F7FFFE;
+        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
 
-          .company {
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:28px;
-            color:rgba(255,255,255,1);
+        li {
+          opacity: 1;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+          padding: 0 .4rem;
+          width: 1.313333rem;
+          height: .746667rem;
+          margin: .053333rem;
+
+          .img {
+            width:24px;
+            height:24px;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
             opacity:1;
-            // height:33px;
-            height: auto;
-            background:rgba(40,173,162,.86);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            // margin-top: 13px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: .32rem;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: .746667rem;
+            // margin-top: 13px;
+            vertical-align: top;
+            height: .64rem;
           }
         }
 
-        .story-info-div {
-          padding-top: 4px;
-          text-align: left;
-          overflow: hidden;
-
-          .story-text {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:500;
-            line-height:23px;
-            color:rgba(0,0,0,1);
-            opacity:1;
-            margin-top: 2px;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-          }
-
-          .time-div {
-            margin-top: 20px;
-          }
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
         }
       }
 
-      .more-teachers {
-        font-size:13px;
-        font-family:PingFang SC;
-        font-weight:500;
-        line-height:15px;
-        color:rgba(51,51,51,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 20px;
-        cursor: pointer;
+      .demos-div {
+        // width: 900px;
+        text-align: center;
+        margin: 0 auto;
 
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
+        .each-demo {
+          width: 3.546667rem;
+          margin: .4rem .266667rem;
+          display: inline-block;
+          vertical-align: top;
+          padding: .533333rem 0;
+          background: #FFFFFF;
+          opacity:1;
+          border-radius:.906667rem;
+          text-align: left;
+          height: 5.52rem;
+
+          .demo-img {
+            width:2.346667rem;
+            height:2.346667rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 0 auto .453333rem;
+          }
+
+          .demo-info-div {
+            text-align: center;
+
+            .demo-number {
+              font-size:.64rem;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:bold;
+              line-height:.64rem;
+              color:#212121;
+              opacity:1;
+              margin: .453333rem 0 .32rem;
+            }
+
+            .demo-text {
+              width: 2.746667rem;
+              text-align: left;
+              font-size:.32rem;
+              font-family:SourceHanSansCN, Campton;
+              font-weight:400;
+              line-height:.426667rem;
+              color:rgba(51,51,51,1);
+              opacity:1;
+              margin: 0 auto;
+            }
+
+            .line3 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
         }
 
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
+        .more-demos {
+          font-size:.32rem;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 2.693333rem;
+          text-align: center;
+          margin: .213333rem auto 0;
+          height: .746667rem;
+          line-height: .746667rem;
+          border: 1px solid #2aa7aa;
+          border-radius: .56rem;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: .346667rem;
+              height: .16rem;
+              display: inline-block;
+              cursor: pointer;
+              background-image: url('../assets/img/dreamSchool/openArrow.png');
+              background-repeat: no-repeat;
+              background-size: contain;
+          }
+        }
+      }
+    }
+
+    .banner3-div {
+      padding: 1.013333rem 0 33px;
+      background-color: #EDEFF4;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: .346667rem;
+      }
+
+      .story-div {
+        // width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-story {
+          width: 4.16rem;
+          margin: .366667rem .133333rem;
           display: inline-block;
-          vertical-align: bottom;
+          vertical-align: top;
+
+          .story-img {
+            width:100%;
+            height:2.586667rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: .426667rem;
+            position: relative;
+
+            .company {
+              font-size:.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:.533333rem;
+              color:rgba(255,255,255,1);
+              opacity:1;
+              // height:33px;
+              height: auto;
+              background:rgba(40,173,162,.86);
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+            }
+          }
+
+          .story-info-div {
+            // padding-top: .106667rem;
+            text-align: left;
+            overflow: hidden;
+
+            .story-text {
+              font-size:.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:500;
+              line-height:.426667rem;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              margin-top: .053333rem;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+
+            .time-div {
+              margin-top: .4rem;
+            }
+          }
+        }
+
+        .more-teachers {
+          font-size:13px;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:15px;
+          color:rgba(51,51,51,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 20px;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
         }
       }
     }

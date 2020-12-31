@@ -1,100 +1,187 @@
 <template>
   <div class='home'>
 
-    <div class='banner1-div'>
-      <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
-        <div class='info1-div'>
-          <div class='info-number'>99.3%</div>
-          <div class='info-text'>学校申请成功率达</div>
-        </div>
-        <div class='info2-div'>
-          <div class='info-number'>71.6%</div>
-          <div class='info-text'>世界排名前 50 名校录取 Offer 比例</div>
-        </div>
-        <div class='info3-div'>
-          <div class='info-number'>99.1%</div>
-          <div class='info-text'>申请满意度</div>
-        </div>
-
-        <!-- <div class='text'>数据解释权归棕榈大道</div> -->
-      </div>
-    </div>
-
-    <div class='banner2-div'>
-      <div class='title'>名校 offer</div>
-      <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
-      <div class='number-div'>
-        <div class='title3'>数据汇总</div>
-        <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
-          <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class='number-into'>
-            <div class='number-name'>{{ item.title }}</div>
-            <div class='number'>{{ item.number }}</div>
-            <span class='number-text' v-if='index == 0'>位</span>
-            <span class='number-text' v-if='index == 1'>份</span>
+    <div v-if="!isMobile" class="web-div">
+      <div class='banner1-div'>
+        <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class='info1-div'>
+            <div class='info-number'>99.3%</div>
+            <div class='info-text'>学校申请成功率达</div>
           </div>
+          <div class='info2-div'>
+            <div class='info-number'>71.6%</div>
+            <div class='info-text'>世界排名前 50 名校录取 Offer 比例</div>
+          </div>
+          <div class='info3-div'>
+            <div class='info-number'>99.1%</div>
+            <div class='info-text'>申请满意度</div>
+          </div>
+
+          <!-- <div class='text'>数据解释权归棕榈大道</div> -->
         </div>
-        <div class='number-dataLine'>*数据截止到2019年1月</div>
       </div>
 
-      <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
-        <div class='places-div'>
-          <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
-            <div class='place-title'>{{ item.title }}</div>
-            <div class='place-number'>{{ item.number }}</div>
-            <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
+      <div class='banner2-div'>
+        <div class='title'>名校 offer</div>
+        <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
+        <div class='number-div'>
+          <div class='title3'>数据汇总</div>
+          <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
+            <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class='number-into'>
+              <div class='number-name'>{{ item.title }}</div>
+              <div class='number'>{{ item.number }}</div>
+              <span class='number-text' v-if='index == 0'>位</span>
+              <span class='number-text' v-if='index == 1'>份</span>
+            </div>
           </div>
+          <div class='number-dataLine'>*数据截止到2019年1月</div>
         </div>
 
-        <div class='each-school-div' v-for='(item, index) in selectSchool' :key='index'>
-          <div class='school-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
-          <div class='school-into'>
-            <div class='school-name'>{{ item.name }}</div>
-            <span class='offer-text'>Offer 数量：</span>
-            <div class='school-offer'>{{ item.offer }}</div>
+        <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
+          <div class='places-div'>
+            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
+              <div class='place-title'>{{ item.title }}</div>
+              <div class='place-number'>{{ item.number }}</div>
+              <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
+            </div>
           </div>
+
+          <div class='each-school-div' v-for='(item, index) in selectSchool' :key='index'>
+            <div class='school-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class='school-into'>
+              <div class='school-name'>{{ item.name }}</div>
+              <span class='offer-text'>Offer 数量：</span>
+              <div class='school-offer'>{{ item.offer }}</div>
+            </div>
+          </div>
+          <!-- <div class='more-offer'>
+            <a href='http://palmdrive.cn/graduate_showcase' target='_blank'>
+              查看更多offer<img src='../assets/img/home/more.png' class='more-img' />
+            </a>
+          </div> -->
         </div>
-        <!-- <div class='more-offer'>
-          <a href='http://palmdrive.cn/graduate_showcase' target='_blank'>
-            查看更多offer<img src='../assets/img/home/more.png' class='more-img' />
-          </a>
-        </div> -->
       </div>
-    </div>
 
-    <div class='banner3-div'>
-      <div class='title'>部分成功案例</div>
+      <div class='banner3-div'>
+        <div class='title'>部分成功案例</div>
 
-      <ul class='guide-item-div'>
-        <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
-          <div class='text'>{{ item.name }}</div>
-        </li>
-      </ul>
+        <ul class='guide-item-div'>
+          <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class='text'>{{ item.name }}</div>
+          </li>
+        </ul>
 
-      <div class='demos-div'>
-        <template v-for='(item, index) in selectedDemo' >
-          <div class='each-demo' v-if='index < maxNumber' :key='index'>
+        <div class='demos-div'>
+          <template v-for='(item, index) in selectedDemo' >
+            <div class='each-demo' v-if='index < maxNumber' :key='index'>
+              <div>
+                <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
+                <img src='../assets/img/offers/demo-right-img.png' class='right-img' />
+              </div>
+              <div class='demo-info-div'>
+                <div class='demo-admissionSchool'>{{ item.admissionSchool }}</div>
+                <div class='demo-admissionMajor' :title='item.admissionMajor'>{{ item.admissionMajor }}</div>
+                <div class='demo-name'>{{ item.name }}</div>
+                <div class='demo-text line1'>{{ item.collegeSchool }}</div>
+                <div class='demo-text line1'>{{ item.collegeMajor }}</div>
+                <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 8 && maxNumber != 100'>
             <div>
-              <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
-              <img src='../assets/img/offers/demo-right-img.png' class='right-img' />
+              查看更多
+              <span class='open-ask'></span>
             </div>
-            <div class='demo-info-div'>
-              <div class='demo-admissionSchool'>{{ item.admissionSchool }}</div>
-              <div class='demo-admissionMajor' :title='item.admissionMajor'>{{ item.admissionMajor }}</div>
-              <div class='demo-name'>{{ item.name }}</div>
-              <div class='demo-text line1'>{{ item.collegeSchool }}</div>
-              <div class='demo-text line1'>{{ item.collegeMajor }}</div>
-              <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
-            </div>
+            <div class='open-ask'></div>
           </div>
-        </template>
+        </div>
+      </div>
+    </div>
 
-        <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 8 && maxNumber != 100'>
-          <div>
-            查看更多
-            <span class='open-ask'></span>
+    <div v-if="isMobile" class="mobile-div">
+      <div class='banner1-div'>
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}"></div>
+      </div>
+
+      <div class='banner2-div'>
+        <div class='title'>名校 offer</div>
+        <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
+        <div class='number-div'>
+          <div class='title3'>数据汇总</div>
+          <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
+            <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class='number-into'>
+              <div class='number-name'>{{ item.title }}</div>
+              <div class='number'>{{ item.number }}</div>
+              <span class='number-text' v-if='index == 0'>位</span>
+              <span class='number-text' v-if='index == 1'>份</span>
+            </div>
           </div>
-          <div class='open-ask'></div>
+          <div class='number-dataLine'>*数据截止到2019年1月</div>
+        </div>
+
+        <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
+          <div class='places-div'>
+            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
+              <div class='place-title'>{{ item.title }}</div>
+              <div class='place-number'>{{ item.number }}</div>
+              <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
+            </div>
+          </div>
+
+          <div class='each-school-div' v-for='(item, index) in selectSchool' :key='index'>
+            <div class='school-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
+            <div class='school-into'>
+              <div class='school-name'>{{ item.name }}</div>
+              <span class='offer-text'>Offer 数量：</span>
+              <div class='school-offer'>{{ item.offer }}</div>
+            </div>
+          </div>
+          <!-- <div class='more-offer'>
+            <a href='http://palmdrive.cn/graduate_showcase' target='_blank'>
+              查看更多offer<img src='../assets/img/home/more.png' class='more-img' />
+            </a>
+          </div> -->
+        </div>
+      </div>
+
+      <div class='banner3-div'>
+        <div class='title'>部分成功案例</div>
+
+        <ul class='guide-item-div'>
+          <li v-for='(item, index) in demoTypes' :key='index' @click='changeDemoType(index)' :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class='text'>{{ item.name }}</div>
+          </li>
+        </ul>
+
+        <div class='demos-div'>
+          <template v-for='(item, index) in selectedDemo' >
+            <div class='each-demo' v-if='index < maxNumber' :key='index'>
+              <div>
+                <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
+                <img src='../assets/img/offers/demo-right-img.png' class='right-img' />
+              </div>
+              <div class='demo-info-div'>
+                <div class='demo-admissionSchool'>{{ item.admissionSchool }}</div>
+                <div class='demo-admissionMajor' :title='item.admissionMajor'>{{ item.admissionMajor }}</div>
+                <div class='demo-name'>{{ item.name }}</div>
+                <div class='demo-text line1'>{{ item.collegeSchool }}</div>
+                <div class='demo-text line1'>{{ item.collegeMajor }}</div>
+                <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class='more-demos' @click='showMoreDemo' v-if='selectedDemo.length > 8 && maxNumber != 100'>
+            <div>
+              查看更多
+              <!-- <span class='open-ask'></span> -->
+            </div>
+            <!-- <div class='open-ask'></div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -103,6 +190,7 @@
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
+import Common from './common/common'
 
 export default {
   components: {
@@ -110,6 +198,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      isMobile: Common.isMobile,
       schools: [
         [
           {
@@ -2069,7 +2158,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = require('../assets/img/offers/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/offers/mobile/banner1.png') : require('../assets/img/offers/banner1.png')
     this.banner2 = require('../assets/img/offers/banner2.png')
     this.selectSchool = this.schools[0]
     this.selectedDemo = this.demos[0]
@@ -2097,557 +2186,1124 @@ export default {
 .home {
   text-align: center;
 
-  .banner1-div {
-    width: 100%;
-    // padding: 16px 0 33px;
-    background-color: #1BBEB2;
-    height: 586px;
-    position: relative;
-
-    .banner1 {
-      width: 1071px;
-      height: 537px;
-      margin: 0 auto;
+  .web-div {
+    .banner1-div {
+      width: 100%;
+      // padding: 16px 0 33px;
+      background-color: #1BBEB2;
+      height: 586px;
       position: relative;
-      text-align: left;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: absolute;
-      top: 121px;
-      left: 50%;
-      margin-left: -535px;
 
-      .info1-div {
-        position: absolute;
-        bottom: 60px;
-        left: 28px;
-        text-align: center;
-      }
-
-      .info2-div {
-        position: absolute;
-        bottom: 60px;
-        left: 203px;
-        text-align: center;
-      }
-
-      .info3-div {
-        position: absolute;
-        bottom: 60px;
-        left: 375px;
-        text-align: center;
-      }
-
-      .info-number {
-        // width: 75px;
-        font-size:35px;
-        font-family:Biko;
-        font-weight:bold;
-        line-height:35px;
-        color:rgba(33,33,33,1);
-        opacity:1;
-        // margin-right: 12px;
-        // display: inline-block;
-        height: 28px;
-      }
-
-      .info-text {
-        width: 116px;
-        font-size:13px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:16px;
-        color:rgba(54,136,132,1);
-        opacity:1;
-        // display: inline-block;
-        height: 28px;
-        vertical-align: top;
-        margin-top: 15px;
-      }
-
-      .text {
-        position: absolute;
-        top: 468px;
-        left: 24px;
-
-        font-size:12px;
-        font-family:Biko;
-        font-weight:400;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
-      }
-    }
-  }
-
-  .banner2-div {
-    background-color: #fff;
-    padding: 122px 0 54px;
-
-    .title {
-      font-size: 24px;
-      font-family: Campton, SourceHanSansCN;
-      font-weight: bold;
-      line-height: 24px;
-      color: rgba(64,199,188,1);
-      opacity: 1;
-      margin: 0px auto 10px;
-    }
-
-    .title2 {
-      font-size: 16px;
-      font-family: Biko, SourceHanSansCN;
-      font-weight: 500;
-      line-height: 19px;
-      color: rgba(0,0,0,1);
-      opacity: 1;
-      margin-bottom: 8px;
-    }
-
-    .title3 {
-      margin-left: 33px;
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(43,43,43,1);
-      opacity:1;
-      text-align: left;
-      margin-bottom: 28px;
-    }
-
-    .number-div {
-      text-align: center;
-      width: 1200px;
-      margin: 0 auto;
-
-      .each-number-div {
-        height: 84px;
-        width: 252px;
-        display: inline-block;
-        margin: 0 24px;
-
-        .number-logo {
-          width: 81px;
-          height: 100%;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .number-into {
-          display: inline-block;
-          margin-left: 25px;
-          text-align: left;
-          vertical-align: top;
-
-          .number-name {
-            font-size:18px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(34,195,182,1);
-            opacity:1;
-            margin: 7px 0 14px;
-          }
-
-          .number {
-            font-size:40px;
-            font-family:Biko, PingFang, SourceHanSansCN;
-            font-weight:Bold;
-            line-height:40px;
-            color:rgba(43,43,43,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .number-text {
-            font-size: 20px;
-            display: inline-block;
-            color: rgba(43,43,43,1);
-            font-family: SourceHanSansCN;
-          }
-        }
-      }
-
-      .number-dataLine {
-        height:17px;
-        font-size:12px;
-        font-family:PingFang SC;
-        font-weight:400;
-        line-height:17px;
-        color:rgba(34,195,182,1);
-        opacity:1;
-        margin-top: 20px;
-        text-align: right;
-        margin-right: 45px;
-      }
-    }
-
-    .school-div {
-      width: 1100px;
-      margin: 0 auto;
-      background-repeat: no-repeat;
-      background-size: 80%;
-      background-position: top;
-
-      .places-div {
-        margin: 75px auto 70px;
-        // width: 1200px;
-        text-align: center;
-        padding-top: 33px;
-
-        .each-place {
-          width: 176px;
-          height: 176px;
-          margin: 0 43px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: cover;
-          position: relative;
-          cursor: pointer;
-          opacity: .4;
-
-          .place-title {
-            font-size: 15px;
-            font-family: Biko;
-            font-weight:bold;
-            line-height:15px;
-            color:rgba(9,23,39,1);
-            opacity:1;
-            margin: 56px auto 12px;
-          }
-
-          .place-number {
-            font-size: 50px;
-            font-family: Biko;
-            font-weight:bold;
-            line-height:50px;
-            color:rgba(9,23,39,1);
-            opacity:1;
-          }
-
-          .place-dot {
-            width: 16px;
-            height: 16px;
-            margin: 55px auto 0;
-            border-radius:50%;
-          }
-
-          .place-dot0 {
-            background: #DD99EF;
-          }
-
-          .place-dot1 {
-            background: #FD8E7D;
-          }
-
-          .place-dot2 {
-            background: #79D0F1;
-          }
-
-          .place-dot3 {
-            background: #20ACA4;
-          }
-        }
-
-        .each-place:hover {
-          opacity: 1;
-        }
-
-        .place-select-style {
-          opacity: 1;
-        }
-      }
-
-      .each-school-div {
-        width: 299px;
-        display: inline-block;
-        margin: 0 15px 29px;
-        background:rgba(255,255,255,1);
-        box-shadow:5px 5px 12px rgba(0,0,0,0.16);
-        opacity:1;
-        border-radius:7px;
-        padding: 10px 0 10px 25px;
+      .banner1 {
+        width: 1071px;
+        height: 537px;
+        margin: 0 auto;
+        position: relative;
         text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 121px;
+        left: 50%;
+        margin-left: -535px;
 
-        .school-logo {
-          width: 63px;
-          height: 58px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: contain;
+        .info1-div {
+          position: absolute;
+          bottom: 60px;
+          left: 28px;
+          text-align: center;
         }
 
-        .school-into {
-          display: inline-block;
-          width: 198px;
-          margin-left: 14px;
-          text-align: left;
-          vertical-align: top;
-
-          .school-name {
-            font-size:18px;
-            font-family:Biko, SourceHanSansCN;
-            font-weight:bold;
-            line-height:18px;
-            color:#212121;
-            opacity:1;
-            margin-bottom: 5px;
-            margin-top: 7px;
-          }
-
-          .school-offer {
-            font-size:25px;
-            font-family:Biko;
-            font-weight:bold;
-            line-height:25px;
-            color:rgba(1,138,141,1);
-            opacity:1;
-            display: inline-block;
-          }
-
-          .offer-text {
-            font-size:18px;
-            font-family:Biko;
-            font-weight:bold;
-            line-height:25px;
-            color:#212121;
-            opacity:1;
-          }
-        }
-      }
-
-      .more-offer {
-        margin-top: -11px;
-        font-size:13px;
-        font-family:PingFangSC-Medium, Avenir-Heavy;
-        font-weight:800;
-        line-height:13px;
-        color:rgba(51,51,51,1);
-        opacity:1;
-        text-align: right;
-        margin-right: 30px;
-
-        a {
-          text-decoration: none;
-          color: rgba(51,51,51,1);
+        .info2-div {
+          position: absolute;
+          bottom: 60px;
+          left: 203px;
+          text-align: center;
         }
 
-        .more-img {
-          width: 16px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
+        .info3-div {
+          position: absolute;
+          bottom: 60px;
+          left: 375px;
+          text-align: center;
         }
-      }
-    }
-  }
 
-  .banner3-div {
-    padding: 69px 0 76px;
-    background-color: #EDEFF4;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(0,0,0,1);
-      opacity:1;
-    }
-
-    .guide-item-div {
-      list-style: none;
-      text-align: center;
-      padding: 0;
-      margin: 26px auto 65px;
-      width: 865px;
-      background:#F7FFFE;
-      box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
-      opacity:1;
-      border-radius:83px;
-
-      li {
-        opacity: 1;
-        display: inline-block;
-        color: rgba(57,60,61,1);
-        cursor: pointer;
-        text-align: center;
-        padding: 0 28px;
-        width: 150px;
-        height: 37px;
-        margin: 5px;
-
-        .img {
-          width:24px;
-          height:24px;
-          // background:rgba(255,255,255,1);
-          box-shadow:3px 3px 6px rgba(0,0,0,0.16);
-          border-radius:50%;
+        .info-number {
+          // width: 75px;
+          font-size:35px;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:35px;
+          color:rgba(33,33,33,1);
           opacity:1;
-          // margin-top: 13px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          display: inline-block;
-          margin-right: 10px;
+          // margin-right: 12px;
+          // display: inline-block;
+          height: 28px;
+        }
+
+        .info-text {
+          width: 116px;
+          font-size:13px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:16px;
+          color:rgba(54,136,132,1);
+          opacity:1;
+          // display: inline-block;
+          height: 28px;
+          vertical-align: top;
+          margin-top: 15px;
         }
 
         .text {
-          display: inline-block;
-          font-size: 16px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 37px;
-          // margin-top: 13px;
-          vertical-align: top;
-          height: 24px;
-        }
-      }
+          position: absolute;
+          top: 468px;
+          left: 24px;
 
-      .guide-bg-colors {
-        color:#FFFFFF;
-        font-weight:bold;
-        background:rgba(29,195,182,1);
-        box-shadow:0px 3px 6px rgba(0,0,0,0.16);
-        opacity:1;
-        border-radius:83px;
+          font-size:12px;
+          font-family:Biko;
+          font-weight:400;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
       }
     }
 
-    .demos-div {
-      width: 1100px;
-      text-align: center;
-      margin: 0 auto;
+    .banner2-div {
+      background-color: #fff;
+      padding: 122px 0 54px;
 
-      .each-demo {
-        width: 212px;
-        margin: 0 8px 26px;
-        display: inline-block;
-        vertical-align: top;
-        padding: 32px 22px;
-        background: #FFFFFF;
-        box-shadow:5px 5px 6px rgba(0,0,0,0.16);
+      .title {
+        font-size: 24px;
+        font-family: Campton, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 24px;
+        color: rgba(64,199,188,1);
+        opacity: 1;
+        margin: 0px auto 10px;
+      }
+
+      .title2 {
+        font-size: 16px;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: 500;
+        line-height: 19px;
+        color: rgba(0,0,0,1);
+        opacity: 1;
+        margin-bottom: 8px;
+      }
+
+      .title3 {
+        margin-left: 33px;
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(43,43,43,1);
         opacity:1;
-        border-radius:20px;
         text-align: left;
-        height: 306px;
+        margin-bottom: 28px;
+      }
 
-        .demo-img {
-          width:75px;
-          height:73px;
-          background-repeat: no-repeat;
-          background-size: contain;
+      .number-div {
+        text-align: center;
+        width: 1200px;
+        margin: 0 auto;
+
+        .each-number-div {
+          height: 84px;
+          width: 252px;
           display: inline-block;
+          margin: 0 24px;
+
+          .number-logo {
+            width: 81px;
+            height: 100%;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .number-into {
+            display: inline-block;
+            margin-left: 25px;
+            text-align: left;
+            vertical-align: top;
+
+            .number-name {
+              font-size:18px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:18px;
+              color:rgba(34,195,182,1);
+              opacity:1;
+              margin: 7px 0 14px;
+            }
+
+            .number {
+              font-size:40px;
+              font-family:Biko, PingFang, SourceHanSansCN;
+              font-weight:Bold;
+              line-height:40px;
+              color:rgba(43,43,43,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .number-text {
+              font-size: 20px;
+              display: inline-block;
+              color: rgba(43,43,43,1);
+              font-family: SourceHanSansCN;
+            }
+          }
         }
 
-        .right-img {
-          width: 77px;
-          height: 48px;
-          margin-left: 60px;
-        }
-
-        .demo-info-div {
-          text-align: left;
-
-          .demo-admissionSchool {
-            font-size:17px;
-            font-family:SourceHanSansCN;
-            font-weight:bold;
-            line-height:17px;
-            color:rgba(0,0,0,1);
-            opacity:1;
-            margin: 13px 0 7px;
-          }
-
-          .demo-admissionMajor {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(0,0,0,1);
-            opacity:1;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-            height: 40px;
-          }
-
-          .demo-name {
-            margin-top: 18px;
-            font-size:15px;
-            font-family:Biko, SourceHanSansCN;
-            font-weight:500;
-            line-height:23px;
-            color:#23C3B6;
-            opacity:1;
-          }
-
-          .demo-text {
-            font-size:15px;
-            font-family:Biko, SourceHanSansCN;
-            font-weight:500;
-            line-height:23px;
-            color:#000000;
-            opacity:1;
-          }
-
-          .line1 {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            overflow: hidden;
-          }
-
-          .line3 {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-          }
+        .number-dataLine {
+          height:17px;
+          font-size:12px;
+          font-family:PingFang SC;
+          font-weight:400;
+          line-height:17px;
+          color:rgba(34,195,182,1);
+          opacity:1;
+          margin-top: 20px;
+          text-align: right;
+          margin-right: 45px;
         }
       }
 
-      .more-demos {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        cursor: pointer;
-
-        width: 142px;
-        text-align: center;
+      .school-div {
+        width: 1100px;
         margin: 0 auto;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid #2aa7aa;
-        border-radius: 21px;
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: top;
 
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
+        .places-div {
+          margin: 75px auto 70px;
+          // width: 1200px;
+          text-align: center;
+          padding-top: 33px;
 
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
-          display: inline-block;
-          vertical-align: bottom;
-        }
-
-        .open-ask {
-            width: 26px;
-            height: 10px;
-            // background: #21C3B6;
-            margin: 13px auto 36px;
-            cursor: pointer;
-            background-image: url('../assets/img/dreamSchool/openArrow.png');
+          .each-place {
+            width: 176px;
+            height: 176px;
+            margin: 0 43px;
+            display: inline-block;
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+            cursor: pointer;
+            opacity: .4;
+
+            .place-title {
+              font-size: 15px;
+              font-family: Biko;
+              font-weight:bold;
+              line-height:15px;
+              color:rgba(9,23,39,1);
+              opacity:1;
+              margin: 56px auto 12px;
+            }
+
+            .place-number {
+              font-size: 50px;
+              font-family: Biko;
+              font-weight:bold;
+              line-height:50px;
+              color:rgba(9,23,39,1);
+              opacity:1;
+            }
+
+            .place-dot {
+              width: 16px;
+              height: 16px;
+              margin: 55px auto 0;
+              border-radius:50%;
+            }
+
+            .place-dot0 {
+              background: #DD99EF;
+            }
+
+            .place-dot1 {
+              background: #FD8E7D;
+            }
+
+            .place-dot2 {
+              background: #79D0F1;
+            }
+
+            .place-dot3 {
+              background: #20ACA4;
+            }
+          }
+
+          .each-place:hover {
+            opacity: 1;
+          }
+
+          .place-select-style {
+            opacity: 1;
+          }
+        }
+
+        .each-school-div {
+          width: 299px;
+          display: inline-block;
+          margin: 0 15px 29px;
+          background:rgba(255,255,255,1);
+          box-shadow:5px 5px 12px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:7px;
+          padding: 10px 0 10px 25px;
+          text-align: left;
+
+          .school-logo {
+            width: 63px;
+            height: 58px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .school-into {
+            display: inline-block;
+            width: 198px;
+            margin-left: 14px;
+            text-align: left;
+            vertical-align: top;
+
+            .school-name {
+              font-size:18px;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:bold;
+              line-height:18px;
+              color:#212121;
+              opacity:1;
+              margin-bottom: 5px;
+              margin-top: 7px;
+            }
+
+            .school-offer {
+              font-size:25px;
+              font-family:Biko;
+              font-weight:bold;
+              line-height:25px;
+              color:rgba(1,138,141,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .offer-text {
+              font-size:18px;
+              font-family:Biko;
+              font-weight:bold;
+              line-height:25px;
+              color:#212121;
+              opacity:1;
+            }
+          }
+        }
+
+        .more-offer {
+          margin-top: -11px;
+          font-size:13px;
+          font-family:PingFangSC-Medium, Avenir-Heavy;
+          font-weight:800;
+          line-height:13px;
+          color:rgba(51,51,51,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 30px;
+
+          a {
+            text-decoration: none;
+            color: rgba(51,51,51,1);
+          }
+
+          .more-img {
+            width: 16px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+
+    .banner3-div {
+      padding: 69px 0 76px;
+      background-color: #EDEFF4;
+
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(0,0,0,1);
+        opacity:1;
+      }
+
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 26px auto 65px;
+        width: 865px;
+        background:#F7FFFE;
+        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
+
+        li {
+          opacity: 1;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+          padding: 0 28px;
+          width: 150px;
+          height: 37px;
+          margin: 5px;
+
+          .img {
+            width:24px;
+            height:24px;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            // margin-top: 13px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: 16px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 37px;
+            // margin-top: 13px;
+            vertical-align: top;
+            height: 24px;
+          }
+        }
+
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
+        }
+      }
+
+      .demos-div {
+        width: 1100px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-demo {
+          width: 212px;
+          margin: 0 8px 26px;
+          display: inline-block;
+          vertical-align: top;
+          padding: 32px 22px;
+          background: #FFFFFF;
+          box-shadow:5px 5px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:20px;
+          text-align: left;
+          height: 306px;
+
+          .demo-img {
+            width:75px;
+            height:73px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+          }
+
+          .right-img {
+            width: 77px;
+            height: 48px;
+            margin-left: 60px;
+          }
+
+          .demo-info-div {
+            text-align: left;
+
+            .demo-admissionSchool {
+              font-size:17px;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:17px;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              margin: 13px 0 7px;
+            }
+
+            .demo-admissionMajor {
+              font-size:15px;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              height: 40px;
+            }
+
+            .demo-name {
+              margin-top: 18px;
+              font-size:15px;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:500;
+              line-height:23px;
+              color:#23C3B6;
+              opacity:1;
+            }
+
+            .demo-text {
+              font-size:15px;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:500;
+              line-height:23px;
+              color:#000000;
+              opacity:1;
+            }
+
+            .line1 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+            }
+
+            .line3 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .more-demos {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 142px;
+          text-align: center;
+          margin: 0 auto;
+          height: 36px;
+          line-height: 36px;
+          border: 1px solid #2aa7aa;
+          border-radius: 21px;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: 26px;
+              height: 10px;
+              // background: #21C3B6;
+              margin: 13px auto 36px;
+              cursor: pointer;
+              background-image: url('../assets/img/dreamSchool/openArrow.png');
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-div {
+    .banner1-div {
+      width: 100%;
+      // padding: 16px 0 33px;
+      background-color: #1BBEB2;
+      height: 6.293333rem;
+      position: relative;
+
+      .banner1 {
+        width: 8.96rem;
+        height: 5.546667rem;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 1.333333rem;
+        left: 50%;
+        margin-left: -4.48rem;
+
+        .info1-div {
+          position: absolute;
+          bottom: 60px;
+          left: 28px;
+          text-align: center;
+        }
+
+        .info2-div {
+          position: absolute;
+          bottom: 60px;
+          left: 203px;
+          text-align: center;
+        }
+
+        .info3-div {
+          position: absolute;
+          bottom: 60px;
+          left: 375px;
+          text-align: center;
+        }
+
+        .info-number {
+          // width: 75px;
+          font-size:35px;
+          font-family:Biko;
+          font-weight:bold;
+          line-height:35px;
+          color:rgba(33,33,33,1);
+          opacity:1;
+          // margin-right: 12px;
+          // display: inline-block;
+          height: 28px;
+        }
+
+        .info-text {
+          width: 116px;
+          font-size:13px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:16px;
+          color:rgba(54,136,132,1);
+          opacity:1;
+          // display: inline-block;
+          height: 28px;
+          vertical-align: top;
+          margin-top: 15px;
+        }
+
+        .text {
+          position: absolute;
+          top: 468px;
+          left: 24px;
+
+          font-size:12px;
+          font-family:Biko;
+          font-weight:400;
+          line-height:12px;
+          color:rgba(255,255,255,1);
+          opacity:1;
+        }
+      }
+    }
+
+    .banner2-div {
+      background-color: #fff;
+      padding: 1.333333rem 0 1.333333rem;
+
+      .title {
+        font-size: .426667rem;
+        font-family: Campton, SourceHanSansCN;
+        font-weight: bold;
+        line-height: .426667rem;
+        color: rgba(64,199,188,1);
+        opacity: 1;
+        margin: 0px auto .213333rem;
+      }
+
+      .title2 {
+        font-size: .32rem;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: 500;
+        line-height: .32rem;
+        color: rgba(0,0,0,1);
+        opacity: 1;
+        margin-bottom: .586667rem;
+      }
+
+      .title3 {
+        // margin-left: 33px;
+        font-size:.32rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:.32rem;
+        color:rgba(43,43,43,1);
+        opacity:1;
+        text-align: center;
+        margin-bottom: .24rem;
+      }
+
+      .number-div {
+        text-align: center;
+        // width: 1200px;
+        margin: 0 auto;
+
+        .each-number-div {
+          width: 3.2rem;
+          display: inline-block;
+          margin: 0 .666667rem;
+
+          .number-logo {
+            width: 2.24rem;
+            height: 2.24rem;
+            // display: inline-block;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 0 auto;
+          }
+
+          .number-into {
+            // display: inline-block;
+            // margin-left: 25px;
+            text-align: center;
+            // vertical-align: top;
+            margin-bottom: .8rem;
+
+            .number-name {
+              font-size:.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:.32rem;
+              color:rgba(34,195,182,1);
+              opacity:1;
+              margin: .426667rem 0 .16rem;
+            }
+
+            .number {
+              font-size:.773333rem;
+              font-family:Biko, PingFang, SourceHanSansCN;
+              font-weight:Bold;
+              line-height:.773333rem;
+              color:rgba(43,43,43,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .number-text {
+              font-size: .4rem;
+              display: inline-block;
+              color: rgba(43,43,43,1);
+              font-family: SourceHanSansCN;
+            }
+          }
+        }
+
+        .number-dataLine {
+          // height:17px;
+          font-size:.32rem;
+          font-family:PingFang SC;
+          font-weight:400;
+          line-height:.32rem;
+          color:rgba(34,195,182,1);
+          opacity:1;
+          // margin-top: 20px;
+          text-align: center;
+          // margin-right: 45px;
+        }
+      }
+
+      .school-div {
+        // width: 1100px;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: top;
+
+        .places-div {
+          margin: 1.893333rem auto .853333rem;
+          // width: 1200px;
+          text-align: center;
+          padding-top: .666667rem;
+
+          .each-place {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 .106667rem;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+            opacity: .4;
+            vertical-align: top;
+
+            .place-title {
+              font-size: .293333rem;
+              font-family: Biko;
+              font-weight:bold;
+              line-height:.4rem;
+              color:rgba(9,23,39,1);
+              opacity:1;
+              margin: .42rem auto .133333rem;
+            }
+
+            .place-number {
+              font-size: .533333rem;
+              font-family: Biko;
+              font-weight:bold;
+              line-height:.533333rem;
+              color:rgba(9,23,39,1);
+              opacity:1;
+            }
+
+            .place-dot {
+              width: .16rem;
+              height: .16rem;
+              // margin: .6rem auto 0;
+              border-radius:50%;
+              position: absolute;
+              bottom: -12px;
+              left: 50%;
+              margin-left: -0.08rem;
+            }
+
+            .place-dot0 {
+              background: #DD99EF;
+            }
+
+            .place-dot1 {
+              background: #FD8E7D;
+            }
+
+            .place-dot2 {
+              background: #79D0F1;
+            }
+
+            .place-dot3 {
+              background: #20ACA4;
+            }
+          }
+
+          .each-place:hover {
+            opacity: 1;
+          }
+
+          .place-select-style {
+            opacity: 1;
+          }
+        }
+
+        .each-school-div {
+          width: 4.106667rem;
+          display: inline-block;
+          margin: 0 .133333rem .133333rem;
+          background:rgba(255,255,255,1);
+          box-shadow:5px 5px 12px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:7px;
+          padding: .213333rem 0 .213333rem .48rem;
+          text-align: left;
+
+          .school-logo {
+            width: .906667rem;
+            height: .853333rem;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .school-into {
+            display: inline-block;
+            width: 2.6rem;
+            margin-left: .24rem;
+            text-align: left;
+            vertical-align: top;
+
+            .school-name {
+              font-size:.346667rem;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:bold;
+              line-height:.4rem;
+              color:#212121;
+              opacity:1;
+              margin-bottom: .133333rem;
+              margin-top: .053333rem;
+            }
+
+            .school-offer {
+              font-size:.373333rem;
+              font-family:Biko;
+              font-weight:bold;
+              line-height:.373333rem;
+              color:rgba(1,138,141,1);
+              opacity:1;
+              display: inline-block;
+            }
+
+            .offer-text {
+              font-size:.32rem;
+              font-family:Biko;
+              font-weight:bold;
+              line-height:.32rem;
+              color:#212121;
+              opacity:1;
+            }
+          }
+        }
+
+        .more-offer {
+          margin-top: -11px;
+          font-size:13px;
+          font-family:PingFangSC-Medium, Avenir-Heavy;
+          font-weight:800;
+          line-height:13px;
+          color:rgba(51,51,51,1);
+          opacity:1;
+          text-align: right;
+          margin-right: 30px;
+
+          a {
+            text-decoration: none;
+            color: rgba(51,51,51,1);
+          }
+
+          .more-img {
+            width: 16px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+
+    .banner3-div {
+      padding: 1.146667rem 0 1.52rem;
+      background-color: #EDEFF4;
+
+      .title {
+        font-size:.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:.426667rem;
+        color:rgba(0,0,0,1);
+        opacity:1;
+      }
+
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: .506667rem auto .506667rem;
+        width: 7.733333rem;
+        background:#F7FFFE;
+        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
+
+        li {
+          opacity: 1;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+          padding: 0 .4rem;
+          width: 1.013333rem;
+          height: .746667rem;
+          margin: .053333rem;
+
+          .img {
+            width:24px;
+            height:24px;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            // margin-top: 13px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: .32rem;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: .746667rem;
+            // margin-top: 13px;
+            vertical-align: top;
+            height: .64rem;
+          }
+        }
+
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
+        }
+      }
+
+      .demos-div {
+        // width: 1100px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-demo {
+          width: 3.493333rem;
+          margin: 0 .106667rem .213333rem;
+          display: inline-block;
+          vertical-align: top;
+          padding: .533333rem .346667rem;
+          background: #FFFFFF;
+          box-shadow:5px 5px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:.533333rem;
+          text-align: left;
+          // height: 5.413333rem;
+
+          .demo-img {
+            width:1.226667rem;
+            height:1.173333rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+          }
+
+          .right-img {
+            width: 1.2rem;
+            height: .773333rem;
+            margin-left: 1.013333rem;
+          }
+
+          .demo-info-div {
+            text-align: left;
+
+            .demo-admissionSchool {
+              font-size:.346667rem;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              line-height:.4rem;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              margin: .133333rem 0 .133333rem;
+            }
+
+            .demo-admissionMajor {
+              font-size:.346667rem;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:.4rem;
+              color:rgba(0,0,0,1);
+              opacity:1;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              height: .8rem;
+            }
+
+            .demo-name {
+              margin-top: .4rem;
+              font-size:.32rem;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:500;
+              line-height:.4rem;
+              color:#23C3B6;
+              opacity:1;
+            }
+
+            .demo-text {
+              font-size:.32rem;
+              font-family:Biko, SourceHanSansCN;
+              font-weight:500;
+              line-height:.4rem;
+              color:#000000;
+              opacity:1;
+            }
+
+            .line1 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+              height: .4rem;
+            }
+
+            .line3 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .more-demos {
+          font-size:.32rem;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 1.973333rem;
+          text-align: center;
+          margin: .586667rem auto 0;
+          height: .533333rem;
+          line-height: .533333rem;
+          border: 1px solid #2aa7aa;
+          border-radius: .56rem;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: .266667rem;
+            height: .266667rem;
+            margin-left: .133333rem;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: 26px;
+              height: 10px;
+              // background: #21C3B6;
+              margin: 13px auto 36px;
+              cursor: pointer;
+              background-image: url('../assets/img/dreamSchool/openArrow.png');
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
         }
       }
     }

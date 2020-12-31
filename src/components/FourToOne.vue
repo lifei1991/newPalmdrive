@@ -3,139 +3,131 @@
     <!-- <remote-css rel="stylesheet" href="../assets/third/carousel/owl.theme.css"></remote-css>
     <remote-css rel="stylesheet" href="../assets/third/carousel/owl.carousel.css"></remote-css> -->
 
-    <div class="banner1-div">
-      <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
-      </div>
-    </div>
-
-    <div class="banner4-div">
-      <div class="title">四对一辅导模式</div>
-      <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
-      <div class="four-to-one-div">
-        <div class="each1 each">
-          <div class="each-title">全能主导师</div>
-          <div class="each-text">超越行业水平的师资团队， </div>
-          <div class="each-text">丰富的辅导经验和海外学习经历</div>
-        </div>
-        <div class="each2 each">
-          <div class="each-title">同专业导师</div>
-          <div class="each-text">覆盖全球广泛的名校优秀校友资源</div>
-          <div class="each-text">为学生提供独特的专业见解和职业建议</div>
-        </div>
-        <div class="each3 each">
-          <div class="each-title">名校外籍导师</div>
-          <div class="each-text">美国著名高校，修读专业为语言学、教育学</div>
-          <div class="each-text">丰富的文书写作经验，辅导3000+文书</div>
-        </div>
-        <div class="each4 each">
-          <div class="each-title">资深班主任</div>
-          <div class="each-text">申请材料准备指导，堪称申请流程的百科</div>
-          <div class="each-text">全书</div>
-        </div>
-
-        <div class="almightyMentor">
-          <div class="title3">全能主导师</div>
-          <div class="title4">深耕留学，申请专家</div>
-        </div>
-        <div class="seniorMentor">
-          <div class="title3">资深班主任</div>
-          <div class="title4">流程点拨，答疑百科</div>
-        </div>
-        <div class="sameMajorMentor">
-          <div class="title3">同专业导师</div>
-          <div class="title4">全球高校，精英网络</div>
-        </div>
-        <div class="foreignMentor">
-          <div class="title3">名校外籍导师</div>
-          <div class="title4">妙笔生花，纯正表达</div>
+    <div v-if="!isMobile" class="web-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
         </div>
       </div>
-    </div>
 
-    <div class="banner5-div">
-      <div class="title">导师团队</div>
-
-      <ul class="guide-item-div" >
-        <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'guide-bg-colors' : index == currentType }">
-          <div class="img" :style="{backgroundImage:'url(' + (index == currentType ? item.img1 : item.img) + ')'}"></div>
-          <div class="text">{{ item.name }}</div>
-        </li>
-      </ul>
-
-      <div class="teachers-div">
-        <template v-for="(item, index) in selectedTeacher" >
-          <div class="each-teacher" v-if="index < maxNumber" :key="item.img" @click="handleOpenDialog(item)">
-            <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-            <div class="teacher-info-div">
-              <div class="teacher-name">{{ item.name }}</div>
-              <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
-            </div>
+      <div class="banner4-div">
+        <div class="title">四对一辅导模式</div>
+        <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
+        <div class="four-to-one-div">
+          <div class="each1 each">
+            <div class="each-title">全能主导师</div>
+            <div class="each-text">超越行业水平的师资团队， </div>
+            <div class="each-text">丰富的辅导经验和海外学习经历</div>
           </div>
-        </template>
-
-        <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
-          <div>
-            查看更多导师
+          <div class="each2 each">
+            <div class="each-title">同专业导师</div>
+            <div class="each-text">覆盖全球广泛的名校优秀校友资源</div>
+            <div class="each-text">为学生提供独特的专业见解和职业建议</div>
           </div>
-          <div class="open-ask"></div>
+          <div class="each3 each">
+            <div class="each-title">名校外籍导师</div>
+            <div class="each-text">美国著名高校，修读专业为语言学、教育学</div>
+            <div class="each-text">丰富的文书写作经验，辅导3000+文书</div>
+          </div>
+          <div class="each4 each">
+            <div class="each-title">资深班主任</div>
+            <div class="each-text">申请材料准备指导，堪称申请流程的百科</div>
+            <div class="each-text">全书</div>
+          </div>
+
+          <div class="almightyMentor">
+            <div class="title3">全能主导师</div>
+            <div class="title4">深耕留学，申请专家</div>
+          </div>
+          <div class="seniorMentor">
+            <div class="title3">资深班主任</div>
+            <div class="title4">流程点拨，答疑百科</div>
+          </div>
+          <div class="sameMajorMentor">
+            <div class="title3">同专业导师</div>
+            <div class="title4">全球高校，精英网络</div>
+          </div>
+          <div class="foreignMentor">
+            <div class="title3">名校外籍导师</div>
+            <div class="title4">妙笔生花，纯正表达</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- <el-dialog
-      :visible.sync="dialogVisible"
-      width="1000px">
-      <div class="teacher-detail-div">
-        <div class="logo" :style="{backgroundImage:'url(' + teacherDetailLogo + ')'}"></div>
-        <div class="logo-text">棕榈大道</div>
+      <div class="banner5-div">
+        <div class="title">导师团队</div>
 
-        <div class="teacher-div">
-          <div class="teacher-img-div">
-            <div class="teacher-img" :style="{backgroundImage:'url(' + selectTeacher.img + ')'}"></div>
-            <div class="name">{{ selectTeacher.name }}</div>
+        <ul class="guide-item-div" >
+          <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class="img" :style="{backgroundImage:'url(' + (index == currentType ? item.img1 : item.img) + ')'}"></div>
+            <div class="text">{{ item.name }}</div>
+          </li>
+        </ul>
 
-            <div v-if="selectTeacher.foreignSchool">
-              <div class="title">教育背景</div>
-              <div class="school">{{ selectTeacher.foreignSchool }}</div>
+        <div class="teachers-div">
+          <template v-for="(item, index) in selectedTeacher" >
+            <div class="each-teacher" v-if="index < maxNumber" :key="item.img" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
             </div>
+          </template>
 
-            <div v-if="selectTeacher.phdSchool">
-              <div class="title">博士背景</div>
-              <div class="school">{{ selectTeacher.phdSchool }}</div>
-            </div>
-
-            <div v-if="selectTeacher.school">
-              <div class="title">研究生背景</div>
-              <div class="school">{{ selectTeacher.school }}</div>
-            </div>
-
-            <div v-if="selectTeacher.baSchool != ''">
-              <div class="title">本科背景</div>
-              <div class="school">{{ selectTeacher.baSchool }}</div>
-            </div>
-          </div>
-          <div class="teacher-info-div">
+          <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
             <div>
-              <span class="dot"></span>
-              <span class="each-section">个人经历：</span>
-              <div class="each-section-detail" v-html="selectTeacher.experience"></div>
+              查看更多导师
             </div>
-
-            <div v-if="selectTeacher.expertise != ''">
-              <span class="dot"></span>
-              <span class="each-section">擅长领域：</span>
-              <div class="each-section-detail">{{ selectTeacher.expertise }}</div>
-            </div>
-
-            <div v-if="selectTeacher.demo != ''">
-              <span class="dot"></span>
-              <span class="each-section">辅导案例：</span>
-              <div class="each-section-detail" v-html="selectTeacher.demo"></div>
-            </div>
+            <div class="open-ask"></div>
           </div>
         </div>
       </div>
-    </el-dialog> -->
+    </div>
+
+    <div v-if="isMobile" class="mobile-div">
+      <div class="banner1-div">
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+        </div>
+      </div>
+
+      <div class="banner4-div">
+        <div class="title">四对一辅导模式</div>
+        <div class="title2">主导师、同专业导师、班主任、外教，全方位“四位一体”师资，明确分工，高品质、高效率、精准、 专业辅导同学申请海外梦想硕士/博士项目。</div>
+        <div class="four-to-one-div"></div>
+        <div class="four-to-one-div2"></div>
+      </div>
+
+      <div class="banner5-div">
+        <div class="title">导师团队</div>
+
+        <ul class="guide-item-div" >
+          <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'guide-bg-colors' : index == currentType }">
+            <div class="img" :style="{backgroundImage:'url(' + (index == currentType ? item.img1 : item.img) + ')'}"></div>
+            <div class="text">{{ item.name }}</div>
+          </li>
+        </ul>
+
+        <div class="teachers-div">
+          <template v-for="(item, index) in selectedTeacher" >
+            <div class="each-teacher" v-if="index < maxNumber" :key="item.img" @click="handleOpenDialog(item)">
+              <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
+              <div class="teacher-info-div">
+                <div class="teacher-name">{{ item.name }}</div>
+                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+              </div>
+            </div>
+          </template>
+
+          <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
+            <div>
+              查看更多导师
+            </div>
+            <div class="open-ask"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
   </div>
 </template>
@@ -143,6 +135,8 @@
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
 import TeacherDialog from './common/teacherInfoDialog'
+import Common from './common/common'
+
 export default {
   components: {
     TeacherDialog
@@ -150,6 +144,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      isMobile: Common.isMobile,
       dreams: [
         {
           img: require('../assets/img/dreamSchool/dreams/dreams1.png')
@@ -703,7 +698,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = require('../assets/img/fourToOne/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/fourToOne/mobile/banner1.png') : require('../assets/img/fourToOne/banner1.png')
     this.teacherDetailLogo = require('../assets/img/logo.png')
     this.selectedTeacher = this.teachers[this.currentType]
   },
@@ -744,307 +739,555 @@ export default {
 .four-to-one {
   text-align: center;
 
-  .banner1-div {
-    width: 100%;
-    padding: 92px 0 0px;
-    background-color: #1BBEB2;
+  .web-div {
+    .banner1-div {
+      width: 100%;
+      padding: 92px 0 0px;
+      background-color: #1BBEB2;
 
-    .banner1 {
-      width: 1108px;
-      height: 430px;
-      margin: 0 auto;
-      position: relative;
-      text-align: left;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-
-  .banner4-div {
-    padding: 91px 0 97px;
-    background-color: #fff;
-
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
-
-    .title2 {
-      width: 720px;
-      font-size:16px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:23px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin: 18px auto 71px;
-    }
-
-    .four-to-one-div {
-      width: 1158px;
-      height: 638px;
-      margin: 0 auto;
-      background-image: url("../assets/img/home/fourToOne/fourtoone.png");
-      position: relative;
-      text-align: left;
-
-      .each {
-        width: 266px;
+      .banner1 {
+        width: 1108px;
+        height: 430px;
+        margin: 0 auto;
+        position: relative;
         text-align: left;
-        position: absolute;
-        right: 126px;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
+    }
 
-      .each1 {
-        top: 126px;
-      }
+    .banner4-div {
+      padding: 91px 0 97px;
+      background-color: #fff;
 
-      .each2 {
-        top: 255px;
-      }
-
-      .each3 {
-        top: 385px;
-      }
-
-      .each4 {
-        top: 518px;
-      }
-
-      .each-title {
-        font-size:20px;
+      .title {
+        font-size:24px;
         font-family:SourceHanSansCN;
         font-weight:bold;
-        line-height:20px;
+        line-height:24px;
         color:rgba(60,60,60,1);
         opacity:1;
-        margin-bottom: 8px;
       }
 
-      .each-text {
-        font-size:14px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:20px;
-        color:rgba(117,117,117,1);
+      .title2 {
+        width: 720px;
+        font-size:16px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:23px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin: 18px auto 71px;
+      }
+
+      .four-to-one-div {
+        width: 1158px;
+        height: 638px;
+        margin: 0 auto;
+        background-image: url("../assets/img/home/fourToOne/fourtoone.png");
+        position: relative;
+        text-align: left;
+
+        .each {
+          width: 266px;
+          text-align: left;
+          position: absolute;
+          right: 126px;
+        }
+
+        .each1 {
+          top: 126px;
+        }
+
+        .each2 {
+          top: 255px;
+        }
+
+        .each3 {
+          top: 385px;
+        }
+
+        .each4 {
+          top: 518px;
+        }
+
+        .each-title {
+          font-size:20px;
+          font-family:SourceHanSansCN;
+          font-weight:bold;
+          line-height:20px;
+          color:rgba(60,60,60,1);
+          opacity:1;
+          margin-bottom: 8px;
+        }
+
+        .each-text {
+          font-size:14px;
+          font-family:SourceHanSansCN, Biko;
+          font-weight:500;
+          line-height:20px;
+          color:rgba(117,117,117,1);
+          opacity:1;
+        }
+
+        .almightyMentor {
+          position: absolute;
+          top: 34px;
+          left: 257px;
+        }
+
+        .seniorMentor {
+          position: absolute;
+          top: 102px;
+          left: 527px;
+        }
+
+        .sameMajorMentor {
+          position: absolute;
+          top: 530px;
+          left: 24px;
+        }
+
+        .foreignMentor {
+          position: absolute;
+          bottom: -44px;
+          left: 520px;
+        }
+      }
+
+      .title3 {
+        margin-top: 2px;
+        font-size:18px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:18px;
+        color:rgba(60,60,60,1);
         opacity:1;
       }
 
-      .almightyMentor {
-        position: absolute;
-        top: 34px;
-        left: 257px;
-      }
-
-      .seniorMentor {
-        position: absolute;
-        top: 102px;
-        left: 527px;
-      }
-
-      .sameMajorMentor {
-        position: absolute;
-        top: 530px;
-        left: 24px;
-      }
-
-      .foreignMentor {
-        position: absolute;
-        bottom: -44px;
-        left: 520px;
+      .title4 {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:14px;
+        color:rgba(148,148,148,1);
+        opacity:1;
+        margin-top: 8px;
       }
     }
 
-    .title3 {
-      margin-top: 2px;
-      font-size:18px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:18px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-    }
+    .banner5-div {
+      padding: 85px 0 54px;
+      background-color: #F6FAFB;
 
-    .title4 {
-      font-size:14px;
-      font-family:SourceHanSansCN;
-      font-weight:400;
-      line-height:14px;
-      color:rgba(148,148,148,1);
-      opacity:1;
-      margin-top: 8px;
+      .title {
+        font-size:24px;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 45px;
+      }
+
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 36px auto 85px;
+        width: 805px;
+        background:#FFFFFF;
+        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
+        opacity:1;
+        border-radius:83px;
+
+        li {
+          // width: 150px;
+          height: 51px;
+          opacity: 1;
+          margin-right: 10px;
+          display: inline-block;
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: center;
+          padding: 0 28px;
+
+          .img {
+            width:24px;
+            height:24px;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            margin-top: 13px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: 18px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 24px;
+            margin-top: 13px;
+            vertical-align: top;
+            height: 24px;
+          }
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
+        }
+      }
+
+      .teachers-div {
+        width: 1130px;
+        text-align: center;
+        margin: 0 auto;
+
+        .each-teacher {
+          width: 240px;
+          margin: 0 20px 45px;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+
+          .teacher-img {
+            width:100%;
+            height:308px;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .teacher-info-div {
+            height: 96px;
+            background-color: #FFFFFF;
+            padding: 17px 20px 0 21px;
+            text-align: left;
+
+            .teacher-name {
+              font-size:18px;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:18px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:15px;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:20px;
+              color:rgba(51,51,51,1);
+              opacity:1;
+              margin-top: 7px;
+            }
+          }
+        }
+
+        .each-teacher:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+
+        .more-teachers {
+          font-size:15px;
+          font-family:PingFang SC;
+          font-weight:500;
+          color:rgba(57,60,61,1);
+          opacity:1;
+          cursor: pointer;
+
+          width: 142px;
+          text-align: center;
+          margin: 0 auto;
+          height: 36px;
+          line-height: 36px;
+          border: 1px solid rgba(151,151,151,1);
+          border-radius: 21px;
+
+          a {
+            text-decoration: none;
+            color:rgba(57,60,61,1);
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+
+          .open-ask {
+              width: 26px;
+              height: 10px;
+              // background: #21C3B6;
+              margin: 13px auto 36px;
+              cursor: pointer;
+              background-image: url("../assets/img/dreamSchool/openArrow.png");
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+        }
+      }
     }
   }
 
-  .banner5-div {
-    padding: 85px 0 54px;
-    background-color: #F6FAFB;
+  .mobile-div {
+    .banner1-div {
+      width: 100%;
+      padding: 1.066667rem 0 0;
+      background-color: #1BBEB2;
 
-    .title {
-      font-size:24px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:24px;
-      color:rgba(60,60,60,1);
-      opacity:1;
-      margin-bottom: 45px;
+      .banner1 {
+        width: 8.826667rem;
+        height: 5.52rem;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
 
-    .guide-item-div {
-      list-style: none;
-      text-align: center;
-      padding: 0;
-      margin: 36px auto 85px;
-      width: 805px;
-      background:#FFFFFF;
-      box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
-      opacity:1;
-      border-radius:83px;
+    .banner4-div {
+      background-color: #F8F2F2;
+      padding: 0.8rem 0 0.88rem;
 
-      li {
-        // width: 150px;
-        height: 51px;
+      .title {
+        font-size: 0.426667rem;
+        font-family: Campton, SourceHanSansCN;
+        font-weight: bold;
+        line-height: 0.426667rem;
+        color: rgba(57, 60, 61, 1);
         opacity: 1;
-        margin-right: 10px;
-        display: inline-block;
-        color: rgba(57,60,61,1);
-        cursor: pointer;
-        text-align: center;
-        padding: 0 28px;
-
-        .img {
-          width:24px;
-          height:24px;
-          // background:rgba(255,255,255,1);
-          box-shadow:3px 3px 6px rgba(0,0,0,0.16);
-          border-radius:50%;
-          opacity:1;
-          margin-top: 13px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          display: inline-block;
-          margin-right: 10px;
-        }
-
-        .text {
-          display: inline-block;
-          font-size: 18px;
-          font-family: SourceHanSansCN;
-          font-weight: 500;
-          line-height: 24px;
-          margin-top: 13px;
-          vertical-align: top;
-          height: 24px;
-        }
+        margin: 0px auto 0.266667rem;
       }
 
-      li:last-child {
-          margin-right: 0;
+      .title2 {
+        font-size: 0.32rem;
+        font-family: Biko, SourceHanSansCN;
+        font-weight: 500;
+        line-height: 0.4rem;
+        color: rgba(85, 85, 85, 1);
+        opacity: 1;
+        margin-bottom: 0.266667rem;
+        width: 8.506667rem;
+        margin: 0 auto;
       }
 
-      .guide-bg-colors {
-        color:#FFFFFF;
+      .four-to-one-div {
+        width: 8.16rem;
+        height: 8.72rem;
+        margin: 0.666667rem auto 0.906667rem;
+        background-image: url("../assets/img/home/mobile/fourToOne/fourtoone.png");
+        position: relative;
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .four-to-one-div2 {
+        width: 6.853333rem;
+        height: 9.146667rem;
+        margin: 0 auto;
+        background-image: url("../assets/img/home/mobile/fourToOne/fourtoone2.png");
+        text-align: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .title3 {
+        margin-top: 2px;
+        font-size:18px;
+        font-family:SourceHanSansCN;
         font-weight:bold;
-        background:rgba(29,195,182,1);
-        box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+        line-height:18px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+      }
+
+      .title4 {
+        font-size:14px;
+        font-family:SourceHanSansCN;
+        font-weight:400;
+        line-height:14px;
+        color:rgba(148,148,148,1);
+        opacity:1;
+        margin-top: 8px;
+      }
+    }
+
+    .banner5-div {
+      padding: 1.413333rem 0 .533333rem;
+      background-color: #fff;
+
+      .title {
+        font-size:0.426667rem;
+        font-family:SourceHanSansCN;
+        font-weight:bold;
+        line-height:24px;
+        color:rgba(60,60,60,1);
+        opacity:1;
+        margin-bottom: 0.8rem;
+      }
+
+      .guide-item-div {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: .133333rem auto;
+        // width: 805px;
+        // background:#FFFFFF;
+        // box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
         opacity:1;
         border-radius:83px;
-      }
-    }
 
-    .teachers-div {
-      width: 1130px;
-      text-align: center;
-      margin: 0 auto;
-
-      .each-teacher {
-        width: 240px;
-        margin: 0 20px 45px;
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-
-        .teacher-img {
-          width:100%;
-          height:308px;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        .teacher-info-div {
-          height: 96px;
-          background-color: #FFFFFF;
-          padding: 17px 20px 0 21px;
-          text-align: left;
-
-          .teacher-name {
-            font-size:18px;
-            font-family:Campton;
-            font-weight:bold;
-            line-height:18px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-          }
-
-          .teacher-school {
-            font-size:15px;
-            font-family:SourceHanSansCN;
-            font-weight:400;
-            line-height:20px;
-            color:rgba(51,51,51,1);
-            opacity:1;
-            margin-top: 7px;
-          }
-        }
-      }
-
-      .each-teacher:hover {
-        transform: scale(1.1);
-        transition-duration: 0.5s;
-      }
-
-      .more-teachers {
-        font-size:15px;
-        font-family:PingFang SC;
-        font-weight:500;
-        color:rgba(57,60,61,1);
-        opacity:1;
-        cursor: pointer;
-
-        width: 142px;
-        text-align: center;
-        margin: 0 auto;
-        height: 36px;
-        line-height: 36px;
-        border: 1px solid rgba(151,151,151,1);
-        border-radius: 21px;
-
-        a {
-          text-decoration: none;
-          color:rgba(57,60,61,1);
-        }
-
-        .more-img {
-          width: 17px;
-          height: 17px;
-          margin-left: 15px;
+        li {
+          width: 3.5rem;
+          height: .8rem;
+          opacity: 1;
+          margin: .133333rem .106667rem;
           display: inline-block;
-          vertical-align: bottom;
-        }
+          color: rgba(57,60,61,1);
+          cursor: pointer;
+          text-align: left;
+          padding: 0 0 0 .4rem;
+          background-color: #fff;
+          box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+          border-radius: 23px;
 
-        .open-ask {
-            width: 26px;
-            height: 10px;
-            // background: #21C3B6;
-            margin: 13px auto 36px;
-            cursor: pointer;
-            background-image: url("../assets/img/dreamSchool/openArrow.png");
+          .img {
+            width:.453333rem;
+            height:.453333rem;
+            // background:rgba(255,255,255,1);
+            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
+            border-radius:50%;
+            opacity:1;
+            margin-top: .186667rem;
             background-repeat: no-repeat;
             background-size: cover;
+            display: inline-block;
+            margin-right: .186667rem;
+          }
+
+          .text {
+            display: inline-block;
+            font-size: .32rem;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: .453333rem;
+            margin-top: .186667rem;
+            vertical-align: top;
+            height: .453333rem;
+          }
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        .guide-bg-colors {
+          color:#FFFFFF;
+          font-weight:bold;
+          background:rgba(29,195,182,1);
+          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+          opacity:1;
+          border-radius:83px;
+        }
+      }
+
+      .teachers-div {
+        // width: 1130px;
+        text-align: center;
+        margin: .986667rem auto 0;
+
+        .each-teacher {
+          width: 4.106667rem;
+          margin: 0 0.08rem 0.8rem;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+
+          .teacher-img {
+            width:100%;
+            height:4.933333rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .teacher-info-div {
+            min-height: 1.626667rem;
+            background-color: #35C4C4;
+            padding: 0.346667rem 0.426667rem .133333rem;
+            text-align: left;
+
+            .teacher-name {
+              font-size:0.373333rem;
+              font-family:Campton;
+              font-weight:bold;
+              line-height:0.32rem;
+              color:#F6FBFB;
+              opacity:1;
+            }
+
+            .teacher-school {
+              font-size:0.32rem;
+              font-family:SourceHanSansCN;
+              font-weight:400;
+              line-height:0.453333rem;
+              color:#F6FBFB;
+              opacity:1;
+              margin-top: 0.106667rem;
+            }
+          }
+        }
+
+        // .each-teacher:hover {
+        //   transform: scale(1.1);
+        //   transition-duration: 0.5s;
+        // }
+
+        .more-teachers {
+          font-size:0.266667rem;
+          font-family:PingFang SC;
+          font-weight:500;
+          line-height:0.64rem;
+          color:#16B4B4;
+          opacity:1;
+          text-align: center;
+          margin: 0 auto;
+          width: 2.64rem;
+          height: 0.64rem;
+          background: rgba(53,185,196,0.14);
+          border-radius: 15px;
+
+          a {
+            text-decoration: none;
+            color: #16B4B4;
+          }
+
+          .more-img {
+            width: 17px;
+            height: 17px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+          }
         }
       }
     }
