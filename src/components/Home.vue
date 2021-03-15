@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="more-offer">
-            <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
+            <a href="#/offers" target="_blank">
               查看更多offer<img src="../assets/img/home/more.png" class="more-img" />
             </a>
           </div>
@@ -155,7 +155,7 @@
           <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
           <div class="more-teachers" v-if="maxNumber <= 8">
             <div>
-              <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
+              <a href="#/teachers" target="_blank">
                 查看更多导师<img src="../assets/img/home/more.png" class="more-img" />
               </a>
             </div>
@@ -286,7 +286,7 @@
               </div>
             </div>
             <div class="more-offer">
-              <a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">
+              <a href="#/offers" target="_blank">
                 查看更多offer
               </a>
             </div>
@@ -350,7 +350,7 @@
           <!-- <div class="more-teachers" @click="showMoreTeachers" v-if="maxNumber <= 8"> -->
           <div class="more-teachers" v-if="maxNumber <= 8">
             <div>
-              <a href="http://www.palmdrive.cn/v2/graduate.html#/teachers" target="_blank">
+              <a href="#/teachers" target="_blank">
                 查看更多导师
               </a>
             </div>
@@ -367,7 +367,7 @@
         </div>
       </div>
 
-      <div class="banner8-2-div">
+      <div class="banner8-2-div" v-if="false">
         <div class="title">近期活动</div>
         <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
         <div class="activity-div">
@@ -399,6 +399,40 @@
           </div>
         </div>
       </div>
+
+      <div class="acticityInfoDialog">
+        <el-dialog
+          customClass="customDialog"
+          :visible.sync="dialogActivity"
+          width="8.4rem">
+          <div class="activity-detail-div">
+            <div class="left-div">
+              <div class="each-title-div" v-for="(item, index) in selectedActivityTheme" :key="index">
+                <div :style="{backgroundImage:'url(' + item.img + ')'}" class="theme-logo"></div>
+                <span class="title">{{item.title}}</span>
+                <div class="title2">{{item.title2}}</div>
+              </div>
+            </div>
+            <div class="right-div">
+              <div class="div1">
+                <img src="../assets/img/home/activity/activity-code.png" class="more-img"/>
+              </div>
+              <div class="div2">
+                <div class="way">方式一</div>
+                <div class="way-text">扫描二维码添加</div>
+                <div class="way-text">小助手咨询</div>
+
+                <div class="way way2">方式二</div>
+                <div class="way-text">输入微信号添加小助手</div>
+                <div class="way-text">微信号：pdpr19</div>
+                <div class="way-text">或 18026424935</div>
+              </div>
+            </div>
+          </div>
+        </el-dialog>
+      </div>
+
+      <div class="mask" v-if="dialogActivity || dialogVisible"></div>
 
     </div>
 
@@ -771,9 +805,6 @@ export default {
         },
         {
           img: require('../assets/img/home/activity/activity2-10.png')
-        },
-        {
-          img: require('../assets/img/home/activity/activity2-11.png')
         }
       ],
       dynamics: [
@@ -869,17 +900,17 @@ export default {
       programs: [
         {
           img: require('../assets/img/home/programs/program1.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/dream',
+          url: '#/dream',
           imgMB: require('../assets/img/home/mobile/programs/program1.png')
         },
         {
           img: require('../assets/img/home/programs/program2.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/seed',
+          url: '#/seed',
           imgMB: require('../assets/img/home/mobile/programs/program2.png')
         },
         {
           img: require('../assets/img/home/programs/program3.png'),
-          url: 'http://www.palmdrive.cn/v2/graduate.html#/ability',
+          url: '#/ability',
           imgMB: require('../assets/img/home/mobile/programs/program3.png')
         }
       ],
@@ -888,17 +919,44 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: 'ESADE招生官分享讲座'
+            title2: '海本专题讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月7日'
+            title2: '3月10日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '意向申请 ESADE 商学院的学生'
+            title2: '海本学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请主导师李鸾分析英美top校的海本背景录取offer案例，针对海本学生申请时间规划、如何提升软硬实力进行科普和答疑。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '英美混申讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '3月11日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '想要英美混申的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -908,105 +966,78 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请ESADE 商学院亚洲区的现任招生官为我们揭秘 ESADE 商学院及各大商科硕士项目，包含管理学、商业分析等，分享第一手信息帮助大家找准自己的申请方向；同时，还有一位毕业于该学院的学姐，为大家带来独家就读体验与申请经验。'
+            title2: '邀请牛津大学毕业，再去读第二个美国JHU硕士的导师来讲一讲英美大学的申请、材料、难度的异同，以及分享英美混申的tips、优劣势。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '学长学姐一对一门诊-美国热门专业专场'
+            title2: '申请测评冲刺表_大三专享版'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月8日'
+            title2: '3月12日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '有意向宾大、CMU、西北、芝大、乔治城的同学'
+            title2: '有留学意向的大三学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '一对一门诊'
+            title2: '定制报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请来自宾大教育学、CMU CS、西北IMC、芝大MPP/社会学、乔治城MPP的学长学姐，和同学一对一分享他们的申请经验、录取门槛/偏好、课程设置、就业方向等等一手资讯和宝贵经验。'
+            title2: '拥有丰富申请经验的导师，将根据同学的背景量身定制一份《申请测评冲刺表》，帮助你们掌握住关键的冲刺机会。用紧凑的申请规划与合理的提升建议，帮助你们补足短板，找准冲刺方向！'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '商科实习配对书'
+            title2: '美国留学+案例对标课'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月9日'
+            title2: '3月15日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '意向申请商科的同学'
+            title2: '意向去美国留学的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '定制类手册'
+            title2: '线上讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请拥有各大热门商科专业背景的导师，从实习推荐、渠道资源、实习规划等角度出发，为大家带来量身定制的实习配对报告。无论你是想申请市场营销、管理学还是商业分析等其他专业，都可以找到适合自己的实习提升规划。'
+            title2: '文商理工专场讲座，将从美国留学学制、花费、申请材料、准备流程、热门专业等核心维度出发，并且为大家解读多个典型的录取案例，帮你们一站式解决美国留学申请的种种疑问！'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '留学入门必听课'
+            title2: '留学申请规划讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月9日'
+            title2: '3月17日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '针对尚在犹豫是否申请、对申请的准备难度并不了解的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '讲座内容围绕：1、 留学申请需要经历怎样的过程？2、 哪些因素影响我们的录取结果？如何影响我们录取结果的？3、什么样的条件，能获得了哪些档次的offer？这三个核心问题，让同学们更深入的了解如何准备，如何规划留学的问题。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '热门商科多国混申讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '12月10日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '对美国和加拿大商科有申请意愿的同学'
+            title2: '留学小萌新/大一大二年级的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1016,24 +1047,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '讲述为什么多国混申以及BA金融混申的经历，多国商科混申的优势项目、具体经验心得与tips。'
+            title2: '导师留学体验分享、解读留学申请常见误区、规划整体规划时间线，还有关于如何展开背景提升、找第一份实习/科研项目的干货攻略。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '四大实习讲座'
+            title2: '经济学专业讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月11日'
+            title2: '3月19日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '有留学意向，想去四大实习提升背景的同学'
+            title2: '想要申请经济学的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1043,51 +1074,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请有丰富辅导经验的主导师，她将揭秘四大实习生都在做些什么工作、分析四大喜欢什么样的实习生，以及教大家如何申请并拿到一份四大实习。'
+            title2: '邀请芝加哥大学经济学的学长，讲述自己申请经济学的过程、专业科普、项目介绍，以及在芝大获得奖学金的经历。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '留学“普人”申请指南'
+            title2: '硬背景提升课'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月14日'
+            title2: '3月21日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '想要弥补院校、专业背景劣势的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '规划报表'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '并非所有同学都是“学霸”！这部分”普人“同学，更加注重留学申请的策略性和准备的方式。我们将为同学们匹配和你目标专业和院校一致的导师，为你制定个性化的留学申请攻略！'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '文科留学生就业形势分析讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '12月16日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '留学目标学科是文科的同学'
+            title2: '大一~大三年级的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1097,78 +1101,51 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请在国内外都有过丰富的求职经验的 Zitong 导师，解读文科热门专业的就业现状和就业前景，多维探讨文科生的出路选择，从求职现状启示，来给大家一些可参考的选专业/转专业/掌握技能的建议。'
+            title2: '硬背景是申请门槛，本场讲座将以科普+指南为主，内容分为GPA（算法、WES认证、先修课和提升方法等）、托雅（名校分数门槛、核心考点、提分秘笈）、GRE/GMAT（名校分数门槛、核心考点、提分秘笈）三部分，给到同学可操作性的提升建议。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '加拿大申请专场讲座'
+            title2: '专业选择定位报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月17日'
+            title2: '3月22日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '申请加拿大意向的学生'
+            title2: '对选专业有疑虑和选恐的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '线上讲座+答疑'
+            title2: '规划定位报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '加拿大会计硕士专导来讲述加拿大的项目、申请、求学体验与实习就业方向体验，再解读加拿大的签证福利和移民政策。'
+            title2: '针对学生自身的背景定位，为他们纠结的专业选择给出参考建议，帮助他们认识不同专业和他们的匹配度。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '教育学申请集训课'
+            title2: '文商申请抱团计划'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '12月18日'
+            title2: '3月24日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '意向申请教育学的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '邀请拥有丰富教育学申请经验的导师，从项目分支、院校选择、就业前景、背景提升等核心维度出发，为大家带来教育学申请的各种干货指南。同时，导师还将分享个人的申请经历与故事，为大家带来一定的参考价值。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '背提实操训练营'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '12月22日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '需要背景提升实际操作指导的同学'
+            title2: '文商混申的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -1178,7 +1155,34 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '“我知道要提升GPA，找实习，找科研，可我不知道该怎么做！”“我努力的背提，但是效果不高，GPA提升有限，实习和科研很水怎么办？”这次，我们将从实操层面，告诉你如何提升GPA，做实习和科研的时候，又应该注意些什么！'
+            title2: '【文商申请抱团计划】1、文商背景提升专攻：文商科申请有哪些提升要点？2、专业解析：有哪些文商热门专业可以申请？有着怎样的职业发展方向？3、文商互转、文科互转、文商混申要注意些什么？有怎样的申请技巧？为同学们带来文商科项目申请的深入剖析，更深入的了解文商科申请的背景提升方法和技巧。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '热门专业速递课'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '3月26日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '处于留学入门阶段的大一大二学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '社群干货分享'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '还存在专业选择的苦恼？我们将集中解析文商理工的各大热门专业，多维度揭秘各专业的申请要求、本科背景、知名院校、职业发展方向等因素，并输出提升规划的干货事项。'
           }
         ]
       ],
@@ -3160,6 +3164,12 @@ export default {
             color:rgba(0,0,0,1);
             opacity:1;
             cursor: pointer;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            height: 1.146667rem;
           }
 
           .text {
@@ -3171,6 +3181,12 @@ export default {
             opacity:1;
             margin: 0.213333rem 0 15px;
             // height: 1.2rem;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            height: .746667rem;
           }
 
           .more {
@@ -3198,6 +3214,117 @@ export default {
           }
         }
       }
+    }
+
+    .acticityInfoDialog {
+
+      .activity-detail-div {
+        text-align: left;
+        // padding: 29px 0 29px 73px;
+
+        .left-div {
+          // width: 55%;
+          // display: inline-block;
+
+          .each-title-div:first-child .theme-logo {
+            width: .773333rem;
+          }
+
+          .each-title-div {
+            // width: 49%;
+            // display: inline-block;
+            margin-bottom: .48rem;
+            vertical-align: top;
+
+            .theme-logo {
+              width: .56rem;
+              height: .56rem;
+              background-repeat: no-repeat;
+              background-size: cover;
+              display: inline-block;
+            }
+
+            .title {
+              font-size:.373333rem;
+              font-family:SourceHanSansCN;
+              font-weight:bold;
+              color: #25C2B5;
+              margin-left: .133333rem;
+              vertical-align: super;
+            }
+
+            .title2 {
+              font-size:.346667rem;
+              font-family:SourceHanSansCN;
+              font-weight:500;
+              margin-left: 30px;
+              width: 85%;
+            }
+          }
+
+          .each-title-div:last-child {
+            // width: 128%;
+          }
+        }
+
+        .right-div {
+          // display: inline-block;
+          // width: 39%;
+          vertical-align: top;
+
+          .div1 {
+            display: inline-block;
+            margin-top: .48rem;
+
+            .more-img {
+              width: 2.56rem;
+            }
+          }
+
+          .div2 {
+            display: inline-block;
+            margin-left: .266667rem;
+            vertical-align: top;
+            margin-top: .64rem;
+            margin-bottom: .533333rem;
+
+            .way {
+              color: #fff;
+              width: 1.52rem;
+              height: .533333rem;
+              background: #25C2B5;
+              opacity: 1;
+              border-radius: .266667rem;
+              text-align: center;
+            }
+
+            .way-text {
+              margin-top: .213333rem;
+              font-size: .32rem;
+              font-family: Source Han Sans CN;
+              font-weight: 500;
+              line-height: .32rem;
+              color: #333333;
+              opacity: 1;
+              margin-left: .266667rem;
+            }
+
+            .way2 {
+              margin-top: .32rem;
+            }
+          }
+        }
+      }
+    }
+
+    .mask {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      background: #000;
     }
   }
 

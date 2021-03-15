@@ -8,8 +8,8 @@
         </div>
       </div>
 
-      <div class="menu">
-        <ul class="guide-item-div" >
+      <div class="menu" style="margin: 72px auto 54px;">
+        <ul class="guide-item-div" v-if="false">
           <li v-for="(item, index) in types" :key="item.name" @click="changeType(index)" :class="{ 'guide-bg-colors' : index == currentType }">
             <div class="img" :style="{backgroundImage:'url(' + (index == currentType ? item.img1 : item.img) + ')'}"></div>
             <div class="text">{{ item.name }}</div>
@@ -589,7 +589,7 @@ export default {
           img1: require('../assets/img/ability/type/menu2-1.png')
         }
       ],
-      currentType: 0,
+      currentType: 1,
       banner3: '',
       palmdriveBanner3: '',
       currentShowDot: 100,

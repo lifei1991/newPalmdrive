@@ -64,6 +64,8 @@
           </div>
         </div>
       </div>
+
+      <div class="mask" v-if="dialogVisible"></div>
     </div>
 
     <teacher-dialog :dialogVisible="dialogVisible" :selectTeacher="selectTeacher" @childEvent="dialogVisible = $event"></teacher-dialog>
@@ -787,6 +789,16 @@ export default {
           }
         }
       }
+    }
+
+    .mask {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      background: #000;
     }
   }
 

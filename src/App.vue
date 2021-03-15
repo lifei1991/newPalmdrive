@@ -157,7 +157,7 @@
           <div class="content-title2">
             <span>CopyRight©2017 棕榈大道教育科技(北京)有限公司</span>
             <span>增值电信业务经营许可证：京B2-20191218</span>
-            <span>京ICP备14009960号</span>
+            <span><a style="color: #fff" href="https://beian.miit.gov.cn" rel="noreferrer" target="_blank">京ICP备14009960号-1</a></span>
           </div>
         </div>
       </div>
@@ -187,12 +187,236 @@
       </div>
     </div>
 
-    <div v-if="isMobile" class="mobile-div">
+    <div v-if="isMobile" class="mobile-div" :class="showZindex ? 'littleHeight' : ''">
       <div class="head">
         <div class="logo"></div>
+
+        <div class="my-drawer" style="height: 100%">
+          <drawer
+            width="5.333333rem;"
+            :show.sync="isshow"
+            show-mode="push"
+            placement="right"
+            :drawer-style="{'background-color':'#22C3B6', width: '0', 'z-index': '10px'}">
+
+            <div slot="drawer">
+              <cell
+                title="首页"
+                link="http://palmdrive.cn/"
+                :border-intent="false">
+              </cell>
+
+              <cell
+                title="申请初高中"
+                link="http://palmdrive.cn/highschool_services"
+                :border-intent="false">
+              </cell>
+
+              <cell
+                title="申请本科"
+                link="http://palmdrive.cn/undergrad_services"
+                :border-intent="false">
+              </cell>
+
+              <cell
+                title="申请研究生"
+                is-link
+                :border-intent="false"
+                :arrow-direction="show1 ? 'up' : 'down'"
+                @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
+              </cell>
+
+              <!-- <p class="slide" :class="show1?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p> -->
+
+              <cell
+                class="slide title2" :class="show1?'animate':''"
+                title="研究生服务介绍"
+                link="/graduate"
+                :border-intent="false"
+                @click.native="isshow = false">
+              </cell>
+
+              <cell
+                class="slide title2" :class="show1?'animate':''"
+                title="辅导项目"
+                is-link
+                :border-intent="false"
+                :arrow-direction="show2 ? 'up' : 'down'"
+                @click.native="show2 = !show2">
+              </cell>
+
+                <cell
+                  class="slide title3" :class="show2?'animate':''"
+                  title="梦校计划"
+                  link="/dream"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show2?'animate':''"
+                  title="种子计划"
+                  link="/seed"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show2?'animate':''"
+                  title="能力提升"
+                  link="/ability"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+              <cell
+                class="slide title2" :class="show1?'animate':''"
+                title="师资团队"
+                is-link
+                :border-intent="false"
+                :arrow-direction="show3 ? 'up' : 'down'"
+                @click.native="show3 = !show3">
+              </cell>
+
+                <cell
+                  class="slide title3" :class="show3?'animate':''"
+                  title="导师介绍"
+                  link="/teachers"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show3?'animate':''"
+                  title="四位一体"
+                  link="/four_to_one"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+              <cell
+                class="slide title2" :class="show1?'animate':''"
+                title="辅导结果"
+                is-link
+                :border-intent="false"
+                :arrow-direction="show4 ? 'up' : 'down'"
+                @click.native="show4 = !show4">
+              </cell>
+
+                <cell
+                  class="slide title3" :class="show4?'animate':''"
+                  title="申请季offer"
+                  link="/offers"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show4?'animate':''"
+                  title="背景提升offer"
+                  link="/bg_promote"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show4?'animate':''"
+                  title="学员故事"
+                  link="/story"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+              <cell
+                class="slide title2" :class="show1?'animate':''"
+                title="留学干货"
+                is-link
+                :border-intent="false"
+                :arrow-direction="show5 ? 'up' : 'down'"
+                @click.native="show5 = !show5">
+              </cell>
+
+                <cell
+                  class="slide title3" :class="show5?'animate':''"
+                  title="申请指南"
+                  link="/guide"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show5?'animate':''"
+                  title="专业介绍"
+                  link="/major"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+                <cell
+                  class="slide title3" :class="show5?'animate':''"
+                  title="资料下载"
+                  link="/material"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell>
+
+              <cell
+                title="导师团队"
+                link="/teachers"
+                :border-intent="false"
+                @click.native="isshow = false">
+              </cell>
+
+              <cell
+                title="成功案例"
+                link="http://palmdrive.cn/graduate_showcase"
+                :border-intent="false"
+                @click.native="isshow = false">
+              </cell>
+
+              <cell
+                title="最新动态"
+                link="http://palmdrive.cn/news-all?type=graduate"
+                :border-intent="false"
+                @click.native="isshow = false">
+              </cell>
+
+              <cell
+                title="关于我们"
+                link="http://palmdrive.cn/about"
+                :border-intent="false">
+              </cell>
+
+            </div>
+            <div class="btn2">
+              <span slot="overwrite-left" @click="isshow = !isshow">
+                  <x-icon type="navicon" size="30" style="fill:#fff;background: #22C3B6;border-radius: 4px; width:.8rem; height:.8rem"></x-icon>
+                </span>
+            </div>
+
+            <div class="login" @click="showLogin()"></div>
+          </drawer>
+        </div>
+
       </div>
 
-      <router-view/>
+      <div class="loginDialogDiv">
+        <el-dialog
+          customClass="loginDialog"
+          :visible.sync="showLoginDialog"
+          width="7rem">
+          <img src="./assets/img/head/login2.png" class="login2" />
+          <div class="text">请在电脑上登录</div>
+          <div class="text2"><a href="http://cms.palmdrive.cn/" target="_blank">cms.palmdrive.cn</a></div>
+        </el-dialog>
+      </div>
+
+      <!-- 遮罩层 -->
+      <div class="mask2" v-if="showLoginDialog"></div>
+
+      <div style="position: relative;" :style=" showZindex ? 'z-index: 1000; height: 680px' : 'z-index: 3000'">
+        <router-view/>
+      </div>
 
       <div class="foot">
         <div class="foot-div">
@@ -277,7 +501,7 @@
             <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
             <div class="content-title2">
               <div class="line1">CopyRight©2017 棕榈大道教育科技(北京)有限公司</div>
-              <div>增值电信业务经营许可证：京B2-20191218 京ICP备14009960号</div>
+              <div>增值电信业务经营许可证：京B2-20191218 <a style="color: #fff" href="https://beian.miit.gov.cn" rel="noreferrer" target="_blank">京ICP备14009960号-1</a></div>
             </div>
           </div>
         </div>
@@ -295,10 +519,22 @@
 
 <script>
 import Common from './components/common/common'
+import { Group, Cell, Badge, Drawer } from 'vux'
+// import Drawer from 'vux/src/components/drawer'
+// import Group from 'vux/src/components/group'
+// import Cell from 'vux/src/components/cell'
+// import Badge from 'vux/src/components/badge'
+
 export default {
   name: 'App',
   data () {
     return {
+      isshow: false,
+      show1: false,
+      show2: false,
+      show3: false,
+      show4: false,
+      show5: false,
       cities: [
         {
           name: '北&nbsp;&nbsp;&nbsp;京',
@@ -748,8 +984,16 @@ export default {
       otherContact2: '',
       otherContact3: '',
       isMobile: Common.isMobile,
-      lastScrollTop: 0
+      lastScrollTop: 0,
+      showZindex: false,
+      showLoginDialog: false
     }
+  },
+  components: {
+    Group,
+    Cell,
+    Badge,
+    Drawer
   },
   created () {
     this.otherContact1 = require('./assets/img/home/foot/otherContact1.png')
@@ -807,6 +1051,22 @@ export default {
         }
         this.lastScrollTop = st
       })
+    },
+
+    showLogin () {
+      this.showLoginDialog = true
+    }
+  },
+  watch: {
+    isshow (newVla, oldVal) {
+      let that = this
+      if (newVla) {
+        that.showZindex = true
+      } else {
+        setTimeout(() => {
+          that.showZindex = false
+        }, 500)
+      }
     }
   }
 }
@@ -1552,7 +1812,14 @@ body {
   }
 }
 
+.littleHeight {
+  height: calc(100vh);
+  overflow: hidden;
+}
+
 .mobile-div {
+  // * { touch-action: none;touch-action: pan-y;touch-action: pan-x; }
+
   .head {
     height: 1.173333rem;
     text-align: left;
@@ -1568,6 +1835,147 @@ body {
       display: inline-block;
       vertical-align: top;
     }
+
+    .my-drawer {
+      .vux-drawer {
+        font-family:SourceHanSansCN;
+        font-size: .426667rem;
+        color: #fff;
+        position: absolute;
+        z-index: 2500;
+        font-weight: 500;
+        line-height: .533333rem;
+
+        .weui-cells__title {
+          margin: .346667rem auto;
+          color: #fff;
+        }
+
+        .btn2 {
+          margin: .213333rem;
+          text-align: right;
+        }
+
+        .slide {
+          padding: 0 .533333rem;
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height .5s cubic-bezier(0, 1, 0, 1) -.1s;
+          line-height: 1.013333rem;
+        }
+
+        .animate {
+          max-height: 9999px;
+          transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+          transition-delay: 0s;
+        }
+
+        .vux-drawer-content {
+          overflow-y: auto;
+        }
+
+        .vux-drawer-content.vux-drawer-active {
+          width: 5.333333rem !important;
+        }
+
+        .title2 {
+          font-size: .373333rem;
+          line-height: 1.013333rem;
+          background: #fff;
+          color: #ECAA26;
+          padding-left: .666667rem;
+        }
+
+        .title3 {
+          font-size: .373333rem;
+          line-height: 1.013333rem;
+          background: #fff;
+          color: #383B3C;
+          padding-left: .933333rem;
+        }
+
+        // .weui-cell_access .weui-cell__ft:after {
+        //   content: " ";
+        //   display: inline-block;
+        //   height: 6px;
+        //   width: 6px;
+        //   border-width: 2px 2px 0 0;
+        //   border-color: #C8C8CD;
+        //   border-style: solid;
+        //   -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        //   transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        //   position: relative;
+        //   top: -2px;
+        //   position: absolute;
+        //   top: 50%;
+        //   margin-top: -4px;
+        //   right: 2px;
+        // }
+      }
+    }
+
+    .login {
+      width: .746667rem;
+      height: .746667rem;
+      background-image: url("assets/img/head/login.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      // margin: 38px 111px 0 0;
+      display: inline-block;
+      vertical-align: top;
+      position: absolute;
+      top: 0.213333rem;
+      right: 1.3rem;
+      z-index: 3000;
+    }
+  }
+
+  .loginDialogDiv {
+    .el-dialog__wrapper {
+      z-index: 5000 !important;
+    }
+
+    .loginDialog {
+      border-radius: .266667rem;
+
+      .login2 {
+        width: 3.893333rem;
+        height: 3.893333rem;
+        margin: 0 auto;
+      }
+
+      .text {
+        font-family: SourceHanSansCN;
+        font-size: .346667rem;
+        line-height: .346667rem;
+        margin: .48rem auto .213333rem;
+        color: #313131;
+      }
+
+      .text2 {
+        font-family: Campton;
+        font-size: .373333rem;
+        line-height: .346667rem;
+        color: #22C3B6;
+        margin-bottom: 1.066667rem;
+
+        a {
+          color: #22C3B6;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .mask2 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: #000;
+    z-index: 4000;
   }
 
   .foot {

@@ -125,6 +125,14 @@ export default new Router({
       meta: {
         title: '背景提升'
       }
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: resolve => (require(['@/components/Test'], resolve)),
+      meta: {
+        title: '测试页面'
+      }
     }
   ]
 })
