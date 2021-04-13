@@ -367,7 +367,7 @@
         </div>
       </div>
 
-      <div class="banner8-2-div" v-if="false">
+      <div class="banner8-2-div">
         <div class="title">近期活动</div>
         <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
         <div class="activity-div">
@@ -799,12 +799,6 @@ export default {
         },
         {
           img: require('../assets/img/home/activity/activity2-8.png')
-        },
-        {
-          img: require('../assets/img/home/activity/activity2-9.png')
-        },
-        {
-          img: require('../assets/img/home/activity/activity2-10.png')
         }
       ],
       dynamics: [
@@ -919,17 +913,125 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '海本专题讲座'
+            title2: '专业定位报告活动'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '3月10日'
+            title2: '4月7日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '海本学生'
+            title2: '对专业选择有犹豫和迷茫的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '填写表单，回复个人定制化报告'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '集合棕榈文理工商主导师，对专业选择有犹豫、迷茫的同学进行背景分析、专业定位、匹配度的客观分析，给学生的后续选择提出参考意见，同时给出提升的锦囊。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: 'gap year 专场直播课'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '4月14日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '大四准备gap及大三下晚申党'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '讲座分享'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: 'gap适合那些人？怎么让gap year 价值最大化？gap、晚申党如何冲刺今年秋季申请？'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '中外合办院校学生留学申请讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '4月14日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '中外合办院校、学院、项目的同学'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上讲座+答疑'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '邀请西浦本科、UCL 研究生毕业的 Yimei 导师，教大家利用“先天”优势，准确定位，为冲刺名校做针对性提升。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '盲盒活动2.0'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '4月16日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '申请规划期的学生'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo4.png'),
+            title: '活动形式',
+            title2: '线上门诊'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo5.png'),
+            title: '活动简介',
+            title2: '多专业导师门诊合集，以趣味SVG的形式展现导师个人特色和专业特点。'
+          }
+        ],
+        [
+          {
+            img: require('../assets/img/home/activity/theme-logo1.png'),
+            title: '活动主题',
+            title2: '港新+美国混申讲座'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo2.png'),
+            title: '报名时间',
+            title2: '4月18日'
+          },
+          {
+            img: require('../assets/img/home/activity/theme-logo3.png'),
+            title: '针对人群',
+            title2: '意向混申港新+美国的学生'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -939,24 +1041,24 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请主导师李鸾分析英美top校的海本背景录取offer案例，针对海本学生申请时间规划、如何提升软硬实力进行科普和答疑。'
+            title2: '邀请有美国+港新混申经历的导师分享个人经历，讲述混申的优势、规划提升重点、需要避雷的地方。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '英美混申讲座'
+            title2: '专业导师分享讲座'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '3月11日'
+            title2: '4月19日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '想要英美混申的学生'
+            title2: '对文转商或入职金融行业感兴趣的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
@@ -966,223 +1068,61 @@ export default {
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '邀请牛津大学毕业，再去读第二个美国JHU硕士的导师来讲一讲英美大学的申请、材料、难度的异同，以及分享英美混申的tips、优劣势。'
+            title2: '导师纯文科本科出身，硕士毕业后转行去了金融投资领域，拥有文商复合实习经历，他将分享自己的文转商经历、针对不同同学的情况提供转专业申请或转行的可行性分析、给到一些针对性找实习的攻略。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '申请测评冲刺表_大三专享版'
+            title2: '套磁技巧大公开'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '3月12日'
+            title2: '4月20日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '有留学意向的大三学生'
+            title2: '准备申请科研项目及想要尝试套磁博士项目的同学'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '定制报告'
+            title2: '讲座分享'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '拥有丰富申请经验的导师，将根据同学的背景量身定制一份《申请测评冲刺表》，帮助你们掌握住关键的冲刺机会。用紧凑的申请规划与合理的提升建议，帮助你们补足短板，找准冲刺方向！'
+            title2: '如何套磁科研项目、博士申请，套磁该如何准备，套磁邮件又应该怎么写。'
           }
         ],
         [
           {
             img: require('../assets/img/home/activity/theme-logo1.png'),
             title: '活动主题',
-            title2: '美国留学+案例对标课'
+            title2: '晚申冲刺报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo2.png'),
             title: '报名时间',
-            title2: '3月15日'
+            title2: '4月23日'
           },
           {
             img: require('../assets/img/home/activity/theme-logo3.png'),
             title: '针对人群',
-            title2: '意向去美国留学的同学'
+            title2: '即将步入申请季的大三人群'
           },
           {
             img: require('../assets/img/home/activity/theme-logo4.png'),
             title: '活动形式',
-            title2: '线上讲座'
+            title2: '定制类报告'
           },
           {
             img: require('../assets/img/home/activity/theme-logo5.png'),
             title: '活动简介',
-            title2: '文商理工专场讲座，将从美国留学学制、花费、申请材料、准备流程、热门专业等核心维度出发，并且为大家解读多个典型的录取案例，帮你们一站式解决美国留学申请的种种疑问！'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '留学申请规划讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月17日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '留学小萌新/大一大二年级的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '导师留学体验分享、解读留学申请常见误区、规划整体规划时间线，还有关于如何展开背景提升、找第一份实习/科研项目的干货攻略。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '经济学专业讲座'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月19日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '想要申请经济学的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '邀请芝加哥大学经济学的学长，讲述自己申请经济学的过程、专业科普、项目介绍，以及在芝大获得奖学金的经历。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '硬背景提升课'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月21日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '大一~大三年级的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '线上讲座+答疑'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '硬背景是申请门槛，本场讲座将以科普+指南为主，内容分为GPA（算法、WES认证、先修课和提升方法等）、托雅（名校分数门槛、核心考点、提分秘笈）、GRE/GMAT（名校分数门槛、核心考点、提分秘笈）三部分，给到同学可操作性的提升建议。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '专业选择定位报告'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月22日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '对选专业有疑虑和选恐的学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '规划定位报告'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '针对学生自身的背景定位，为他们纠结的专业选择给出参考建议，帮助他们认识不同专业和他们的匹配度。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '文商申请抱团计划'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月24日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '文商混申的同学'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '训练营'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '【文商申请抱团计划】1、文商背景提升专攻：文商科申请有哪些提升要点？2、专业解析：有哪些文商热门专业可以申请？有着怎样的职业发展方向？3、文商互转、文科互转、文商混申要注意些什么？有怎样的申请技巧？为同学们带来文商科项目申请的深入剖析，更深入的了解文商科申请的背景提升方法和技巧。'
-          }
-        ],
-        [
-          {
-            img: require('../assets/img/home/activity/theme-logo1.png'),
-            title: '活动主题',
-            title2: '热门专业速递课'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo2.png'),
-            title: '报名时间',
-            title2: '3月26日'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo3.png'),
-            title: '针对人群',
-            title2: '处于留学入门阶段的大一大二学生'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo4.png'),
-            title: '活动形式',
-            title2: '社群干货分享'
-          },
-          {
-            img: require('../assets/img/home/activity/theme-logo5.png'),
-            title: '活动简介',
-            title2: '还存在专业选择的苦恼？我们将集中解析文商理工的各大热门专业，多维度揭秘各专业的申请要求、本科背景、知名院校、职业发展方向等因素，并输出提升规划的干货事项。'
+            title2: '在即将步入申请季的关键关头，导师天团将根据大家目前的申请背景，为你定制适合自己的提升规划方案，帮助大家在紧凑的时间内冲刺提升，更好地向梦校进击！'
           }
         ]
       ],
