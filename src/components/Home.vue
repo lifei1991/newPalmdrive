@@ -25,7 +25,7 @@
 
       <div class="banner2-div">
         <div class="title">offer 战绩</div>
-        <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
+        <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div>
         <div class="school-div">
           <div class="each-school-div" v-for="item in schools" :key="item.logo">
             <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
@@ -275,7 +275,7 @@
       <div class="banner2-div">
         <div class="content">
           <div class="title">offer 战绩</div>
-          <div class="title2">6000+ 世界名校毕业生导师，涵盖200+专业</div>
+          <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div>
           <div class="school-div">
             <div class="each-school-div" v-for="(item, index) in schools" :key="item.logo" v-if="index < 8">
               <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
@@ -555,7 +555,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '6000+ 世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '7000+ 世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),

@@ -27,7 +27,7 @@
                 <div class="number-text">海外背景老师</div>
               </div>
               <div class="all-student-div">
-                <div class="number">6000+<span>名</span></div>
+                <div class="number">7000+<span>名</span></div>
                 <div class="number-text">海外背景老师</div>
               </div>
               <div class="title3"><span>三位一体</span> 全方位服务模式</div>
@@ -247,7 +247,7 @@
               <div class="number-text">海外背景老师</div>
             </div>
             <div class="all-student-div">
-              <div class="number">6000+<span>名</span></div>
+              <div class="number">7000+<span>名</span></div>
               <div class="number-text">海外背景老师</div>
             </div>
             <div class="title3"><span>三位一体</span> 全方位服务模式</div>
@@ -453,7 +453,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '6000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '7000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),

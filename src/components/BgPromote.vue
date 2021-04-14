@@ -552,7 +552,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '6000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '7000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),
