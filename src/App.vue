@@ -17,7 +17,7 @@
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
 
@@ -80,7 +80,7 @@
             <li><a href="http://palmdrive.cn/undergrad_services" target="_blank">本科服务介绍</a></li>
             <li><a href="http://palmdrive.cn/highschool_services" target="_blank">初高中服务介绍</a></li>
             <li><a href="http://www.palmdrive.cn/v2/graduate.html#/graduate" target="#">研究生服务介绍</a></li>
-            <li><a href="http://palmdrive.cn/graduate_showcase" target="_blank">成功案例</a></li>
+            <li><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
             <li><a href="http://palmdrive.cn/mentors" target="_blank">导师团队</a></li>
           </ul>
 
