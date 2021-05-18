@@ -38,11 +38,11 @@
             placement="right"
             width="100"
             trigger="hover">
-              <img class="link-img" src="./assets/img/head/ercode-detail.png"
+              <img class="link-img" src="./assets/img/head/ercode-detail2.png"
               style="
                 width: 100px;
                 height: 100px;
-                background-image: url('./assets/img/head/ercode-detail.png');
+                background-image: url('./assets/img/head/ercode-detail2.png');
                 background-repeat: no-repeat;
                 background-size: cover;"/>
             <div class="ercode" slot="reference"></div>
@@ -112,7 +112,7 @@
               <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 4000-062-153
             </div>
             <div class="text">
-              <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：pdpr19
+              <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：13166027163
             </div>
             <div class="text">
               <img src="./assets/img/home/foot/contact4.png" class="contact2-img" />邮箱：suggestions@palmdrive.cn
@@ -181,7 +181,7 @@
         </div>
         <div class="contact-square">
           <div class="square-dot">
-            <img src="./assets/img/left-contact.png" width="100%">
+            <img src="./assets/img/head/ercode-detail2.png" width="100%">
           </div>
         </div>
       </div>
@@ -433,7 +433,7 @@
               </div>
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact5.png" class="link-logo" />
-                <span>留学辅导咨询微信：pdpr19</span>
+                <span>留学辅导咨询微信：13166027163</span>
               </div>
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact6.png" class="link-logo" />

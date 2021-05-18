@@ -5,11 +5,11 @@
       <div class='banner1-div'>
         <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class='info1-div'>
-            <div class='info-number'>1350<span> 个</span></div>
+            <div class='info-number'>3982<span> 个</span></div>
             <div class='info-text'>棕榈种子学员共拿到 背景提升 offer</div>
           </div>
           <div class='info2-div'>
-            <div class='info-number'>95%</div>
+            <div class='info-number'>80%</div>
             <div class='info-text'>棕榈种子学员拿到 背景提升 offer </div>
           </div>
           <div class='info3-div'>
@@ -440,67 +440,67 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/1.png'),
-            number: '120+',
+            number: '193+',
             text: '德勤、普华永道、安永、毕马威等顶级会计审计 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/2.png'),
-            number: '80+',
+            number: '128+',
             text: 'JP Morgen、Morgan Stanley、中金、中信等顶级投行券商 offer',
             bgColor: 'rgba(107,219,210,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/3.png'),
-            number: '20+',
+            number: '27+',
             text: '中伦、金杜等八大红圈律所 offer',
             bgColor: 'rgba(221,175,103,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/4.png'),
-            number: '100+',
+            number: '138+',
             text: '麦肯锡、贝恩等顶级咨询公司 offer ',
             bgColor: 'rgba(239,223,104,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/5.png'),
-            number: '200+',
+            number: '405+',
             text: '阿里巴巴、腾讯等 BAT 互联网公司 offer',
             bgColor: 'rgba(89,157,149,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/6.png'),
-            number: '60+',
+            number: '105+',
             text: '汇丰银行、平安保险等银行保险类公司 offer',
             bgColor: 'rgba(239,223,104,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/7.png'),
-            number: '130+',
+            number: '236+',
             text: '联合国、世界贸易组织、商务部等国际组织政府高校智库等 offer',
             bgColor: 'rgba(224,117,65,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/8.png'),
-            number: '190+',
+            number: '256+',
             text: '联合利华、欧莱雅、奥美、中央电视台等快消广告公关传媒类 offer',
             bgColor: 'rgba(221,175,103,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/9.png'),
-            number: '50+',
+            number: '60+',
             text: '华为、IBM 等硬件 IT 公司 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/10.png'),
-            number: '350+',
+            number: '380+',
             text: '外研社、ABC 美好社会公益、SEED 等教育、NGO/GO offer',
             bgColor: 'rgba(107,219,210,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/11.png'),
-            number: '15+',
+            number: '20+',
             text: '伦敦博物馆、广州大剧院艺术类 offer',
             bgColor: 'rgba(221,175,103,.19)'
           }
@@ -508,19 +508,19 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/12.png'),
-            number: '100+',
+            number: '145+',
             text: '麻省理工大学、哈佛大学等世界知名高校科研类 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/13.png'),
-            number: '135+',
+            number: '172+',
             text: '清华大学，北京大学等国内知名高校科研类 offer',
             bgColor: 'rgba(107,219,210,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/14.png'),
-            number: '30+',
+            number: '35+',
             text: '中国科学院、欧洲核子研究院等知名研究所项目科研 offer',
             bgColor: 'rgba(221,175,103,.19)'
           }
@@ -528,13 +528,13 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/15.png'),
-            number: '120+',
+            number: '150+',
             text: '剑桥大学、哥伦比亚大学等世界知名高校海外交换 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/16.png'),
-            number: '15+',
+            number: '26+',
             text: '清华大学、中国科学院大学等国内高校研究所交换 offer',
             bgColor: 'rgba(107,219,210,.19)'
           }
@@ -542,7 +542,7 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/17.png'),
-            number: '155+',
+            number: '208+',
             text: '达沃斯经济论坛、联合国志愿者等公益类 offer',
             bgColor: 'rgba(119,183,235,.19)'
           }

@@ -7,15 +7,15 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">99.3%</div>
+            <div class="info-number">99.4%</div>
             <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">71.6%</div>
+            <div class="info-number">80%</div>
             <div class="info-text">世界排名前50名校</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">94.3%</div>
+            <div class="info-number">82%</div>
             <div class="info-text">世界排名前100名校录取offer比例</div>
           </div>
 
@@ -54,7 +54,7 @@
               <span class="number-text" v-if="index == 1">份</span>
             </div>
           </div>
-          <div class="number-dataLine">*数据截止到2019年1月</div>
+          <div class="number-dataLine">*数据截止到2021年5月</div>
         </div>
       </div>
 
@@ -256,15 +256,15 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">99.3%</div>
+            <div class="info-number">99.4%</div>
             <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">71.6%</div>
+            <div class="info-number">80%</div>
             <div class="info-text">世界排名前50名校录取offer比例</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">94.3%</div>
+            <div class="info-number">82%</div>
             <div class="info-text">世界排名前100名校录取offer比例</div>
           </div>
 
@@ -305,7 +305,7 @@
               <span class="number-text" v-if="index == 1">份</span>
             </div>
           </div>
-          <div class="number-dataLine">*数据截止到2019年1月</div>
+          <div class="number-dataLine">*数据截止到2021年5月</div>
         </div>
       </div>
 
@@ -456,84 +456,84 @@ export default {
         {
           logo: require('../assets/img/home/school/hf.png'),
           name: '哈佛大学',
-          offer: 29
+          offer: 35
         },
         {
           logo: require('../assets/img/home/school/stf.png'),
           name: '斯坦福大学',
-          offer: 25
+          offer: 34
         },
         {
           logo: require('../assets/img/home/school/yl.png'),
           name: '耶鲁大学',
-          offer: 41
+          offer: 51
         },
         {
           logo: require('../assets/img/home/school/zjg.png'),
           name: '芝加哥大学',
-          offer: 93
+          offer: 131
         },
         {
           logo: require('../assets/img/home/school/bxfny.png'),
           name: '宾夕法尼亚大学',
-          offer: 154
+          offer: 209
         },
         {
           logo: require('../assets/img/home/school/dk.png'),
           name: '杜克大学',
-          offer: 115
+          offer: 189
         },
         {
           logo: require('../assets/img/home/school/kne.png'),
           name: '康奈尔大学',
-          offer: 95
+          offer: 178
         },
         {
           logo: require('../assets/img/home/school/glby.png'),
           name: '哥伦比亚大学',
-          offer: 388
+          offer: 553
         },
         {
           logo: require('../assets/img/home/school/nj.png'),
           name: '牛津大学',
-          offer: 11
+          offer: 45
         },
         {
           logo: require('../assets/img/home/school/jq.png'),
           name: '剑桥大学',
-          offer: 13
+          offer: 28
         },
         {
           logo: require('../assets/img/home/school/dglg.png'),
           name: '帝国理工学院',
-          offer: 39
+          offer: 152
         },
         {
           logo: require('../assets/img/home/school/ldzzjj.png'),
           name: '伦敦政治经济学院',
-          offer: 70
+          offer: 182
         },
         {
           logo: require('../assets/img/home/school/lddx.png'),
           name: '伦敦大学学院',
-          offer: 39
+          offer: 253
         },
         {
           logo: require('../assets/img/home/school/xjpgl.png'),
           name: '新加坡国立大学',
-          offer: 36
+          offer: 137
         },
         {
           logo: require('../assets/img/home/school/xg.png'),
           name: '香港大学',
-          offer: 32
+          offer: 136
         }
       ],
       numbers: [
         {
           logo: require('../assets/img/home/number/number1.png'),
           title: '学生总数',
-          number: '5000+'
+          number: '7000+'
         },
         {
           logo: require('../assets/img/home/number/number2.png'),
@@ -543,12 +543,12 @@ export default {
         {
           logo: require('../assets/img/home/number/number3.png'),
           title: '背景提升率',
-          number: '95%'
+          number: '90%'
         },
         {
           logo: require('../assets/img/home/number/number4.png'),
           title: '奖学金总额',
-          number: '12亿+'
+          number: '13亿+'
         }
       ],
       intros: [
@@ -565,7 +565,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro3.png'),
           title: '全能主导师',
-          text: '10,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
+          text: '14,000+ Offer申请经历和案例，平均申请成功率99.4%，全程指导，答疑解惑'
         },
         {
           logo: require('../assets/img/home/intros/intro4.png'),
