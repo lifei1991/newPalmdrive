@@ -30,7 +30,7 @@
             placement="right"
             width="100"
             trigger="hover">
-            <div>4000-062-153</div>
+            <div>400-006-2153</div>
             <div slot="reference" class="phone"></div>
           </el-popover>
 
@@ -109,7 +109,7 @@
               <img src="./assets/img/home/foot/contact1.png" class="more-img" />联系我们
             </div>
             <div class="text">
-              <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 4000-062-153
+              <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 400-006-2153
             </div>
             <div class="text">
               <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：13166027163
@@ -169,7 +169,7 @@
             <!-- <i class="fa fa-lg fa-phone white"></i> -->
             <i class="el-icon-phone-outline size16"></i>
             <br>
-            <div class="black">4000-062-153</div>
+            <div class="black">400-006-2153</div>
             <div class="size-s">
               OR
             </div>
@@ -429,7 +429,7 @@
             <div class="link-list">
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact4.png" class="link-logo" />
-                <span>全国客服：4000-062-153</span>
+                <span>全国客服：400-006-2153</span>
               </div>
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact5.png" class="link-logo" />
