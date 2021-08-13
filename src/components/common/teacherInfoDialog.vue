@@ -45,7 +45,7 @@
 
             <div v-if="selectTeacher.expertise != ''">
               <span class="dot"></span>
-              <span class="each-section">擅长领域：</span>
+              <span class="each-section">辅导理念：</span>
               <div class="each-section-detail">{{ selectTeacher.expertise }}</div>
             </div>
 
