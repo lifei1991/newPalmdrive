@@ -43,9 +43,15 @@
               <div class="each-section-detail" v-html="selectTeacher.experience"></div>
             </div>
 
-            <div v-if="selectTeacher.expertise != ''">
+            <div v-if="selectTeacher.concept && selectTeacher.concept != ''">
               <span class="dot"></span>
               <span class="each-section">辅导理念：</span>
+              <div class="each-section-detail">{{ selectTeacher.concept }}</div>
+            </div>
+
+            <div v-if="selectTeacher.expertise != ''">
+              <span class="dot"></span>
+              <span class="each-section">辅导专业：</span>
               <div class="each-section-detail">{{ selectTeacher.expertise }}</div>
             </div>
 
