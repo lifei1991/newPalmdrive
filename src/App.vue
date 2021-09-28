@@ -627,10 +627,6 @@ export default {
             {
               text: '2381 Zanker Rd, Ste 110, San Jose, CA, 95131',
               number: '814-580-5786'
-            },
-            {
-              text: '156 2nd St, San Francisco, CA 94105',
-              number: '814-580-5786'
             }
           ]
         }
