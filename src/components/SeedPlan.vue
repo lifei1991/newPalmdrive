@@ -372,16 +372,16 @@ export default {
       ],
       teachers: [
         [
-          {
-            img: require('../assets/img/teachers/graduate/Jasmine.png'),
-            name: 'Jasmine 老师',
-            phdSchool: '',
-            school: '纽约州立大学奥尔巴尼分校 公共管理 硕士',
-            baSchool: '',
-            experience: '研究生毕业后在纽约州政府担任商业分析员，之后到大型NGO担任会计经理；回国以后致力于留学行业担任留学导师和职业导师。',
-            expertise: '文商科同学背景提升',
-            demo: '辅导同学拿到安永、宽奇资产、国观智库、经纬创投、ABC美好社会咨询社、北京生命科学研究所、京东金融等实习/科研offer：辅导学生成功申请包括哈佛大学、加州大学伯克利分校以及哥伦比亚大学等美国TOP30高校的暑期课程。'
-          },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Jasmine.png'),
+          //   name: 'Jasmine 老师',
+          //   phdSchool: '',
+          //   school: '纽约州立大学奥尔巴尼分校 公共管理 硕士',
+          //   baSchool: '',
+          //   experience: '研究生毕业后在纽约州政府担任商业分析员，之后到大型NGO担任会计经理；回国以后致力于留学行业担任留学导师和职业导师。',
+          //   expertise: '文商科同学背景提升',
+          //   demo: '辅导同学拿到安永、宽奇资产、国观智库、经纬创投、ABC美好社会咨询社、北京生命科学研究所、京东金融等实习/科研offer：辅导学生成功申请包括哈佛大学、加州大学伯克利分校以及哥伦比亚大学等美国TOP30高校的暑期课程。'
+          // },
           {
             img: require('../assets/img/teachers/graduate/Serena.png'),
             name: 'Serena 老师',
@@ -392,36 +392,36 @@ export default {
             expertise: '理工科同学背景提升',
             demo: ' 辅导同学拿到平安产险、银河证券、GEC助教、西门子、MITACS、Global Ladder等实习/科研offer；拿到包括哥伦比亚大学、加州大学洛杉矶分校、伦敦政治经济学院在内的英美TOP50高校交换交流机会。'
           },
-          {
-            img: require('../assets/img/teachers/graduate/Xiaohan.png'),
-            name: 'Xiaohan 老师',
-            phdSchool: '',
-            school: '哥伦比亚大学 公共管理硕士',
-            baSchool: '',
-            experience: '本科和硕士时期都在研究国际发展/反贫困事务，非洲、东南亚都留下了实践的足迹。自己当年申请遇见了坑，今天一定要让学弟学妹们避雷脱坑~',
-            expertise: '理工科同学背景提升',
-            demo: '辅导学生拿到BCG PTA 、罗兰贝格PTA 、安永、毕马威、国观智库、招商银行、字节跳动、环球时报等的实习offer。辅导学生成功申请到慕尼黑工业大学、卡内基梅隆大学、卡迪夫大学、香港科技大学、芝加哥大学、加州大学圣迭戈分校等校的暑期科研offer，加州大学伯克利分校、剑桥大学、南洋理工大学等校的交换交流机会。'
-          },
-          {
-            img: require('../assets/img/teachers/graduate/Ruitao.png'),
-            name: 'Ruitao 老师',
-            phdSchool: '',
-            school: '广东外语外贸大学 翻译硕士',
-            baSchool: '',
-            experience: '本硕连读期间做过英语教学、自由译者、报社编辑、新媒体运营、猎头等相关实习和工作。一路走来，体验过不同行业的工作环境，也不断在寻找和靠近自己理想的工作和生活。作为一名种子主导师，希望把自己这一路走来的所思所想分享给大家，帮助和陪伴同学在大学期间筑梦、逐梦和圆梦！',
-            expertise: '文商科同学背景提升',
-            demo: '辅导同学拿到四大、滴滴出行、爱奇艺、雅培、施耐德、久谦咨询、海国图智、欧盟商会等多个实习offer，以及美国TOP50交换交流机会。'
-          },
-          {
-            img: require('../assets/img/teachers/graduate/ShuYang.png'),
-            name: 'ShuYang 老师',
-            phdSchool: '',
-            school: '河北工业大学 英语学士',
-            baSchool: '',
-            experience: '从事留学工作8年，曾担任文书顾问和申请顾问，拥有丰富的留学申请经验。加入棕榈大道担任种子主导师后，希望能借助自己多年的积累，帮助同学们更早明确申请意向，更精准规划自己的留学之路。',
-            expertise: '文商科同学背景提升',
-            demo: '辅导同学拿到京东、西门子、字节跳动、腾讯、电通安吉斯、麦肯光明、凤凰网、罗德公关等多个实习offer，以及英国G5院校和美国TOP50院校的交流交换机会。'
-          },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Xiaohan.png'),
+          //   name: 'Xiaohan 老师',
+          //   phdSchool: '',
+          //   school: '哥伦比亚大学 公共管理硕士',
+          //   baSchool: '',
+          //   experience: '本科和硕士时期都在研究国际发展/反贫困事务，非洲、东南亚都留下了实践的足迹。自己当年申请遇见了坑，今天一定要让学弟学妹们避雷脱坑~',
+          //   expertise: '理工科同学背景提升',
+          //   demo: '辅导学生拿到BCG PTA 、罗兰贝格PTA 、安永、毕马威、国观智库、招商银行、字节跳动、环球时报等的实习offer。辅导学生成功申请到慕尼黑工业大学、卡内基梅隆大学、卡迪夫大学、香港科技大学、芝加哥大学、加州大学圣迭戈分校等校的暑期科研offer，加州大学伯克利分校、剑桥大学、南洋理工大学等校的交换交流机会。'
+          // },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Ruitao.png'),
+          //   name: 'Ruitao 老师',
+          //   phdSchool: '',
+          //   school: '广东外语外贸大学 翻译硕士',
+          //   baSchool: '',
+          //   experience: '本硕连读期间做过英语教学、自由译者、报社编辑、新媒体运营、猎头等相关实习和工作。一路走来，体验过不同行业的工作环境，也不断在寻找和靠近自己理想的工作和生活。作为一名种子主导师，希望把自己这一路走来的所思所想分享给大家，帮助和陪伴同学在大学期间筑梦、逐梦和圆梦！',
+          //   expertise: '文商科同学背景提升',
+          //   demo: '辅导同学拿到四大、滴滴出行、爱奇艺、雅培、施耐德、久谦咨询、海国图智、欧盟商会等多个实习offer，以及美国TOP50交换交流机会。'
+          // },
+          // {
+          //   img: require('../assets/img/teachers/graduate/ShuYang.png'),
+          //   name: 'ShuYang 老师',
+          //   phdSchool: '',
+          //   school: '河北工业大学 英语学士',
+          //   baSchool: '',
+          //   experience: '从事留学工作8年，曾担任文书顾问和申请顾问，拥有丰富的留学申请经验。加入棕榈大道担任种子主导师后，希望能借助自己多年的积累，帮助同学们更早明确申请意向，更精准规划自己的留学之路。',
+          //   expertise: '文商科同学背景提升',
+          //   demo: '辅导同学拿到京东、西门子、字节跳动、腾讯、电通安吉斯、麦肯光明、凤凰网、罗德公关等多个实习offer，以及英国G5院校和美国TOP50院校的交流交换机会。'
+          // },
           {
             img: require('../assets/img/teachers/graduate/Lulu.png'),
             name: 'Lulu 老师',
@@ -442,15 +442,65 @@ export default {
             expertise: '理工科同学背景提升',
             demo: '辅导同学拿到MITACS、方正证券、万博宣伟、拜耳、ABC美好社会咨询社、中科院地理科学与资源研究所等多个实习/科研offer，以及美国TOP50院校的交换交流机会。'
           },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Sophie.png'),
+          //   name: 'Sophie 老师',
+          //   phdSchool: '',
+          //   school: '杜伦大学 教育学硕士',
+          //   baSchool: '',
+          //   experience: '在英国完成教育学研究生学业，回国后曾在世界500强公司担任管培生，后加入棕榈大道担任种子主导师，希望给予留学路上迷茫的孩子专业的指导，精细的规划，留学的路上你不再孤单。',
+          //   expertise: '理工科同学背景提升',
+          //   demo: '辅导同学拿到耶鲁大学、香港科技大学、腾讯、人民在线、四大、天风证券、中国太平洋保险等实习/科研offer，以及全球TOP50院校交换交流机会。'
+          // }
           {
-            img: require('../assets/img/teachers/graduate/Sophie.png'),
-            name: 'Sophie 老师',
+            img: require('../assets/img/teachers/graduate/Jastin.png'),
+            name: 'Jastin 老师',
             phdSchool: '',
-            school: '杜伦大学 教育学硕士',
+            school: '芝加哥洛约拉大学 会计学硕士',
+            baSchool: '复旦大学 药学&经济学双学位学士',
+            experience: '本科期间双专业，研究生成功转专业，并在就读期间于芝加哥当地企业任职，回国后加入棕榈，挖掘学生自身诉求与职业思考，为其提供相适应的背景提升方案与辅导。',
+            expertise: '商科同学背景提升',
+            demo: '辅导同学拿到中金、凯捷、京东、腾讯、国泰君安、尼尔森、益普索、四大等实习offer，以及全球top50院校交流交换和暑研机会。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Hoston.png'),
+            name: 'Hoston 老师',
+            phdSchool: '',
+            school: '印第安纳大学伯明顿分校 信息系统学学士',
             baSchool: '',
-            experience: '在英国完成教育学研究生学业，回国后曾在世界500强公司担任管培生，后加入棕榈大道担任种子主导师，希望给予留学路上迷茫的孩子专业的指导，精细的规划，留学的路上你不再孤单。',
-            expertise: '理工科同学背景提升',
-            demo: '辅导同学拿到耶鲁大学、香港科技大学、腾讯、人民在线、四大、天风证券、中国太平洋保险等实习/科研offer，以及全球TOP50院校交换交流机会。'
+            experience: '在美国学习、生活十年，先后在金融机构以及互联网大厂实习。毕业后曾在中国500强企业，以及金融行业全职工作，此后加入棕榈，凭借丰富的经验为学生制定多样化的背景提升方案。',
+            expertise: '理工科，商科背景提升',
+            demo: '辅导同学收获摩根史丹利、美团、Optiver、吉利汽车、腾讯、中信证券、蓝色光标等实习offer，以及获得包括麻省理工大学、哥伦比亚大学、北卡罗莱纳州立大学、清华大学和浙江大学在内的多所高校的科研项目机会。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Caroline.png'),
+            name: 'Caroline 老师',
+            phdSchool: '',
+            school: '宾夕法尼亚大学 TESOL硕士',
+            baSchool: '',
+            experience: '本科英日双语，研究生主攻英语教育，期间积累了大量第二语言教学经验。毕业后曾在新航道任教教授托福口语，并在船舶保险行业做海外事业部负责人。此后加入棕榈，为学生提供个性化的背景提升方案与辅导。',
+            expertise: '文商科同学背景提升',
+            demo: '辅导同学拿到社科院、中国发展基金会、欧莱雅、奥美、奥迪中国、澎湃新闻、盈科律所和君合律所等实习offer，以及全球TOP 50院校交流交换和暑研机会。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Jenny.png'),
+            name: 'Jenny 老师',
+            phdSchool: '',
+            school: '范德堡大学 国际教育政策和管理硕士',
+            baSchool: '',
+            experience: '本科期间积累了丰富的二语教学经验，硕士期间专注研究国际教育政策以及教育创新，以助研的身份参与了多项国际教育相关的科研项目；在棕榈，根据学生学业背景和兴趣方向，分析同学最适合和最富有竞争力的专业选择，提供个性化的背景提升方案和辅导。',
+            expertise: '文商科同学背景提升',
+            demo: '辅导同学拿到腾讯、网易有道、IBM、蓝色光标、益普索、波士顿咨询集团、海国图智以及国金证券等实习offer，以及全球TOP50暑期学校和科研项目offer。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/June.png'),
+            name: 'June 老师',
+            phdSchool: '',
+            school: '香港大学TESOL硕士',
+            baSchool: '',
+            experience: '作为语言学习者，本科和研究生期间积累了丰富的英语教学经验并建立了良好的沟通能力；研究生毕业后，在香港公关行业全职工作两年。希望利用海外求学和工作的经历帮助同学们做好留学准备。',
+            expertise: '文商科同学背景提升',
+            demo: '辅导学生拿到花旗银行、德勤、安永、奥美、艾美仕、爱奇艺、凤凰新闻网等多家名企实习offer，以及获得全球TOP50暑期学校和交换交流的机会。'
           }
         ],
         [
