@@ -31,7 +31,8 @@
             <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class="school-into">
               <div class="school-name">{{ item.name }}</div>
-              <div class="school-offer">{{ item.offer }}</div>
+              <!-- <div class="school-offer">{{ item.offer }}</div> -->
+              <animate-number class="school-offer" from="1" :to="item.offer" duration="3000"></animate-number>
               <span class="offer-text">offer</span>
             </div>
           </div>
@@ -49,7 +50,8 @@
             <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class="number-into">
               <div class="number-name">{{ item.title }}</div>
-              <div class="number">{{ item.number }}</div>
+              <animate-number class="number" from="1" :to="item.number" duration="3000"></animate-number>
+              <div class="number">{{ item.number2 }}</div>
               <span class="number-text" v-if="index == 0">位</span>
               <span class="number-text" v-if="index == 1">份</span>
             </div>
@@ -471,12 +473,12 @@ export default {
         {
           logo: require('../assets/img/home/school/zjg.png'),
           name: '芝加哥大学',
-          offer: 131
+          offer: 141
         },
         {
           logo: require('../assets/img/home/school/bxfny.png'),
           name: '宾夕法尼亚大学',
-          offer: 209
+          offer: 214
         },
         {
           logo: require('../assets/img/home/school/dk.png'),
@@ -486,12 +488,12 @@ export default {
         {
           logo: require('../assets/img/home/school/kne.png'),
           name: '康奈尔大学',
-          offer: 178
+          offer: 181
         },
         {
           logo: require('../assets/img/home/school/glby.png'),
           name: '哥伦比亚大学',
-          offer: 553
+          offer: 579
         },
         {
           logo: require('../assets/img/home/school/nj.png'),
@@ -501,7 +503,7 @@ export default {
         {
           logo: require('../assets/img/home/school/jq.png'),
           name: '剑桥大学',
-          offer: 28
+          offer: 31
         },
         {
           logo: require('../assets/img/home/school/dglg.png'),
@@ -511,44 +513,48 @@ export default {
         {
           logo: require('../assets/img/home/school/ldzzjj.png'),
           name: '伦敦政治经济学院',
-          offer: 182
+          offer: 201
         },
         {
           logo: require('../assets/img/home/school/lddx.png'),
           name: '伦敦大学学院',
-          offer: 253
+          offer: 321
         },
         {
           logo: require('../assets/img/home/school/xjpgl.png'),
           name: '新加坡国立大学',
-          offer: 137
+          offer: 161
         },
         {
           logo: require('../assets/img/home/school/xg.png'),
           name: '香港大学',
-          offer: 136
+          offer: 156
         }
       ],
       numbers: [
         {
           logo: require('../assets/img/home/number/number1.png'),
           title: '学生总数',
-          number: '7000+'
+          number: '7800',
+          number2: '+'
         },
         {
           logo: require('../assets/img/home/number/number2.png'),
           title: '硕博Top100 offer',
-          number: '10000+'
+          number: '14500',
+          number2: '+'
         },
         {
           logo: require('../assets/img/home/number/number3.png'),
           title: '背景提升率',
-          number: '90%'
+          number: '95',
+          number2: '%'
         },
         {
           logo: require('../assets/img/home/number/number4.png'),
           title: '奖学金总额',
-          number: '13亿+'
+          number: '15',
+          number2: '亿+'
         }
       ],
       intros: [

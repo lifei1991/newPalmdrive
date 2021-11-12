@@ -30,7 +30,8 @@
             <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class='number-into'>
               <div class='number-name'>{{ item.title }}</div>
-              <div class='number'>{{ item.number }}</div>
+              <animate-number class="number" from="1" :to="item.number" duration="3000"></animate-number>
+              <div class="number">{{ item.number2 }}</div>
               <span class='number-text' v-if='index == 0'>位</span>
               <span class='number-text' v-if='index == 1'>份</span>
             </div>
@@ -42,7 +43,8 @@
           <div class='places-div'>
             <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
               <div class='place-title'>{{ item.title }}</div>
-              <div class='place-number'>{{ item.number }}</div>
+              <!-- <div class='place-number'>{{ item.number }}</div> -->
+              <animate-number class="place-number" from="1" :to="item.number" duration="3000"></animate-number>
               <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
             </div>
           </div>
@@ -52,7 +54,8 @@
             <div class='school-into'>
               <div class='school-name'>{{ item.name }}</div>
               <span class='offer-text'>Offer 数量：</span>
-              <div class='school-offer'>{{ item.offer }}</div>
+              <!-- <div class='school-offer'>{{ item.offer }}</div> -->
+              <animate-number class="school-offer" from="1" :to="item.offer" duration="3000"></animate-number>
             </div>
           </div>
           <!-- <div class='more-offer'>
@@ -224,7 +227,7 @@ export default {
           {
             logo: require('../assets/img/home/school/bxfny.png'),
             name: '宾夕法尼亚大学',
-            offer: 209
+            offer: 214
           },
           {
             logo: require('../assets/img/home/school/dk.png'),
@@ -234,12 +237,12 @@ export default {
           {
             logo: require('../assets/img/home/school/kne.png'),
             name: '康奈尔大学',
-            offer: 178
+            offer: 181
           },
           {
             logo: require('../assets/img/home/school/glby.png'),
             name: '哥伦比亚大学',
-            offer: 553
+            offer: 579
           },
           {
             logo: require('../assets/img/home/school/plsd.png'),
@@ -249,7 +252,7 @@ export default {
           {
             logo: require('../assets/img/home/school/zjg.png'),
             name: '芝加哥大学',
-            offer: 131
+            offer: 141
           },
           {
             logo: require('../assets/img/home/school/yl.png'),
@@ -259,7 +262,7 @@ export default {
           {
             logo: require('../assets/img/home/school/xbdx.png'),
             name: '西北大学',
-            offer: 88
+            offer: 90
           },
           {
             logo: require('../assets/img/home/school/ysglby.png'),
@@ -269,7 +272,7 @@ export default {
           {
             logo: require('../assets/img/home/school/mje.png'),
             name: '麦吉尔大学',
-            offer: 16
+            offer: 17
           },
           {
             logo: require('../assets/img/home/school/dld.png'),
@@ -281,7 +284,7 @@ export default {
           {
             logo: require('../assets/img/home/school/jq.png'),
             name: '剑桥大学',
-            offer: 28
+            offer: 31
           },
           {
             logo: require('../assets/img/home/school/nj.png'),
@@ -296,12 +299,12 @@ export default {
           {
             logo: require('../assets/img/home/school/lddx.png'),
             name: '伦敦大学学院',
-            offer: 253
+            offer: 321
           },
           {
             logo: require('../assets/img/home/school/ldzzjj.png'),
             name: '伦敦政治经济学院',
-            offer: 182
+            offer: 201
           },
           {
             logo: require('../assets/img/home/school/ldgw.png'),
@@ -400,7 +403,7 @@ export default {
           {
             logo: require('../assets/img/home/school/xg.png'),
             name: '香港大学',
-            offer: 136
+            offer: 156
           },
           {
             logo: require('../assets/img/home/school/xgkj.png'),
@@ -420,7 +423,7 @@ export default {
           {
             logo: require('../assets/img/home/school/xjpgl.png'),
             name: '新加坡国立大学',
-            offer: 137
+            offer: 161
           }
         ]
       ],
@@ -428,44 +431,48 @@ export default {
         {
           logo: require('../assets/img/offers/number/number1.png'),
           title: '学生总数',
-          number: '7000+'
+          number: '7800',
+          number2: '+'
         },
         {
           logo: require('../assets/img/offers/number/number2.png'),
           title: '硕博Top100 offer',
-          number: '10000+'
+          number: '14500',
+          number2: '+'
         },
         {
           logo: require('../assets/img/offers/number/number3.png'),
           title: '背景提升率',
-          number: '90%'
+          number: '95',
+          number2: '%'
         },
         {
           logo: require('../assets/img/offers/number/number4.png'),
           title: '奖学金总额',
-          number: '13亿+'
+          number: '15',
+          number2: '亿+'
         }
       ],
       places: [
         {
           img: require('../assets/img/offers/place/place1.png'),
           title: '北美 Offer',
-          number: '8316'
+          number: '7900'
         },
         {
           img: require('../assets/img/offers/place/place2.png'),
           title: '英国/澳洲 Offer',
-          number: '5108'
+          number: '5200'
         },
         {
           img: require('../assets/img/offers/place/place3.png'),
           title: '欧洲 Offer',
-          number: '299'
+          number: '617'
         },
         {
           img: require('../assets/img/offers/place/place4.png'),
           title: '中国香港/新加坡 Offer',
-          number: '903'
+          number: '936'
         }
       ],
       demoTypes: [

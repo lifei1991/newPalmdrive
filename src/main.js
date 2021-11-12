@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueResource from 'vue-resource'
 // import axios from 'axios'
 // import $ from 'jquery'
+import VueAnimateNumber from 'vue-animate-number'
 
 Vue.use(ElementUI)
 // Vue.use(Popover)
@@ -17,6 +18,7 @@ Vue.use(VueResource)
 // Vue.use(axios)
 Vue.config.productionTip = false
 // window.jquery = window.$ = $
+Vue.use(VueAnimateNumber)
 
 // 每次跳转到页面顶部
 // router.afterEach((to, from, next) => {

@@ -7,15 +7,26 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">1800+</div>
+            <div class="info-number" style="font-size: 0px;">
+              <animate-number from="1" to="2600" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">+</span>
+            </div>
             <div class="info-text" style="line-height:28px">种子学生</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">95%</div>
+            <div class="info-number" style="font-size: 0px;">
+              <animate-number from="1" to="93" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">%</span>
+            </div>
+            <!-- <div class="info-number">93%</div> -->
             <div class="info-text" style="line-height:28px">背景提升率</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">3200+</div>
+            <div class="info-number" style="font-size: 0px; width: 78px">
+              <animate-number from="1" to="4800" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">+</span>
+            </div>
+            <!-- <div class="info-number">4800+</div> -->
             <div class="info-text"  style="text-align: center"> 背景提升<br/>Offer</div>
           </div>
 
