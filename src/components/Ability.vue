@@ -122,8 +122,9 @@
 
         <div class="banner7-div">
           <div class="numbers-div">
-            <div class="all-student-div" v-for="item in numbers" :key="item.text" >
-              <div class="number">{{ item.title1 }}<span>{{ item.title2 }}</span></div>
+            <div class="all-student-div" v-for="(item, index) in numbers" :key="item.text" >
+              <div class="number" v-if="index != 2"><animate-number from="1" :to="item.title1" duration="3000" :formatValue="formatToPeople"></animate-number><span class="title2">{{ item.title2 }}</span></div>
+              <div class="number" v-if="index == 2"><animate-number from="1" :to="item.title1" duration="3000" :formatValue="formatToPeople"></animate-number>.2<span class="title2">{{ item.title2 }}</span></div>
               <div class="number-text">{{ item.text }}</div>
             </div>
           </div>
@@ -910,6 +911,9 @@ export default {
     })
   },
   methods: {
+    formatToPeople (value) {
+      return value.toFixed(2)
+    },
     showMoreTeachers () {
       this.maxNumber = 100
     },
@@ -1565,7 +1569,7 @@ export default {
             opacity:1;
             // letter-spacing: -3px;
 
-            span {
+            .title2 {
               font-size:24px;
               font-family:SourceHanSansCN;
               font-weight:bold;

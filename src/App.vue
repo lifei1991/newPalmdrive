@@ -15,7 +15,7 @@
 
           <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li>
+          <!-- <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li> -->
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
 
@@ -360,12 +360,12 @@
                   @click.native="isshow = false">
                 </cell>
 
-              <cell
+              <!-- <cell
                 title="导师团队"
                 link="/teachers"
                 :border-intent="false"
                 @click.native="isshow = false">
-              </cell>
+              </cell> -->
 
               <cell
                 title="成功案例"

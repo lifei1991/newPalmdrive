@@ -1786,6 +1786,11 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
       }
+
+      .each-program:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
+      }
     }
 
     .banner8-div {
@@ -1883,6 +1888,11 @@ export default {
           background-repeat: no-repeat;
           background-size: cover;
           cursor: pointer;
+        }
+
+        .each-program:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
         }
       }
 
