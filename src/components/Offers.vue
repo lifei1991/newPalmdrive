@@ -15,7 +15,7 @@
           <div class='info2-div'>
             <!-- <div class='info-number'>80%</div> -->
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="80" duration="3000" style="font-size: 35px;"></animate-number>
+              <animate-number from="1" to="83" duration="3000" style="font-size: 35px;"></animate-number>
               <span style="width: auto; font-size: 35px;">%</span>
             </div>
             <div class='info-text'>世界排名前 50 名校录取 Offer 比例</div>

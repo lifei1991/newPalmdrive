@@ -776,6 +776,11 @@ export default {
             margin: 0 -18px;
           }
         }
+
+        .each-dynamic:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
       }
     }
 

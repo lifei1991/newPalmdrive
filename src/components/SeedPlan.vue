@@ -1522,6 +1522,11 @@ export default {
           }
         }
 
+        .each-story:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+
         .more-teachers {
           font-size:13px;
           font-family:PingFang SC;

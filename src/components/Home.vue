@@ -7,15 +7,27 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">99.4%</div>
+            <!-- <div class="info-number">99.4%</div> -->
+            <div class="info-number" style="font-size: 0px;">
+              <animate-number from="1" to="99.4" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">.4%</span>
+            </div>
             <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">80%</div>
+            <!-- <div class="info-number">80%</div> -->
+            <div class="info-number" style="font-size: 0px;">
+              <animate-number from="1" to="83" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">%</span>
+            </div>
             <div class="info-text">世界排名前50名校</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">82%</div>
+            <!-- <div class="info-number">82%</div> -->
+            <div class="info-number" style="font-size: 0px;">
+              <animate-number from="1" to="94.3" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">.3%</span>
+            </div>
             <div class="info-text">世界排名前100名校录取offer比例</div>
           </div>
 
@@ -262,11 +274,11 @@
             <div class="info-text" style="line-height:28px">学校申请成功率</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">80%</div>
+            <div class="info-number">83%</div>
             <div class="info-text">世界排名前50名校录取offer比例</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">82%</div>
+            <div class="info-number">94.3%</div>
             <div class="info-text">世界排名前100名校录取offer比例</div>
           </div>
 
@@ -2016,6 +2028,11 @@ export default {
             margin: 0 -18px;
           }
         }
+
+        .each-dynamic:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
       }
     }
 
@@ -2311,6 +2328,11 @@ export default {
             border-radius:6px;
             margin: 44px auto 0px;
           }
+        }
+
+        .each-product:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
         }
       }
     }

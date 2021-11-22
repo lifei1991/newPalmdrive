@@ -608,6 +608,11 @@ export default {
             margin: 0 -18px;
           }
         }
+
+        .each-dynamic:hover {
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
       }
     }
 
@@ -656,6 +661,11 @@ export default {
         cursor: pointer;
       }
 
+      .img1:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
+      }
+
       .img2 {
         width: 478px;
         height: 236px;
@@ -667,6 +677,11 @@ export default {
         box-shadow:5px 5px 6px rgba(47,47,47,0.21);
         border-radius: 18px;
         cursor: pointer;
+      }
+
+      .img2:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
       }
     }
   }
