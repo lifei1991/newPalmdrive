@@ -200,7 +200,7 @@
         </div>
       </div> -->
 
-      <div class="banner8-2-div">
+      <!-- <div class="banner8-2-div">
         <div class="title">近期活动</div>
         <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
         <div class="activity-div">
@@ -214,7 +214,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="banner9-div">
         <div class="title">最新动态</div>
@@ -381,7 +381,7 @@
         </div>
       </div>
 
-      <div class="banner8-2-div">
+      <!-- <div class="banner8-2-div">
         <div class="title">近期活动</div>
         <div class="title2">右下角扫码关注公众号，及时获得活动信息。</div>
         <div class="activity-div">
@@ -395,7 +395,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="banner9-div">
         <div class="title">最新动态</div>
