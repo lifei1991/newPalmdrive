@@ -639,11 +639,11 @@ export default {
         {
           img: require('./assets/img/home/foot/zlxy-code.png'),
           name: '棕榈学院'
-        },
-        {
-          img: require('./assets/img/home/foot/htyy-code.png'),
-          name: '核桃英语'
         }
+        // {
+        //   img: require('./assets/img/home/foot/htyy-code.png'),
+        //   name: '核桃英语'
+        // }
       ],
       menus: [
         {
