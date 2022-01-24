@@ -7,8 +7,8 @@
           <div class='info1-div'>
             <!-- <div class='info-number'>99.4%</div> -->
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="99.4" duration="3000" style="font-size: 35px;"></animate-number>
-              <span style="width: auto; font-size: 35px;">.4%</span>
+              <animate-number from="1" to="95" duration="3000" style="font-size: 35px;"></animate-number>
+              <span style="width: auto; font-size: 35px;">%+</span>
             </div>
             <div class='info-text'>学校申请成功率达</div>
           </div>
@@ -16,15 +16,15 @@
             <!-- <div class='info-number'>80%</div> -->
             <div class="info-number" style="font-size: 0px;">
               <animate-number from="1" to="83" duration="3000" style="font-size: 35px;"></animate-number>
-              <span style="width: auto; font-size: 35px;">%</span>
+              <span style="width: auto; font-size: 35px;">%+</span>
             </div>
             <div class='info-text'>世界排名前 50 名校录取 Offer 比例</div>
           </div>
           <div class='info3-div'>
             <!-- <div class='info-number'>96.5%</div> -->
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="96.5" duration="3000" style="font-size: 35px;"></animate-number>
-              <span style="width: auto; font-size: 35px;">.5%</span>
+              <animate-number from="1" to="96" duration="3000" style="font-size: 35px;"></animate-number>
+              <span style="width: auto; font-size: 35px;">%+</span>
             </div>
             <div class='info-text'>申请满意度</div>
           </div>

@@ -12,14 +12,14 @@
             <div class='info-text'>棕榈种子学员共拿到 背景提升 offer</div>
           </div>
           <div class='info2-div'>
-            <animate-number class="info-number" from="1" to="93" duration="3000" style="width: auto; display: inline-block"></animate-number>
-            <div class='info-number' style="width: auto; display: inline-block;">%</div>
+            <animate-number class="info-number" from="1" to="91" duration="3000" style="width: auto; display: inline-block"></animate-number>
+            <div class='info-number' style="width: auto; display: inline-block;">%+</div>
             <div class='info-text'>棕榈种子学员拿到 背景提升 offer </div>
           </div>
           <div class='info3-div'>
             <!-- <div class='info-number'>85%</div> -->
             <animate-number class="info-number" from="1" to="83" duration="3000" style="width: auto; display: inline-block"></animate-number>
-            <div class='info-number' style="width: auto; display: inline-block;">%</div>
+            <div class='info-number' style="width: auto; display: inline-block;">%+</div>
             <div class='info-text'>棕榈种子学员申请季 拿到世界 Top50 的 offer</div>
           </div>
 

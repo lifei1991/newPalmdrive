@@ -15,8 +15,8 @@
           </div>
           <div class="info2-div">
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="93" duration="3000" style="font-size: 28px;"></animate-number>
-              <span style="width: auto; font-size: 28px;">%</span>
+              <animate-number from="1" to="91" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">%+</span>
             </div>
             <!-- <div class="info-number">93%</div> -->
             <div class="info-text" style="line-height:28px">背景提升率</div>
@@ -169,7 +169,7 @@
             <div class="info-text" style="line-height: 0.7rem">种子学生</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">93%</div>
+            <div class="info-number">91%+</div>
             <div class="info-text" style="line-height: 0.7rem">背景提升率</div>
           </div>
           <div class="info3-div">
