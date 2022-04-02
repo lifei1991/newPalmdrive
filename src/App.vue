@@ -113,7 +113,7 @@
               <img src="./assets/img/home/foot/contact2.png" class="contact2-img" />全国客服: 400-006-2153
             </div>
             <div class="text">
-              <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：13166027163
+              <img src="./assets/img/home/foot/contact3.png" class="contact2-img" />留学辅导咨询微信：13166319708
             </div>
             <div class="text">
               <img src="./assets/img/home/foot/contact4.png" class="contact2-img" />邮箱：suggestions@palmdrive.cn
@@ -434,7 +434,7 @@
               </div>
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact5.png" class="link-logo" />
-                <span>留学辅导咨询微信：13166027163</span>
+                <span>留学辅导咨询微信：13166319708</span>
               </div>
               <div class="link">
                 <img src="./assets/img/home/mobile/foot/contact6.png" class="link-logo" />
