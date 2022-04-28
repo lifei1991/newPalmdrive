@@ -314,7 +314,8 @@
             <div class="number-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class="number-into">
               <div class="number-name">{{ item.title }}</div>
-              <div class="number">{{ item.number }}</div>
+              <animate-number class="number" from="1" :to="item.number" duration="3000"></animate-number>
+              <div class="number">{{ item.number2 }}</div>
               <span class="number-text" v-if="index == 0">位</span>
               <span class="number-text" v-if="index == 1">份</span>
             </div>
