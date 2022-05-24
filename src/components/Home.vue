@@ -36,8 +36,11 @@
       </div>
 
       <div class="banner2-div">
-        <div class="title">offer 战绩</div>
-        <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div>
+        <div class="title">硕博 offer 战绩</div>
+        <!-- <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div> -->
+        <a href="#/offers" target="_blank">
+            <div class="title2 my-container">查看更多国家地区的硕博offer</div>
+          </a>
         <div class="school-div">
           <div class="each-school-div" v-for="item in schools" :key="item.logo">
             <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
@@ -288,8 +291,11 @@
 
       <div class="banner2-div">
         <div class="content">
-          <div class="title">offer 战绩</div>
-          <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div>
+          <div class="title">硕博 offer 战绩</div>
+          <!-- <div class="title2">7000+ 世界名校毕业生导师，涵盖200+专业</div> -->
+          <a href="#/offers" target="_blank">
+            <div class="title2 my-container">查看更多国家地区的硕博offer</div>
+          </a>
           <div class="school-div">
             <div class="each-school-div" v-for="(item, index) in schools" :key="item.logo" v-if="index < 8">
               <div class="school-logo" :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
@@ -3319,6 +3325,30 @@ export default {
   /* .slide-fade-leave-active for below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+  }
+
+  // 呼吸灯效果
+  .my-container {
+      // background: #ff5c33;
+      color: #018a8d !important;
+      width: 250px;
+      text-align: center;
+      // height: 28px;
+      // line-height: 31px !important;
+      border-radius: 32px;
+      animation: myBreath 1s linear infinite;
+      margin: 0 auto;
+  }
+  @keyframes myBreath {
+      0%{
+          transform: scale(0.88);
+      }
+      50%{
+          transform: scale(100%);
+      }
+      100%{
+          transform: scale(0.88);
+      }
   }
 }
 </style>
