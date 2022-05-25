@@ -3347,6 +3347,7 @@ export default {
       -moz-backface-visibility: hidden;
       -ms-backface-visibility: hidden;
       backface-visibility: hidden;
+      perspective: 500;
       -webkit-perspective: 500;
       -moz-perspective: 500;
       -ms-perspective: 500;
@@ -3363,28 +3364,28 @@ export default {
     //     transform: scale(0.88);
     // }
 
-    from {font-size:16px;}
-    to {font-size:18px;}
+    from {transform: scale(0.88);}
+    to {transform: scale(1);}
   }
 
   @-webkit-keyframes myBreath {
-    from {font-size:16px;}
-    to {font-size:18px;}
+    from {transform: scale(0.88);}
+    to {transform: scale(1);}
   }
 
   @-moz-keyframes myBreath{
-    from {font-size:16px;}
-    to {font-size:18px;}
+    from {transform: scale(0.88);}
+    to {transform: scale(1);}
   }
 
   @-o-keyframes myBreath{
-    from {font-size:16px;}
-    to {font-size:18px;}
+    from {transform: scale(0.88);}
+    to {transform: scale(1);}
   }
 
   @-ms-keyframes myBreath{
-    from {font-size:16px;}
-    to {font-size:18px;}
+    from {transform: scale(0.88);}
+    to {transform: scale(1);}
   }
 }
 </style>
