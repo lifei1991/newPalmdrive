@@ -3331,24 +3331,60 @@ export default {
   .my-container {
       // background: #ff5c33;
       color: #018a8d !important;
-      width: 250px;
+      width: 300px;
       text-align: center;
       // height: 28px;
       // line-height: 31px !important;
       border-radius: 32px;
-      animation: myBreath 1s linear infinite;
       margin: 0 auto;
+      animation: myBreath 1s linear infinite;
+      -webkit-animation: myBreath 0.5s linear infinite alternate;/*Webkit内核的浏览器（如 Safari、Chrome）*/
+      -moz-animation: myBreath 1s linear infinite alternate;/*gecko内核的浏览器（如 Firefox）*/
+      -o-animation: myBreath 1s linear infinite alternate;/*Opera 浏览器*/
+      -ms-animation: myBreath 1s linear infinite alternate;/*IE8+*/
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 500;
+      -moz-perspective: 500;
+      -ms-perspective: 500;
+      perspective: 500;
   }
   @keyframes myBreath {
-      0%{
-          transform: scale(0.88);
-      }
-      50%{
-          transform: scale(100%);
-      }
-      100%{
-          transform: scale(0.88);
-      }
+    // 0%{
+    //     transform: scale(0.88);
+    // }
+    // 50%{
+    //     transform: scale(100%);
+    // }
+    // 100%{
+    //     transform: scale(0.88);
+    // }
+
+    from {font-size:16px;}
+    to {font-size:18px;}
+  }
+
+  @-webkit-keyframes myBreath {
+    from {font-size:16px;}
+    to {font-size:18px;}
+  }
+
+  @-moz-keyframes myBreath{
+    from {font-size:16px;}
+    to {font-size:18px;}
+  }
+
+  @-o-keyframes myBreath{
+    from {font-size:16px;}
+    to {font-size:18px;}
+  }
+
+  @-ms-keyframes myBreath{
+    from {font-size:16px;}
+    to {font-size:18px;}
   }
 }
 </style>
