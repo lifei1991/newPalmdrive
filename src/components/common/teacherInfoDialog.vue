@@ -27,7 +27,7 @@
 
               <div v-if="selectTeacher.school">
                 <div class="title">研究生背景</div>
-                <div class="school">{{ selectTeacher.school }}</div>
+                <div class="school" v-html="selectTeacher.school"></div>
               </div>
 
               <div v-if="selectTeacher.baSchool != ''">

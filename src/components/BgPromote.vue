@@ -6,14 +6,14 @@
         <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class='info1-div'>
             <div class='info-number'>
-              <animate-number class='info-number' from="1" to="4800" duration="3000" style="font-size: 35px;"></animate-number>
+              <animate-number class='info-number' from="1" to="4900" duration="3000" style="font-size: 35px;"></animate-number>
               <div class='info-number' style="width: auto; display: inline-block;">+</div>
               <span> 个</span></div>
             <div class='info-text'>棕榈种子学员共拿到 背景提升 offer</div>
           </div>
           <div class='info2-div'>
-            <animate-number class="info-number" from="1" to="91" duration="3000" style="width: auto; display: inline-block"></animate-number>
-            <div class='info-number' style="width: auto; display: inline-block;">%+</div>
+            <animate-number class="info-number" from="1" to="93" duration="3000" style="width: auto; display: inline-block"></animate-number>
+            <div class='info-number' style="width: auto; display: inline-block;">.22%</div>
             <div class='info-text'>棕榈种子学员拿到 背景提升 offer </div>
           </div>
           <div class='info3-div'>
@@ -89,7 +89,26 @@
 
     <div v-if="isMobile" class="mobile-div">
       <div class='banner1-div'>
-        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}"></div>
+        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+          <div class='banner1-number'>
+              2700+
+          </div>
+          <div class='info1-div'>
+            <div class='info-number'>
+              <animate-number class='info-number' from="1" to="4900" duration="3000"></animate-number>
+              <div class='info-number' style="width: auto; display: inline-block;">+个</div>
+              <span> </span></div>
+          </div>
+          <div class='info2-div'>
+            <animate-number class="info-number" from="1" to="93" duration="3000" style="width: auto; display: inline-block"></animate-number>
+            <div class='info-number' style="width: auto; display: inline-block;">.22%</div>
+          </div>
+          <div class='info3-div'>
+            <!-- <div class='info-number'>85%</div> -->
+            <animate-number class="info-number" from="1" to="83" duration="3000" style="width: auto; display: inline-block"></animate-number>
+            <div class='info-number' style="width: auto; display: inline-block;">%+</div>
+          </div>
+        </div>
       </div>
 
       <div class='banner2-div'>
@@ -449,14 +468,14 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/1.png'),
-            number: '278',
+            number: '299',
             number2: '+',
             text: '德勤、普华永道、安永、毕马威等顶级会计审计 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/2.png'),
-            number: '164',
+            number: '171',
             number2: '+',
             text: 'JP Morgen、Morgan Stanley、中金、中信等顶级投行券商 offer',
             bgColor: 'rgba(107,219,210,.19)'
@@ -477,21 +496,21 @@ export default {
           },
           {
             img: require('../assets/img/bgPromote/demo/5.png'),
-            number: '556',
+            number: '585',
             number2: '+',
             text: '阿里巴巴、腾讯等 BAT 互联网公司 offer',
             bgColor: 'rgba(89,157,149,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/6.png'),
-            number: '187',
+            number: '195',
             number2: '+',
             text: '汇丰银行、平安保险等银行保险类公司 offer',
             bgColor: 'rgba(239,223,104,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/7.png'),
-            number: '291',
+            number: '299',
             number2: '+',
             text: '联合国、世界贸易组织、商务部等国际组织政府高校智库等 offer',
             bgColor: 'rgba(224,117,65,.19)'
@@ -512,7 +531,7 @@ export default {
           },
           {
             img: require('../assets/img/bgPromote/demo/10.png'),
-            number: '455',
+            number: '464',
             number2: '+',
             text: '外研社、ABC 美好社会公益、SEED 等教育、NGO/GO offer',
             bgColor: 'rgba(107,219,210,.19)'
@@ -528,21 +547,21 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/12.png'),
-            number: '173',
+            number: '184',
             number2: '+',
             text: '麻省理工大学、哈佛大学等世界知名高校科研类 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/13.png'),
-            number: '242',
+            number: '246',
             number2: '+',
             text: '清华大学，北京大学等国内知名高校科研类 offer',
             bgColor: 'rgba(107,219,210,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/14.png'),
-            number: '43',
+            number: '51',
             number2: '+',
             text: '中国科学院、欧洲核子研究院等知名研究所项目科研 offer',
             bgColor: 'rgba(221,175,103,.19)'
@@ -551,14 +570,14 @@ export default {
         [
           {
             img: require('../assets/img/bgPromote/demo/15.png'),
-            number: '188',
+            number: '199',
             number2: '+',
             text: '剑桥大学、哥伦比亚大学等世界知名高校海外交换 offer',
             bgColor: 'rgba(119,183,235,.19)'
           },
           {
             img: require('../assets/img/bgPromote/demo/16.png'),
-            number: '53',
+            number: '55',
             number2: '+',
             text: '清华大学、中国科学院大学等国内高校研究所交换 offer',
             bgColor: 'rgba(107,219,210,.19)'
@@ -1183,7 +1202,7 @@ export default {
     }
   },
   created () {
-    this.banner1 = this.isMobile ? require('../assets/img/bgPromote/mobile/banner1.png') : require('../assets/img/bgPromote/banner1.png')
+    this.banner1 = this.isMobile ? require('../assets/img/bgPromote/mobile/banner1-2.png') : require('../assets/img/bgPromote/banner2.png')
     this.selectSchool = this.schools[0]
     this.selectedDemo = this.demos[0]
     this.selectedStory = this.stories[0]
@@ -1601,30 +1620,39 @@ export default {
         left: 50%;
         margin-left: -4.48rem;
 
+        .banner1-number {
+          font-size:0.4rem;
+          color: #fff;
+          font-weight:bold;
+          position: absolute;
+          top: 1.5rem;
+          left: 0.72rem;
+        }
+
         .info1-div {
           position: absolute;
-          bottom: 60px;
-          left: 28px;
+          bottom: 1.5rem;
+          left: 0.23rem;
           text-align: center;
         }
 
         .info2-div {
           position: absolute;
-          bottom: 60px;
-          left: 203px;
+          bottom: 1.5rem;
+          left: 2.5rem;
           text-align: center;
         }
 
         .info3-div {
           position: absolute;
-          bottom: 60px;
-          left: 375px;
+          bottom: 1.5rem;
+          left: 4.6rem;
           text-align: center;
         }
 
         .info-number {
           // width: 75px;
-          font-size:35px;
+          font-size:0.4rem;
           font-family:Biko;
           font-weight:bold;
           line-height:35px;

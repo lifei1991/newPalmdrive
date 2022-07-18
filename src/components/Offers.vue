@@ -48,7 +48,7 @@
               <span class='number-text' v-if='index == 1'>份</span>
             </div>
           </div>
-          <div class='number-dataLine'>*数据截止到2021年5月</div>
+          <div class='number-dataLine'>*数据截止到2022年7月</div>
         </div>
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
@@ -56,7 +56,7 @@
             <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
               <div class='place-title'>{{ item.title }}</div>
               <!-- <div class='place-number'>{{ item.number }}</div> -->
-              <animate-number class="place-number" from="1" :to="item.number" duration="3000"></animate-number>
+              <animate-number class="place-number" from="1" :to="item.number" duration="3000" :key="item.title"></animate-number>
               <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
             </div>
           </div>
@@ -67,7 +67,7 @@
               <div class='school-name'>{{ item.name }}</div>
               <span class='offer-text'>Offer 数量：</span>
               <!-- <div class='school-offer'>{{ item.offer }}</div> -->
-              <animate-number class="school-offer" from="1" :to="item.offer" duration="3000"></animate-number>
+              <animate-number class="school-offer" from="1" :to="item.offer" duration="3000" :key="item.name"></animate-number>
             </div>
           </div>
           <!-- <div class='more-offer'>
@@ -136,7 +136,7 @@
               <span class='number-text' v-if='index == 1'>份</span>
             </div>
           </div>
-          <div class='number-dataLine'>*数据截止到2021年5月</div>
+          <div class='number-dataLine'>*数据截止到2022年7月</div>
         </div>
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
@@ -220,42 +220,42 @@ export default {
           {
             logo: require('../assets/img/home/school/hf.png'),
             name: '哈佛大学',
-            offer: 35
+            offer: 47
           },
           {
             logo: require('../assets/img/home/school/mslg.png'),
             name: '麻省理工',
-            offer: 11
+            offer: 12
           },
           {
             logo: require('../assets/img/home/school/stf.png'),
             name: '斯坦福大学',
-            offer: 34
+            offer: 41
           },
           {
             logo: require('../assets/img/home/school/jzdxbkl.png'),
             name: '加州大学伯克利分校',
-            offer: 83
+            offer: 107
           },
           {
             logo: require('../assets/img/home/school/bxfny.png'),
             name: '宾夕法尼亚大学',
-            offer: 214
+            offer: 278
           },
           {
             logo: require('../assets/img/home/school/dk.png'),
             name: '杜克大学',
-            offer: 189
+            offer: 218
           },
           {
             logo: require('../assets/img/home/school/kne.png'),
             name: '康奈尔大学',
-            offer: 181
+            offer: 242
           },
           {
             logo: require('../assets/img/home/school/glby.png'),
             name: '哥伦比亚大学',
-            offer: 579
+            offer: 744
           },
           {
             logo: require('../assets/img/home/school/plsd.png'),
@@ -265,178 +265,183 @@ export default {
           {
             logo: require('../assets/img/home/school/zjg.png'),
             name: '芝加哥大学',
-            offer: 141
+            offer: 177
           },
           {
             logo: require('../assets/img/home/school/yl.png'),
             name: '耶鲁大学',
-            offer: 51
+            offer: 65
           },
           {
             logo: require('../assets/img/home/school/xbdx.png'),
             name: '西北大学',
-            offer: 90
+            offer: 127
           },
           {
             logo: require('../assets/img/home/school/ysglby.png'),
             name: '英属哥伦比亚大学',
-            offer: 27
+            offer: 38
           },
           {
             logo: require('../assets/img/home/school/mje.png'),
             name: '麦吉尔大学',
-            offer: 17
+            offer: 21
           },
           {
             logo: require('../assets/img/home/school/dld.png'),
             name: '多伦多大学',
-            offer: 57
+            offer: 70
           }
         ],
         [
           {
             logo: require('../assets/img/home/school/jq.png'),
             name: '剑桥大学',
-            offer: 31
+            offer: 53
           },
           {
             logo: require('../assets/img/home/school/nj.png'),
             name: '牛津大学',
-            offer: 45
+            offer: 43
           },
           {
             logo: require('../assets/img/home/school/dglg.png'),
             name: '帝国理工学院',
-            offer: 152
+            offer: 172
           },
           {
             logo: require('../assets/img/home/school/lddx.png'),
             name: '伦敦大学学院',
-            offer: 321
+            offer: 468
           },
           {
             logo: require('../assets/img/home/school/ldzzjj.png'),
             name: '伦敦政治经济学院',
-            offer: 201
+            offer: 266
           },
           {
             logo: require('../assets/img/home/school/ldgw.png'),
             name: '伦敦国王学院',
-            offer: 255
+            offer: 395
           },
           {
             logo: require('../assets/img/home/school/adb.png'),
             name: '爱丁堡大学',
-            offer: 206
+            offer: 349
           },
           {
             logo: require('../assets/img/home/school/lds.png'),
             name: '伦敦商学院',
-            offer: 15
+            offer: 28
           },
           {
             logo: require('../assets/img/home/school/adlygl.png'),
             name: '澳大利亚国立大学',
-            offer: 39
+            offer: 57
           },
           {
             logo: require('../assets/img/home/school/meb.png'),
             name: '墨尔本大学',
-            offer: 89
+            offer: 116
           },
           {
             logo: require('../assets/img/home/school/xn.png'),
             name: '悉尼大学',
-            offer: 242
+            offer: 340
           },
           {
             logo: require('../assets/img/home/school/ksl.png'),
             name: '昆士兰大学',
-            offer: 72
+            offer: 125
           }
         ],
         [
           {
             logo: require('../assets/img/home/school/blgds.png'),
             name: '巴黎高等商学院',
-            offer: 6
+            offer: 12
           },
           {
             logo: require('../assets/img/home/school/esades.png'),
             name: 'Esade 商学院',
-            offer: 6
+            offer: 12
           },
           {
             logo: require('../assets/img/home/school/slslblg.png'),
             name: '苏黎世联邦理工学院',
-            offer: 9
+            offer: 15
           },
           {
-            logo: require('../assets/img/home/school/ESCP.png'),
-            name: 'ESCP 商学院',
-            offer: 10
+            logo: require('../assets/img/home/school/essec.png'),
+            name: 'ESSEC 商学院',
+            offer: 46
           },
           {
-            logo: require('../assets/img/home/school/las.png'),
-            name: '里昂商学院',
-            offer: 8
+            logo: require('../assets/img/home/school/bkn.png'),
+            name: '博科尼大学',
+            offer: 18
           },
           {
             logo: require('../assets/img/home/school/dfet.png'),
             name: '代尔夫特理工大学',
-            offer: 29
+            offer: 32
           },
           {
-            logo: require('../assets/img/home/school/hdb.png'),
-            name: '海德堡大学',
-            offer: 1
+            logo: require('../assets/img/home/school/gbhg.png'),
+            name: '哥本哈根大学',
+            offer: 13
           },
           {
             logo: require('../assets/img/home/school/blzz.png'),
             name: '巴黎政治学院',
-            offer: 5
+            offer: 13
           },
           {
-            logo: require('../assets/img/home/school/blzy.png'),
-            name: '柏林自由大学',
-            offer: 1
+            logo: require('../assets/img/home/school/lslblg.png'),
+            name: '洛桑联邦理工学院',
+            offer: 11
           },
           {
-            logo: require('../assets/img/home/school/ltdyslms.png'),
-            name: '鹿特丹伊拉斯姆斯大学',
-            offer: 6
+            logo: require('../assets/img/home/school/amstd.png'),
+            name: '阿姆斯特丹大学',
+            offer: 26
           },
           {
             logo: require('../assets/img/home/school/rnwgjgjgx.png'),
             name: '日内瓦高级国际关系学院',
-            offer: 12
+            offer: 22
+          },
+          {
+            logo: require('../assets/img/home/school/rdhjlg.png'),
+            name: '瑞典皇家理工学院',
+            offer: 11
           }
         ],
         [
           {
             logo: require('../assets/img/home/school/xg.png'),
             name: '香港大学',
-            offer: 156
+            offer: 304
           },
           {
             logo: require('../assets/img/home/school/xgkj.png'),
             name: '香港科技大学',
-            offer: 98
+            offer: 175
           },
           {
             logo: require('../assets/img/home/school/xgzw.png'),
             name: '香港中文大学 ',
-            offer: 179
+            offer: 275
           },
           {
             logo: require('../assets/img/home/school/nylg.png'),
             name: '南洋理工大学',
-            offer: 80
+            offer: 155
           },
           {
             logo: require('../assets/img/home/school/xjpgl.png'),
             name: '新加坡国立大学',
-            offer: 161
+            offer: 238
           }
         ]
       ],
@@ -444,25 +449,25 @@ export default {
         {
           logo: require('../assets/img/offers/number/number1.png'),
           title: '学生总数',
-          number: '7800',
+          number: '9300',
           number2: '+'
         },
         {
           logo: require('../assets/img/offers/number/number2.png'),
           title: '硕博Top100 offer',
-          number: '14500',
+          number: '18700',
           number2: '+'
         },
         {
           logo: require('../assets/img/offers/number/number3.png'),
           title: '背景提升率',
-          number: '95',
-          number2: '%'
+          number: '93',
+          number2: '.2%'
         },
         {
           logo: require('../assets/img/offers/number/number4.png'),
           title: '奖学金总额',
-          number: '15',
+          number: '16',
           number2: '亿+'
         }
       ],
@@ -470,22 +475,22 @@ export default {
         {
           img: require('../assets/img/offers/place/place1.png'),
           title: '北美 Offer',
-          number: '7900'
+          number: '10070'
         },
         {
           img: require('../assets/img/offers/place/place2.png'),
           title: '英国/澳洲 Offer',
-          number: '5200'
+          number: '6723'
         },
         {
           img: require('../assets/img/offers/place/place3.png'),
           title: '欧洲 Offer',
-          number: '617'
+          number: '1022'
         },
         {
           img: require('../assets/img/offers/place/place4.png'),
           title: '中国香港/新加坡 Offer',
-          number: '936'
+          number: '1045'
         }
       ],
       demoTypes: [
@@ -2188,6 +2193,7 @@ export default {
   methods: {
     changePlace (index) {
       this.currentPlace = index
+      this.selectSchool = []
       this.selectSchool = this.schools[this.currentPlace]
     },
     changeDemoType (index) {

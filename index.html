@@ -36,6 +36,23 @@
       gtag('config', 'G-R1L3C9CDQH');
     </script>
 
+    <!-- Event snippet for 咨询报价 (1) conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-441436137/rZIXCLDsnM4DEOmPv9IB',
+            'event_callback': callback
+        });
+        return false;
+      }
+      </script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- PMax -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2J8G44X1Q"></script>

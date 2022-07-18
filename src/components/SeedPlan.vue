@@ -8,22 +8,22 @@
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="2600" duration="3000" style="font-size: 28px;"></animate-number>
+              <animate-number from="1" to="2700" duration="3000" style="font-size: 28px;"></animate-number>
               <span style="width: auto; font-size: 28px;">+</span>
             </div>
             <div class="info-text" style="line-height:28px">种子学生</div>
           </div>
           <div class="info2-div">
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="91" duration="3000" style="font-size: 28px;"></animate-number>
-              <span style="width: auto; font-size: 28px;">%+</span>
+              <animate-number from="1" to="93" duration="3000" style="font-size: 28px;"></animate-number>
+              <span style="width: auto; font-size: 28px;">.2%</span>
             </div>
             <!-- <div class="info-number">93%</div> -->
             <div class="info-text" style="line-height:28px">背景提升率</div>
           </div>
           <div class="info3-div">
             <div class="info-number" style="font-size: 0px; width: 78px">
-              <animate-number from="1" to="4800" duration="3000" style="font-size: 28px;"></animate-number>
+              <animate-number from="1" to="4900" duration="3000" style="font-size: 28px;"></animate-number>
               <span style="width: auto; font-size: 28px;">+</span>
             </div>
             <!-- <div class="info-number">4800+</div> -->
@@ -165,15 +165,15 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">2600+</div>
+            <div class="info-number">2700+</div>
             <div class="info-text" style="line-height: 0.7rem">种子学生</div>
           </div>
           <div class="info2-div">
-            <div class="info-number">91%+</div>
+            <div class="info-number">93.2%</div>
             <div class="info-text" style="line-height: 0.7rem">背景提升率</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">4800+</div>
+            <div class="info-number">4900+</div>
             <div class="info-text">背景提升Offer</div>
           </div>
 
@@ -463,26 +463,26 @@ export default {
           //   expertise: '理工科同学背景提升',
           //   demo: '辅导同学拿到耶鲁大学、香港科技大学、腾讯、人民在线、四大、天风证券、中国太平洋保险等实习/科研offer，以及全球TOP50院校交换交流机会。'
           // }
-          {
-            img: require('../assets/img/teachers/graduate/Jastin.png'),
-            name: 'Jastin 老师',
-            phdSchool: '',
-            school: '芝加哥洛约拉大学 会计学硕士',
-            baSchool: '复旦大学 药学&经济学双学位学士',
-            experience: '本科期间双专业，研究生成功转专业，并在就读期间于芝加哥当地企业任职，回国后加入棕榈，挖掘学生自身诉求与职业思考，为其提供相适应的背景提升方案与辅导。',
-            expertise: '商科同学背景提升',
-            demo: '辅导同学拿到中金、凯捷、京东、腾讯、国泰君安、尼尔森、益普索、四大等实习offer，以及全球top50院校交流交换和暑研机会。'
-          },
-          {
-            img: require('../assets/img/teachers/graduate/Hoston.png'),
-            name: 'Hoston 老师',
-            phdSchool: '',
-            school: '印第安纳大学伯明顿分校 信息系统学学士',
-            baSchool: '',
-            experience: '在美国学习、生活十年，先后在金融机构以及互联网大厂实习。毕业后曾在中国500强企业，以及金融行业全职工作，此后加入棕榈，凭借丰富的经验为学生制定多样化的背景提升方案。',
-            expertise: '理工科，商科背景提升',
-            demo: '辅导同学收获摩根史丹利、美团、Optiver、吉利汽车、腾讯、中信证券、蓝色光标等实习offer，以及获得包括麻省理工大学、哥伦比亚大学、北卡罗莱纳州立大学、清华大学和浙江大学在内的多所高校的科研项目机会。'
-          },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Jastin.png'),
+          //   name: 'Jastin 老师',
+          //   phdSchool: '',
+          //   school: '芝加哥洛约拉大学 会计学硕士',
+          //   baSchool: '复旦大学 药学&经济学双学位学士',
+          //   experience: '本科期间双专业，研究生成功转专业，并在就读期间于芝加哥当地企业任职，回国后加入棕榈，挖掘学生自身诉求与职业思考，为其提供相适应的背景提升方案与辅导。',
+          //   expertise: '商科同学背景提升',
+          //   demo: '辅导同学拿到中金、凯捷、京东、腾讯、国泰君安、尼尔森、益普索、四大等实习offer，以及全球top50院校交流交换和暑研机会。'
+          // },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Hoston.png'),
+          //   name: 'Hoston 老师',
+          //   phdSchool: '',
+          //   school: '印第安纳大学伯明顿分校 信息系统学学士',
+          //   baSchool: '',
+          //   experience: '在美国学习、生活十年，先后在金融机构以及互联网大厂实习。毕业后曾在中国500强企业，以及金融行业全职工作，此后加入棕榈，凭借丰富的经验为学生制定多样化的背景提升方案。',
+          //   expertise: '理工科，商科背景提升',
+          //   demo: '辅导同学收获摩根史丹利、美团、Optiver、吉利汽车、腾讯、中信证券、蓝色光标等实习offer，以及获得包括麻省理工大学、哥伦比亚大学、北卡罗莱纳州立大学、清华大学和浙江大学在内的多所高校的科研项目机会。'
+          // },
           {
             img: require('../assets/img/teachers/graduate/Caroline.png'),
             name: 'Caroline 老师',
@@ -512,6 +512,26 @@ export default {
             experience: '作为语言学习者，本科和研究生期间积累了丰富的英语教学经验并建立了良好的沟通能力；研究生毕业后，在香港公关行业全职工作两年。希望利用海外求学和工作的经历帮助同学们做好留学准备。',
             expertise: '文商科同学背景提升',
             demo: '辅导学生拿到花旗银行、德勤、安永、奥美、艾美仕、爱奇艺、凤凰新闻网等多家名企实习offer，以及获得全球TOP50暑期学校和交换交流的机会。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Olivia.png'),
+            name: 'Olivia 老师',
+            phdSchool: '',
+            school: '哥伦比亚大学 教育技术硕士',
+            baSchool: '北京师范大学 教育技术学士',
+            experience: '在校期间，积累了丰富的实习和科研经历。曾在中央电视台新闻中心和三联生活周刊等知名企事业单位进行实习，还参加过国家级大学生创业项目，并与欧洲多所学校导师合作编写了教育技术学科教科书，在国内期刊发表多篇教育技术论文。她还对留学语言考试的准备工作颇有心得，取得过十分出众的标化考试成绩。在哥大读研期间，参与导师的学院重点研究项目，并担任专业核心课程助教，提升了自己的英文阅读、写作、思辨能力。',
+            expertise: '文商科同学的背景提升',
+            demo: '辅导同学拿到麦肯锡、奥玮、益普索、中金、中信建投、国泰君安、四大、腾讯、阿里巴巴、字节跳动、快手、大众等名企offer，以及包括哥伦比亚大学、宾夕法尼亚大学、加州大学伯克利分校、巴黎政治学院等全球知名院校交换交流机会和暑研机会。'
+          },
+          {
+            img: require('../assets/img/teachers/graduate/Clair.png'),
+            name: 'Clair 老师',
+            phdSchool: '',
+            school: '布里斯托大学 会计，金融和管理硕士',
+            baSchool: '朴茨茅斯大学 会计和财务管理硕士',
+            experience: '本科在朴茨茅斯大学新加坡分校以全系Top5%的成绩（First Honors）毕业后，顺利拿到布里斯托大学研究生 Offer，并在研究生期间顺利通过CFA一级。除了保持优异的学业，在课余时间也积极投入到各类实践实习活动，丰富人生经历。曾在中国银行个金部和公司部轮岗实习，也曾在布里斯托及爱文妇女会（非营利机构级）充当志愿者，并获得学校颁发的"Plus Award"证书。研究生毕业以后，在宏信证券四川分公司实习，并顺利拿到 Return Offer。',
+            expertise: '商科同学背景提升',
+            demo: '辅导同学拿到中金、欧莱雅、天风证券、ABC公益咨询、四大、太平洋证券、德意志交易所集团北京代表处、腾讯、阿里巴巴、字节跳动、Influence Matters, BAI Capital等实习offer，以及康奈尔CICER，芝加哥，耶鲁，帝国理工，HEC Paris等全球TOP院校暑校交流机会。'
           }
         ],
         [
