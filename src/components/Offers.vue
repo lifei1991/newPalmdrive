@@ -460,7 +460,7 @@ export default {
         },
         {
           logo: require('../assets/img/offers/number/number3.png'),
-          title: '背景提升率',
+          title: '实习/科研录取率',
           number: '93',
           number2: '.2%'
         },
