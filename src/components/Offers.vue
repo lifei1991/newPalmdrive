@@ -100,7 +100,11 @@
                 <div class='demo-name'>{{ item.name }}</div>
                 <div class='demo-text line1'>{{ item.collegeSchool }}</div>
                 <div class='demo-text line1'>{{ item.collegeMajor }}</div>
-                <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
+                <!-- <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div> -->
+                <div class='demo-text line1' :title="item.gpa">GPA：{{ item.gpa }}</div>
+                <div class='demo-text line1' :title="item.toeflOrIelts">{{ item.toeflOrIelts }}</div>
+                <div class='demo-text line1' :title="item.greOrGmat">{{ item.greOrGmat }}</div>
+                <div class='demo-text line2' :title="item.bg">{{ item.bg }}</div>
               </div>
             </div>
           </template>
@@ -517,23 +521,36 @@ export default {
             admissionMajor: 'MSc International Social and Public Policy',
             collegeSchool: '中国农业大学',
             collegeMajor: 'International development',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: 315-320',
-            toeflOrIelts: 'IELTS:7.0-7.5',
+            toeflOrIelts: 'IELTS:7.0',
             bg: '三段相关实习和科研'
           },
+          // {
+          //   name: '张同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/njlfny.png'),
+          //   admissionSchool: '南加利福尼亚大学',
+          //   admissionMajor: 'Master of Laws(LLM)',
+          //   collegeSchool: '郑州大学',
+          //   collegeMajor: 'Law',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE: N/A',
+          //   toeflOrIelts: 'TOEFL：60-80',
+          //   bg: '四段相关实习，两段校园活动经历'
+          // },
           {
-            name: '张同学',
+            name: 'W 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/njlfny.png'),
-            admissionSchool: '南加利福尼亚大学',
-            admissionMajor: 'Master of Laws(LLM)',
-            collegeSchool: '郑州大学',
-            collegeMajor: 'Law',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'TOEFL：60-80',
-            bg: '四段相关实习，两段校园活动经历'
+            schoolLogo: require('../assets/img/home/school/hf.png'),
+            admissionSchool: '哈佛大学',
+            admissionMajor: 'Master of Pubilc Policy',
+            collegeSchool: '华东 985 院校',
+            collegeMajor: '社科类专业',
+            gpa: '93+',
+            greOrGmat: 'GRE: 330+',
+            toeflOrIelts: 'TOEFL：110+',
+            bg: '大二加入棕榈，多段实践经历'
           },
           {
             name: '何同学',
@@ -545,7 +562,7 @@ export default {
             collegeMajor: 'Preventive Medicine',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE: 315-320',
-            toeflOrIelts: 'IELTS:7.0-7.5',
+            toeflOrIelts: 'IELTS:7.0',
             bg: '两段相关实习'
           },
           {
@@ -556,23 +573,36 @@ export default {
             admissionMajor: 'MPhil in Education(Research in Second Language Education)',
             collegeSchool: '浙江大学',
             collegeMajor: 'English',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.5-8.0',
+            toeflOrIelts: 'IELTS：7.5',
             bg: '多段相关经历和校园活动'
           },
+          // {
+          //   name: '周同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/jq.png'),
+          //   admissionSchool: '剑桥大学',
+          //   admissionMajor: 'MPhil in Development Studies MSc',
+          //   collegeSchool: '早稻田大学',
+          //   collegeMajor: '亚洲研究',
+          //   gpa: '3.0-3.5（80-85）',
+          //   greOrGmat: 'GRE：320+',
+          //   toeflOrIelts: 'IELTS：7.0',
+          //   bg: '两段发展研究科研，联合国人口基金会实习'
+          // },
           {
-            name: '周同学',
+            name: 'C 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/jq.png'),
-            admissionSchool: '剑桥大学',
-            admissionMajor: 'MPhil in Development Studies MSc',
-            collegeSchool: '早稻田大学',
-            collegeMajor: '亚洲研究',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'IELTS：7.0-7.5',
-            bg: '两段发展研究科研，联合国人口基金会实习'
+            schoolLogo: require('../assets/img/home/school/jzdxbkl.png'),
+            admissionSchool: '加州大学伯克利分校',
+            admissionMajor: 'PhD Philosophy',
+            collegeSchool: '海外本科',
+            collegeMajor: '哲学专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：330+',
+            toeflOrIelts: 'IELTS：8.0',
+            bg: '全额奖学金录取，WS 精彩'
           },
           {
             name: '赵同学',
@@ -582,23 +612,36 @@ export default {
             admissionMajor: ' M.S.Ed. in Teaching English to Speakers of Other Languages ',
             collegeSchool: '温州肯恩大学',
             collegeMajor: '会计',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'TOEFL: 100-110',
+            toeflOrIelts: 'TOEFL: 100+',
             bg: '两段相关实习'
           },
+          // {
+          //   name: '罗同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/glby.png'),
+          //   admissionSchool: '哥伦比亚大学',
+          //   admissionMajor: 'MA in Political Science',
+          //   collegeSchool: '中山大学',
+          //   collegeMajor: 'Philosophy',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE:330+',
+          //   toeflOrIelts: 'TOEFL:100+',
+          //   bg: '两段相关实习，多段相关经历'
+          // },
           {
-            name: '罗同学',
+            name: 'Z 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/glby.png'),
-            admissionSchool: '哥伦比亚大学',
-            admissionMajor: 'MA in Political Science',
-            collegeSchool: '中山大学',
-            collegeMajor: 'Philosophy',
-            gpa: '3.5以上（85以上）',
+            schoolLogo: require('../assets/img/home/school/yl.png'),
+            admissionSchool: '耶鲁大学',
+            admissionMajor: 'MA in East Asian Studies',
+            collegeSchool: '浙江大学',
+            collegeMajor: '广告专业',
+            gpa: '3.8+',
             greOrGmat: 'GRE:330+',
-            toeflOrIelts: 'TOEFL:100-110',
-            bg: '两段相关实习，多段相关经历'
+            toeflOrIelts: 'IELTS:8.0',
+            bg: '科研经历丰富，研究方向匹配'
           },
           {
             name: '陈同学',
@@ -608,9 +651,9 @@ export default {
             admissionMajor: 'MSt in Linguistics, Philology and Phonetics',
             collegeSchool: '中山大学',
             collegeMajor: '英语专业',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '两段暑校经历，两段相关实习'
           },
           {
@@ -621,9 +664,9 @@ export default {
             admissionMajor: 'MS in Social Anthropology',
             collegeSchool: '北大+早稻田双学位',
             collegeMajor: '哲学与宗教研究',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '相关经历丰富'
           },
           {
@@ -635,7 +678,7 @@ export default {
             collegeSchool: '',
             // 江西师范大学
             collegeMajor: 'Journalism',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
             toeflOrIelts: 'IELTS：6.5-7.0',
             bg: '三段相关实习，多段校园活动经历'
@@ -650,8 +693,8 @@ export default {
             // 上海师范大学
             collegeMajor: '旅游管理',
             gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '四段实习'
           },
           {
@@ -662,9 +705,9 @@ export default {
             admissionMajor: 'MA in Translation and localization management',
             collegeSchool: '北京交通大学',
             collegeMajor: '英语专业',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: 315-320',
-            toeflOrIelts: 'IELTS：7.5-8.0',
+            toeflOrIelts: 'IELTS：7.5',
             bg: '毕业后工作一年，多段相关经历'
           },
           {
@@ -675,8 +718,8 @@ export default {
             admissionMajor: 'Masters of Information in User Experience Design (MI-UXD)',
             collegeSchool: '多伦多大学',
             collegeMajor: 'Computer Science & Statistics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '两段暑校经历，多段相关科研和实习'
           },
@@ -690,7 +733,7 @@ export default {
             collegeMajor: '英语专业',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '两段相关的实习经历'
           },
           {
@@ -701,7 +744,7 @@ export default {
             admissionMajor: 'Master of Laws(LLM)',
             collegeSchool: '武汉大学',
             collegeMajor: '法学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '两段法院实习，一段课程调研项目'
@@ -714,9 +757,9 @@ export default {
             admissionMajor: 'MATeachingEnglishtoSpeakersofOtherLanguages(TESOL)Pre-service',
             collegeSchool: '香港中文大学（深圳）',
             collegeMajor: 'Translation',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'IELTS：7.5-8.0',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'IELTS：7.5',
             bg: '一段科研，两段教育相关实习'
           },
           {
@@ -728,9 +771,9 @@ export default {
             collegeSchool: '',
             // 吉林大学
             collegeMajor: '国际政治',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '多段科研经历'
           },
           {
@@ -741,7 +784,7 @@ export default {
             admissionMajor: 'Master of Arts(Chinese Culture and Language)',
             collegeSchool: '四川大学',
             collegeMajor: '汉语言文学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
             toeflOrIelts: 'IELTS：6.5-7.0',
             bg: '编辑相关实习经历'
@@ -754,8 +797,8 @@ export default {
             admissionMajor: 'Master of Public Policy',
             collegeSchool: '乔治华盛顿大学',
             collegeMajor: 'Public Affairs',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：110+',
             bg: '研究经历丰富'
           },
@@ -767,9 +810,9 @@ export default {
             admissionMajor: 'MA in Politics',
             collegeSchool: '华中科技大学',
             collegeMajor: '政治学与行政学',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE:  320-330',
-            toeflOrIelts: 'TOEFL: 100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE:320+',
+            toeflOrIelts: 'TOEFL: 100+',
             bg: '相关经历丰富'
           },
           {
@@ -782,7 +825,7 @@ export default {
             collegeMajor: '心理学',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '研究经历丰富'
           },
           {
@@ -793,7 +836,7 @@ export default {
             admissionMajor: 'Master in Social Analysis and Research',
             collegeSchool: '本科：中国海洋大学 研究生：Rutgers',
             collegeMajor: '公共关系',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '有三段社会研究经历。两段市场分析实习'
@@ -807,7 +850,7 @@ export default {
             collegeSchool: '海本',
             // 密歇根大学
             collegeMajor: 'business administration',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '两段科研实习经历'
@@ -821,9 +864,9 @@ export default {
             collegeSchool: '',
             // 国际关系学院
             collegeMajor: '国际关系',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '相关经历很丰富'
           },
           {
@@ -835,9 +878,9 @@ export default {
             collegeSchool: '',
             // 北京师范大学
             collegeMajor: '心理学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：324+3.5',
-            toeflOrIelts: 'TOEFL：100-110',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '扎实校内科研，海外暑研'
           },
           {
@@ -849,9 +892,9 @@ export default {
             collegeSchool: '',
             // 北京大学
             collegeMajor: '城市管理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '伯克利交换，实习经历丰富'
           },
           {
@@ -862,9 +905,9 @@ export default {
             admissionMajor: 'Cultural&Creative Industries MA',
             collegeSchool: '中国传媒大学',
             collegeMajor: 'Advertising, Public Relation& Technology',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS:7.0-7.5',
+            toeflOrIelts: 'IELTS:7.0',
             bg: '奥美+拜尔两段实习'
           },
           {
@@ -876,9 +919,9 @@ export default {
             collegeSchool: '',
             // 南开大学
             collegeMajor: '对外汉语',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'IELTS:7.0-7.5',
+            toeflOrIelts: 'IELTS:7.0',
             bg: '相关研究经历丰富，有一段北大出版社实习'
           },
           {
@@ -890,9 +933,9 @@ export default {
             collegeSchool: '',
             // 北京第二外国语学院
             collegeMajor: '国际经济与贸易',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '三段实习经历'
           },
           {
@@ -903,8 +946,8 @@ export default {
             admissionMajor: 'Master of Arts in Strategic Public Relations ',
             collegeSchool: '北京语言大学',
             collegeMajor: '新闻',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：110+',
             bg: '一段英国交换，两段实习经历'
           },
@@ -917,9 +960,9 @@ export default {
             collegeSchool: '985',
             // 复旦大学
             collegeMajor: '历史',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：100-110',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '美国学期交换，一段校内助研'
           },
           {
@@ -931,27 +974,40 @@ export default {
             collegeSchool: 'UC Berkeley',
             collegeMajor: 'Political Science+Near Eastern Studies (Arabic Concentration)',
             gpa: '',
-            // 3.5以上（85以上）
+            // 85+
             greOrGmat: '',
-            // GRE：320-330
+            // GRE：320+
             toeflOrIelts: '',
             // TOEFL：110+
             bg: '相关经历丰富'
           }
         ],
         [
+          // {
+          //   name: '商同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/hf.png'),
+          //   admissionSchool: '哈佛大学',
+          //   admissionMajor: 'Master of Science in Data Science,A S.M. degree program in Data Science.',
+          //   collegeSchool: '加州大学伯克利分校',
+          //   collegeMajor: 'Mathematics',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：320+',
+          //   toeflOrIelts: 'TOEFL：N/A',
+          //   bg: '科研经历丰富，有五篇paper与专利'
+          // },
           {
-            name: '商同学',
+            name: 'W 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/hf.png'),
-            admissionSchool: '哈佛大学',
-            admissionMajor: 'Master of Science in Data Science,A S.M. degree program in Data Science.',
-            collegeSchool: '加州大学伯克利分校',
-            collegeMajor: 'Mathematics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            schoolLogo: require('../assets/img/home/school/plsd.png'),
+            admissionSchool: '普林斯顿大学',
+            admissionMajor: 'PhD Physics',
+            collegeSchool: '海外本科',
+            collegeMajor: '物理专业',
+            gpa: '3.9+',
+            greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：N/A',
-            bg: '科研经历丰富，有五篇paper与专利'
+            bg: '五年全额奖学金，无面试录取'
           },
           {
             name: '钟同学',
@@ -962,8 +1018,8 @@ export default {
             collegeSchool: '清华大学',
             collegeMajor: '生命科学',
             gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '科研经历丰富，发表两篇相关论文'
           },
           {
@@ -974,23 +1030,36 @@ export default {
             admissionMajor: 'PhD in Computer Science',
             collegeSchool: '上海交通大学',
             collegeMajor: '软件工程',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：110+',
             bg: '科研经历丰富，有一段校内RA，一段Umich RA,一段Upenn RA,发表两篇相关论文'
           },
+          // {
+          //   name: '梁同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/yl.png'),
+          //   admissionSchool: '耶鲁大学',
+          //   admissionMajor: 'MPH in Biostatistics',
+          //   collegeSchool: '山东大学',
+          //   collegeMajor: '预防医学',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：320+',
+          //   toeflOrIelts: 'TOEFL：100+',
+          //   bg: '有卫健委实习及本校科研经历'
+          // },
           {
-            name: '梁同学',
+            name: 'H 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/yl.png'),
-            admissionSchool: '耶鲁大学',
-            admissionMajor: 'MPH in Biostatistics',
-            collegeSchool: '山东大学',
-            collegeMajor: '预防医学',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
-            bg: '有卫健委实习及本校科研经历'
+            schoolLogo: require('../assets/img/home/school/knjml.png'),
+            admissionSchool: '卡内基梅隆大学',
+            admissionMajor: 'Master of Software Engineering in Scalable Systems',
+            collegeSchool: '南方科技大学',
+            collegeMajor: '计算机科学与技术专业',
+            gpa: '90+',
+            greOrGmat: 'GRE：315+',
+            toeflOrIelts: 'TOEFL：100+',
+            bg: '普通院校背景，海外暑研经历'
           },
           {
             name: '刘同学',
@@ -1000,9 +1069,9 @@ export default {
             admissionMajor: 'PHD in Polymers and Soft Matter',
             collegeSchool: '浙江大学',
             collegeMajor: 'Polymer material science and engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段科研经历，一段芝大暑研'
           },
           {
@@ -1013,9 +1082,9 @@ export default {
             admissionMajor: 'PHD in Chemical Engineering',
             collegeSchool: '浙江大学',
             collegeMajor: 'Polymer material science and engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段科研经历，一段芝大暑研'
           },
           {
@@ -1026,23 +1095,36 @@ export default {
             admissionMajor: 'Doctor of Philosophy in Materials Science and Engineering',
             collegeSchool: '浙江大学',
             collegeMajor: 'Polymer material science and engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段科研经历，一段芝大暑研'
           },
+          // {
+          //   name: '李同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/mslg.png'),
+          //   admissionSchool: '麻省理工学院',
+          //   admissionMajor: 'MENG in Advanced Manufacturing and Design',
+          //   collegeSchool: 'RensselaerPolytechnicInstitute',
+          //   collegeMajor: 'Mechanical Engineering',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE: 320+',
+          //   toeflOrIelts: 'TOEFL：NA',
+          //   bg: '有两段project经历，一段实习经历'
+          // },
           {
-            name: '李同学',
+            name: 'M 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/mslg.png'),
-            admissionSchool: '麻省理工学院',
-            admissionMajor: 'MENG in Advanced Manufacturing and Design',
-            collegeSchool: 'RensselaerPolytechnicInstitute',
-            collegeMajor: 'Mechanical Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
-            toeflOrIelts: 'TOEFL：NA',
-            bg: '有两段project经历，一段实习经历'
+            schoolLogo: require('../assets/img/home/school/slslblg.png'),
+            admissionSchool: '苏黎世联邦理工学院',
+            admissionMajor: 'MSc in Pharmaceutical Sciences',
+            collegeSchool: '海外背景',
+            collegeMajor: '心理学专业',
+            gpa: '3.6+',
+            greOrGmat: 'GRE: 320+',
+            toeflOrIelts: 'TOEFL：waive',
+            bg: '申请大满贯，科研经历扎实'
           },
           {
             name: '袁同学',
@@ -1052,9 +1134,9 @@ export default {
             admissionMajor: 'Dphil in Materials',
             collegeSchool: '北京交通大学',
             collegeMajor: 'Chemistry',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '三段研究经历'
           },
           {
@@ -1065,9 +1147,9 @@ export default {
             admissionMajor: 'Mathematical Sciences MSc',
             collegeSchool: '天津大学+曼彻斯特大学',
             collegeMajor: 'Mathematics with Applied Mathematics',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '三段研究经历'
           },
           {
@@ -1091,9 +1173,9 @@ export default {
             admissionMajor: 'MSc  Statistics',
             collegeSchool: '华东师范大学',
             collegeMajor: '统计学',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段校内科研'
           },
           {
@@ -1105,8 +1187,8 @@ export default {
             collegeSchool: '天津大学',
             collegeMajor: '药学',
             gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '多段校内非quant实验室经历'
           },
           {
@@ -1132,7 +1214,7 @@ export default {
             collegeMajor: '管理科学',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '三段相关实习和研究经历'
           },
           {
@@ -1143,7 +1225,7 @@ export default {
             admissionMajor: 'MSc Data Science',
             collegeSchool: '北京师范大学',
             collegeMajor: '信息管理',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
             toeflOrIelts: 'TOEFL：80-95',
             bg: '有多段相关实习，跨专业申请'
@@ -1156,9 +1238,9 @@ export default {
             admissionMajor: 'MSc Electrical Engineering',
             collegeSchool: '电子科技大学',
             collegeMajor: 'Electrical Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '多段相关经历，中科院科研'
           },
           {
@@ -1169,8 +1251,8 @@ export default {
             admissionMajor: 'Master of Science in Materials Science and Engineering',
             collegeSchool: '复旦大学',
             collegeMajor: '材料物理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：110+',
             bg: '暑期交流，以及相关经历丰富'
           },
@@ -1182,9 +1264,9 @@ export default {
             admissionMajor: 'Master of Science in Materials Science and Engineering',
             collegeSchool: '川大+匹兹堡大学 3+1',
             collegeMajor: 'Material Science & Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE: 320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '海外合办项目，相关背景丰富'
           },
           {
@@ -1208,8 +1290,8 @@ export default {
             admissionMajor: 'MS in Computer Science ',
             collegeSchool: 'UIUC ',
             collegeMajor: 'Computer Science ',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE: 320+',
             toeflOrIelts: 'TOEFL：NA',
             bg: '海本CS强校，两段实习'
           },
@@ -1221,7 +1303,7 @@ export default {
             admissionMajor: 'Neuroscience MSc',
             collegeSchool: '多伦多大学',
             collegeMajor: 'Physiology',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：310-315',
             toeflOrIelts: 'TOEFL：NA',
             bg: '一段校内科研'
@@ -1247,8 +1329,8 @@ export default {
             admissionMajor: 'Master of Science in IndustrialEngineering',
             collegeSchool: '华东理工大学',
             collegeMajor: 'Mechanical Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE: 320+',
             toeflOrIelts: 'TOEFL：80-95',
             bg: '一段NTU暑校经历，多段相关项目经历'
           },
@@ -1260,7 +1342,7 @@ export default {
             admissionMajor: 'M.S. in Software Engineering',
             collegeSchool: '滑铁卢大学',
             collegeMajor: 'CS ',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE: <300',
             toeflOrIelts: 'TOEFL: 110+',
             bg: '多段实习经历'
@@ -1273,7 +1355,7 @@ export default {
             admissionMajor: 'MSE in Biomedical Engineering',
             collegeSchool: '',
             collegeMajor: '生物医学工程',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：110+',
             bg: 'JHU暑研，科研经历丰富'
@@ -1286,9 +1368,9 @@ export default {
             admissionMajor: 'M.Eng. in Electrical Engineering and in Computer Sciences (EECS)',
             collegeSchool: '',
             collegeMajor: 'Electrical Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段东南大学MEMS实习室科研经历，里海大学科研经历，UBC学期交换'
           },
           {
@@ -1299,9 +1381,9 @@ export default {
             admissionMajor: 'MSc  Mechanical Engineering ',
             collegeSchool: '西南交通大学+Leeds 2+2',
             collegeMajor: '机械工程',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：7.0-7.5',
+            toeflOrIelts: 'TOEFL：7.0',
             bg: 'ME项目经历丰富，1年国家实验室学习'
           },
           {
@@ -1312,8 +1394,8 @@ export default {
             admissionMajor: 'MEng in Mechanical Engineering ',
             collegeSchool: 'Virginia Tech',
             collegeMajor: 'Mechanical Engineering ',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE: 320+',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '两段课程设计，一段科研'
           },
@@ -1327,7 +1409,7 @@ export default {
             collegeMajor: 'Mathematics',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'TOEFL：7.0-7.5',
+            toeflOrIelts: 'TOEFL：7.0',
             bg: '相关比赛和经历丰富'
           },
           {
@@ -1351,9 +1433,9 @@ export default {
             admissionMajor: 'Smart Buildings and Digital Engineering',
             collegeSchool: '',
             collegeMajor: '建筑环境与能源应用工程',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：310-315',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: 'UCL交换，一个专利'
           },
           {
@@ -1377,9 +1459,9 @@ export default {
             admissionMajor: 'PhD in Computer Science',
             collegeSchool: '上海交通大学本硕',
             collegeMajor: 'Information and Communication Engineering',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '多段科研经历'
           },
           {
@@ -1390,8 +1472,8 @@ export default {
             admissionMajor: 'MS in Computer Science and Engineering ',
             collegeSchool: '',
             collegeMajor: 'CS',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：110+',
             bg: 'UCI暑研，相关经历丰富'
           },
@@ -1403,9 +1485,9 @@ export default {
             admissionMajor: 'MSc Geospatial Sciences',
             collegeSchool: '北京师范大学',
             collegeMajor: '地理信息科学',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '有一段相关实习'
           },
           {
@@ -1416,7 +1498,7 @@ export default {
             admissionMajor: 'MS in Data Science and Machine Learning ',
             collegeSchool: '东北师范大学',
             collegeMajor: '统计学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
             toeflOrIelts: 'TOEFL：95-100',
             bg: '相关经历丰富'
@@ -1430,7 +1512,7 @@ export default {
             collegeSchool: 'UCD ',
             collegeMajor: 'managerial economics agribusiness',
             gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE: 320-330',
+            greOrGmat: 'GRE: 320+',
             toeflOrIelts: 'TOEFL：N/A ',
             bg: '相关经历丰富'
           },
@@ -1442,9 +1524,9 @@ export default {
             admissionMajor: 'MS Material Science and Engineering',
             collegeSchool: '南科大',
             collegeMajor: '物理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '相关经历丰富'
           },
           {
@@ -1455,9 +1537,9 @@ export default {
             admissionMajor: 'MEng in ME',
             collegeSchool: '南开大学',
             collegeMajor: '物理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE: 320-330',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GRE: 320+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '相关经历丰富'
           }
         ],
@@ -1470,23 +1552,36 @@ export default {
             admissionMajor: 'Master of Science in Applied Analytics',
             collegeSchool: '加州大学圣迭戈分校',
             collegeMajor: 'cognitive science, human-computer interaction',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'TOEFL：100-110',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '4段实习, 自我创业'
           },
+          // {
+          //   name: '潘同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/glby.png'),
+          //   admissionSchool: '哥伦比亚大学',
+          //   admissionMajor: 'Master of Science in Enterprise Risk Management',
+          //   collegeSchool: '香港中文大学',
+          //   collegeMajor: 'Accounting',
+          //   gpa: '3.0-3.5（80-85）',
+          //   greOrGmat: 'GRE：330+',
+          //   toeflOrIelts: 'TOEFL：100+',
+          //   bg: '3段金融实习，3段校园竞赛+校园活动经历'
+          // },
           {
-            name: '潘同学',
+            name: 'J 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/glby.png'),
-            admissionSchool: '哥伦比亚大学',
-            admissionMajor: 'Master of Science in Enterprise Risk Management',
-            collegeSchool: '香港中文大学',
-            collegeMajor: 'Accounting',
-            gpa: '3.0-3.5（80-85）',
+            schoolLogo: require('../assets/img/home/school/plsd.png'),
+            admissionSchool: '普林斯顿大学',
+            admissionMajor: 'Master in Finance',
+            collegeSchool: '加州大学洛杉矶分校',
+            collegeMajor: '数学和经济学专业',
+            gpa: '3.8+',
             greOrGmat: 'GRE：330+',
-            toeflOrIelts: 'TOEFL：100-110',
-            bg: '3段金融实习，3段校园竞赛+校园活动经历'
+            toeflOrIelts: 'TOEFL：waive',
+            bg: '两段科研经历，一段非量化实习'
           },
           {
             name: '杜同学',
@@ -1496,7 +1591,7 @@ export default {
             admissionMajor: 'MS in Event Management',
             collegeSchool: '上海外国语大学',
             collegeMajor: '国际公务员人才实验班（英语翻译和西班牙语方向）',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：110+',
             bg: '有全职工作经验'
@@ -1510,36 +1605,62 @@ export default {
             admissionMajor: 'MS in Finance',
             collegeSchool: '北京林业大学',
             collegeMajor: '农林经济管理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '两段金融知名公司实习'
           },
+          // {
+          //   name: '莫同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
+          //   admissionSchool: '约翰·霍普金斯大学',
+          //   admissionMajor: 'M.S. in Marketing ',
+          //   collegeSchool: '国际关系学院',
+          //   collegeMajor: '英语/日语',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：320+',
+          //   toeflOrIelts: 'TOEFL：100+',
+          //   bg: '4段相关实习，多段校园活动经历'
+          // },
           {
-            name: '莫同学',
+            name: 'L 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/yhhpjs.png'),
-            admissionSchool: '约翰·霍普金斯大学',
-            admissionMajor: 'M.S. in Marketing ',
-            collegeSchool: '国际关系学院',
-            collegeMajor: '英语/日语',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
-            bg: '4段相关实习，多段校园活动经历'
+            schoolLogo: require('../assets/img/home/school/xbdx.png'),
+            admissionSchool: '西北大学',
+            admissionMajor: 'MS in Integrated Marketing Communications',
+            collegeSchool: '华东 985 院校',
+            collegeMajor: '市场营销专业',
+            gpa: '3.5+',
+            greOrGmat: 'GRE：325+',
+            toeflOrIelts: 'TOEFL：110+',
+            bg: '实习经历相关，多次模拟面试'
           },
+          // {
+          //   name: '周同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/lqst.png'),
+          //   admissionSchool: '罗切斯特大学',
+          //   admissionMajor: 'M.S. in Marketing analytics',
+          //   collegeSchool: '加州大学欧文分校',
+          //   collegeMajor: 'business economics',
+          //   gpa: '85+',
+          //   greOrGmat: 'GMAT：640+',
+          //   toeflOrIelts: 'TOEFL：N/A',
+          //   bg: '2段相关实习'
+          // },
           {
-            name: '周同学',
+            name: 'G 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/lqst.png'),
-            admissionSchool: '罗切斯特大学',
-            admissionMajor: 'M.S. in Marketing analytics',
-            collegeSchool: '加州大学欧文分校',
-            collegeMajor: 'business economics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
+            schoolLogo: require('../assets/img/home/school/mslg.png'),
+            admissionSchool: '麻省理工学院',
+            admissionMajor: 'Master in Finance',
+            collegeSchool: '圣母大学',
+            collegeMajor: '应用数学专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：N/A',
-            bg: '2段相关实习'
+            bg: '专业对口，MIT 金融专业导师辅导'
           },
           {
             name: '李同学',
@@ -1549,23 +1670,36 @@ export default {
             admissionMajor: 'MS in Business Analytics',
             collegeSchool: '浙江工业大学',
             collegeMajor: 'Advertising',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '3段相关实习，多段校园竞赛与活动经历。'
           },
+          // {
+          //   name: '董同学',
+          //   year: '',
+          //   schoolLogo: require('../assets/img/home/school/jzdxow.png'),
+          //   admissionSchool: '加利福尼亚大学欧文分校',
+          //   admissionMajor: 'Master of Professional Accountancy',
+          //   collegeSchool: 'University of Missouri–St. Louis',
+          //   collegeMajor: 'Accounting',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：N/A',
+          //   toeflOrIelts: 'TOEFL：N/A',
+          //   bg: '2段会计实习，多段商学院社团经历'
+          // },
           {
-            name: '董同学',
+            name: 'Y 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/jzdxow.png'),
-            admissionSchool: '加利福尼亚大学欧文分校',
-            admissionMajor: 'Master of Professional Accountancy',
-            collegeSchool: 'University of Missouri–St. Louis',
+            schoolLogo: require('../assets/img/home/school/yl.png'),
+            admissionSchool: '耶鲁大学',
+            admissionMajor: '北京 985 院校',
+            collegeSchool: '市场营销专业',
             collegeMajor: 'Accounting',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：N/A',
-            bg: '2段会计实习，多段商学院社团经历'
+            gpa: '3.7+',
+            greOrGmat: 'GMAT：700+',
+            toeflOrIelts: 'TOEFL：110+',
+            bg: '四段相关实习，同专业导师辅导面试'
           },
           {
             name: '张同学',
@@ -1575,9 +1709,9 @@ export default {
             admissionMajor: 'MS in Media Science: Marketing Communication Research',
             collegeSchool: '厦门大学',
             collegeMajor: '英语',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '转专业申请，2段不知名公司实习'
           },
           {
@@ -1588,8 +1722,8 @@ export default {
             admissionMajor: 'Master of Professional Studies (MPS) in Applied Economics and Management',
             collegeSchool: '印第安纳大学伯明顿分校',
             collegeMajor: 'Accounting',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '4段相关经历'
           },
@@ -1601,8 +1735,8 @@ export default {
             admissionMajor: 'Master of accounting',
             collegeSchool: '江南大学 3+1项目',
             collegeMajor: '工商管理',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
             toeflOrIelts: 'IELTS：6.0-6.5',
             bg: '多段相关实习'
           },
@@ -1614,8 +1748,8 @@ export default {
             admissionMajor: 'Master of Science in Business Analytics',
             collegeSchool: '多伦多大学',
             collegeMajor: 'Management',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '4段工作经历,多段校园活动和学术经历'
           },
@@ -1627,9 +1761,9 @@ export default {
             admissionMajor: 'Master of Science in Accounting',
             collegeSchool: '河海大学',
             collegeMajor: '会计',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '多段校园活动经历'
           },
           {
@@ -1640,7 +1774,7 @@ export default {
             admissionMajor: 'Master of Science in Business Analytics',
             collegeSchool: '南方科技大学',
             collegeMajor: '金融数学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
             toeflOrIelts: 'TOEFL：95-100',
             bg: '多段实习，2段海外经历'
@@ -1655,7 +1789,7 @@ export default {
             collegeMajor: '生物金属',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '多段校园活动和一段big name实习'
           },
           {
@@ -1666,9 +1800,9 @@ export default {
             admissionMajor: 'Master of Science in Finance',
             collegeSchool: '广东外语外贸大学',
             collegeMajor: '会计',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '多段big name相关实习'
           },
           {
@@ -1679,9 +1813,9 @@ export default {
             admissionMajor: 'Master’s in Management',
             collegeSchool: '南开大学+天津大学双学位',
             collegeMajor: '法语+工商管理双学位',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '2段海外交流,4段相关实习, 多段校园活动经历'
           },
           {
@@ -1693,9 +1827,9 @@ export default {
             collegeSchool: '',
             // 宁波诺丁汉大学
             collegeMajor: '金融',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '4段相关实习,三段竞赛,多段校园活动'
           },
           {
@@ -1706,7 +1840,7 @@ export default {
             admissionMajor: 'Mphil in Finance and Economics',
             collegeSchool: '兰卡斯特大学',
             collegeMajor: 'Economics',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '3段相关实习'
@@ -1719,9 +1853,9 @@ export default {
             admissionMajor: 'MSc International Management',
             collegeSchool: '北京外国语大学',
             collegeMajor: '工商管理',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：100-110，IELTS：7.0-7.5',
+            toeflOrIelts: 'TOEFL：100+，IELTS：7.0',
             bg: '3段商赛, 3段big name,多段活动经历'
           },
           {
@@ -1732,9 +1866,9 @@ export default {
             admissionMajor: 'MPhil in Economics',
             collegeSchool: '乌得勒支大学',
             collegeMajor: 'Economics and Business Economics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '2段相关实习,多段校园活动和学术经历'
           },
           {
@@ -1745,7 +1879,7 @@ export default {
             admissionMajor: 'Business Analytics MSc',
             collegeSchool: '重庆大学本科/墨尔本大学硕士',
             collegeMajor: 'Accounting/Accounting & Finance',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '4段相关实习和4段校园活动经历'
@@ -1760,7 +1894,7 @@ export default {
             collegeMajor: '工商管理',
             gpa: '3.0-3.5（80-85）',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '相关项目活动丰富及2段实习经历'
           },
           {
@@ -1772,9 +1906,9 @@ export default {
             collegeSchool: '海本',
             // 昆士兰大学
             collegeMajor: 'Accounting',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.0-7.5',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.0',
             bg: '4段相关实习经历'
           },
           {
@@ -1785,9 +1919,9 @@ export default {
             admissionMajor: 'MSc Marketing Analytics and Insights',
             collegeSchool: '洛桑酒店管理学院',
             collegeMajor: 'Hotel Management',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.5-8.0',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.5',
             bg: '3段酒店行业相关实习'
           },
           {
@@ -1798,7 +1932,7 @@ export default {
             admissionMajor: 'Master of Finance Engineering',
             collegeSchool: '加州大学洛杉矶分校',
             collegeMajor: 'Statistics',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
             toeflOrIelts: 'TOEFL：N/A',
             bg: '无实习申请'
@@ -1824,7 +1958,7 @@ export default {
             admissionMajor: 'Master of IT in Business',
             collegeSchool: '上海大学',
             collegeMajor: '管理科学',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GMAT：610-640',
             toeflOrIelts: 'IELTS：6.0-6.5',
             bg: '2段相关实习 多段校园活动'
@@ -1837,9 +1971,9 @@ export default {
             admissionMajor: 'Master in Finance',
             collegeSchool: '清华大学',
             collegeMajor: '经济与金融',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '2段实习,多段校园经历'
           },
           {
@@ -1850,9 +1984,9 @@ export default {
             admissionMajor: 'MSc in Management',
             collegeSchool: '北京师范大学',
             collegeMajor: 'International Business and Trade',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '3段相关实习'
           },
           {
@@ -1863,9 +1997,9 @@ export default {
             admissionMajor: 'M2M HEC - YALE',
             collegeSchool: '密歇根大学安娜堡分校',
             collegeMajor: 'Economics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：100-110',
+            gpa: '85+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
             bg: '海本高三维、有多段实习'
           },
           {
@@ -1876,13 +2010,26 @@ export default {
             admissionMajor: 'MSc in Luxury Management & Marketing',
             collegeSchool: '洛桑酒店管理学院',
             collegeMajor: 'Hotel Management',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GMAT：640-750',
-            toeflOrIelts: 'IELTS：7.5-8.0',
+            gpa: '85+',
+            greOrGmat: 'GMAT：640+',
+            toeflOrIelts: 'IELTS：7.5',
             bg: '3段酒店行业相关实习'
           }
         ],
         [
+          {
+            name: 'M 同学',
+            year: '2019',
+            schoolLogo: require('../assets/img/home/school/glby.png'),
+            admissionSchool: '哥伦比亚大学',
+            admissionMajor: 'MFA Film- Screenwriting/directing concentration',
+            collegeSchool: '中央戏剧学院',
+            collegeMajor: '戏剧学',
+            gpa: '83+',
+            greOrGmat: 'GRE：N/A',
+            toeflOrIelts: 'TOEFL：90+',
+            bg: '全职工作经历、棕榈辅导作品集'
+          },
           {
             name: '李同学',
             year: '2019',
@@ -1891,49 +2038,75 @@ export default {
             admissionMajor: 'MFA in Studio (Film, Video, New Media, and Animation)',
             collegeSchool: '北京师范大学',
             collegeMajor: 'Digital Arts / Multimedia',
-            gpa: '3.5以上（85以上）',
+            gpa: '85+',
             greOrGmat: 'GRE：N/A',
             toeflOrIelts: 'TOEFL：95-100',
             bg: '2段交换学习经历,2段工作经历'
           },
+          // {
+          //   name: '钟同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/mllg.png'),
+          //   admissionSchool: '米兰理工大学',
+          //   admissionMajor: 'Interior and Spatial Design',
+          //   collegeSchool: '同济大学',
+          //   collegeMajor: '环境设计',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：N/A',
+          //   toeflOrIelts: 'IELTS：6.5-7.0',
+          //   bg: '多段学校活动经历, 4段相关经历'
+          // },
           {
-            name: '郑同学',
+            name: 'H 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/glby.png'),
-            admissionSchool: '哥伦比亚大学',
-            admissionMajor: 'Film Directing',
+            schoolLogo: require('../assets/img/home/school/lddyxy.png'),
+            admissionSchool: '伦敦电影学院',
+            admissionMajor: 'MA Screenwriting',
             collegeSchool: '中央戏剧学院',
-            collegeMajor: '戏剧文学',
-            gpa: '3.5以上（85以上）',
+            collegeMajor: '戏剧影视文学',
+            gpa: '3.4+',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：80-95',
-            bg: '托福未达标破格录取'
+            toeflOrIelts: 'IELTS：6.5',
+            bg: '传媒公司实习、低语言成绩申请'
+          },
+          // {
+          //   name: '王同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/nydy.png'),
+          //   admissionSchool: 'New York Film Academy',
+          //   admissionMajor: 'MFA in Screenwriting',
+          //   collegeSchool: '北京大学',
+          //   collegeMajor: '社会学',
+          //   gpa: '3.0-3.5（80-85）',
+          //   greOrGmat: 'GRE：N/A',
+          //   toeflOrIelts: 'TOEFL：100+',
+          //   bg: '转专业申请，无太多相关经验'
+          // },
+          {
+            name: 'N 同学',
+            year: '2019',
+            schoolLogo: require('../assets/img/home/school/mgdyxy.png'),
+            admissionSchool: '美国电影学院',
+            admissionMajor: 'MFA Producing',
+            collegeSchool: '海外本科',
+            collegeMajor: '理科专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：N/A',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '电影相关实习、棕榈辅导文书和作品集'
           },
           {
-            name: '钟同学',
+            name: 'X 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/mllg.png'),
-            admissionSchool: '米兰理工大学',
-            admissionMajor: 'Interior and Spatial Design',
-            collegeSchool: '同济大学',
-            collegeMajor: '环境设计',
-            gpa: '3.5以上（85以上）',
+            schoolLogo: require('../assets/img/home/school/jzysxy.png'),
+            admissionSchool: '加州艺术学院',
+            admissionMajor: 'MFA in Arts',
+            collegeSchool: '麻省艺术学院',
+            collegeMajor: '绘画&艺术史硕士',
+            gpa: '3.3+',
             greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'IELTS：6.5-7.0',
-            bg: '多段学校活动经历, 4段相关经历'
-          },
-          {
-            name: '王同学',
-            year: '2019',
-            schoolLogo: require('../assets/img/home/school/nydy.png'),
-            admissionSchool: 'New York Film Academy',
-            admissionMajor: 'MFA in Screenwriting',
-            collegeSchool: '北京大学',
-            collegeMajor: '社会学',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：100-110',
-            bg: '转专业申请，无太多相关经验'
+            toeflOrIelts: 'TOEFL：waive',
+            bg: '多段实践经历、文书有深度'
           },
           {
             name: '张同学',
@@ -1948,45 +2121,71 @@ export default {
             toeflOrIelts: 'TOEFL：N/A',
             bg: '低GPA录取;双非录取;转专业录取'
           },
+          // {
+          //   name: '李同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/dk.png'),
+          //   admissionSchool: '杜克大学',
+          //   admissionMajor: 'Master of Fine Arts in Experimental and Documentary Arts',
+          //   collegeSchool: '北方工业大学',
+          //   collegeMajor: '广告学',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：N/A',
+          //   toeflOrIelts: 'TOEFL：95-100',
+          //   bg: '双非录取;含奖学金;转专业录取'
+          // },
           {
-            name: '李同学',
+            name: 'H 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/dk.png'),
-            admissionSchool: '杜克大学',
-            admissionMajor: 'Master of Fine Arts in Experimental and Documentary Arts',
-            collegeSchool: '北方工业大学',
-            collegeMajor: '广告学',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：95-100',
-            bg: '双非录取;含奖学金;转专业录取'
+            schoolLogo: require('../assets/img/home/school/hsd.png'),
+            admissionSchool: '华盛顿大学',
+            admissionMajor: 'MS in Technology Innovation',
+            collegeSchool: '北京 985 院校',
+            collegeMajor: '设计硕士',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：90+',
+            bg: '保研后申请、棕榈辅导作品集'
           },
+          // {
+          //   name: '董同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/hjzyyjyxj.png'),
+          //   admissionSchool: '皇家中央演讲与戏剧学院',
+          //   admissionMajor: 'Applied Theatre, MA',
+          //   collegeSchool: '上海戏剧学院',
+          //   collegeMajor: '教育戏剧',
+          //   gpa: '3.0-3.5（80-85）',
+          //   greOrGmat: 'GRE：N/A',
+          //   toeflOrIelts: 'TOEFL：N/A',
+          //   bg: ''
+          // },
           {
-            name: '董同学',
+            name: 'G 同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/hjzyyjyxj.png'),
-            admissionSchool: '皇家中央演讲与戏剧学院',
-            admissionMajor: 'Applied Theatre, MA',
-            collegeSchool: '上海戏剧学院',
-            collegeMajor: '教育戏剧',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：N/A',
+            schoolLogo: require('../assets/img/home/school/nydx.png'),
+            admissionSchool: '纽约大学',
+            admissionMajor: 'Tisch 艺术学院',
+            collegeSchool: '艺术类院校',
+            collegeMajor: '设计类专业',
+            gpa: '3.6+',
+            greOrGmat: '奖学金：10000 美元',
             toeflOrIelts: 'TOEFL：N/A',
-            bg: ''
-          },
-          {
-            name: '高同学',
-            year: '2019',
-            schoolLogo: require('../assets/img/home/school/kne.png'),
-            admissionSchool: '康奈尔大学',
-            admissionMajor: 'Jacobs Technion-Cornell Dual Master of Science Degrees with a Concentration in Connective Media',
-            collegeSchool: '多伦多大学',
-            collegeMajor: 'Computer Science & Statistics',
-            gpa: '3.5以上（85以上）',
-            greOrGmat: 'GRE：320-330',
-            toeflOrIelts: 'TOEFL：N/A',
-            bg: '海本, 多段校园活动和学术经验'
+            bg: '多次海外实习经历，作品集丰富'
           }
+          // {
+          //   name: '高同学',
+          //   year: '2019',
+          //   schoolLogo: require('../assets/img/home/school/kne.png'),
+          //   admissionSchool: '康奈尔大学',
+          //   admissionMajor: 'Jacobs Technion-Cornell Dual Master of Science Degrees with a Concentration in Connective Media',
+          //   collegeSchool: '多伦多大学',
+          //   collegeMajor: 'Computer Science & Statistics',
+          //   gpa: '85+',
+          //   greOrGmat: 'GRE：320+',
+          //   toeflOrIelts: 'TOEFL：N/A',
+          //   bg: '海本, 多段校园活动和学术经验'
+          // },
         ]
       ],
       intros: [
@@ -2648,7 +2847,7 @@ export default {
           opacity:1;
           border-radius:20px;
           text-align: left;
-          height: 306px;
+          height: 329px;
 
           .demo-img {
             width:75px;
@@ -2714,6 +2913,13 @@ export default {
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 1;
+              overflow: hidden;
+            }
+
+            .line2 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
               overflow: hidden;
             }
 
@@ -3280,6 +3486,13 @@ export default {
               -webkit-line-clamp: 1;
               overflow: hidden;
               height: .4rem;
+            }
+
+            .line2 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
             }
 
             .line3 {
