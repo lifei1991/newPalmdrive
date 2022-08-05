@@ -1,6 +1,6 @@
+import HelloWorld from '@/components/HelloWorld'
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 // import Home from '@/components/Home'
 // import DreamSchool from '@/components/DreamSchool'
 // import SeedPlan from '@/components/SeedPlan'
@@ -132,6 +132,14 @@ export default new Router({
       component: resolve => (require(['@/components/Test'], resolve)),
       meta: {
         title: '测试页面'
+      }
+    },
+    {
+      path: '/high_school',
+      name: 'HighSchool',
+      component: resolve => (require(['@/components/HighSchool'], resolve)),
+      meta: {
+        title: '申请初高中'
       }
     }
   ]

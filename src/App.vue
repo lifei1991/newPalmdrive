@@ -979,6 +979,7 @@ export default {
       isMobile: Common.isMobile,
       lastScrollTop: 0,
       showZindex: false,
+      old: this.$route.query.old,
       showLoginDialog: false
     }
   },
@@ -989,6 +990,8 @@ export default {
     Drawer
   },
   created () {
+    console.log(this.$route.query)
+    console.log(this.old)
     this.otherContact1 = require('./assets/img/home/foot/otherContact1.png')
     this.otherContact2 = require('./assets/img/home/foot/otherContact2.png')
     this.otherContact3 = require('./assets/img/home/foot/otherContact3.png')
@@ -1204,6 +1207,26 @@ body {
 @font-face {
   font-family:'CamptonLight';
   src:url('./assets/font/Campton-LightDEMO.otf') format('truetype');
+}
+
+// 老官网所需字体
+@font-face {
+  font-family: 'AvantGardeDemi';
+  src: url("./assets/font/old/AvantGardeDemi.otf")
+}
+
+@font-face {
+  font-family: 'Segoe-Print';
+  src: url("./assets/font/old/segoe_print.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal
+}
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url("./assets/font/old/bebasneue_regular-webfont.eot");
+  src: url("./assets/font/old/bebasneue_regular-webfont.eot?#iefix") format("embedded-opentype"), url("./assets/font/old/bebasneue_regular-webfont.woff") format("woff"), url("./assets/font/old/bebasneue_regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal
 }
 
 .web-div {

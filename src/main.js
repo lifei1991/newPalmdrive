@@ -11,6 +11,9 @@ import VueResource from 'vue-resource'
 // import $ from 'jquery'
 import VueAnimateNumber from 'vue-animate-number'
 
+// import i18n from './old/lang/index'
+// import { createI18n } from 'vue-i18n'
+
 Vue.use(ElementUI)
 // Vue.use(Popover)
 // Vue.use(Dialog)
@@ -19,6 +22,8 @@ Vue.use(VueResource)
 Vue.config.productionTip = false
 // window.jquery = window.$ = $
 Vue.use(VueAnimateNumber)
+
+// Vue.use(createI18n)
 
 // 每次跳转到页面顶部
 // router.afterEach((to, from, next) => {
@@ -33,10 +38,20 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+// eslint-disable-next-line new-cap
+// const i18n = new createI18n({
+//   locale: 'zh-CN', // 语言标识
+//   messages: {
+//     'zh': require('./old/lang/zh'), // 通过require引入中文语言包
+//     'en': require('./old/lang/en') // 通过require引入英文语言包
+//   }
+// })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  // i18n,
   components: { App },
   template: '<App/>'
 })
