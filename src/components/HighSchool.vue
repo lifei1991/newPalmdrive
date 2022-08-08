@@ -1,5 +1,5 @@
 <template>
-  <div class="major">
+  <div class="highschool-services" v-cloak>
     <div class='update-highschool-services-pagesss'>
       <div class='full-page'>
         <section class='highschool-banner-section page-section'>
@@ -89,8 +89,8 @@
               </div>
               <div class='master-contain'>
                 <div class='profile' v-for='member in team' :key="member">
-                  <a class='profile-img-xl' data-toggle='modal' href='#'>
-                    <div class='profile-img-xl' :style="[{backgroundImage: 'url(' + member.photo1 +')'}]"></div>
+                  <a class='profile-img-xl' data-toggle='modal'>
+                    <div class='profile-img-xl' :style="[{backgroundImage: 'url(' + member.img +')'}]"></div>
                     <div class='mask'></div>
                     <div class='introduce'>
                       <div class='name size-xl'>{{member.name}}</div>
@@ -104,12 +104,12 @@
           </section>
           <section class='almighty-master-section-mobile' v-if='isMobile'>
             <div class='index-title'>全能主导师</div>
-            <div class='master-contain mentors-slider' data-show-dots='false' :data-slider-number="isMobile ? '3': '3'" pd-carousel>
+            <div class='master-contain mentors-slider owl-carousel  owl-theme' id="owl-demo2" data-show-dots='false' :data-slider-number="isMobile ? '3': '3'" pd-carousel>
               <div class='profile mentor-slide pd-carousel-slider' v-for='member in team' :key="member">
-                <div class='img' :style="[{backgroundImage: 'url(' + member.photo1 +')'}]"></div>
+                <div class='img' :style="[{backgroundImage: 'url(' + member.img +')'}]"></div>
                 <div class='name text'>{{member.name}}</div>
                 <div class='position text'>{{member.position}}</div>
-                <div class='background text' v-html='member.background'></div>
+                <div class='background text' v-html='member.background2'></div>
               </div>
             </div>
           </section>
@@ -123,19 +123,19 @@
               <div class='admissions-officer-contain mentors-slider' data-show-dots='false' :data-slider-number="isMobile ? '3': '3'" pd-carousel>
                 <div align='center' class='admissions-officer-div mentor-slide pd-carousel-slider' v-for='undergradMentor in undergradMentorsMobile' :key="undergradMentor">
                   <div class='admissions-officer-div-each'>
-                    <div class='img' :style="[{backgroundImage: 'url(../assets/img/old/highschool_services/admission/' + undergradMentor[0] +'.jpg)'}]"></div>
-                    <div class='name center' v-html="'marketings.highschool_services.admission_officiers.' + undergradMentor[0] + '.name' | translate"></div>
-                    <div class='school center' v-html="'marketings.highschool_services.admission_officiers.' + undergradMentor[0] + '.title' | translate"></div>
+                    <div class='img' :style="[{backgroundImage: 'url(' + undergradMentor[0].img + ')'}]"></div>
+                    <div class='name center' v-html="undergradMentor[0].name"></div>
+                    <div class='school center' v-html="undergradMentor[0].title"></div>
                   </div>
                   <div class='admissions-officer-div-each'>
-                    <div class='img' :style="[{backgroundImage: 'url(../assets/img/old/highschool_services/admission/' + undergradMentor[1] +'.jpg)'}]"></div>
-                    <div class='name center' v-html="'marketings.highschool_services.admission_officiers.' + undergradMentor[1] + '.name' | translate"></div>
-                    <div class='school center' v-html="'marketings.highschool_services.admission_officiers.' + undergradMentor[1] + '.title' | translate"></div>
+                    <div class='img' :style="[{backgroundImage: 'url(' + undergradMentor[1].img + ')'}]"></div>
+                    <div class='name center' v-html="undergradMentor[1].name"></div>
+                    <div class='school center' v-html="undergradMentor[1].title"></div>
                   </div>
                 </div>
               </div>
               <div class='center highschool-slogan'>
-                <img class='prestans-logo' src='../assets/img/old/highschool_services/Prestans.jpg'>{{'marketings.highschool_services.slogan' | translate}}
+                <img class='prestans-logo' src='../assets/img/old/highschool_services/Prestans.jpg'>招生官面试服务为棕榈大道与美国波士顿Prestans Online Academy联合推出。
               </div>
             </div>
           </section>
@@ -144,25 +144,26 @@
             <div class='admissions-officer-contain mentors-slider' data-show-dots='false' :data-slider-number="isMobile ? '3': '3'" pd-carousel>
               <div align='center' class='admissions-officer-div mentor-slide pd-carousel-slider' v-for='undergradMentor in undergradMentorsMobile' :key="undergradMentor">
                 <div class='admissions-officer-div-each'>
-                  <img class='img' :src="'../assets/img/old/highschool_services/admission/'+undergradMentor[0]+'.jpg'">
+                  <img class='img' :src="undergradMentor[0].img">
                   <div class='name center' v-html="undergradMentor[0].name"></div>
                   <div class='school center' v-html="undergradMentor[0].title"></div>
                 </div>
                 <div class='admissions-officer-div-each'>
-                  <img class='img' :src="'../assets/img/old/highschool_services/admission/'+undergradMentor[1]+'.jpg'">
+                  <img class='img' :src="undergradMentor[1].img">
                   <div class='name center' v-html="undergradMentor[1].name"></div>
                   <div class='school center' v-html="undergradMentor[1].title"></div>
                 </div>
               </div>
             </div>
           </section>
-          <!-- <section :class="isMobile ? 'precedence-table-section-mobile' : 'precedence-table-section'">
-                    <div class='precedence-table-title size-xl center white'>棕榈大道美国高中排名表</div>
-                    <a class='precedence-table-button' data-toggle='modal' href='../assets/img/old/highschool_services/highschoolRanking.pdf' target='_blank'>
-                    <div class='size-l center white rank-more-text'>点击查看完整排名</div>
-                    <div class='rank-more-img'></div>
-                    </a>
-                </section> -->
+
+          <section :class="isMobile ? 'precedence-table-section-mobile' : 'precedence-table-section'">
+            <div class='precedence-table-title size-xl center white'>棕榈大道美国高中排名表</div>
+            <a class='precedence-table-button' data-toggle='modal' href='http://www.palmdrive.cn/img/marketings/3.0/highschool_services/highschoolRanking.pdf' target='_blank'>
+              <div class='size-l center white rank-more-text'>点击查看完整排名</div>
+              <div class='rank-more-img'></div>
+            </a>
+          </section>
         </section>
       </div>
       <!-- <div :data-source='{{selectedServiceId}}' service-interest-modal></div> -->
@@ -351,6 +352,44 @@ export default {
           }
         ]
       ],
+      team: [
+        {
+          name: '盛天意 Tina',
+          img: require('../assets/img/old/mentors/tina.jpg'),
+          position: '导师总监',
+          background: '斯坦福大学教育学院 中学教育方向硕士',
+          background2: '斯坦福大学中学教育硕士<br/>中学教育方向硕士',
+          intro:
+            'Tina 老师在旧金山湾区的中学内工作的多年内，曾在公立及私立初高中教授过中文、历史和ESL，也在私立高中担任过招生面试官以及国际学生辅导员 , 并曾负责创立和管理旧金山湾区一所私立高中的寄宿部 , 具有丰富的双语教学、招生与国际学生指导经验。<br/>Tina 老师非常熟悉美国初高中的各类课程内容以及丰富多彩的课外活动，同时也对美国本地中学文化有着深刻的认知和了解。Tina 老师曾经在各种不同类型的学校工作过，包括教会学校、公立中学以及顶尖私立学校的天才班，因此对于美国本土中学的分层以及课程教学内容的相同性与差异性也有着独到的见解，可以更容易地针对每个孩子的特点推荐最适合他的学校。<br/>曾经在私立中学担任过三年国际学生招生官的经历让 Tina 老师非常熟悉来自世界各地的申请者，尤其是中国大陆的申请学生，因此对于国际学生如何在申请以及面试中脱颖而出有着第一手的经验，可以更有效地指导学生做出最符合学校心意的申请材料，以及在面试中尽情展示出个人魅力，获得学校的青睐。<br/>同时，Tina 老师在帮助国际学生中学期间选择校内和校外补充课程以及活动方面也有着丰富的经验 , 能快速分析判断学生的特点与优势 , 准确指导国际学生的选课与活动规划，挖掘自身亮点。Tina老师的教育学背景也让她能够从心理学角度合理理解与分析学生在各个年龄阶段会遇到的困惑，为小留学生的留学之路保驾护航。'
+        },
+        {
+          name: '冯子昊 Zihao',
+          img: require('../assets/img/old/mentors/zihao.jpg'),
+          position: '首席主导师',
+          background: '宾夕法尼亚大学 计算机图形学硕士<br>宾大校友面试官',
+          background2: '宾夕法尼亚大学<br>计算机图形学硕士',
+          intro:
+            'Zihao 老师是个十足的“理工科女生”，高中时期，就读于理科实验部的她醉心于数学、生物、化学竞赛，在大学期间，她选择了计算机图形学的专业方向，并且有不少相关的行业实习经历。在美国，她获得了常春藤宾夕法尼亚大学的硕士，也曾担任宾大校友面试官，拥有多年美国学习、工作和生活经验，对美国校园和留学生日常生活极为熟悉。<br/>自 2013年秋季开始从事美国中学申请咨询，Zihao老师已经帮助数百名学子申请到理想美国学校。她非常擅长挖掘学生亮点、引导学生积极自我表达，并且能够以扎实的英文功底和流利的美式英语帮助学生进行文书写作和面试指导，并结合个人切身经历给出最准确的选校判断以及面试建议。在留美期间，Zihao 老师曾走访美国东北部新英格兰地区、费城地区、华盛顿地区多所寄宿名校，与招生官建立长期的良好关系，掌握一手录取信息。除此之外，Zihao 老师也曾作为学生督导、职场社交教练和生活监护人提供一对一的帮助和咨询，对小留学生的升学、学业和职业规划有独到的见解。'
+        },
+        {
+          name: '邓春琳 Leina',
+          img: require('../assets/img/old/mentors/leina.jpg'),
+          position: '首席主导师',
+          background: '北京理工大学 学士',
+          background2: '北京理工大学 学士',
+          intro:
+            '大学毕业后，Leina 老师就开始从事教育咨询的工作，在过去的八年内，Leina 老师走遍了美国除阿拉斯加和夏威夷以外所有州超过 140 所寄宿学校，对不同寄宿学校的地理位置、环境以及学校氛围和学生都有第一手的直观了解。Leina 老师的学生遍布全美，并且她和众多顶尖寄宿学校的招生官都保持着紧密的联系。<br/>在深圳的一所高端留学机构任职至留学部副总监之后，她开始思考究竟国际教育对于中国家庭来说意味着什么。在她眼中，中国家庭对于孩子教育的付出和投资甚至到了用不惜一切代价来形容的程度，而这些付出有些值得，有些却有待商榷。怀着这样的初心，Leina 老师加入棕榈，期待用自己的服务帮助每一个家庭,将留学和教育投资的价值最大化。Leina 老师善于观察和总结，能够从一些零碎的事情中找出与众不同的角度，从小事中发掘和打磨学生的亮点。同时，个性活泼开朗的她一直深受学生喜欢，能够和所有的学生打成一片。她认为留学工作第一个关键点就是顾问与学生要有火花，碰撞在一起才能变成熊熊大火，这也是 Leina 老师在工作过程中最有成就感的时刻。'
+        },
+        {
+          name: '宛晓红 Ivy',
+          img: require('../assets/img/old/mentors/Ivy.png'),
+          position: '资深主导师',
+          background: '波士顿大学 英语教育硕士<br>安庆师范大学 英语专业学士',
+          background2: '波士顿大学<br/>英语教育硕士',
+          intro:
+            'Ivy 老师拥有 8 年留学行业从业经验，同时是一位非常耐心，专业并且有责任心的老师。毕业后即就职于留学机构，而且首先就接触的是低龄留学，在这方面有非常多的经验。Ivy 老师拥有很强的亲和力和耐心，而且非常熟悉和了解青少年的心理，能够和学生很好地进行交流，建立信任。本着对教育事业的热爱，Ivy 老师在给家长和学生的日常沟通和答疑过程中能做到及时响应，充分给客户以安全感和可靠感。<br/>自 2013年秋季开始从事美国中学申请咨询，Zihao老师已经帮助数百名学子申请到理想美国学校。她非常擅长挖掘学生亮点、引导学生积极自我表达，并且能够以扎实的英文功底和流利的美式英语帮助学生进行文书写作和面试指导，并结合个人切身经历给出最准确的选校判断以及面试建议。在留美期间，Zihao 老师曾走访美国东北部新英格兰地区、费城地区、华盛顿地区多所寄宿名校，与招生官建立长期的良好关系，掌握一手录取信息。除此之外，Zihao 老师也曾作为学生督导、职场社交教练和生活监护人提供一对一的帮助和咨询，对小留学生的升学、学业和职业规划有独到的见解。'
+        }
+      ],
       characterDetail: {
         detail: {
           text: []
@@ -366,6 +405,23 @@ export default {
   },
   mounted () {
     window.scrollTo(0, 0)
+
+    this.$nextTick(function () {
+      $('#owl-demo2').owlCarousel({
+        items: 3,
+        margin: 20,
+        lazyLoad: true,
+        nav: false,
+        dots: false,
+        autoplay: false,
+        loop: false,
+        autoplayHoverPause: false,
+        navText: [
+          "<i class='left-arrow home-dynamic-left-arrow'></i>",
+          "<i class='right-arrow home-dynamic-right-arrow'></i>"
+        ]
+      })
+    })
   },
   methods: {
     showCharacterDetail (index) {
@@ -390,6 +446,14 @@ export default {
   font-size: 14px;
   margin: 0;
   color: #333;
+
+  img {
+    vertical-align: middle;
+  }
+
+  .white {
+    color: white;
+  }
 
   @themeColor: #2aa7aa;
   // @font-face
@@ -771,7 +835,7 @@ export default {
           position: absolute;
           top: 120px;
           left: 0;
-          width: 220px;
+          width: 210px;
           height: 100px;
           background: @themeColor;
           color: #ffffff;
@@ -798,7 +862,7 @@ export default {
     background-size: cover;
 
     .admissions-officer-contain {
-      width: 780px;
+      width: 850px;
       height: 75%;
       margin: 30px auto 0;
       //display: flex;
@@ -822,7 +886,7 @@ export default {
         //width: 25%;
         height: 100% !important;
         display: inline-block;
-        //margin: 0px 103px;
+        margin: 0px 30px;
         //flex: 1;
 
         .admissions-officer-div-each {
@@ -860,7 +924,7 @@ export default {
       font-size: 18px;
       color: #595757;
       text-align: right;
-      margin-right: 78px;
+      // margin-right: 78px;
 
       .prestans-logo {
         width: 52px;
@@ -1065,11 +1129,17 @@ export default {
     background-size: cover;
 
     .master-contain {
-      height: 70%;
-      margin-top: 20px;
+      height: 88%;
+      margin: 20px auto 0;
+      text-align: left;
+      width: 8.8rem;
+
+      .owl-stage-outer {
+        margin: 20px 40px;
+      }
 
       .profile {
-        width: 30%;
+        // width: 30%;
         display: inline-block;
 
         .img {
@@ -1110,6 +1180,7 @@ export default {
       .admissions-officer-div {
         width: 30%;
         display: inline-block;
+        vertical-align: top;
 
         .admissions-officer-div-each {
           height: 180px;
