@@ -28,3 +28,13 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+<!-- 李飞本地运行环境 -->
+<!-- node v16.16.0 -->
+<!-- npm 8.16.0 -->
+<!-- vue @vue/cli 5.0.8 -->
+
+<!-- 陈诗寒本地运行环境 -->
+<!-- node v8.4.0 -->
+<!-- npm 5.3.0 -->
