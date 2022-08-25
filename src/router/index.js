@@ -141,6 +141,14 @@ export default new Router({
       meta: {
         title: '申请初高中'
       }
+    },
+    {
+      path: '/walnut',
+      name: 'Walnut',
+      component: resolve => (require(['@/components/Walnut'], resolve)),
+      meta: {
+        title: '核桃英语'
+      }
     }
   ]
 })
