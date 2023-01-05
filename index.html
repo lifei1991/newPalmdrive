@@ -38,7 +38,7 @@
 
     <!-- Event snippet for 咨询报价 (1) conversion page
     In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
+    <!-- <script>
       function gtag_report_conversion(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
@@ -51,7 +51,7 @@
         });
         return false;
       }
-      </script>
+    </script> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- PMax -->
@@ -97,6 +97,51 @@
     <!-- Event snippet for 页面加载 conversion page -->
     <script>
       gtag('event', 'conversion', {'send_to': 'AW-441436137/yxplCKiD1b4CEOmPv9IB'});
+    </script>
+
+    <!-- Event snippet for 滑动网页底部 conversion page -->
+    <script>
+      var flag = 0;
+      window.addEventListener('load', function(event){
+        window.addEventListener('scroll', function(event){
+          if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+            if (flag===0) {
+              flag = 1;
+              gtag('event', '滑动网页底部');
+            }
+          }
+        });
+      });
+    </script>
+
+    <!-- Event snippet for 咨询按钮点击 conversion page -->
+    <script>
+      window.addEventListener('load', function(event){
+        document.addEventListener("click", function(event){
+          var target = event.target;
+          if (target == document.querySelector("#zc__invite__container__button")) {
+            gtag('event', '咨询按钮点击');
+          }
+        });
+      });
+    </script>
+
+    <!-- Event snippet for 多个页面跳转 conversion page -->
+    <script>
+      window.addEventListener('DOMContentLoaded',function(){
+        if(sessionStorage.pageViewCount){
+          var pvc = parseInt(sessionStorage.getItem("pageViewCount")) +1;
+          sessionStorage.setItem("pageViewCount",pvc);
+        }
+        else if(!sessionStorage.pageViewCount){
+          sessionStorage.setItem("pageViewCount",1);
+        }
+        var pageviewcount = parseInt(window.sessionStorage.pageViewCount);
+
+        if(pageviewcount>2){
+          gtag('event', '多个页面跳转');
+        }
+      });
     </script>
 
     <title>棕榈大道</title>
