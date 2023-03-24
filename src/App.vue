@@ -19,33 +19,26 @@
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">最新动态</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">申请动态</a></li>
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 7 }"><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
         </ul>
 
-        <div class="register" >
+        <div class="register">
           <a href="http://cms.palmdrive.cn/signin" target="_blank">注 册</a>
-          <el-popover
-            placement="right"
-            width="100"
-            trigger="hover">
+          <el-popover placement="right" width="100" trigger="hover">
             <div>400-006-2153</div>
             <!-- <div>010-53153818</div> -->
             <div slot="reference" class="phone"></div>
           </el-popover>
 
-          <el-popover
-            placement="right"
-            width="100"
-            trigger="hover">
-              <img class="link-img" src="./assets/img/head/ercode-detail3.png"
-              style="
+          <el-popover placement="right" width="100" trigger="hover">
+            <img class="link-img" src="./assets/img/head/ercode-detail3.png" style="
                 width: 100px;
                 height: 100px;
                 background-image: url('./assets/img/head/ercode-detail3.png');
                 background-repeat: no-repeat;
-                background-size: cover;"/>
+                background-size: cover;" />
             <div class="ercode" slot="reference"></div>
           </el-popover>
         </div>
@@ -68,12 +61,12 @@
         </transition>
       </div>
 
-      <router-view/>
+      <router-view />
 
       <div class="foot">
         <div class="left-div">
           <div class="link">
-            <img class="link-img" src="./assets/img/home/foot/lianjie.png"/>
+            <img class="link-img" src="./assets/img/home/foot/lianjie.png" />
             站内链接
           </div>
           <div class="heng-line"></div>
@@ -86,15 +79,15 @@
           </ul>
 
           <div class="link">
-            <img class="link-img" src="./assets/img/home/foot/location.png"/>
+            <img class="link-img" src="./assets/img/home/foot/location.png" />
             公司地址
           </div>
           <div class="heng-line"></div>
-          <ul class="location-item-div" >
+          <ul class="location-item-div">
             <li v-for="(item, index) in cities" :key="item.name" v-html="item.name" @click="addClass(index)" v-bind:class="{ 'bg-colors' : index == current }"></li>
           </ul>
 
-          <div class="place" v-for="(item, index) in selectedCity.place" :key="index" >
+          <div class="place" v-for="(item, index) in selectedCity.place" :key="index">
             <div class="text">{{ item.text }}</div>
             <div class="number">{{ item.number }}</div>
             <div class="place-line" v-if="selectedCity.place.length - 1 != index "></div>
@@ -121,7 +114,7 @@
           </div>
           <div class="wechat-div">
             <div class="title">
-              <img src="./assets/img/home/foot/wechat.png"/>
+              <img src="./assets/img/home/foot/wechat.png" />
               关注我们
             </div>
             <div class="code-div">
@@ -154,7 +147,8 @@
 
       <div class="copy-right">
         <div class="content">
-          <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
+          <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们
+          </div>
           <div class="content-title2">
             <span>CopyRight©2017 棕榈大道教育科技(北京)有限公司</span>
             <span>增值电信业务经营许可证：京B2-20191218</span>
@@ -189,177 +183,75 @@
     </div>
 
     <div v-if="isMobile" class="mobile-div" :class="showZindex ? 'littleHeight' : ''">
+      <!-- <x-header>headddd</x-header> -->
       <div class="head">
         <div class="logo"></div>
 
         <div class="my-drawer" style="height: 100%">
-          <drawer
-            width="5.333333rem;"
-            :show.sync="isshow"
-            show-mode="push"
-            placement="right"
-            :drawer-style="{'background-color':'#22C3B6', width: '0', 'z-index': '10px'}">
+          <drawer width="5.333333rem;" :show.sync="isshow" show-mode="push" placement="right" :drawer-style="{'background-color':'#22C3B6', width: '0', 'z-index': '10px'}">
 
             <div slot="drawer">
-              <cell
-                title="首页"
-                link="http://palmdrive.cn/"
-                :border-intent="false">
+              <cell title="首页" link="http://palmdrive.cn/" :border-intent="false">
               </cell>
 
-              <cell
-                title="申请初高中"
-                link="http://palmdrive.cn/highschool_services"
-                :border-intent="false">
+              <cell title="申请初高中" link="http://palmdrive.cn/highschool_services" :border-intent="false">
               </cell>
 
-              <cell
-                title="申请本科"
-                link="http://palmdrive.cn/undergrad_services"
-                :border-intent="false">
+              <cell title="申请本科" link="http://palmdrive.cn/undergrad_services" :border-intent="false">
               </cell>
 
-              <cell
-                title="申请研究生"
-                is-link
-                :border-intent="false"
-                :arrow-direction="show1 ? 'up' : 'down'"
-                @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
+              <cell title="申请研究生" is-link :border-intent="false" :arrow-direction="show1 ? 'up' : 'down'" @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
               </cell>
 
               <!-- <p class="slide" :class="show1?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p> -->
 
-              <cell
-                class="slide title2" :class="show1?'animate':''"
-                title="研究生服务介绍"
-                link="/graduate"
-                :border-intent="false"
-                @click.native="isshow = false">
+              <cell class="slide title2" :class="show1?'animate':''" title="研究生服务介绍" link="/graduate" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-              <cell
-                class="slide title2" :class="show1?'animate':''"
-                title="辅导项目"
-                is-link
-                :border-intent="false"
-                :arrow-direction="show2 ? 'up' : 'down'"
-                @click.native="show2 = !show2">
+              <cell class="slide title2" :class="show1?'animate':''" title="辅导项目" is-link :border-intent="false" :arrow-direction="show2 ? 'up' : 'down'" @click.native="show2 = !show2">
               </cell>
 
-                <cell
-                  class="slide title3" :class="show2?'animate':''"
-                  title="梦校计划"
-                  link="/dream"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-                <cell
-                  class="slide title3" :class="show2?'animate':''"
-                  title="种子计划"
-                  link="/seed"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-                <cell
-                  class="slide title3" :class="show2?'animate':''"
-                  title="能力提升"
-                  link="/ability"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-              <cell
-                class="slide title2" :class="show1?'animate':''"
-                title="师资团队"
-                is-link
-                :border-intent="false"
-                :arrow-direction="show3 ? 'up' : 'down'"
-                @click.native="show3 = !show3">
+              <cell class="slide title3" :class="show2?'animate':''" title="梦校计划" link="/dream" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-                <cell
-                  class="slide title3" :class="show3?'animate':''"
-                  title="导师介绍"
-                  link="/teachers"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-                <cell
-                  class="slide title3" :class="show3?'animate':''"
-                  title="四位一体"
-                  link="/four_to_one"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-              <cell
-                class="slide title2" :class="show1?'animate':''"
-                title="辅导结果"
-                is-link
-                :border-intent="false"
-                :arrow-direction="show4 ? 'up' : 'down'"
-                @click.native="show4 = !show4">
+              <cell class="slide title3" :class="show2?'animate':''" title="种子计划" link="/seed" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-                <cell
-                  class="slide title3" :class="show4?'animate':''"
-                  title="申请季offer"
-                  link="/offers"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-                <cell
-                  class="slide title3" :class="show4?'animate':''"
-                  title="背景提升offer"
-                  link="/bg_promote"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-                <cell
-                  class="slide title3" :class="show4?'animate':''"
-                  title="学员故事"
-                  link="/story"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
-
-              <cell
-                class="slide title2" :class="show1?'animate':''"
-                title="留学干货"
-                is-link
-                :border-intent="false"
-                :arrow-direction="show5 ? 'up' : 'down'"
-                @click.native="show5 = !show5">
+              <cell class="slide title3" :class="show2?'animate':''" title="能力提升" link="/ability" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-                <cell
-                  class="slide title3" :class="show5?'animate':''"
-                  title="申请指南"
-                  link="/guide"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
+              <cell class="slide title3" :class="show2?'animate':''" title="核桃英语" link="/walnut" :border-intent="false" @click.native="isshow = false">
+              </cell>
 
-                <cell
-                  class="slide title3" :class="show5?'animate':''"
-                  title="专业介绍"
-                  link="/major"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
+              <cell class="slide title2" :class="show1?'animate':''" title="师资团队" is-link :border-intent="false" :arrow-direction="show3 ? 'up' : 'down'" @click.native="show3 = !show3">
+              </cell>
 
-                <cell
-                  class="slide title3" :class="show5?'animate':''"
-                  title="资料下载"
-                  link="/material"
-                  :border-intent="false"
-                  @click.native="isshow = false">
-                </cell>
+              <cell class="slide title3" :class="show3?'animate':''" title="四位一体" link="/four_to_one" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title2" :class="show1?'animate':''" title="辅导结果" is-link :border-intent="false" :arrow-direction="show4 ? 'up' : 'down'" @click.native="show4 = !show4">
+              </cell>
+
+              <cell class="slide title3" :class="show4?'animate':''" title="申请季offer" link="/offers" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title3" :class="show4?'animate':''" title="背景提升offer" link="/bg_promote" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title3" :class="show4?'animate':''" title="学员故事" link="/story" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title2" :class="show1?'animate':''" title="留学干货" is-link :border-intent="false" :arrow-direction="show5 ? 'up' : 'down'" @click.native="show5 = !show5">
+              </cell>
+
+              <cell class="slide title3" :class="show5?'animate':''" title="申请指南" link="/guide" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title3" :class="show5?'animate':''" title="专业介绍" link="/major" :border-intent="false" @click.native="isshow = false">
+              </cell>
+
+              <cell class="slide title3" :class="show5?'animate':''" title="资料下载" link="/material" :border-intent="false" @click.native="isshow = false">
+              </cell>
 
               <!-- <cell
                 title="导师团队"
@@ -368,31 +260,20 @@
                 @click.native="isshow = false">
               </cell> -->
 
-              <cell
-                title="成功案例"
-                link="http://palmdrive.cn/graduate_showcase"
-                :border-intent="false"
-                @click.native="isshow = false">
+              <cell title="成功案例" link="http://www.palmdrive.cn/v2/graduate.html#/offers" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-              <cell
-                title="最新动态"
-                link="http://palmdrive.cn/news-all?type=graduate"
-                :border-intent="false"
-                @click.native="isshow = false">
+              <cell title="最新动态" link="http://palmdrive.cn/news-all?type=graduate" :border-intent="false" @click.native="isshow = false">
               </cell>
 
-              <cell
-                title="关于我们"
-                link="http://palmdrive.cn/about"
-                :border-intent="false">
+              <cell title="关于我们" link="http://palmdrive.cn/about" :border-intent="false">
               </cell>
 
             </div>
             <div class="btn2">
               <span slot="overwrite-left" @click="isshow = !isshow">
-                  <x-icon type="navicon" size="30" style="fill:#fff;background: #22C3B6;border-radius: 4px; width:.8rem; height:.8rem"></x-icon>
-                </span>
+                <x-icon type="navicon" size="30" style="fill:#fff;background: #22C3B6;border-radius: 4px; width:.8rem; height:.8rem"></x-icon>
+              </span>
             </div>
 
             <div class="login" @click="showLogin()"></div>
@@ -402,10 +283,7 @@
       </div>
 
       <div class="loginDialogDiv">
-        <el-dialog
-          customClass="loginDialog"
-          :visible.sync="showLoginDialog"
-          width="7rem">
+        <el-dialog customClass="loginDialog" :visible.sync="showLoginDialog" width="7rem">
           <img src="./assets/img/head/login2.png" class="login2" />
           <div class="text">请在电脑上登录</div>
           <div class="text2"><a href="http://cms.palmdrive.cn/" target="_blank">cms.palmdrive.cn</a></div>
@@ -416,7 +294,7 @@
       <div class="mask2" v-if="showLoginDialog"></div>
 
       <div style="position: relative;" :style=" showZindex ? 'z-index: 1000; height: 680px' : 'z-index: 3000'">
-        <router-view/>
+        <router-view />
       </div>
 
       <div class="foot">
@@ -484,11 +362,11 @@
             </div>
 
             <div class="address-div">
-              <ul class="location-item-div" >
+              <ul class="location-item-div">
                 <li v-for="(item, index) in cities" :key="item.name2" v-html="item.name2" @click="addClass(index)" v-bind:class="{ 'bg-colors' : index == current }"></li>
               </ul>
 
-              <div class="place" v-for="(item, index) in selectedCity.place" :key="index" >
+              <div class="place" v-for="(item, index) in selectedCity.place" :key="index">
                 <div class="text">{{ item.text }}</div>
                 <div class="number">{{ item.number }}</div>
                 <div class="place-line" v-if="selectedCity.place.length - 1 != index "></div>
@@ -499,7 +377,8 @@
 
         <div class="copy-right">
           <div class="content">
-            <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们</div>
+            <div class="content-title">隐私协议&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入我们
+            </div>
             <div class="content-title2">
               <div class="line1">CopyRight©2017 棕榈大道教育科技(北京)有限公司</div>
               <div>增值电信业务经营许可证：京B2-20191218 <a style="color: #fff" href="https://beian.miit.gov.cn" rel="noreferrer" target="_blank">京ICP备14009960号-1</a></div>
@@ -519,11 +398,11 @@
 </template>
 
 <script>
+import { Badge, Drawer, Group, XHeader } from 'vux'
 import Common from './components/common/common'
-import { Group, Cell, Badge, Drawer } from 'vux'
 // import Drawer from 'vux/src/components/drawer'
 // import Group from 'vux/src/components/group'
-// import Cell from 'vux/src/components/cell'
+import Cell from 'vux/src/components/cell'
 // import Badge from 'vux/src/components/badge'
 
 export default {
@@ -562,7 +441,7 @@ export default {
           name2: '广州',
           place: [
             {
-              text: '广州市天河区花城大道85号高德置地春广场A座2801室',
+              text: '广州市天河区珠江东路11号高德置地广场F座11楼02-03单元',
               number: '020-8981 9380'
             }
           ]
@@ -592,7 +471,8 @@ export default {
           name2: '成都',
           place: [
             {
-              text: '成都市锦江区红星路三段1号国际金融中心一号办公楼36楼1及8-10单元',
+              text:
+                '成都市锦江区红星路三段1号国际金融中心一号办公楼36楼1及8-10单元',
               number: '028-8675 8946'
             }
           ]
@@ -670,11 +550,11 @@ export default {
             {
               title: '师资团队',
               items: [
-                {
-                  name: '导师介绍',
-                  name2: '',
-                  url: ''
-                },
+                // {
+                //   name: '导师介绍',
+                //   name2: '',
+                //   url: ''
+                // },
                 {
                   name: '四位一体',
                   name2: '',
@@ -751,11 +631,11 @@ export default {
             {
               title: '师资团队',
               items: [
-                {
-                  name: '导师介绍',
-                  name2: '',
-                  url: ''
-                },
+                // {
+                //   name: '导师介绍',
+                //   name2: '',
+                //   url: ''
+                // },
                 {
                   name: '四位一体',
                   name2: '',
@@ -832,11 +712,11 @@ export default {
             {
               title: '师资团队',
               items: [
-                {
-                  name: '导师介绍',
-                  name2: '',
-                  url: ''
-                },
+                // {
+                //   name: '导师介绍',
+                //   name2: '',
+                //   url: ''
+                // },
                 {
                   name: '四位一体',
                   name2: '',
@@ -907,17 +787,22 @@ export default {
                   name: '能力提升',
                   name2: '',
                   url: '/ability'
+                },
+                {
+                  name: '核桃英语',
+                  name2: '',
+                  url: '/walnut'
                 }
               ]
             },
             {
               title: '师资团队',
               items: [
-                {
-                  name: '导师介绍',
-                  name2: '',
-                  url: '/teachers'
-                },
+                // {
+                //   name: '导师介绍',
+                //   name2: '',
+                //   url: '/teachers'
+                // },
                 {
                   name: '四位一体',
                   name2: '',
@@ -987,7 +872,8 @@ export default {
     Group,
     Cell,
     Badge,
-    Drawer
+    Drawer,
+    XHeader
   },
   created () {
     console.log(this.$route.query)
@@ -1089,7 +975,7 @@ body {
 .left-arrow {
   width: 14px;
   height: 23px;
-  background-image: url("assets/img/home/left-arrow.png");
+  background-image: url('assets/img/home/left-arrow.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -1099,7 +985,7 @@ body {
 .right-arrow {
   width: 14px;
   height: 23px;
-  background-image: url("assets/img/home/right-arrow.png");
+  background-image: url('assets/img/home/right-arrow.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -1107,14 +993,14 @@ body {
 }
 
 .left-arrow-circule {
-  background-image: url("assets/img/ability/left-arrow-circule.png") !important;
+  background-image: url('assets/img/ability/left-arrow-circule.png') !important;
   width: 56px !important;
   height: 56px !important;
   left: -76px !important;
 }
 
 .right-arrow-circule {
-  background-image: url("assets/img/ability/right-arrow-circule.png") !important;
+  background-image: url('assets/img/ability/right-arrow-circule.png') !important;
   width: 56px !important;
   height: 56px !important;
 }
@@ -1159,32 +1045,32 @@ body {
   position: absolute;
   top: 30%;
   left: -30px !important;
-  width: .586667rem !important;
-  height: .586667rem !important;
+  width: 0.586667rem !important;
+  height: 0.586667rem !important;
 }
 
 .ability-program-right-arrow-mobile {
   position: absolute;
   top: 30%;
   right: -30px !important;
-  width: .586667rem !important;
-  height: .586667rem !important;
+  width: 0.586667rem !important;
+  height: 0.586667rem !important;
 }
 
-@media not all and (min-resolution:.001dpcm) {
+@media not all and (min-resolution: 0.001dpcm) {
   body {
     letter-spacing: -1px;
   }
 }
 
 @font-face {
-  font-family:'Biko';
-  src:url('./assets/font/biko.otf') format('truetype');
+  font-family: 'Biko';
+  src: url('./assets/font/biko.otf') format('truetype');
 }
 
 @font-face {
-  font-family:'SourceHanSansCN';
-  src:url('./assets/font/SourceHanSansCN-Regular.ttf') format('truetype');
+  font-family: 'SourceHanSansCN';
+  src: url('./assets/font/SourceHanSansCN-Regular.ttf') format('truetype');
 }
 
 // @font-face {
@@ -1200,51 +1086,54 @@ body {
 // }
 
 @font-face {
-  font-family:'Campton';
-  src:url('./assets/font/campton.otf') format('truetype');
+  font-family: 'Campton';
+  src: url('./assets/font/campton.otf') format('truetype');
 }
 
 @font-face {
-  font-family:'CamptonLight';
-  src:url('./assets/font/Campton-LightDEMO.otf') format('truetype');
+  font-family: 'CamptonLight';
+  src: url('./assets/font/Campton-LightDEMO.otf') format('truetype');
 }
 
 // 老官网所需字体
 @font-face {
   font-family: 'AvantGardeDemi';
-  src: url("./assets/font/old/AvantGardeDemi.otf")
+  src: url('./assets/font/old/AvantGardeDemi.otf');
 }
 
 @font-face {
   font-family: 'Segoe-Print';
-  src: url("./assets/font/old/segoe_print.ttf") format("truetype");
+  src: url('./assets/font/old/segoe_print.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal
+  font-style: normal;
 }
 @font-face {
   font-family: 'BebasNeueRegular';
-  src: url("./assets/font/old/bebasneue_regular-webfont.eot");
-  src: url("./assets/font/old/bebasneue_regular-webfont.eot?#iefix") format("embedded-opentype"), url("./assets/font/old/bebasneue_regular-webfont.woff") format("woff"), url("./assets/font/old/bebasneue_regular.ttf") format("truetype");
+  src: url('./assets/font/old/bebasneue_regular-webfont.eot');
+  src: url('./assets/font/old/bebasneue_regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/font/old/bebasneue_regular-webfont.woff') format('woff'),
+    url('./assets/font/old/bebasneue_regular.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal
+  font-style: normal;
 }
 
 .web-div {
   .head {
-    height:87px;
+    height: 87px;
     width: 100%;
     // background:rgba(33,195,182,1);
-    opacity:1;
+    opacity: 1;
     text-align: center;
     // overflow: hidden;
     position: relative;
-    background:rgba(31,195,181,1);
-    box-shadow:5px 5px 7px rgba(0,0,0,0.08);
+    background: rgba(31, 195, 181, 1);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.08);
 
     .logo {
       width: 113px;
       height: 36px;
-      background-image: url("assets/img/head/logo.png");
+      background-image: url('assets/img/head/logo.png');
       background-repeat: no-repeat;
       background-size: cover;
       margin: 38px 111px 0 0;
@@ -1256,28 +1145,28 @@ body {
       display: inline-block;
       width: auto;
       list-style-type: none;
-      white-space:nowrap;
+      white-space: nowrap;
       overflow: hidden;
       padding: 0;
       height: 100%;
 
       li {
-        float:left;
-        padding:0 18px;
+        float: left;
+        padding: 0 18px;
         position: relative;
         overflow: hidden;
-        font-size:16px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:115px;
-        color:rgba(255,255,255,1);
-        opacity:1;
+        font-size: 16px;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 115px;
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
         height: 100%;
         cursor: pointer;
 
         a {
           display: block;
-          color:white;
+          color: white;
           text-align: center;
           // padding: 3px 0px;
           overflow: hidden;
@@ -1287,23 +1176,23 @@ body {
       }
 
       li:hover {
-        background: #35A79E;
+        background: #35a79e;
       }
     }
 
     .register {
       display: inline-block;
-      width:88px;
-      height:30px;
-      background:rgba(255,255,255,1);
-      opacity:1;
-      border-radius:17px;
-      font-size:13px;
-      font-family:SourceHanSansCN;
-      font-weight:bold;
-      line-height:30px;
-      color:rgba(34,195,182,1);
-      opacity:1;
+      width: 88px;
+      height: 30px;
+      background: rgba(255, 255, 255, 1);
+      opacity: 1;
+      border-radius: 17px;
+      font-size: 13px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
+      line-height: 30px;
+      color: rgba(34, 195, 182, 1);
+      opacity: 1;
       vertical-align: bottom;
       margin-left: 64px;
       position: relative;
@@ -1312,7 +1201,7 @@ body {
 
       a {
         text-decoration: none;
-        color: rgba(34,195,182,1);
+        color: rgba(34, 195, 182, 1);
       }
 
       .phone {
@@ -1321,7 +1210,7 @@ body {
         position: absolute;
         top: -32px;
         left: 7px;
-        background-image: url("assets/img/head/phone.png");
+        background-image: url('assets/img/head/phone.png');
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -1332,7 +1221,7 @@ body {
         position: absolute;
         top: -32px;
         right: 7px;
-        background-image: url("assets/img/head/ercode.png");
+        background-image: url('assets/img/head/ercode.png');
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -1342,31 +1231,32 @@ body {
       }
     }
 
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s;
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.5s;
     }
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
       opacity: 0;
     }
 
     .select-menu-colors {
-      background: #35A79E;
+      background: #35a79e;
     }
 
     .menus-div {
       width: 100%;
       height: 233px;
-      background-color: #FFF;
+      background-color: #fff;
       z-index: 2;
       position: absolute;
 
       .menu-intro {
-        font-size:14px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:14px;
-        color:rgba(57,60,61,1);
-        opacity:1;
+        font-size: 14px;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 14px;
+        color: rgba(57, 60, 61, 1);
+        opacity: 1;
         margin-top: 48px;
         position: relative;
         display: inline-block;
@@ -1379,14 +1269,14 @@ body {
           position: absolute;
           top: -15px;
           right: -32px;
-          background-image: url("assets/img/head/icon-new.png");
+          background-image: url('assets/img/head/icon-new.png');
           background-repeat: no-repeat;
           background-size: cover;
         }
       }
 
       .menu-intro:hover {
-        color: rgba(1,183,183,1);
+        color: rgba(1, 183, 183, 1);
       }
 
       .each-menus {
@@ -1397,34 +1287,34 @@ body {
         margin-top: 36px;
 
         .each-menu-title {
-          font-size:14px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:14px;
-          color:rgba(74,74,74,1);
-          opacity:1;
+          font-size: 14px;
+          font-family: SourceHanSansCN;
+          font-weight: bold;
+          line-height: 14px;
+          color: rgba(74, 74, 74, 1);
+          opacity: 1;
           padding-bottom: 8px;
-          border-bottom: 2px solid rgba(197,197,197,1);
+          border-bottom: 2px solid rgba(197, 197, 197, 1);
           width: 70px;
         }
 
         .menu {
-          font-size:14px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:20px;
-          color:rgba(57,60,61,1);
-          opacity:1;
+          font-size: 14px;
+          font-family: SourceHanSansCN;
+          font-weight: 500;
+          line-height: 20px;
+          color: rgba(57, 60, 61, 1);
+          opacity: 1;
           margin-top: 15px;
           cursor: pointer;
         }
 
         .menu:hover {
-          color: rgba(1,183,183,1);
+          color: rgba(1, 183, 183, 1);
         }
 
         .menu-name2 {
-          color: #A2A2A2;
+          color: #a2a2a2;
         }
       }
     }
@@ -1432,9 +1322,9 @@ body {
 
   .foot {
     padding: 0px 0 38px;
-    background-color: #F1F7FA;
+    background-color: #f1f7fa;
     text-align: center;
-    background-image: url("assets/img/home/foot/foot-bg.png");
+    background-image: url('assets/img/home/foot/foot-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 330px;
@@ -1446,12 +1336,12 @@ body {
       text-align: left;
 
       .link {
-        font-size:15px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:15px;
-        color:rgba(255,255,255,1);
-        opacity:1;
+        font-size: 15px;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 15px;
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
 
         .link-img {
           width: 13px;
@@ -1462,10 +1352,10 @@ body {
       }
 
       .heng-line {
-        width:31px;
-        height:0px;
-        border:1px solid rgba(1,183,183,1);
-        opacity:1;
+        width: 31px;
+        height: 0px;
+        border: 1px solid rgba(1, 183, 183, 1);
+        opacity: 1;
         margin: 8px 0 9px;
       }
 
@@ -1476,11 +1366,11 @@ body {
         margin-bottom: 46px;
 
         li {
-          font-size:14px;
-          font-family:SourceHanSansCN;
-          font-weight:500;
-          line-height:14px;
-          opacity:1;
+          font-size: 14px;
+          font-family: SourceHanSansCN;
+          font-weight: 500;
+          line-height: 14px;
+          opacity: 1;
           margin-right: 38px;
           display: inline-block;
           color: #fff;
@@ -1491,7 +1381,7 @@ body {
           }
 
           a:hover {
-            color:rgba(1,183,183,1);
+            color: rgba(1, 183, 183, 1);
           }
         }
       }
@@ -1517,35 +1407,36 @@ body {
         }
 
         .bg-colors {
-          color:rgba(1,183,183,1);
-          border-bottom: 3px solid rgba(1,183,183,1);
+          color: rgba(1, 183, 183, 1);
+          border-bottom: 3px solid rgba(1, 183, 183, 1);
         }
       }
 
       .place {
-        .text, .number {
-          font-size:14px;
-          font-family:PingFangSC-Regular, Biko;
-          font-weight:400;
-          line-height:20px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+        .text,
+        .number {
+          font-size: 14px;
+          font-family: PingFangSC-Regular, Biko;
+          font-weight: 400;
+          line-height: 20px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
 
         .place-line {
-          width:124px;
-          height:0px;
-          border:1px solid rgba(154,154,154,1);
-          opacity:1;
+          width: 124px;
+          height: 0px;
+          border: 1px solid rgba(154, 154, 154, 1);
+          opacity: 1;
           margin: 9px 0;
         }
       }
     }
 
     .middle-div {
-      height:237px;
-      border:1px solid rgba(255,255,255,1);
-      opacity:1;
+      height: 237px;
+      border: 1px solid rgba(255, 255, 255, 1);
+      opacity: 1;
       display: inline-block;
       vertical-align: top;
       margin-top: 73px;
@@ -1557,10 +1448,10 @@ body {
       vertical-align: top;
 
       .contact {
-        width:300px;
-        height:122px;
-        background:rgba(36,195,182, 0.83);
-        border-radius:13px;
+        width: 300px;
+        height: 122px;
+        background: rgba(36, 195, 182, 0.83);
+        border-radius: 13px;
         padding: 19px 0 0 38px;
         text-align: left;
         // background-image: url("assets/img/home/foot/contact-us.png");
@@ -1568,12 +1459,12 @@ body {
         // background-size: cover;
 
         .title {
-          font-size:15px;
-          font-family:PingFang SC;
-          font-weight:600;
-          line-height:20px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-size: 15px;
+          font-family: PingFang SC;
+          font-weight: 600;
+          line-height: 20px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
           margin-bottom: 18px;
 
           .more-img {
@@ -1586,12 +1477,12 @@ body {
 
         .text {
           margin-bottom: 5px;
-          font-size:13px;
-          font-family:SourceHanSansCN, Biko;
-          font-weight:400;
-          line-height:19px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-size: 13px;
+          font-family: SourceHanSansCN, Biko;
+          font-weight: 400;
+          line-height: 19px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
 
           .contact2-img {
             width: 19px;
@@ -1607,12 +1498,12 @@ body {
         text-align: left;
 
         .title {
-          font-size:15px;
-          font-family:PingFang SC;
+          font-size: 15px;
+          font-family: PingFang SC;
           // font-weight:600;
-          line-height:15px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          line-height: 15px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
 
           img {
             width: 19px;
@@ -1627,13 +1518,13 @@ body {
 
           .each-code {
             display: inline-block;
-            margin-right:31px;
-            font-size:14px;
-            font-family:SourceHanSansCN;
-            font-weight:500;
-            line-height:14px;
-            color:rgba(255,255,255,1);
-            opacity:1;
+            margin-right: 31px;
+            font-size: 14px;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            line-height: 14px;
+            color: rgba(255, 255, 255, 1);
+            opacity: 1;
             text-align: center;
 
             img {
@@ -1650,20 +1541,20 @@ body {
       }
 
       .other-contact {
-        width:146px;
-        height:27px;
-        background:rgba(36,195,182,.83);
-        border-radius:18px;
+        width: 146px;
+        height: 27px;
+        background: rgba(36, 195, 182, 0.83);
+        border-radius: 18px;
         margin-top: 20px;
         float: right;
         padding: 4px;
 
         .each-contact {
-          width:23px;
-          height:23px;
-          background:rgba(34,114,119,1);
-          border-radius:50%;
-          opacity:1;
+          width: 23px;
+          height: 23px;
+          background: rgba(34, 114, 119, 1);
+          border-radius: 50%;
+          opacity: 1;
           padding: 2px;
           display: inline-block;
 
@@ -1688,7 +1579,7 @@ body {
 
   .copy-right {
     padding: 31px 0 30px;
-    background-color: #25C3B6;
+    background-color: #25c3b6;
     text-align: left;
 
     .content {
@@ -1697,23 +1588,23 @@ body {
 
       .content-title {
         margin-bottom: 6px;
-        font-size:12px;
-        font-family:SourceHanSansCN, Biko;
-        font-weight:500;
-        line-height:12px;
-        color:rgba(255,255,255,1);
-        opacity:1;
+        font-size: 12px;
+        font-family: SourceHanSansCN, Biko;
+        font-weight: 500;
+        line-height: 12px;
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
       }
 
       .content-title2 {
         span {
           margin-right: 38px;
-          font-size:12px;
+          font-size: 12px;
           font-family: SourceHanSansCN, Biko;
-          font-weight:500;
-          line-height:12px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-weight: 500;
+          line-height: 12px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
       }
     }
@@ -1721,23 +1612,23 @@ body {
 
   @keyframes popin {
     0% {
-      right:-170px;
-      bottom:-170px;
+      right: -170px;
+      bottom: -170px;
     }
     100% {
-      right:0px;
-      bottom:0px
+      right: 0px;
+      bottom: 0px;
     }
   }
 
   @keyframes popout {
     0% {
-      right:0px;
-      bottom:0px
+      right: 0px;
+      bottom: 0px;
     }
     100% {
-      right:-170px;
-      bottom:-170px
+      right: -170px;
+      bottom: -170px;
     }
   }
 
@@ -1808,13 +1699,14 @@ body {
   }
 
   .contact-info-fadeout {
-      animation: popout 1s forwards;
+    animation: popout 1s forwards;
   }
 
   #chatBtn {
     position: fixed;
     background-color: #19caa6;
-    font-family: 'Helvetica Neue',Helvetica,'Microsoft Yahei',Arial,sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', Arial,
+      sans-serif;
     font-size: 16px;
     right: 0;
     bottom: -48px;
@@ -1824,7 +1716,7 @@ body {
     cursor: pointer;
     z-index: 2147483645;
     width: 100%;
-    box-sizing: content-box!important;
+    box-sizing: content-box !important;
   }
 }
 
@@ -1845,7 +1737,7 @@ body {
       height: 0.613333rem;
       margin-top: 0.293333rem;
       margin-left: 0.533333rem;
-      background-image: url("assets/img/head/mobile/logo.png");
+      background-image: url('assets/img/head/mobile/logo.png');
       background-repeat: no-repeat;
       background-size: cover;
       display: inline-block;
@@ -1854,29 +1746,29 @@ body {
 
     .my-drawer {
       .vux-drawer {
-        font-family:SourceHanSansCN;
-        font-size: .426667rem;
+        font-family: SourceHanSansCN;
+        font-size: 0.426667rem;
         color: #fff;
         position: absolute;
         z-index: 2500;
         font-weight: 500;
-        line-height: .533333rem;
+        line-height: 0.533333rem;
 
         .weui-cells__title {
-          margin: .346667rem auto;
+          margin: 0.346667rem auto;
           color: #fff;
         }
 
         .btn2 {
-          margin: .213333rem;
+          margin: 0.213333rem;
           text-align: right;
         }
 
         .slide {
-          padding: 0 .533333rem;
+          padding: 0 0.533333rem;
           overflow: hidden;
           max-height: 0;
-          transition: max-height .5s cubic-bezier(0, 1, 0, 1) -.1s;
+          transition: max-height 0.5s cubic-bezier(0, 1, 0, 1) -0.1s;
           line-height: 1.013333rem;
         }
 
@@ -1895,19 +1787,19 @@ body {
         }
 
         .title2 {
-          font-size: .373333rem;
+          font-size: 0.373333rem;
           line-height: 1.013333rem;
           background: #fff;
-          color: #ECAA26;
-          padding-left: .666667rem;
+          color: #ecaa26;
+          padding-left: 0.666667rem;
         }
 
         .title3 {
-          font-size: .373333rem;
+          font-size: 0.373333rem;
           line-height: 1.013333rem;
           background: #fff;
-          color: #383B3C;
-          padding-left: .933333rem;
+          color: #383b3c;
+          padding-left: 0.933333rem;
         }
 
         // .weui-cell_access .weui-cell__ft:after {
@@ -1931,9 +1823,9 @@ body {
     }
 
     .login {
-      width: .746667rem;
-      height: .746667rem;
-      background-image: url("assets/img/head/login.png");
+      width: 0.746667rem;
+      height: 0.746667rem;
+      background-image: url('assets/img/head/login.png');
       background-repeat: no-repeat;
       background-size: cover;
       // margin: 38px 111px 0 0;
@@ -1952,7 +1844,7 @@ body {
     }
 
     .loginDialog {
-      border-radius: .266667rem;
+      border-radius: 0.266667rem;
 
       .login2 {
         width: 3.893333rem;
@@ -1962,21 +1854,21 @@ body {
 
       .text {
         font-family: SourceHanSansCN;
-        font-size: .346667rem;
-        line-height: .346667rem;
-        margin: .48rem auto .213333rem;
+        font-size: 0.346667rem;
+        line-height: 0.346667rem;
+        margin: 0.48rem auto 0.213333rem;
         color: #313131;
       }
 
       .text2 {
         font-family: Campton;
-        font-size: .373333rem;
-        line-height: .346667rem;
-        color: #22C3B6;
+        font-size: 0.373333rem;
+        line-height: 0.346667rem;
+        color: #22c3b6;
         margin-bottom: 1.066667rem;
 
         a {
-          color: #22C3B6;
+          color: #22c3b6;
           text-decoration: none;
         }
       }
@@ -1989,7 +1881,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: .5;
+    opacity: 0.5;
     background: #000;
     z-index: 4000;
   }
@@ -2001,7 +1893,7 @@ body {
       padding-top: 1.04rem;
       padding-left: 0.853333rem;
       padding-right: 1.6rem;
-      background: #4A494E;
+      background: #4a494e;
       text-align: left;
       padding-bottom: 1.173333rem;
 
@@ -2010,7 +1902,7 @@ body {
         font-family: PingFang SC;
         font-weight: 600;
         line-height: 0.586667rem;
-        color: #FFFFFF;
+        color: #ffffff;
         opacity: 1;
         margin-bottom: 13px;
 
@@ -2036,7 +1928,7 @@ body {
           font-size: 0.32rem;
           margin-left: 0.986667rem;
           padding-bottom: 0.32rem;
-          border-bottom: 1px solid #FFF;
+          border-bottom: 1px solid #fff;
           margin-bottom: 0.373333rem;
 
           .link {
@@ -2063,16 +1955,16 @@ body {
           font-size: 0.32rem;
           margin-left: 0.986667rem;
           padding-bottom: 0.586667rem;
-          border-bottom: 1px solid #FFF;
+          border-bottom: 1px solid #fff;
           margin-bottom: 0.373333rem;
 
           .each-code {
             display: inline-block;
-            margin-right:0.56rem;
-            font-family:SourceHanSansCN;
-            font-weight:500;
-            color:rgba(255,255,255,1);
-            opacity:1;
+            margin-right: 0.56rem;
+            font-family: SourceHanSansCN;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            opacity: 1;
             text-align: center;
 
             img {
@@ -2089,19 +1981,19 @@ body {
 
           .other-contact {
             text-align: center;
-            width:2.266667rem;
-            height:0.506667rem;
-            background:#E1E1E2;
-            border-radius:0.48rem;
+            width: 2.266667rem;
+            height: 0.506667rem;
+            background: #e1e1e2;
+            border-radius: 0.48rem;
             margin-top: 0.266667rem;
             padding: 0.053333rem;
 
             .each-contact {
-              width:0.4rem;
-              height:0.4rem;
-              background:#4A494E;
-              border-radius:50%;
-              opacity:1;
+              width: 0.4rem;
+              height: 0.4rem;
+              background: #4a494e;
+              border-radius: 50%;
+              opacity: 1;
               padding: 0.053333rem;
               display: inline-block;
 
@@ -2152,26 +2044,27 @@ body {
             }
 
             .bg-colors {
-              color:rgba(1,183,183,1);
-              border-bottom: 3px solid rgba(1,183,183,1);
+              color: rgba(1, 183, 183, 1);
+              border-bottom: 3px solid rgba(1, 183, 183, 1);
             }
           }
 
           .place {
-            .text, .number {
-              font-size:0.293333rem;
-              font-family:PingFangSC-Regular, Biko;
-              font-weight:400;
-              line-height:20px;
-              color:rgba(255,255,255,1);
-              opacity:1;
+            .text,
+            .number {
+              font-size: 0.293333rem;
+              font-family: PingFangSC-Regular, Biko;
+              font-weight: 400;
+              line-height: 20px;
+              color: rgba(255, 255, 255, 1);
+              opacity: 1;
             }
 
             .place-line {
-              width:2.24rem;
-              height:0px;
-              border:1px solid rgba(154,154,154,1);
-              opacity:1;
+              width: 2.24rem;
+              height: 0px;
+              border: 1px solid rgba(154, 154, 154, 1);
+              opacity: 1;
               margin: 0.186667rem 0;
             }
           }
@@ -2181,7 +2074,7 @@ body {
 
     .copy-right {
       padding: 0.853333rem 0 0.746667rem;
-      background-color: #25C3B6;
+      background-color: #25c3b6;
       text-align: center;
 
       .content {
@@ -2189,24 +2082,24 @@ body {
 
         .content-title {
           margin-bottom: 6px;
-          font-size:0.32rem;
-          font-family:SourceHanSansCN, Biko;
-          font-weight:500;
-          line-height:12px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-size: 0.32rem;
+          font-family: SourceHanSansCN, Biko;
+          font-weight: 500;
+          line-height: 12px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
 
         .content-title2 {
           div {
             text-align: center;
             // margin-right: 38px;
-            font-size:0.32rem;
+            font-size: 0.32rem;
             font-family: SourceHanSansCN, Biko;
-            font-weight:500;
-            line-height:0.32rem;
-            color:rgba(255,255,255,1);
-            opacity:1;
+            font-weight: 500;
+            line-height: 0.32rem;
+            color: rgba(255, 255, 255, 1);
+            opacity: 1;
           }
 
           .line1 {
@@ -2218,5 +2111,4 @@ body {
     }
   }
 }
-
 </style>

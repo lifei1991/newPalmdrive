@@ -38,7 +38,7 @@
         <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
         <div class='number-div'>
           <div class='title3'>数据汇总</div>
-          <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
+          <div class='each-number-div' v-for='(item, index) in numbers' :key='index'>
             <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class='number-into'>
               <div class='number-name'>{{ item.title }}</div>
@@ -53,7 +53,8 @@
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
           <div class='places-div'>
-            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
+            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}"
+              @click='changePlace(index)'>
               <div class='place-title'>{{ item.title }}</div>
               <!-- <div class='place-number'>{{ item.number }}</div> -->
               <animate-number class="place-number" from="1" :to="item.number" duration="3000" :key="item.title"></animate-number>
@@ -88,7 +89,7 @@
         </ul>
 
         <div class='demos-div'>
-          <template v-for='(item, index) in selectedDemo' >
+          <template v-for='(item, index) in selectedDemo'>
             <div class='each-demo' v-if='index < maxNumber' :key='index'>
               <div>
                 <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
@@ -130,7 +131,7 @@
         <div class='title2'>棕榈大道学员斩获的名校 Offer</div>
         <div class='number-div'>
           <div class='title3'>数据汇总</div>
-          <div class='each-number-div'  v-for='(item, index) in numbers' :key='index'>
+          <div class='each-number-div' v-for='(item, index) in numbers' :key='index'>
             <div class='number-logo' :style="{backgroundImage:'url(' + item.logo + ')'}"></div>
             <div class='number-into'>
               <div class='number-name'>{{ item.title }}</div>
@@ -145,7 +146,8 @@
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
           <div class='places-div'>
-            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}" @click='changePlace(index)' >
+            <div class='each-place' :class="{ 'place-select-style' : index == currentPlace }" v-for='(item, index) in places' :key='index' :style="{backgroundImage:'url(' + item.img + ')'}"
+              @click='changePlace(index)'>
               <div class='place-title'>{{ item.title }}</div>
               <div class='place-number'>{{ item.number }}</div>
               <div v-if="index == currentPlace" class="place-dot" :class="['place-dot' + index]"></div>
@@ -178,7 +180,7 @@
         </ul>
 
         <div class='demos-div'>
-          <template v-for='(item, index) in selectedDemo' >
+          <template v-for='(item, index) in selectedDemo'>
             <div class='each-demo' v-if='index < maxNumber' :key='index'>
               <div>
                 <div class='demo-img' :style="{backgroundImage:'url(' + item.schoolLogo + ')'}"></div>
@@ -190,7 +192,8 @@
                 <div class='demo-name'>{{ item.name }}</div>
                 <div class='demo-text line1'>{{ item.collegeSchool }}</div>
                 <div class='demo-text line1'>{{ item.collegeMajor }}</div>
-                <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
+                <div class='demo-text line3' :title="item.gpa + '，' + item.toeflOrIelts + '，' + item.greOrGmat + '，' + item.bg">
+                  GPA：{{ item.gpa }}，{{ item.toeflOrIelts }}，{{ item.greOrGmat }}，{{ item.bg }}</div>
               </div>
             </div>
           </template>
@@ -213,8 +216,7 @@
 import Common from './common/common'
 
 export default {
-  components: {
-  },
+  components: {},
   name: 'Home',
   data () {
     return {
@@ -570,7 +572,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
-            admissionMajor: 'MPhil in Education(Research in Second Language Education)',
+            admissionMajor:
+              'MPhil in Education(Research in Second Language Education)',
             collegeSchool: '浙江大学',
             collegeMajor: 'English',
             gpa: '85+',
@@ -609,7 +612,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/bxfny.png'),
             admissionSchool: '宾夕法尼亚大学',
-            admissionMajor: ' M.S.Ed. in Teaching English to Speakers of Other Languages ',
+            admissionMajor:
+              ' M.S.Ed. in Teaching English to Speakers of Other Languages ',
             collegeSchool: '温州肯恩大学',
             collegeMajor: '会计',
             gpa: '85+',
@@ -711,24 +715,25 @@ export default {
             bg: '毕业后工作一年，多段相关经历'
           },
           {
-            name: '高同学',
+            name: 'G 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/dld.png'),
-            admissionSchool: '多伦多大学',
-            admissionMajor: 'Masters of Information in User Experience Design (MI-UXD)',
-            collegeSchool: '多伦多大学',
-            collegeMajor: 'Computer Science & Statistics',
-            gpa: '85+',
-            greOrGmat: 'GRE：320+',
-            toeflOrIelts: 'TOEFL：N/A',
-            bg: '两段暑校经历，多段相关科研和实习'
+            schoolLogo: require('../assets/img/home/school/kne.png'),
+            admissionSchool: '康奈尔大学',
+            admissionMajor: 'PhD History of Art',
+            collegeSchool: '海外院校',
+            collegeMajor: '社科类专业硕士',
+            gpa: '3.8++',
+            greOrGmat: '',
+            toeflOrIelts: 'TOEFL：waive',
+            bg: '全额奖学金录取，套磁王者同学'
           },
           {
             name: '唐同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/dld.png'),
             admissionSchool: '多伦多大学',
-            admissionMajor: 'Master of Education, Educational Leadership and Policy',
+            admissionMajor:
+              'Master of Education, Educational Leadership and Policy',
             collegeSchool: '北京邮电大学',
             collegeMajor: '英语专业',
             gpa: '3.0-3.5（80-85）',
@@ -750,17 +755,17 @@ export default {
             bg: '两段法院实习，一段课程调研项目'
           },
           {
-            name: '李同学',
+            name: 'J 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/lddx.png'),
-            admissionSchool: '伦敦大学学院',
-            admissionMajor: 'MATeachingEnglishtoSpeakersofOtherLanguages(TESOL)Pre-service',
-            collegeSchool: '香港中文大学（深圳）',
-            collegeMajor: 'Translation',
-            gpa: '85+',
-            greOrGmat: 'GRE：320+',
+            schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
+            admissionSchool: '伦敦政治经济学院',
+            admissionMajor: 'MSc Media and Communications',
+            collegeSchool: '中外合办院校',
+            collegeMajor: '传媒专业',
+            gpa: '3.7+',
+            greOrGmat: 'GRE：waive',
             toeflOrIelts: 'IELTS：7.5',
-            bg: '一段科研，两段教育相关实习'
+            bg: '2 段校内科研经历'
           },
           {
             name: '王同学',
@@ -816,17 +821,17 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '喻同学',
+            name: 'H 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ltdyslms.png'),
-            admissionSchool: '鹿特丹伊拉斯姆斯大学',
-            admissionMajor: 'Psychology of the Digital Media MSc',
-            collegeSchool: '北京师范大学',
-            collegeMajor: '心理学',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '研究经历丰富'
+            schoolLogo: require('../assets/img/home/school/rnwgjgjgx.png'),
+            admissionSchool: '日内瓦高级国际关系及发展学院（IHEID）',
+            admissionMajor: 'Master in International Economics',
+            collegeSchool: '985 院校',
+            collegeMajor: '金融专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE: 330',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '转专业申请、科研经历扎实'
           },
           {
             name: '蔡同学',
@@ -870,18 +875,18 @@ export default {
             bg: '相关经历很丰富'
           },
           {
-            name: '张同学',
+            name: 'A 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ny.png'),
-            admissionSchool: '纽约大学',
-            admissionMajor: 'MA in Psychology',
-            collegeSchool: '',
+            schoolLogo: require('../assets/img/home/school/jzdxbkl.png'),
+            admissionSchool: '加州大学伯克利分校',
+            admissionMajor: 'LLM Traditional Track',
+            collegeSchool: '政法类院校',
             // 北京师范大学
-            collegeMajor: '心理学',
-            gpa: '85+',
-            greOrGmat: 'GRE：324+3.5',
-            toeflOrIelts: 'TOEFL：100+',
-            bg: '扎实校内科研，海外暑研'
+            collegeMajor: '法学专业',
+            gpa: '3.9+',
+            greOrGmat: 'GRE：waive',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: 'WL 转正，文书精彩'
           },
           {
             name: '冯同学',
@@ -929,7 +934,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/hsd.png'),
             admissionSchool: '华盛顿大学',
-            admissionMajor: 'Master of Public Administration(Environment Policy and Management specialization)',
+            admissionMajor:
+              'Master of Public Administration(Environment Policy and Management specialization)',
             collegeSchool: '',
             // 北京第二外国语学院
             collegeMajor: '国际经济与贸易',
@@ -952,18 +958,18 @@ export default {
             bg: '一段英国交换，两段实习经历'
           },
           {
-            name: '彭同学',
+            name: 'X 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ldzzjj.png'),
-            admissionSchool: '伦敦政治经济学院',
-            admissionMajor: 'MA European History',
-            collegeSchool: '985',
+            schoolLogo: require('../assets/img/home/school/xgzw.png'),
+            admissionSchool: '香港中文大学',
+            admissionMajor: 'MSc in New Media',
+            collegeSchool: '北京外国语大学',
             // 复旦大学
-            collegeMajor: '历史',
+            collegeMajor: '新闻学专业',
             gpa: '85+',
-            greOrGmat: 'GRE：N/A',
-            toeflOrIelts: 'TOEFL：100+',
-            bg: '美国学期交换，一段校内助研'
+            greOrGmat: '',
+            toeflOrIelts: 'TOEFL：7.5',
+            bg: '2 段相关实习'
           },
           {
             name: '乔同学',
@@ -972,7 +978,8 @@ export default {
             admissionSchool: '哈佛大学',
             admissionMajor: 'Master in Middle Eastern Studies (AM)',
             collegeSchool: 'UC Berkeley',
-            collegeMajor: 'Political Science+Near Eastern Studies (Arabic Concentration)',
+            collegeMajor:
+              'Political Science+Near Eastern Studies (Arabic Concentration)',
             gpa: '',
             // 85+
             greOrGmat: '',
@@ -1014,7 +1021,8 @@ export default {
             year: '2019',
             schoolLogo: require('../assets/img/home/school/hf.png'),
             admissionSchool: '哈佛大学',
-            admissionMajor: 'Master of Science in Computation Biology and Quantitative Genetics',
+            admissionMajor:
+              'Master of Science in Computation Biology and Quantitative Genetics',
             collegeSchool: '清华大学',
             collegeMajor: '生命科学',
             gpa: '3.0-3.5（80-85）',
@@ -1025,7 +1033,7 @@ export default {
           {
             name: '蔡同学',
             year: '2019',
-            schoolLogo: require('../assets/img/home/school/zjg.png'),
+            schoolLogo: require('../assets/img/home/school/jq.png'),
             admissionSchool: '剑桥大学',
             admissionMajor: 'PhD in Computer Science',
             collegeSchool: '上海交通大学',
@@ -1033,7 +1041,8 @@ export default {
             gpa: '85+',
             greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：110+',
-            bg: '科研经历丰富，有一段校内RA，一段Umich RA,一段Upenn RA,发表两篇相关论文'
+            bg:
+              '科研经历丰富，有一段校内RA，一段Umich RA,一段Upenn RA,发表两篇相关论文'
           },
           // {
           //   name: '梁同学',
@@ -1053,7 +1062,8 @@ export default {
             year: '2019',
             schoolLogo: require('../assets/img/home/school/knjml.png'),
             admissionSchool: '卡内基梅隆大学',
-            admissionMajor: 'Master of Software Engineering in Scalable Systems',
+            admissionMajor:
+              'Master of Software Engineering in Scalable Systems',
             collegeSchool: '南方科技大学',
             collegeMajor: '计算机科学与技术专业',
             gpa: '90+',
@@ -1092,7 +1102,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/stf.png'),
             admissionSchool: '斯坦福大学',
-            admissionMajor: 'Doctor of Philosophy in Materials Science and Engineering',
+            admissionMajor:
+              'Doctor of Philosophy in Materials Science and Engineering',
             collegeSchool: '浙江大学',
             collegeMajor: 'Polymer material science and engineering',
             gpa: '85+',
@@ -1140,29 +1151,29 @@ export default {
             bg: '三段研究经历'
           },
           {
-            name: '张同学',
+            name: 'S 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/nj.png'),
-            admissionSchool: '牛津大学',
-            admissionMajor: 'Mathematical Sciences MSc',
-            collegeSchool: '天津大学+曼彻斯特大学',
-            collegeMajor: 'Mathematics with Applied Mathematics',
-            gpa: '85+',
-            greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '三段研究经历'
+            schoolLogo: require('../assets/img/home/school/jq.png'),
+            admissionSchool: '剑桥大学',
+            admissionMajor: 'MPhil Population Health Sciences',
+            collegeSchool: '四川大学',
+            collegeMajor: '公共卫生专业',
+            gpa: '3.6+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'TOEFL：100+',
+            bg: '科研经历和课外经验丰富'
           },
           {
-            name: '朱同学',
+            name: 'L同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ksl.png'),
-            admissionSchool: '昆士兰大学',
-            admissionMajor: 'Master of Veterinary Science',
-            collegeSchool: '台湾中兴大学',
-            collegeMajor: 'veterinary medicine',
-            gpa: '3.0-3.5（80-85）',
+            schoolLogo: require('../assets/img/home/school/xgzw.png'),
+            admissionSchool: '香港中文大学',
+            admissionMajor: 'PhD in Physics',
+            collegeSchool: '双非院校',
+            collegeMajor: '物理专业',
+            gpa: '3.9+',
             greOrGmat: 'GRE: N/A',
-            toeflOrIelts: 'IELTS：6.5-7.0',
+            toeflOrIelts: 'TOEFL：95+',
             bg: '两段实习两段科研'
           },
           {
@@ -1196,7 +1207,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/rdhjlg.png'),
             admissionSchool: '瑞士皇家理工学院',
-            admissionMajor: "Master's programme in Sustainable Urban Planning and Design",
+            admissionMajor:
+              "Master's programme in Sustainable Urban Planning and Design",
             collegeSchool: '重庆大学',
             collegeMajor: 'Civil Engineering',
             gpa: '2.0-3.0（70-80）',
@@ -1205,17 +1217,17 @@ export default {
             bg: '多段相关实习，经历丰富'
           },
           {
-            name: '周同学',
+            name: 'D 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/rddl.png'),
-            admissionSchool: '隆德大学',
-            admissionMajor: 'Master in Information System',
-            collegeSchool: '中山大学',
-            collegeMajor: '管理科学',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE：315-320',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '三段相关实习和研究经历'
+            schoolLogo: require('../assets/img/home/school/abdlgwkj.png'),
+            admissionSchool: '阿卜杜拉国王科技大学',
+            admissionMajor: 'MS & PhD in Electrical and Computer Engineering',
+            collegeSchool: '电子科技大学',
+            collegeMajor: '电子信息工程专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：325+',
+            toeflOrIelts: 'IELTS：7',
+            bg: '三段相关研究经历，全额奖学金'
           },
           {
             name: '刘同学',
@@ -1244,24 +1256,25 @@ export default {
             bg: '多段相关经历，中科院科研'
           },
           {
-            name: '陈同学',
+            name: 'X 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/stf.png'),
-            admissionSchool: '斯坦福大学',
-            admissionMajor: 'Master of Science in Materials Science and Engineering',
-            collegeSchool: '复旦大学',
-            collegeMajor: '材料物理',
-            gpa: '85+',
-            greOrGmat: 'GRE：320+',
-            toeflOrIelts: 'TOEFL：110+',
-            bg: '暑期交流，以及相关经历丰富'
+            schoolLogo: require('../assets/img/home/school/zjg.png'),
+            admissionSchool: '芝加哥大学',
+            admissionMajor: 'PhD in Physics',
+            collegeSchool: '海外本科',
+            collegeMajor: '物理数学专业',
+            gpa: '90+',
+            greOrGmat: 'GRE：325+',
+            toeflOrIelts: '',
+            bg: '五年全奖录取，科研背景强'
           },
           {
             name: '刘同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/stf.png'),
             admissionSchool: '斯坦福大学',
-            admissionMajor: 'Master of Science in Materials Science and Engineering',
+            admissionMajor:
+              'Master of Science in Materials Science and Engineering',
             collegeSchool: '川大+匹兹堡大学 3+1',
             collegeMajor: 'Material Science & Engineering',
             gpa: '85+',
@@ -1270,17 +1283,17 @@ export default {
             bg: '海外合办项目，相关背景丰富'
           },
           {
-            name: '李同学',
+            name: 'T 同学',
             year: '',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',
-            admissionMajor: '',
-            yecollegeSchoolar: '北京大学',
-            collegeMajor: 'Experimental Medicine+Management of Innovation and Entrepreneurship',
-            gpa: '2.0-3.0（70-80）',
-            greOrGmat: 'GRE：310-315',
-            toeflOrIelts: 'TOEFL：80-95',
-            bg: '双学位背景契合，实习经历丰富'
+            admissionMajor: 'MS in Environmental Processes',
+            yecollegeSchoolar: '中外合办院校',
+            collegeMajor: '化工专业',
+            gpa: '85+',
+            greOrGmat: 'GRE：330+',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '申请大满贯选手，经验丰富'
           },
           {
             name: '吴同学',
@@ -1296,17 +1309,17 @@ export default {
             bg: '海本CS强校，两段实习'
           },
           {
-            name: '冯同学',
+            name: 'Q 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ldgw.png'),
-            admissionSchool: '伦敦国王学院',
-            admissionMajor: 'Neuroscience MSc',
-            collegeSchool: '多伦多大学',
-            collegeMajor: 'Physiology',
-            gpa: '85+',
-            greOrGmat: 'GRE：310-315',
-            toeflOrIelts: 'TOEFL：NA',
-            bg: '一段校内科研'
+            schoolLogo: require('../assets/img/home/school/dglg.png'),
+            admissionSchool: '帝国理工学院',
+            admissionMajor: 'MSc Applied Mathematics',
+            collegeSchool: '中外合办院校',
+            collegeMajor: '应用数学专业',
+            gpa: '90+',
+            greOrGmat: 'GRE：320+',
+            toeflOrIelts: 'IELTS：7.5',
+            bg: '量化课程成绩好，竞赛经验丰富'
           },
           {
             name: '由同学',
@@ -1365,7 +1378,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/jzdxbkl.png'),
             admissionSchool: '加州大学伯克利分校',
-            admissionMajor: 'M.Eng. in Electrical Engineering and in Computer Sciences (EECS)',
+            admissionMajor:
+              'M.Eng. in Electrical Engineering and in Computer Sciences (EECS)',
             collegeSchool: '',
             collegeMajor: 'Electrical Engineering',
             gpa: '85+',
@@ -1417,7 +1431,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/dglg.png'),
             admissionSchool: '帝国理工大学',
-            admissionMajor: 'MSc Advanced Computational Methods for Aeronautics, Flow Management and Fluid-Structure Interaction',
+            admissionMajor:
+              'MSc Advanced Computational Methods for Aeronautics, Flow Management and Fluid-Structure Interaction',
             collegeSchool: '',
             collegeMajor: 'Mechanical Engineering',
             gpa: '3.0-3.5（80-85）',
@@ -1452,17 +1467,17 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '丁同学',
+            name: 'R 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/rdhjlg.png'),
-            admissionSchool: '瑞士皇家理工学院',
-            admissionMajor: 'PhD in Computer Science',
-            collegeSchool: '上海交通大学本硕',
-            collegeMajor: 'Information and Communication Engineering',
-            gpa: '85+',
-            greOrGmat: 'GRE：320+',
-            toeflOrIelts: 'TOEFL：100+',
-            bg: '多段科研经历'
+            schoolLogo: require('../assets/img/home/school/lslblg.png'),
+            admissionSchool: '洛桑联邦理工学院',
+            admissionMajor: 'MS in Sustainable Management and Technology',
+            collegeSchool: '华中 985 院校',
+            collegeMajor: '信息管理专业',
+            gpa: '3.8+',
+            greOrGmat: 'GRE：330+',
+            toeflOrIelts: 'IELTS：7',
+            bg: '一段互联网大厂实习'
           },
           {
             name: '卓同学',
@@ -1504,17 +1519,18 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '王同学',
+            name: 'L 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/jzdxdws.png'),
-            admissionSchool: '加州大学戴维斯分校',
-            admissionMajor: 'MS in Agricultural and Resource Economics',
-            collegeSchool: 'UCD ',
-            collegeMajor: 'managerial economics agribusiness',
-            gpa: '3.0-3.5（80-85）',
-            greOrGmat: 'GRE: 320+',
-            toeflOrIelts: 'TOEFL：N/A ',
-            bg: '相关经历丰富'
+            schoolLogo: require('../assets/img/home/school/mxgdxanb.png'),
+            admissionSchool: '密歇根大学安娜堡分校',
+            admissionMajor:
+              'Master‘s Program in Electrical and Computer Engineering',
+            collegeSchool: '浙江大学',
+            collegeMajor: '机械工程专业',
+            gpa: '3.7+',
+            greOrGmat: 'GRE: 325+',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '大二加入棕榈，海外暑研牛推'
           },
           {
             name: '吴同学',
@@ -1530,17 +1546,17 @@ export default {
             bg: '相关经历丰富'
           },
           {
-            name: '何同学',
+            name: 'G 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/aebt.png'),
-            admissionSchool: '阿尔伯塔大学',
-            admissionMajor: 'MEng in ME',
-            collegeSchool: '南开大学',
-            collegeMajor: '物理',
-            gpa: '85+',
-            greOrGmat: 'GRE: 320+',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '相关经历丰富'
+            schoolLogo: require('../assets/img/home/school/mje.png'),
+            admissionSchool: '麦吉尔大学',
+            admissionMajor: 'PhD in Electrical Engineering',
+            collegeSchool: '南方科技大学',
+            collegeMajor: '计算机科学与技术',
+            gpa: '90+',
+            greOrGmat: 'GRE: 315+',
+            toeflOrIelts: 'TOEFL：100+',
+            bg: '套磁+面试辅导，奖学金录取'
           }
         ],
         [
@@ -1706,7 +1722,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/bsd.png'),
             admissionSchool: '波士顿大学',
-            admissionMajor: 'MS in Media Science: Marketing Communication Research',
+            admissionMajor:
+              'MS in Media Science: Marketing Communication Research',
             collegeSchool: '厦门大学',
             collegeMajor: '英语',
             gpa: '85+',
@@ -1719,7 +1736,8 @@ export default {
             year: '',
             schoolLogo: require('../assets/img/home/school/kne.png'),
             admissionSchool: '康奈尔大学',
-            admissionMajor: 'Master of Professional Studies (MPS) in Applied Economics and Management',
+            admissionMajor:
+              'Master of Professional Studies (MPS) in Applied Economics and Management',
             collegeSchool: '印第安纳大学伯明顿分校',
             collegeMajor: 'Accounting',
             gpa: '85+',
@@ -1741,17 +1759,17 @@ export default {
             bg: '多段相关实习'
           },
           {
-            name: '董同学',
+            name: 'X 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/xg.png'),
-            admissionSchool: '香港大学',
-            admissionMajor: 'Master of Science in Business Analytics',
-            collegeSchool: '多伦多大学',
-            collegeMajor: 'Management',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
-            toeflOrIelts: 'TOEFL：N/A',
-            bg: '4段工作经历,多段校园活动和学术经历'
+            schoolLogo: require('../assets/img/home/school/jzdxbkl.png'),
+            admissionSchool: '加州大学伯克利分校',
+            admissionMajor: 'MBA Program',
+            collegeSchool: '美本院校',
+            collegeMajor: 'CS 专业',
+            gpa: '3.9+',
+            greOrGmat: 'GRE：325+',
+            toeflOrIelts: 'TOEFL：waive',
+            bg: '工作经验丰富'
           },
           {
             name: '厉同学',
@@ -1767,17 +1785,17 @@ export default {
             bg: '多段校园活动经历'
           },
           {
-            name: '罗同学',
+            name: 'K 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/xgkj.png'),
-            admissionSchool: '香港科技大学',
-            admissionMajor: 'Master of Science in Business Analytics',
-            collegeSchool: '南方科技大学',
-            collegeMajor: '金融数学',
-            gpa: '85+',
-            greOrGmat: 'GRE：N/A',
+            schoolLogo: require('../assets/img/home/school/stf.png'),
+            admissionSchool: '斯坦福大学',
+            admissionMajor: 'MS in Mathematical Computational Finance',
+            collegeSchool: 'UCLA',
+            collegeMajor: '数学经济学专业',
+            gpa: '4.0/4.0',
+            greOrGmat: 'GRE：330+',
             toeflOrIelts: 'TOEFL：95-100',
-            bg: '多段实习，2段海外经历'
+            bg: '两段校内科研，一段非量化实习'
           },
           {
             name: '敬同学',
@@ -1793,17 +1811,17 @@ export default {
             bg: '多段校园活动和一段big name实习'
           },
           {
-            name: '张同学',
+            name: 'F 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/xgzw.png'),
-            admissionSchool: '香港中文大学',
-            admissionMajor: 'Master of Science in Finance',
-            collegeSchool: '广东外语外贸大学',
-            collegeMajor: '会计',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '多段big name相关实习'
+            schoolLogo: require('../assets/img/home/school/yl.png'),
+            admissionSchool: '耶鲁大学',
+            admissionMajor: 'MS in Asset Management',
+            collegeSchool: '圣母大学',
+            collegeMajor: '应用数学',
+            gpa: '3.9+',
+            greOrGmat: 'GRE：330+',
+            toeflOrIelts: '',
+            bg: '一段非量化实习，一年制金融项目'
           },
           {
             name: '阚同学',
@@ -1898,31 +1916,31 @@ export default {
             bg: '相关项目活动丰富及2段实习经历'
           },
           {
-            name: '黄同学',
+            name: 'T 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/nylg.png'),
-            admissionSchool: '南洋理工大学',
-            admissionMajor: 'Master of Science in Accountancy',
-            collegeSchool: '海本',
+            schoolLogo: require('../assets/img/home/school/lds.png'),
+            admissionSchool: '伦敦商学院',
+            admissionMajor: 'Master in Management',
+            collegeSchool: '北京大学',
             // 昆士兰大学
-            collegeMajor: 'Accounting',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
-            toeflOrIelts: 'IELTS：7.0',
-            bg: '4段相关实习经历'
+            collegeMajor: '市场营销专业',
+            gpa: '3.7+',
+            greOrGmat: 'GMAT：750',
+            toeflOrIelts: 'TOEFL：110+',
+            bg: '四段实习，同专业导师辅导'
           },
           {
-            name: '宋同学',
+            name: 'C 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/xjpgl.png'),
-            admissionSchool: '新加坡国立大学',
-            admissionMajor: 'MSc Marketing Analytics and Insights',
-            collegeSchool: '洛桑酒店管理学院',
-            collegeMajor: 'Hotel Management',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
+            schoolLogo: require('../assets/img/home/school/dkssdxasd.png'),
+            admissionSchool: '德克萨斯州大学奥斯汀分校',
+            admissionMajor: 'MS in Business Analytics',
+            collegeSchool: '美本院校',
+            collegeMajor: 'CS 专业',
+            gpa: '3.3+/4.0',
+            greOrGmat: 'GRE：330+',
             toeflOrIelts: 'IELTS：7.5',
-            bg: '3段酒店行业相关实习'
+            bg: '奖学金录取，高难度项目'
           },
           {
             name: '陈同学',
@@ -1938,17 +1956,17 @@ export default {
             bg: '无实习申请'
           },
           {
-            name: '王同学',
+            name: 'E 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/xjpgli.png'),
-            admissionSchool: '新加坡管理大学',
-            admissionMajor: 'Master of Professional Accounting',
-            collegeSchool: '浙江工商大学本科/北京外国语硕士',
-            collegeMajor: '测控技术与仪器/外交学国际经济',
-            gpa: '2.0-3.0（70-80）',
-            greOrGmat: 'GRE：310-315',
-            toeflOrIelts: 'TOEFL：：80-95',
-            bg: '3段实习经历'
+            schoolLogo: require('../assets/img/home/school/lddx.png'),
+            admissionSchool: '伦敦大学学院',
+            admissionMajor: 'MSc Management',
+            collegeSchool: '英国本科',
+            collegeMajor: '会计金融',
+            gpa: 'GPA：70+',
+            greOrGmat: '',
+            toeflOrIelts: 'IELTS：waive',
+            bg: '三段相关实习'
           },
           {
             name: '郭同学',
@@ -1964,30 +1982,30 @@ export default {
             bg: '2段相关实习 多段校园活动'
           },
           {
-            name: '高同学',
+            name: 'O 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ask.png'),
-            admissionSchool: '埃塞克商学院',
-            admissionMajor: 'Master in Finance',
-            collegeSchool: '清华大学',
-            collegeMajor: '经济与金融',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
-            toeflOrIelts: 'TOEFL：100+',
-            bg: '2段实习,多段校园经历'
+            schoolLogo: require('../assets/img/home/school/gbhg.png'),
+            admissionSchool: '哥本哈根商学院',
+            admissionMajor: 'Business Administration and Data Science ',
+            collegeSchool: '中国传媒大学',
+            collegeMajor: '商业信息系统专业',
+            gpa: '3.5+',
+            greOrGmat: 'GMAT：690',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '实习经历丰富，欧洲顶尖商学院'
           },
           {
-            name: '徐同学',
+            name: 'N 同学',
             year: '',
-            schoolLogo: require('../assets/img/home/school/ask.png'),
-            admissionSchool: '埃塞克商学院',
-            admissionMajor: 'MSc in Management',
-            collegeSchool: '北京师范大学',
-            collegeMajor: 'International Business and Trade',
-            gpa: '85+',
-            greOrGmat: 'GMAT：640+',
-            toeflOrIelts: 'TOEFL：100+',
-            bg: '3段相关实习'
+            schoolLogo: require('../assets/img/home/school/bkn.png'),
+            admissionSchool: '博科尼大学',
+            admissionMajor: 'Master of Science in Finance',
+            collegeSchool: '985 院校',
+            collegeMajor: '财务管理专业',
+            gpa: '3.3+',
+            greOrGmat: 'GMAT：730',
+            toeflOrIelts: 'TOEFL：105+',
+            bg: '两段相关实习经历'
           },
           {
             name: '曹同学',
@@ -2035,7 +2053,8 @@ export default {
             year: '2019',
             schoolLogo: require('../assets/img/home/school/zjgys.png'),
             admissionSchool: '芝加哥艺术学院',
-            admissionMajor: 'MFA in Studio (Film, Video, New Media, and Animation)',
+            admissionMajor:
+              'MFA in Studio (Film, Video, New Media, and Animation)',
             collegeSchool: '北京师范大学',
             collegeMajor: 'Digital Arts / Multimedia',
             gpa: '85+',
@@ -2192,17 +2211,20 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '7000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text:
+            '7000+世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),
           title: '资深外籍语言导师',
-          text: '累计修改文书篇幅10,000+，毕业于世界知名高校， 拥有学校招生、教育、语言学背景'
+          text:
+            '累计修改文书篇幅10,000+，毕业于世界知名高校， 拥有学校招生、教育、语言学背景'
         },
         {
           logo: require('../assets/img/home/intros/intro3.png'),
           title: '全能主导师',
-          text: '10,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
+          text:
+            '10,000+ Offer申请经历和案例，平均申请成功率99.3%，全程指导，答疑解惑'
         },
         {
           logo: require('../assets/img/home/intros/intro4.png'),
@@ -2212,12 +2234,14 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro5.png'),
           title: '跨国技术团队',
-          text: '链接硅谷和中国，24小时在线技术保障，独创文书素材挖掘系统，进度管理系统，选校小程序'
+          text:
+            '链接硅谷和中国，24小时在线技术保障，独创文书素材挖掘系统，进度管理系统，选校小程序'
         },
         {
           logo: require('../assets/img/home/intros/intro6.png'),
           title: '陪伴式教学',
-          text: '科学的时间安排和规划，长期和及时的进度追踪， 密切的沟通交流，干满满的学习课程'
+          text:
+            '科学的时间安排和规划，长期和及时的进度追踪， 密切的沟通交流，干满满的学习课程'
         }
       ],
       teachers: [
@@ -2344,31 +2368,36 @@ export default {
         {
           img: require('../assets/img/home/activity/activity1.png'),
           title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
+          text:
+            '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
           url: ''
         },
         {
           img: require('../assets/img/home/activity/activity2.png'),
           title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
+          text:
+            '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
           url: ''
         },
         {
           img: require('../assets/img/home/activity/activity3.png'),
           title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
+          text:
+            '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
           url: ''
         },
         {
           img: require('../assets/img/home/activity/activity4.png'),
           title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
+          text:
+            '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
           url: ''
         },
         {
           img: require('../assets/img/home/activity/activity1.png'),
           title: '同学你心真大，竟然想一篇文书“走天下”',
-          text: '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
+          text:
+            '文书就像是不见面的interview。因为文书中会提到个人的各项成绩、学术成就、实践经历等，就是向招生官展示自己的绝佳途径。',
           url: ''
         }
       ],
@@ -2382,13 +2411,14 @@ export default {
     }
   },
   created () {
-    this.banner1 = this.isMobile ? require('../assets/img/offers/mobile/banner3.png') : require('../assets/img/offers/banner1.png')
+    this.banner1 = this.isMobile
+      ? require('../assets/img/offers/mobile/banner3.png')
+      : require('../assets/img/offers/banner1.png')
     this.banner2 = require('../assets/img/offers/banner2.png')
     this.selectSchool = this.schools[0]
     this.selectedDemo = this.demos[0]
   },
-  mounted () {
-  },
+  mounted () {},
   methods: {
     changePlace (index) {
       this.currentPlace = index
@@ -2415,7 +2445,7 @@ export default {
     .banner1-div {
       width: 100%;
       // padding: 16px 0 33px;
-      background-color: #1BBEB2;
+      background-color: #1bbeb2;
       height: 586px;
       position: relative;
 
@@ -2455,12 +2485,12 @@ export default {
 
         .info-number {
           // width: 75px;
-          font-size:35px;
-          font-family:Biko;
-          font-weight:bold;
-          line-height:35px;
-          color:rgba(33,33,33,1);
-          opacity:1;
+          font-size: 35px;
+          font-family: Biko;
+          font-weight: bold;
+          line-height: 35px;
+          color: rgba(33, 33, 33, 1);
+          opacity: 1;
           // margin-right: 12px;
           // display: inline-block;
           height: 28px;
@@ -2468,12 +2498,12 @@ export default {
 
         .info-text {
           width: 116px;
-          font-size:13px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:16px;
-          color:rgba(54,136,132,1);
-          opacity:1;
+          font-size: 13px;
+          font-family: SourceHanSansCN;
+          font-weight: bold;
+          line-height: 16px;
+          color: rgba(54, 136, 132, 1);
+          opacity: 1;
           // display: inline-block;
           height: 28px;
           vertical-align: top;
@@ -2485,12 +2515,12 @@ export default {
           top: 468px;
           left: 24px;
 
-          font-size:12px;
-          font-family:Biko;
-          font-weight:400;
-          line-height:12px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-size: 12px;
+          font-family: Biko;
+          font-weight: 400;
+          line-height: 12px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
       }
     }
@@ -2504,7 +2534,7 @@ export default {
         font-family: Campton, SourceHanSansCN;
         font-weight: bold;
         line-height: 24px;
-        color: rgba(64,199,188,1);
+        color: rgba(64, 199, 188, 1);
         opacity: 1;
         margin: 0px auto 10px;
       }
@@ -2514,19 +2544,19 @@ export default {
         font-family: Biko, SourceHanSansCN;
         font-weight: 500;
         line-height: 19px;
-        color: rgba(0,0,0,1);
+        color: rgba(0, 0, 0, 1);
         opacity: 1;
         margin-bottom: 8px;
       }
 
       .title3 {
         margin-left: 33px;
-        font-size:24px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:24px;
-        color:rgba(43,43,43,1);
-        opacity:1;
+        font-size: 24px;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 24px;
+        color: rgba(43, 43, 43, 1);
+        opacity: 1;
         text-align: left;
         margin-bottom: 28px;
       }
@@ -2557,42 +2587,42 @@ export default {
             vertical-align: top;
 
             .number-name {
-              font-size:18px;
-              font-family:SourceHanSansCN;
-              font-weight:bold;
-              line-height:18px;
-              color:rgba(34,195,182,1);
-              opacity:1;
+              font-size: 18px;
+              font-family: SourceHanSansCN;
+              font-weight: bold;
+              line-height: 18px;
+              color: rgba(34, 195, 182, 1);
+              opacity: 1;
               margin: 7px 0 14px;
             }
 
             .number {
-              font-size:40px;
-              font-family:Biko, PingFang, SourceHanSansCN;
-              font-weight:Bold;
-              line-height:40px;
-              color:rgba(43,43,43,1);
-              opacity:1;
+              font-size: 40px;
+              font-family: Biko, PingFang, SourceHanSansCN;
+              font-weight: Bold;
+              line-height: 40px;
+              color: rgba(43, 43, 43, 1);
+              opacity: 1;
               display: inline-block;
             }
 
             .number-text {
               font-size: 20px;
               display: inline-block;
-              color: rgba(43,43,43,1);
+              color: rgba(43, 43, 43, 1);
               font-family: SourceHanSansCN;
             }
           }
         }
 
         .number-dataLine {
-          height:17px;
-          font-size:12px;
-          font-family:PingFang SC;
-          font-weight:400;
-          line-height:17px;
-          color:rgba(34,195,182,1);
-          opacity:1;
+          height: 17px;
+          font-size: 12px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          line-height: 17px;
+          color: rgba(34, 195, 182, 1);
+          opacity: 1;
           margin-top: 20px;
           text-align: right;
           margin-right: 45px;
@@ -2621,48 +2651,48 @@ export default {
             background-size: cover;
             position: relative;
             cursor: pointer;
-            opacity: .4;
+            opacity: 0.4;
 
             .place-title {
               font-size: 15px;
               font-family: Biko;
-              font-weight:bold;
-              line-height:15px;
-              color:rgba(9,23,39,1);
-              opacity:1;
+              font-weight: bold;
+              line-height: 15px;
+              color: rgba(9, 23, 39, 1);
+              opacity: 1;
               margin: 56px auto 12px;
             }
 
             .place-number {
               font-size: 50px;
               font-family: Biko;
-              font-weight:bold;
-              line-height:50px;
-              color:rgba(9,23,39,1);
-              opacity:1;
+              font-weight: bold;
+              line-height: 50px;
+              color: rgba(9, 23, 39, 1);
+              opacity: 1;
             }
 
             .place-dot {
               width: 16px;
               height: 16px;
               margin: 55px auto 0;
-              border-radius:50%;
+              border-radius: 50%;
             }
 
             .place-dot0 {
-              background: #DD99EF;
+              background: #dd99ef;
             }
 
             .place-dot1 {
-              background: #FD8E7D;
+              background: #fd8e7d;
             }
 
             .place-dot2 {
-              background: #79D0F1;
+              background: #79d0f1;
             }
 
             .place-dot3 {
-              background: #20ACA4;
+              background: #20aca4;
             }
           }
 
@@ -2679,10 +2709,10 @@ export default {
           width: 299px;
           display: inline-block;
           margin: 0 15px 29px;
-          background:rgba(255,255,255,1);
-          box-shadow:5px 5px 12px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:7px;
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 7px;
           padding: 10px 0 10px 25px;
           text-align: left;
 
@@ -2702,51 +2732,51 @@ export default {
             vertical-align: top;
 
             .school-name {
-              font-size:18px;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:bold;
-              line-height:18px;
-              color:#212121;
-              opacity:1;
+              font-size: 18px;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: bold;
+              line-height: 18px;
+              color: #212121;
+              opacity: 1;
               margin-bottom: 5px;
               margin-top: 7px;
             }
 
             .school-offer {
-              font-size:25px;
-              font-family:Biko;
-              font-weight:bold;
-              line-height:25px;
-              color:rgba(1,138,141,1);
-              opacity:1;
+              font-size: 25px;
+              font-family: Biko;
+              font-weight: bold;
+              line-height: 25px;
+              color: rgba(1, 138, 141, 1);
+              opacity: 1;
               display: inline-block;
             }
 
             .offer-text {
-              font-size:18px;
-              font-family:Biko;
-              font-weight:bold;
-              line-height:25px;
-              color:#212121;
-              opacity:1;
+              font-size: 18px;
+              font-family: Biko;
+              font-weight: bold;
+              line-height: 25px;
+              color: #212121;
+              opacity: 1;
             }
           }
         }
 
         .more-offer {
           margin-top: -11px;
-          font-size:13px;
-          font-family:PingFangSC-Medium, Avenir-Heavy;
-          font-weight:800;
-          line-height:13px;
-          color:rgba(51,51,51,1);
-          opacity:1;
+          font-size: 13px;
+          font-family: PingFangSC-Medium, Avenir-Heavy;
+          font-weight: 800;
+          line-height: 13px;
+          color: rgba(51, 51, 51, 1);
+          opacity: 1;
           text-align: right;
           margin-right: 30px;
 
           a {
             text-decoration: none;
-            color: rgba(51,51,51,1);
+            color: rgba(51, 51, 51, 1);
           }
 
           .more-img {
@@ -2762,15 +2792,15 @@ export default {
 
     .banner3-div {
       padding: 69px 0 76px;
-      background-color: #EDEFF4;
+      background-color: #edeff4;
 
       .title {
-        font-size:24px;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:24px;
-        color:rgba(0,0,0,1);
-        opacity:1;
+        font-size: 24px;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 1);
+        opacity: 1;
       }
 
       .guide-item-div {
@@ -2779,15 +2809,15 @@ export default {
         padding: 0;
         margin: 26px auto 65px;
         width: 865px;
-        background:#F7FFFE;
-        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
-        opacity:1;
-        border-radius:83px;
+        background: #f7fffe;
+        box-shadow: -2px 3px 15px rgba(91, 98, 97, 0.16);
+        opacity: 1;
+        border-radius: 83px;
 
         li {
           opacity: 1;
           display: inline-block;
-          color: rgba(57,60,61,1);
+          color: rgba(57, 60, 61, 1);
           cursor: pointer;
           text-align: center;
           padding: 0 28px;
@@ -2796,12 +2826,12 @@ export default {
           margin: 5px;
 
           .img {
-            width:24px;
-            height:24px;
+            width: 24px;
+            height: 24px;
             // background:rgba(255,255,255,1);
-            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
-            border-radius:50%;
-            opacity:1;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            opacity: 1;
             // margin-top: 13px;
             background-repeat: no-repeat;
             background-size: cover;
@@ -2822,12 +2852,12 @@ export default {
         }
 
         .guide-bg-colors {
-          color:#FFFFFF;
-          font-weight:bold;
-          background:rgba(29,195,182,1);
-          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:83px;
+          color: #ffffff;
+          font-weight: bold;
+          background: rgba(29, 195, 182, 1);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 83px;
         }
       }
 
@@ -2842,16 +2872,16 @@ export default {
           display: inline-block;
           vertical-align: top;
           padding: 32px 22px;
-          background: #FFFFFF;
-          box-shadow:5px 5px 6px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:20px;
+          background: #ffffff;
+          box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 20px;
           text-align: left;
           height: 329px;
 
           .demo-img {
-            width:75px;
-            height:73px;
+            width: 75px;
+            height: 73px;
             background-repeat: no-repeat;
             background-size: contain;
             display: inline-block;
@@ -2867,22 +2897,22 @@ export default {
             text-align: left;
 
             .demo-admissionSchool {
-              font-size:17px;
-              font-family:SourceHanSansCN;
-              font-weight:bold;
-              line-height:17px;
-              color:rgba(0,0,0,1);
-              opacity:1;
+              font-size: 17px;
+              font-family: SourceHanSansCN;
+              font-weight: bold;
+              line-height: 17px;
+              color: rgba(0, 0, 0, 1);
+              opacity: 1;
               margin: 13px 0 7px;
             }
 
             .demo-admissionMajor {
-              font-size:15px;
-              font-family:SourceHanSansCN;
-              font-weight:400;
-              line-height:20px;
-              color:rgba(0,0,0,1);
-              opacity:1;
+              font-size: 15px;
+              font-family: SourceHanSansCN;
+              font-weight: 400;
+              line-height: 20px;
+              color: rgba(0, 0, 0, 1);
+              opacity: 1;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 2;
@@ -2892,21 +2922,21 @@ export default {
 
             .demo-name {
               margin-top: 18px;
-              font-size:15px;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:500;
-              line-height:23px;
-              color:#23C3B6;
-              opacity:1;
+              font-size: 15px;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: 500;
+              line-height: 23px;
+              color: #23c3b6;
+              opacity: 1;
             }
 
             .demo-text {
-              font-size:15px;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:500;
-              line-height:23px;
-              color:#000000;
-              opacity:1;
+              font-size: 15px;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: 500;
+              line-height: 23px;
+              color: #000000;
+              opacity: 1;
             }
 
             .line1 {
@@ -2933,11 +2963,11 @@ export default {
         }
 
         .more-demos {
-          font-size:15px;
-          font-family:PingFang SC;
-          font-weight:500;
-          color:rgba(57,60,61,1);
-          opacity:1;
+          font-size: 15px;
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: rgba(57, 60, 61, 1);
+          opacity: 1;
           cursor: pointer;
 
           width: 142px;
@@ -2950,7 +2980,7 @@ export default {
 
           a {
             text-decoration: none;
-            color:rgba(57,60,61,1);
+            color: rgba(57, 60, 61, 1);
           }
 
           .more-img {
@@ -2962,14 +2992,14 @@ export default {
           }
 
           .open-ask {
-              width: 26px;
-              height: 10px;
-              // background: #21C3B6;
-              margin: 13px auto 36px;
-              cursor: pointer;
-              background-image: url('../assets/img/dreamSchool/openArrow.png');
-              background-repeat: no-repeat;
-              background-size: cover;
+            width: 26px;
+            height: 10px;
+            // background: #21C3B6;
+            margin: 13px auto 36px;
+            cursor: pointer;
+            background-image: url('../assets/img/dreamSchool/openArrow.png');
+            background-repeat: no-repeat;
+            background-size: cover;
           }
         }
       }
@@ -2980,7 +3010,7 @@ export default {
     .banner1-div {
       width: 100%;
       // padding: 16px 0 33px;
-      background-color: #1BBEB2;
+      background-color: #1bbeb2;
       height: 6.293333rem;
       position: relative;
 
@@ -3020,12 +3050,12 @@ export default {
 
         .info-number {
           // width: 75px;
-          font-size:35px;
-          font-family:Biko;
-          font-weight:bold;
-          line-height:35px;
-          color:rgba(33,33,33,1);
-          opacity:1;
+          font-size: 35px;
+          font-family: Biko;
+          font-weight: bold;
+          line-height: 35px;
+          color: rgba(33, 33, 33, 1);
+          opacity: 1;
           // margin-right: 12px;
           // display: inline-block;
           height: 28px;
@@ -3033,12 +3063,12 @@ export default {
 
         .info-text {
           width: 116px;
-          font-size:13px;
-          font-family:SourceHanSansCN;
-          font-weight:bold;
-          line-height:16px;
-          color:rgba(54,136,132,1);
-          opacity:1;
+          font-size: 13px;
+          font-family: SourceHanSansCN;
+          font-weight: bold;
+          line-height: 16px;
+          color: rgba(54, 136, 132, 1);
+          opacity: 1;
           // display: inline-block;
           height: 28px;
           vertical-align: top;
@@ -3050,12 +3080,12 @@ export default {
           top: 468px;
           left: 24px;
 
-          font-size:12px;
-          font-family:Biko;
-          font-weight:400;
-          line-height:12px;
-          color:rgba(255,255,255,1);
-          opacity:1;
+          font-size: 12px;
+          font-family: Biko;
+          font-weight: 400;
+          line-height: 12px;
+          color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
       }
     }
@@ -3065,35 +3095,35 @@ export default {
       padding: 1.333333rem 0 1.333333rem;
 
       .title {
-        font-size: .426667rem;
+        font-size: 0.426667rem;
         font-family: Campton, SourceHanSansCN;
         font-weight: bold;
-        line-height: .426667rem;
-        color: rgba(64,199,188,1);
+        line-height: 0.426667rem;
+        color: rgba(64, 199, 188, 1);
         opacity: 1;
-        margin: 0px auto .213333rem;
+        margin: 0px auto 0.213333rem;
       }
 
       .title2 {
-        font-size: .32rem;
+        font-size: 0.32rem;
         font-family: Biko, SourceHanSansCN;
         font-weight: 500;
-        line-height: .32rem;
-        color: rgba(0,0,0,1);
+        line-height: 0.32rem;
+        color: rgba(0, 0, 0, 1);
         opacity: 1;
-        margin-bottom: .586667rem;
+        margin-bottom: 0.586667rem;
       }
 
       .title3 {
         // margin-left: 33px;
-        font-size:.32rem;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:.32rem;
-        color:rgba(43,43,43,1);
-        opacity:1;
+        font-size: 0.32rem;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 0.32rem;
+        color: rgba(43, 43, 43, 1);
+        opacity: 1;
         text-align: center;
-        margin-bottom: .24rem;
+        margin-bottom: 0.24rem;
       }
 
       .number-div {
@@ -3104,7 +3134,7 @@ export default {
         .each-number-div {
           width: 3.2rem;
           display: inline-block;
-          margin: 0 .666667rem;
+          margin: 0 0.666667rem;
 
           .number-logo {
             width: 2.24rem;
@@ -3120,32 +3150,32 @@ export default {
             // margin-left: 25px;
             text-align: center;
             // vertical-align: top;
-            margin-bottom: .8rem;
+            margin-bottom: 0.8rem;
 
             .number-name {
-              font-size:.32rem;
-              font-family:SourceHanSansCN;
-              font-weight:bold;
-              line-height:.32rem;
-              color:rgba(34,195,182,1);
-              opacity:1;
-              margin: .426667rem 0 .16rem;
+              font-size: 0.32rem;
+              font-family: SourceHanSansCN;
+              font-weight: bold;
+              line-height: 0.32rem;
+              color: rgba(34, 195, 182, 1);
+              opacity: 1;
+              margin: 0.426667rem 0 0.16rem;
             }
 
             .number {
-              font-size:.773333rem;
-              font-family:Biko, PingFang, SourceHanSansCN;
-              font-weight:Bold;
-              line-height:.773333rem;
-              color:rgba(43,43,43,1);
-              opacity:1;
+              font-size: 0.773333rem;
+              font-family: Biko, PingFang, SourceHanSansCN;
+              font-weight: Bold;
+              line-height: 0.773333rem;
+              color: rgba(43, 43, 43, 1);
+              opacity: 1;
               display: inline-block;
             }
 
             .number-text {
-              font-size: .4rem;
+              font-size: 0.4rem;
               display: inline-block;
-              color: rgba(43,43,43,1);
+              color: rgba(43, 43, 43, 1);
               font-family: SourceHanSansCN;
             }
           }
@@ -3153,12 +3183,12 @@ export default {
 
         .number-dataLine {
           // height:17px;
-          font-size:.32rem;
-          font-family:PingFang SC;
-          font-weight:400;
-          line-height:.32rem;
-          color:rgba(34,195,182,1);
-          opacity:1;
+          font-size: 0.32rem;
+          font-family: PingFang SC;
+          font-weight: 400;
+          line-height: 0.32rem;
+          color: rgba(34, 195, 182, 1);
+          opacity: 1;
           // margin-top: 20px;
           text-align: center;
           // margin-right: 45px;
@@ -3173,47 +3203,47 @@ export default {
         background-position: top;
 
         .places-div {
-          margin: 1.893333rem auto .853333rem;
+          margin: 1.893333rem auto 0.853333rem;
           // width: 1200px;
           text-align: center;
-          padding-top: .666667rem;
+          padding-top: 0.666667rem;
 
           .each-place {
             width: 2rem;
             height: 2rem;
-            margin: 0 .106667rem;
+            margin: 0 0.106667rem;
             display: inline-block;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
             cursor: pointer;
-            opacity: .4;
+            opacity: 0.4;
             vertical-align: top;
 
             .place-title {
-              font-size: .293333rem;
+              font-size: 0.293333rem;
               font-family: Biko;
-              font-weight:bold;
-              line-height:.4rem;
-              color:rgba(9,23,39,1);
-              opacity:1;
-              margin: .42rem auto .133333rem;
+              font-weight: bold;
+              line-height: 0.4rem;
+              color: rgba(9, 23, 39, 1);
+              opacity: 1;
+              margin: 0.42rem auto 0.133333rem;
             }
 
             .place-number {
-              font-size: .533333rem;
+              font-size: 0.533333rem;
               font-family: Biko;
-              font-weight:bold;
-              line-height:.533333rem;
-              color:rgba(9,23,39,1);
-              opacity:1;
+              font-weight: bold;
+              line-height: 0.533333rem;
+              color: rgba(9, 23, 39, 1);
+              opacity: 1;
             }
 
             .place-dot {
-              width: .16rem;
-              height: .16rem;
+              width: 0.16rem;
+              height: 0.16rem;
               // margin: .6rem auto 0;
-              border-radius:50%;
+              border-radius: 50%;
               position: absolute;
               bottom: -12px;
               left: 50%;
@@ -3221,19 +3251,19 @@ export default {
             }
 
             .place-dot0 {
-              background: #DD99EF;
+              background: #dd99ef;
             }
 
             .place-dot1 {
-              background: #FD8E7D;
+              background: #fd8e7d;
             }
 
             .place-dot2 {
-              background: #79D0F1;
+              background: #79d0f1;
             }
 
             .place-dot3 {
-              background: #20ACA4;
+              background: #20aca4;
             }
           }
 
@@ -3249,17 +3279,17 @@ export default {
         .each-school-div {
           width: 4.106667rem;
           display: inline-block;
-          margin: 0 .133333rem .133333rem;
-          background:rgba(255,255,255,1);
-          box-shadow:5px 5px 12px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:7px;
-          padding: .213333rem 0 .213333rem .48rem;
+          margin: 0 0.133333rem 0.133333rem;
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 7px;
+          padding: 0.213333rem 0 0.213333rem 0.48rem;
           text-align: left;
 
           .school-logo {
-            width: .906667rem;
-            height: .853333rem;
+            width: 0.906667rem;
+            height: 0.853333rem;
             display: inline-block;
             background-repeat: no-repeat;
             background-size: contain;
@@ -3268,56 +3298,56 @@ export default {
           .school-into {
             display: inline-block;
             width: 2.6rem;
-            margin-left: .24rem;
+            margin-left: 0.24rem;
             text-align: left;
             vertical-align: top;
 
             .school-name {
-              font-size:.346667rem;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:bold;
-              line-height:.4rem;
-              color:#212121;
-              opacity:1;
-              margin-bottom: .133333rem;
-              margin-top: .053333rem;
+              font-size: 0.346667rem;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: bold;
+              line-height: 0.4rem;
+              color: #212121;
+              opacity: 1;
+              margin-bottom: 0.133333rem;
+              margin-top: 0.053333rem;
             }
 
             .school-offer {
-              font-size:.373333rem;
-              font-family:Biko;
-              font-weight:bold;
-              line-height:.373333rem;
-              color:rgba(1,138,141,1);
-              opacity:1;
+              font-size: 0.373333rem;
+              font-family: Biko;
+              font-weight: bold;
+              line-height: 0.373333rem;
+              color: rgba(1, 138, 141, 1);
+              opacity: 1;
               display: inline-block;
             }
 
             .offer-text {
-              font-size:.32rem;
-              font-family:Biko;
-              font-weight:bold;
-              line-height:.32rem;
-              color:#212121;
-              opacity:1;
+              font-size: 0.32rem;
+              font-family: Biko;
+              font-weight: bold;
+              line-height: 0.32rem;
+              color: #212121;
+              opacity: 1;
             }
           }
         }
 
         .more-offer {
           margin-top: -11px;
-          font-size:13px;
-          font-family:PingFangSC-Medium, Avenir-Heavy;
-          font-weight:800;
-          line-height:13px;
-          color:rgba(51,51,51,1);
-          opacity:1;
+          font-size: 13px;
+          font-family: PingFangSC-Medium, Avenir-Heavy;
+          font-weight: 800;
+          line-height: 13px;
+          color: rgba(51, 51, 51, 1);
+          opacity: 1;
           text-align: right;
           margin-right: 30px;
 
           a {
             text-decoration: none;
-            color: rgba(51,51,51,1);
+            color: rgba(51, 51, 51, 1);
           }
 
           .more-img {
@@ -3333,46 +3363,46 @@ export default {
 
     .banner3-div {
       padding: 1.146667rem 0 1.52rem;
-      background-color: #EDEFF4;
+      background-color: #edeff4;
 
       .title {
-        font-size:.426667rem;
-        font-family:SourceHanSansCN;
-        font-weight:bold;
-        line-height:.426667rem;
-        color:rgba(0,0,0,1);
-        opacity:1;
+        font-size: 0.426667rem;
+        font-family: SourceHanSansCN;
+        font-weight: bold;
+        line-height: 0.426667rem;
+        color: rgba(0, 0, 0, 1);
+        opacity: 1;
       }
 
       .guide-item-div {
         list-style: none;
         text-align: center;
         padding: 0;
-        margin: .506667rem auto .506667rem;
+        margin: 0.506667rem auto 0.506667rem;
         width: 7.733333rem;
-        background:#F7FFFE;
-        box-shadow:-2px 3px 15px rgba(91,98,97,0.16);
-        opacity:1;
-        border-radius:83px;
+        background: #f7fffe;
+        box-shadow: -2px 3px 15px rgba(91, 98, 97, 0.16);
+        opacity: 1;
+        border-radius: 83px;
 
         li {
           opacity: 1;
           display: inline-block;
-          color: rgba(57,60,61,1);
+          color: rgba(57, 60, 61, 1);
           cursor: pointer;
           text-align: center;
-          padding: 0 .4rem;
+          padding: 0 0.4rem;
           width: 1.013333rem;
-          height: .746667rem;
-          margin: .053333rem;
+          height: 0.746667rem;
+          margin: 0.053333rem;
 
           .img {
-            width:24px;
-            height:24px;
+            width: 24px;
+            height: 24px;
             // background:rgba(255,255,255,1);
-            box-shadow:3px 3px 6px rgba(0,0,0,0.16);
-            border-radius:50%;
-            opacity:1;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            opacity: 1;
             // margin-top: 13px;
             background-repeat: no-repeat;
             background-size: cover;
@@ -3382,23 +3412,23 @@ export default {
 
           .text {
             display: inline-block;
-            font-size: .32rem;
+            font-size: 0.32rem;
             font-family: SourceHanSansCN;
             font-weight: 500;
-            line-height: .746667rem;
+            line-height: 0.746667rem;
             // margin-top: 13px;
             vertical-align: top;
-            height: .64rem;
+            height: 0.64rem;
           }
         }
 
         .guide-bg-colors {
-          color:#FFFFFF;
-          font-weight:bold;
-          background:rgba(29,195,182,1);
-          box-shadow:0px 3px 6px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:83px;
+          color: #ffffff;
+          font-weight: bold;
+          background: rgba(29, 195, 182, 1);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 83px;
         }
       }
 
@@ -3409,20 +3439,20 @@ export default {
 
         .each-demo {
           width: 3.493333rem;
-          margin: 0 .106667rem .213333rem;
+          margin: 0 0.106667rem 0.213333rem;
           display: inline-block;
           vertical-align: top;
-          padding: .533333rem .346667rem;
-          background: #FFFFFF;
-          box-shadow:5px 5px 6px rgba(0,0,0,0.16);
-          opacity:1;
-          border-radius:.533333rem;
+          padding: 0.533333rem 0.346667rem;
+          background: #ffffff;
+          box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.16);
+          opacity: 1;
+          border-radius: 0.533333rem;
           text-align: left;
           // height: 5.413333rem;
 
           .demo-img {
-            width:1.226667rem;
-            height:1.173333rem;
+            width: 1.226667rem;
+            height: 1.173333rem;
             background-repeat: no-repeat;
             background-size: contain;
             display: inline-block;
@@ -3430,7 +3460,7 @@ export default {
 
           .right-img {
             width: 1.2rem;
-            height: .773333rem;
+            height: 0.773333rem;
             margin-left: 1.013333rem;
           }
 
@@ -3438,46 +3468,46 @@ export default {
             text-align: left;
 
             .demo-admissionSchool {
-              font-size:.346667rem;
-              font-family:SourceHanSansCN;
-              font-weight:bold;
-              line-height:.4rem;
-              color:rgba(0,0,0,1);
-              opacity:1;
-              margin: .133333rem 0 .133333rem;
+              font-size: 0.346667rem;
+              font-family: SourceHanSansCN;
+              font-weight: bold;
+              line-height: 0.4rem;
+              color: rgba(0, 0, 0, 1);
+              opacity: 1;
+              margin: 0.133333rem 0 0.133333rem;
             }
 
             .demo-admissionMajor {
-              font-size:.346667rem;
-              font-family:SourceHanSansCN;
-              font-weight:400;
-              line-height:.4rem;
-              color:rgba(0,0,0,1);
-              opacity:1;
+              font-size: 0.346667rem;
+              font-family: SourceHanSansCN;
+              font-weight: 400;
+              line-height: 0.4rem;
+              color: rgba(0, 0, 0, 1);
+              opacity: 1;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 2;
               overflow: hidden;
-              height: .8rem;
+              height: 0.8rem;
             }
 
             .demo-name {
-              margin-top: .4rem;
-              font-size:.32rem;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:500;
-              line-height:.4rem;
-              color:#23C3B6;
-              opacity:1;
+              margin-top: 0.4rem;
+              font-size: 0.32rem;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: 500;
+              line-height: 0.4rem;
+              color: #23c3b6;
+              opacity: 1;
             }
 
             .demo-text {
-              font-size:.32rem;
-              font-family:Biko, SourceHanSansCN;
-              font-weight:500;
-              line-height:.4rem;
-              color:#000000;
-              opacity:1;
+              font-size: 0.32rem;
+              font-family: Biko, SourceHanSansCN;
+              font-weight: 500;
+              line-height: 0.4rem;
+              color: #000000;
+              opacity: 1;
             }
 
             .line1 {
@@ -3485,7 +3515,7 @@ export default {
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 1;
               overflow: hidden;
-              height: .4rem;
+              height: 0.4rem;
             }
 
             .line2 {
@@ -3505,43 +3535,43 @@ export default {
         }
 
         .more-demos {
-          font-size:.32rem;
-          font-family:PingFang SC;
-          font-weight:500;
-          color:rgba(57,60,61,1);
-          opacity:1;
+          font-size: 0.32rem;
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: rgba(57, 60, 61, 1);
+          opacity: 1;
           cursor: pointer;
 
           width: 1.973333rem;
           text-align: center;
-          margin: .586667rem auto 0;
-          height: .533333rem;
-          line-height: .533333rem;
+          margin: 0.586667rem auto 0;
+          height: 0.533333rem;
+          line-height: 0.533333rem;
           border: 1px solid #2aa7aa;
-          border-radius: .56rem;
+          border-radius: 0.56rem;
 
           a {
             text-decoration: none;
-            color:rgba(57,60,61,1);
+            color: rgba(57, 60, 61, 1);
           }
 
           .more-img {
-            width: .266667rem;
-            height: .266667rem;
-            margin-left: .133333rem;
+            width: 0.266667rem;
+            height: 0.266667rem;
+            margin-left: 0.133333rem;
             display: inline-block;
             vertical-align: bottom;
           }
 
           .open-ask {
-              width: 26px;
-              height: 10px;
-              // background: #21C3B6;
-              margin: 13px auto 36px;
-              cursor: pointer;
-              background-image: url('../assets/img/dreamSchool/openArrow.png');
-              background-repeat: no-repeat;
-              background-size: cover;
+            width: 26px;
+            height: 10px;
+            // background: #21C3B6;
+            margin: 13px auto 36px;
+            cursor: pointer;
+            background-image: url('../assets/img/dreamSchool/openArrow.png');
+            background-repeat: no-repeat;
+            background-size: cover;
           }
         }
       }

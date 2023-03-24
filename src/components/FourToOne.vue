@@ -69,17 +69,17 @@
               <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
               <div class="teacher-info-div">
                 <div class="teacher-name">{{ item.name }}</div>
-                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+                <div class="teacher-school" v-html="item.phdSchool ? item.phdSchool : item.school"></div>
               </div>
             </div>
           </template>
 
-          <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
+          <!-- <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
             <div>
               查看更多导师
             </div>
             <div class="open-ask"></div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -113,17 +113,17 @@
               <div class="teacher-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
               <div class="teacher-info-div">
                 <div class="teacher-name">{{ item.name }}</div>
-                <div class="teacher-school">{{ item.phdSchool ? item.phdSchool : item.school }}</div>
+                <div class="teacher-school" v-html="item.phdSchool ? item.phdSchool : item.school"></div>
               </div>
             </div>
           </template>
 
-          <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
+          <!-- <div class="more-teachers" @click="showMoreTeacher" v-if="selectedTeacher.length > 8 && maxNumber != 100">
             <div>
               查看更多导师
             </div>
             <div class="open-ask"></div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -136,8 +136,8 @@
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
-import TeacherDialog from './common/teacherInfoDialog'
 import Common from './common/common'
+import TeacherDialog from './common/teacherInfoDialog'
 
 export default {
   components: {
@@ -294,16 +294,16 @@ export default {
             demo: '',
             concept: '留学申请其实就像人生中的很多环节一样，是一个在茫茫信息海中筛选信息、找寻自己的可能、做出抉择、再到达目的地的过程。在缺乏恰当的引导和判断的能力时，人就容易迷失或者绕远。我希望在申请季中，用我的专业能力和经验，帮助每一个独特的个体确定合适的方向，做出准确的选择，再直接地达到彼岸。'
           },
-          {
-            img: require('../assets/img/teachers/graduate/Yaojia.png'),
-            name: 'Yaojia',
-            school: '宾夕法尼亚大学 行为与决策硕士',
-            baSchool: '',
-            experience: 'Yaojia老师在校期间成绩出众，不仅专业排名第一，还曾连续获得一等奖学金，最终成功拿到美国宾夕法尼亚大学硕士项目录取。在申请海外院校这一过程中，她努力研究各国教育体系，目标项目课程与申请流程，同时深挖自己的背景优势。也正因为此，Yaojia老师在进入留学教育行业后，极为擅长商科申请的整体策略与细节把控。同时，她能够洞悉广大学生的申请痛点，很好地启发学生认识自己，帮助大家打造个性化申请材料，并帮助学生匹配适合的项目。<br/>截至目前，在Yaojia老师的帮助下，学员们已经成功录取哥伦比亚大学，康奈尔大学，宾夕法尼亚大学，布朗大学，芝加哥大学，杜克大学，西北大学，加州大学伯克利分校，约翰斯霍普金斯大学，乔治城大学，纽约大学，罗切斯特大学，伦敦商学院，伦敦政治经济学院，华威大学，伦敦国王学院，新加坡国立大学，新加坡南洋理工大学，香港大学，香港中文大学，香港科技大学等世界名校项目。',
-            expertise: '',
-            demo: '',
-            concept: '留学是人生的一大步，我愿做你申请路上的指引者，用我的专业和用心，助力你选择最适合的路，挖掘你最亮眼的风采，陪伴你一路披荆斩棘。当你收获满意录取结果的同时，也收获了成长，成为最耀眼的自己。'
-          },
+          // {
+          //   img: require('../assets/img/teachers/graduate/Yaojia.png'),
+          //   name: 'Yaojia',
+          //   school: '宾夕法尼亚大学 行为与决策硕士',
+          //   baSchool: '',
+          //   experience: 'Yaojia老师在校期间成绩出众，不仅专业排名第一，还曾连续获得一等奖学金，最终成功拿到美国宾夕法尼亚大学硕士项目录取。在申请海外院校这一过程中，她努力研究各国教育体系，目标项目课程与申请流程，同时深挖自己的背景优势。也正因为此，Yaojia老师在进入留学教育行业后，极为擅长商科申请的整体策略与细节把控。同时，她能够洞悉广大学生的申请痛点，很好地启发学生认识自己，帮助大家打造个性化申请材料，并帮助学生匹配适合的项目。<br/>截至目前，在Yaojia老师的帮助下，学员们已经成功录取哥伦比亚大学，康奈尔大学，宾夕法尼亚大学，布朗大学，芝加哥大学，杜克大学，西北大学，加州大学伯克利分校，约翰斯霍普金斯大学，乔治城大学，纽约大学，罗切斯特大学，伦敦商学院，伦敦政治经济学院，华威大学，伦敦国王学院，新加坡国立大学，新加坡南洋理工大学，香港大学，香港中文大学，香港科技大学等世界名校项目。',
+          //   expertise: '',
+          //   demo: '',
+          //   concept: '留学是人生的一大步，我愿做你申请路上的指引者，用我的专业和用心，助力你选择最适合的路，挖掘你最亮眼的风采，陪伴你一路披荆斩棘。当你收获满意录取结果的同时，也收获了成长，成为最耀眼的自己。'
+          // },
           {
             img: require('../assets/img/teachers/graduate/Candice.png'),
             name: 'Candice',

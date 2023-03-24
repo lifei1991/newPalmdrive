@@ -3,9 +3,16 @@
     <!-- <remote-css rel="stylesheet" href="../assets/third/carousel/owl.theme.css"></remote-css>
     <remote-css rel="stylesheet" href="../assets/third/carousel/owl.carousel.css"></remote-css> -->
 
+    <div class='popContainer' v-if="showPopContainer" @click="closeERCode"></div>
+    <img v-if="showPopContainer" src="../assets/img/walnut/web/erCode.png" class="code-img" />
+
     <div v-if="!isMobile" class="web-div">
       <div class="banner1-div">
-        <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+        <div class="carousel-div">
+          <div id="owl-demo1" class="owl-carousel  owl-theme">
+            <div @click="openERCode(item.erCodeUrl)" class="banner1" :style="{backgroundImage:'url(' + item.img + ')'}" v-for="(item, index) in owlBanners" :key="index">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -133,8 +140,16 @@
     </div>
 
     <div v-if="isMobile" class="mobile-div">
-      <div class="banner1-div">
+      <!-- <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
+        </div>
+      </div> -->
+      <div class="banner1-div">
+        <div class="carousel-div">
+          <div id="owl-demo1" class="owl-carousel  owl-theme">
+            <div @click="openERCode(item.erCodeUrl)" class="banner1" :style="{backgroundImage:'url(' + item.imgMobile + ')'}" v-for="(item, index) in owlBanners" :key="index">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -246,16 +261,16 @@
       </div>
 
       <div class="banner9-div">
-        <div class="title">最新动态</div>
-        <div class="title2">右下角扫码关注公众号，及时获得最新动态。</div>
+        <div class="title">备考信息</div>
+        <div class="title2">扫描下图二维码，获取更多备考干货</div>
         <div class="carousel-div">
-          <div id="owl-demo3" class="owl-carousel  owl-theme">
+          <div id="owl-demo3" class="">
             <div class="each-dynamic" v-for="(item, index) in dynamics" :key="index">
-              <div class="logo">PALMDRIVE</div>
+              <!-- <div class="logo">PALMDRIVE</div> -->
               <div class="dynamic-img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
-              <div class="title" @click="goToDetail(1000, index)">{{ item.title }}</div>
-              <div class="text">{{ item.text }}</div>
-              <div class="more" @click="goToDetail(1000, index)">阅读全文 <img src="../assets/img/home/more-green.png" class="more-img" /></div>
+              <div class="title">{{ item.title }}</div>
+              <div class="text" v-html="item.text"></div>
+              <div class="more"><img src="../assets/img/walnut/web/箭头.png" class="more-img" /></div>
               <div class="bottom-green"></div>
             </div>
           </div>
@@ -299,8 +314,8 @@
 
 <script>
 // import ca from require('../assets/third/carousel/owl.carousel.min.js'
-import TeacherDialog from './common/teacherInfoDialog'
 import Common from './common/common'
+import TeacherDialog from './common/teacherInfoDialog'
 export default {
   components: {
     TeacherDialog
@@ -818,6 +833,23 @@ export default {
       dialogActivity: false,
       selectedActivityTheme: [],
 
+      owlBanners: [
+        {
+          img: require('../assets/img/walnut/web/b1-1.png'),
+          imgMobile: require('../assets/img/walnut/mobile/b1.png'),
+          erCodeUrl: require('../assets/img/walnut/web/erCode.png')
+        },
+        {
+          img: require('../assets/img/walnut/web/b2-1.png'),
+          imgMobile: require('../assets/img/walnut/mobile/b2.png'),
+          erCodeUrl: require('../assets/img/walnut/web/erCode.png')
+        },
+        {
+          img: require('../assets/img/walnut/web/b3-1.png'),
+          imgMobile: require('../assets/img/walnut/mobile/b3.png'),
+          erCodeUrl: require('../assets/img/walnut/web/erCode.png')
+        }
+      ],
       gradeList: [
         {
           img: require('../assets/img/walnut/web/编组 9.png'),
@@ -964,22 +996,26 @@ export default {
       programs: [
         {
           img: require('../assets/img/walnut/web/雅思课程.png'),
-          url: '#/dream',
+          url:
+            'https://mp.weixin.qq.com/s?__biz=MzU0NTA3NDU3MA==&mid=2247803682&idx=1&sn=39325bd6927041b5d90accd8908e99a0&chksm=fb7c1fc7cc0b96d13982627b9bf7a25675ad6b8921a10b1bb691e0d117e155f3f97d0c8afa5d#rd',
           imgMB: require('../assets/img/walnut/web/雅思课程.png')
         },
         {
           img: require('../assets/img/walnut/web/托福课程.png'),
-          url: '#/seed',
+          url:
+            'https://mp.weixin.qq.com/s?__biz=MzU0NTA3NDU3MA==&mid=2247803682&idx=2&sn=4a3c4ae8bf59ad30cc54109159e04c74&chksm=fb7c1fc7cc0b96d1e1347fe49f8d95359a65c5611d3a8ff815e8345c7258d5a4265d1157f6fa#rd',
           imgMB: require('../assets/img/walnut/web/托福课程.png')
         },
         {
           img: require('../assets/img/walnut/web/系统课程.png'),
-          url: '#/ability',
+          url:
+            'https://mp.weixin.qq.com/s?__biz=MzU0NTA3NDU3MA==&mid=2247803682&idx=3&sn=86ae3b25a5bc94ece4f52af941023fa3&chksm=fb7c1fc7cc0b96d1b0567ec53f62582177712e7a9cf6e3f109679faeacd06d34711d0d4a3da9#rd',
           imgMB: require('../assets/img/walnut/web/系统课程.png')
         },
         {
           img: require('../assets/img/walnut/web/GMAT.png'),
-          url: '#/ability',
+          url:
+            'https://mp.weixin.qq.com/s?__biz=MzU0NTA3NDU3MA==&mid=2247803682&idx=4&sn=7ac2af0a57e302f73d9621e31e546ff3&chksm=fb7c1fc7cc0b96d1efe8c7eff2227757019e7cd9b03dc3c66367891106b4b7d148597c99c2ea#rd',
           imgMB: require('../assets/img/walnut/web/GMAT.png')
         }
       ],
@@ -987,7 +1023,7 @@ export default {
         {
           img: require('../assets/img/walnut/web/位图.png'),
           title: '核桃英语全套课程计划',
-          text: '雅思/托福/GRE/GMAT<br/>为不同的同学量身定制'
+          text: '雅思、托福、GRE、GMAT<br/>为不同的同学量身定制'
         },
         {
           img: require('../assets/img/walnut/web/位图1.png'),
@@ -997,14 +1033,15 @@ export default {
         {
           img: require('../assets/img/walnut/web/位图2.png'),
           title: '核桃独家备考指南',
-          text: '雅思/托福/GRE/GMAT<br/>你想了解的都在这里'
+          text: '雅思、托福、GRE、GMAT<br/>你想了解的都在这里'
         },
         {
           img: require('../assets/img/walnut/web/位图3.png'),
           title: '核桃王牌老师专访',
           text: '这批老师，多少带点<br/>“内卷”的意思'
         }
-      ]
+      ],
+      showPopContainer: false
     }
   },
   created () {
@@ -1016,6 +1053,21 @@ export default {
   },
   mounted () {
     this.$nextTick(function () {
+      $('#owl-demo1').owlCarousel({
+        items: 1,
+        margin: 0,
+        lazyLoad: true,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        loop: true,
+        autoplayHoverPause: true,
+        navText: [
+          "<i class='left-arrow home-activity-left-arrow'></i>",
+          "<i class='right-arrow home-activity-right-arrow'></i>"
+        ]
+      })
+
       $('#owl-demo2').owlCarousel({
         items: 4,
         margin: 14,
@@ -1033,6 +1085,21 @@ export default {
     })
   },
   methods: {
+    openERCode (url) {
+      // let temp = "<div class='code-img'></div>"
+      // this.$confirm(temp, {
+      //   dangerouslyUseHTMLString: true,
+      //   showConfirmButton: false,
+      //   showCancelButton: false
+      // })
+
+      this.showPopContainer = true
+    },
+
+    closeERCode () {
+      this.showPopContainer = false
+    },
+
     showMoreTeachers () {
       this.maxNumber = 100
     },
@@ -1077,6 +1144,26 @@ export default {
 .walnut {
   text-align: center;
 
+  .code-img {
+    width: 235px;
+    height: 235px;
+    background-image: url('../assets/img/walnut/web/erCode.png');
+    position: absolute;
+    z-index: 101;
+    left: 50%;
+    margin-left: -116px;
+    top: 210px;
+  }
+  .popContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
   .web-div {
     .banner1-div {
       width: 100%;
@@ -1085,12 +1172,14 @@ export default {
 
       .banner1 {
         width: 1080px;
-        height: 417px;
+        height: 480px;
         margin: 0 auto;
         position: relative;
         text-align: left;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
+        cursor: pointer;
+        background-position: center;
       }
     }
 
@@ -2365,10 +2454,10 @@ export default {
     .banner1-div {
       width: 100%;
       // padding: 0.533333rem 0 0.213333rem;
-      // background-color: #1bbeb2;
+      background-color: #1bbeb2;
 
       .banner1 {
-        width: 100%;
+        width: 9.2rem;
         height: 5.6rem;
         margin: 0 auto;
         position: relative;
@@ -2862,7 +2951,7 @@ export default {
       .four-to-one-div2 {
         width: 9.0667rem;
         height: 9.146667rem;
-        margin: 0 auto 0 0.8rem;
+        margin: 0 auto;
         background-image: url('../assets/img/walnut/mobile/fourtoone2.png');
         text-align: left;
         background-repeat: no-repeat;
@@ -2876,15 +2965,15 @@ export default {
         }
 
         .each1 {
-          top: 1.5467rem;
+          top: 1.4rem;
         }
 
         .each2 {
-          top: 4.4rem;
+          top: 3.9rem;
         }
 
         .each3 {
-          top: 7.3333rem;
+          top: 6.5rem;
         }
 
         .each-title {
@@ -3174,24 +3263,29 @@ export default {
       .title2 {
         margin: 0.213333rem 0 0.533333rem;
         font-size: 0.32rem;
-        font-family: PingFang SC;
+        font-family: SourceHanSansCN-Regular, SourceHanSansCN;
         font-weight: 400;
         line-height: 0.32rem;
-        color: rgba(85, 85, 85, 1);
+        color: #2fada1;
         opacity: 1;
       }
 
       .carousel-div {
-        width: 8.8rem;
+        // width: 8.8rem;
+        width: 100%;
         margin: 0 auto;
-        text-align: left;
+        text-align: center;
 
         .each-dynamic {
           padding: 0.266667rem 0.266667rem 0;
           background: rgba(255, 255, 255, 1);
           box-shadow: 5px 5px 6px rgba(47, 47, 47, 0.21);
           opacity: 1;
-          width: 3.6rem;
+          width: 4rem;
+          display: inline-block;
+          margin: 0.24rem 0.1867rem;
+          text-align: left;
+          position: relative;
           // height: 5.866667rem;
 
           .logo {
@@ -3204,27 +3298,25 @@ export default {
           }
 
           .dynamic-img {
-            margin: 0.18rem 0 0.266667rem;
+            // margin: 0.2667rem 0.3733rem;
             width: 100%;
-            height: 1.786667rem;
+            height: 3.9467rem;
             background-repeat: no-repeat;
             background-size: cover;
           }
 
           .title {
-            font-size: 0.373333rem;
-            font-family: SourceHanSansCN;
-            font-weight: bold;
-            line-height: 0.4rem;
-            color: rgba(0, 0, 0, 1);
-            opacity: 1;
-            cursor: pointer;
-
+            font-size: 0.4rem;
+            font-family: PingFangHK-Semibold, PingFangHK;
+            font-weight: 600;
+            color: #333333;
+            line-height: 0.4533rem;
+            margin-bottom: 0.1333rem;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
             overflow: hidden;
-            height: 1.146667rem;
+            // height: 1.146667rem;
           }
 
           .text {
@@ -3254,10 +3346,13 @@ export default {
             margin-bottom: 0.8rem;
 
             .more-img {
-              width: 0.266667rem;
-              height: 0.266667rem;
+              width: 0.4267rem;
+              height: 0.4533rem;
               display: inline-block;
               margin-left: 0.106667rem;
+              position: absolute;
+              bottom: 0.8rem;
+              right: 0.4533rem;
             }
           }
 
