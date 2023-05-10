@@ -503,7 +503,7 @@ export default {
           place: [
             {
               text: '2381 Zanker Rd, Ste 110, San Jose, CA, 95131',
-              number: '814-580-5786'
+              number: '+1 (669) 298 5171'
             }
           ]
         }
