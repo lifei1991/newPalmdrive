@@ -477,90 +477,90 @@ export default {
         {
           logo: require('../assets/img/home/school/hf.png'),
           name: '哈佛大学',
-          offer: 47
+          offer: 62
         },
         {
           logo: require('../assets/img/home/school/stf.png'),
           name: '斯坦福大学',
-          offer: 41
+          offer: 56
         },
         {
           logo: require('../assets/img/home/school/yl.png'),
           name: '耶鲁大学',
-          offer: 65
+          offer: 86
         },
         {
           logo: require('../assets/img/home/school/zjg.png'),
           name: '芝加哥大学',
-          offer: 177
+          offer: 232
         },
         {
           logo: require('../assets/img/home/school/bxfny.png'),
           name: '宾夕法尼亚大学',
-          offer: 278
+          offer: 359
         },
         {
           logo: require('../assets/img/home/school/dk.png'),
           name: '杜克大学',
-          offer: 218
+          offer: 275
         },
         {
           logo: require('../assets/img/home/school/kne.png'),
           name: '康奈尔大学',
-          offer: 242
+          offer: 303
         },
         {
           logo: require('../assets/img/home/school/glby.png'),
           name: '哥伦比亚大学',
-          offer: 744
+          offer: 916
         },
         {
           logo: require('../assets/img/home/school/nj.png'),
           name: '牛津大学',
-          offer: 43
+          offer: 62
         },
         {
           logo: require('../assets/img/home/school/jq.png'),
           name: '剑桥大学',
-          offer: 53
+          offer: 79
         },
         {
           logo: require('../assets/img/home/school/dglg.png'),
           name: '帝国理工学院',
-          offer: 172
+          offer: 216
         },
         {
           logo: require('../assets/img/home/school/ldzzjj.png'),
           name: '伦敦政治经济学院',
-          offer: 266
+          offer: 327
         },
         {
           logo: require('../assets/img/home/school/lddx.png'),
           name: '伦敦大学学院',
-          offer: 468
+          offer: 612
         },
         {
           logo: require('../assets/img/home/school/xjpgl.png'),
           name: '新加坡国立大学',
-          offer: 238
+          offer: 354
         },
         {
           logo: require('../assets/img/home/school/xg.png'),
           name: '香港大学',
-          offer: 304
+          offer: 484
         }
       ],
       numbers: [
         {
           logo: require('../assets/img/home/number/number1.png'),
           title: '学生总数',
-          number: '9300',
+          number: '10000',
           number2: '+'
         },
         {
           logo: require('../assets/img/home/number/number2.png'),
-          title: '硕博Top100 offer',
-          number: '18700',
+          title: '硕博 offer 总数',
+          number: '23000',
           number2: '+'
         },
         {
@@ -572,7 +572,7 @@ export default {
         {
           logo: require('../assets/img/home/number/number4.png'),
           title: '奖学金总额',
-          number: '16',
+          number: '27',
           number2: '亿+'
         }
       ],
@@ -580,7 +580,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro1.png'),
           title: '全球专业导师网络',
-          text: '7000+ 世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
+          text: '9000+ 世界名校毕业生导师，精准辅导200+多个专业， 专业标准化管理，半年度导师培训'
         },
         {
           logo: require('../assets/img/home/intros/intro2.png'),
@@ -590,7 +590,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro3.png'),
           title: '全能主导师',
-          text: '18,000+ Offer申请经历和案例，平均申请成功率95%+，全程指导，答疑解惑'
+          text: '23,000+ Offer申请经历和案例，平均申请成功率95%+，全程指导，答疑解惑'
         },
         {
           logo: require('../assets/img/home/intros/intro4.png'),

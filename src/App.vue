@@ -19,7 +19,7 @@
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">申请动态</a></li>
+          <!-- <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">申请动态</a></li> -->
 
           <li v-bind:class="{ 'select-menu-colors' : currentType == 7 }"><a href="http://palmdrive.cn/about" target="_blank">关于我们</a></li>
         </ul>
@@ -191,84 +191,107 @@
           <drawer width="5.333333rem;" :show.sync="isshow" show-mode="push" placement="right" :drawer-style="{'background-color':'#22C3B6', width: '0', 'z-index': '10px'}">
 
             <div slot="drawer">
-              <cell title="首页" link="http://palmdrive.cn/" :border-intent="false">
-              </cell>
+              <group>
+                <cell title="首页" link="http://palmdrive.cn/" :border-intent="false">首页
+                </cell>
 
-              <cell title="申请初高中" link="http://palmdrive.cn/highschool_services" :border-intent="false">
-              </cell>
+                <cell title="申请初高中" link="http://palmdrive.cn/highschool_services" :border-intent="false">
+                申请初高中
+                </cell>
 
-              <cell title="申请本科" link="http://palmdrive.cn/undergrad_services" :border-intent="false">
-              </cell>
+                <cell title="申请本科" link="http://palmdrive.cn/undergrad_services" :border-intent="false">
+                申请本科
+                </cell>
 
-              <cell title="申请研究生" is-link :border-intent="false" :arrow-direction="show1 ? 'up' : 'down'" @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
-              </cell>
+                <cell title="申请研究生" is-link :border-intent="false" :arrow-direction="show1 ? 'up' : 'down'" @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
+                申请研究生
+                </cell>
 
-              <!-- <p class="slide" :class="show1?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p> -->
+                <!-- <p class="slide" :class="show1?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p> -->
 
-              <cell class="slide title2" :class="show1?'animate':''" title="研究生服务介绍" link="/graduate" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title2" :class="show1?'animate':''" title="研究生服务介绍" link="/graduate" :border-intent="false" @click.native="isshow = false">
+                研究生服务介绍
+                </cell>
 
-              <cell class="slide title2" :class="show1?'animate':''" title="辅导项目" is-link :border-intent="false" :arrow-direction="show2 ? 'up' : 'down'" @click.native="show2 = !show2">
-              </cell>
+                <cell class="slide title2" :class="show1?'animate':''" title="辅导项目" is-link :border-intent="false" :arrow-direction="show2 ? 'up' : 'down'" @click.native="show2 = !show2">
+                辅导项目
+                </cell>
 
-              <cell class="slide title3" :class="show2?'animate':''" title="梦校计划" link="/dream" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show2?'animate':''" title="梦校计划" link="/dream" :border-intent="false" @click.native="isshow = false">
+                梦校计划
+                </cell>
 
-              <cell class="slide title3" :class="show2?'animate':''" title="种子计划" link="/seed" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show2?'animate':''" title="种子计划" link="/seed" :border-intent="false" @click.native="isshow = false">
+                种子计划
+                </cell>
 
-              <cell class="slide title3" :class="show2?'animate':''" title="能力提升" link="/ability" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show2?'animate':''" title="能力提升" link="/ability" :border-intent="false" @click.native="isshow = false">
+                能力提升
+                </cell>
 
-              <cell class="slide title3" :class="show2?'animate':''" title="核桃英语" link="/walnut" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show2?'animate':''" title="核桃英语" link="/walnut" :border-intent="false" @click.native="isshow = false">
+                核桃英语
+                </cell>
 
-              <cell class="slide title2" :class="show1?'animate':''" title="师资团队" is-link :border-intent="false" :arrow-direction="show3 ? 'up' : 'down'" @click.native="show3 = !show3">
-              </cell>
+                <cell class="slide title2" :class="show1?'animate':''" title="师资团队" is-link :border-intent="false" :arrow-direction="show3 ? 'up' : 'down'" @click.native="show3 = !show3">
+                师资团队
+                </cell>
 
-              <cell class="slide title3" :class="show3?'animate':''" title="四位一体" link="/four_to_one" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show3?'animate':''" title="四位一体" link="/four_to_one" :border-intent="false" @click.native="isshow = false">
+                四位一体
+                </cell>
 
-              <cell class="slide title2" :class="show1?'animate':''" title="辅导结果" is-link :border-intent="false" :arrow-direction="show4 ? 'up' : 'down'" @click.native="show4 = !show4">
-              </cell>
+                <cell class="slide title2" :class="show1?'animate':''" title="辅导结果" is-link :border-intent="false" :arrow-direction="show4 ? 'up' : 'down'" @click.native="show4 = !show4">
+                辅导结果
+                </cell>
 
-              <cell class="slide title3" :class="show4?'animate':''" title="申请季offer" link="/offers" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show4?'animate':''" title="申请季offer" link="/offers" :border-intent="false" @click.native="isshow = false">
+                申请季offer
+                </cell>
 
-              <cell class="slide title3" :class="show4?'animate':''" title="背景提升offer" link="/bg_promote" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show4?'animate':''" title="背景提升offer" link="/bg_promote" :border-intent="false" @click.native="isshow = false">
+                背景提升offer
+                </cell>
 
-              <cell class="slide title3" :class="show4?'animate':''" title="学员故事" link="/story" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show4?'animate':''" title="学员故事" link="/story" :border-intent="false" @click.native="isshow = false">
+                学员故事
+                </cell>
 
-              <cell class="slide title2" :class="show1?'animate':''" title="留学干货" is-link :border-intent="false" :arrow-direction="show5 ? 'up' : 'down'" @click.native="show5 = !show5">
-              </cell>
+                <cell class="slide title2" :class="show1?'animate':''" title="留学干货" is-link :border-intent="false" :arrow-direction="show5 ? 'up' : 'down'" @click.native="show5 = !show5">
+                留学干货
+                </cell>
 
-              <cell class="slide title3" :class="show5?'animate':''" title="申请指南" link="/guide" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show5?'animate':''" title="申请指南" link="/guide" :border-intent="false" @click.native="isshow = false">
+                申请指南
+                </cell>
 
-              <cell class="slide title3" :class="show5?'animate':''" title="专业介绍" link="/major" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show5?'animate':''" title="专业介绍" link="/major" :border-intent="false" @click.native="isshow = false">
+                专业介绍
+                </cell>
 
-              <cell class="slide title3" :class="show5?'animate':''" title="资料下载" link="/material" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell class="slide title3" :class="show5?'animate':''" title="资料下载" link="/material" :border-intent="false" @click.native="isshow = false">
+                资料下载
+                </cell>
 
-              <!-- <cell
-                title="导师团队"
-                link="/teachers"
-                :border-intent="false"
-                @click.native="isshow = false">
-              </cell> -->
+                <!-- <cell
+                  title="导师团队"
+                  link="/teachers"
+                  :border-intent="false"
+                  @click.native="isshow = false">
+                </cell> -->
 
-              <cell title="成功案例" link="http://www.palmdrive.cn/v2/graduate.html#/offers" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell title="成功案例" link="http://www.palmdrive.cn/v2/graduate.html#/offers" :border-intent="false" @click.native="isshow = false">
+                成功案例
+                </cell>
 
-              <cell title="最新动态" link="http://palmdrive.cn/news-all?type=graduate" :border-intent="false" @click.native="isshow = false">
-              </cell>
+                <cell title="最新动态" link="http://palmdrive.cn/news-all?type=graduate" :border-intent="false" @click.native="isshow = false">
+                最新动态
+                </cell>
 
-              <cell title="关于我们" link="http://palmdrive.cn/about" :border-intent="false">
-              </cell>
-
+                <cell title="关于我们" link="http://palmdrive.cn/about" :border-intent="false">
+                关于我们
+                </cell>
+              </group>
             </div>
             <div class="btn2">
               <span slot="overwrite-left" @click="isshow = !isshow">
@@ -487,16 +510,16 @@ export default {
             }
           ]
         },
-        {
-          name: '南&nbsp;&nbsp;&nbsp;京',
-          name2: '南京',
-          place: [
-            {
-              text: '南京市栖霞区学津路8号仙林高创中心B座707室',
-              number: '025-87761332（面访前请电话预约）'
-            }
-          ]
-        },
+        // {
+        //   name: '南&nbsp;&nbsp;&nbsp;京',
+        //   name2: '南京',
+        //   place: [
+        //     {
+        //       text: '南京市栖霞区学津路8号仙林高创中心B座707室',
+        //       number: '025-87761332（面访前请电话预约）'
+        //     }
+        //   ]
+        // },
         {
           name: '硅&nbsp;&nbsp;&nbsp;谷',
           name2: '硅谷',

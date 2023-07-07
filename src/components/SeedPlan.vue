@@ -8,7 +8,7 @@
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
             <div class="info-number" style="font-size: 0px;">
-              <animate-number from="1" to="2700" duration="3000" style="font-size: 28px;"></animate-number>
+              <animate-number from="1" to="4300" duration="3000" style="font-size: 28px;"></animate-number>
               <span style="width: auto; font-size: 28px;">+</span>
             </div>
             <div class="info-text" style="line-height:28px">种子学生</div>
@@ -23,7 +23,7 @@
           </div>
           <div class="info3-div">
             <div class="info-number" style="font-size: 0px; width: 78px">
-              <animate-number from="1" to="4900" duration="3000" style="font-size: 28px;"></animate-number>
+              <animate-number from="1" to="6000" duration="3000" style="font-size: 28px;"></animate-number>
               <span style="width: auto; font-size: 28px;">+</span>
             </div>
             <!-- <div class="info-number">4800+</div> -->
@@ -39,7 +39,7 @@
           <div class="intro1-title1">
               <span class="green">种子</span>计划
           </div>
-          <div class="intro1-title2">2700+同学的选择，多年背景提升，申请水到渠成。</div>
+          <div class="intro1-title2">4300+同学的选择，多年背景提升，申请水到渠成。</div>
           <div class="intro1-title3">
               相较于申请季一锤定音的选校和文书辅导，种子计划先行一步，引导同学认识自己、挑战自己，长线培养和提升学生的学术能力、实践能力和英语能力。通过一到两年的背景提升指导，种子主导师为同学进行优劣势分析，量身定制学业计划，明确专业定位、辅导实习/科研/交流交换等，结合棕榈学院项目和核桃英语课程，全方位提升同学升学和职场竞争力。
           </div>
@@ -54,7 +54,7 @@
 
       <div class="banner3-div">
         <div class="title">核心种子力量</div>
-        <div class="title2">2700+同学的选择，多年背景提升，申请水到渠成。</div>
+        <div class="title2">4300+同学的选择，多年背景提升，申请水到渠成。</div>
         <ul class="teacher-item-div" >
           <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'teacher-bg-colors' : index == currentType }">
             <div class="img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
@@ -165,7 +165,7 @@
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class="info1-div">
-            <div class="info-number">2700+</div>
+            <div class="info-number">4300+</div>
             <div class="info-text" style="line-height: 0.7rem">种子学生</div>
           </div>
           <div class="info2-div">
@@ -173,7 +173,7 @@
             <div class="info-text" style="line-height: 0.7rem">背景提升率</div>
           </div>
           <div class="info3-div">
-            <div class="info-number">4900+</div>
+            <div class="info-number">6000+</div>
             <div class="info-text">背景提升Offer</div>
           </div>
 
@@ -183,7 +183,7 @@
 
       <div class="banner2-div">
         <div class="title"><span style="color: #21C3B6">种子</span>计划</div>
-        <div class="title2">2700+同学的选择，多年背景提升，申请水到渠成。</div>
+        <div class="title2">4300+同学的选择，多年背景提升，申请水到渠成。</div>
         <div class="title3">相较于申请季一锤定音的选校和文书辅导，种子计划先行一步，引导同学认识自己、挑战自己，长线培养和提升学生的学术能力、实践能力和英语能力。通过一到两年的背景提升指导，种子主导师为同学进行优劣势分析，量身定制学业计划，明确专业定位、辅导实习/科研/交流交换等，结合棕榈学院项目和核桃英语课程，全方位提升同学升学和职场竞争力。</div>
         <div class="seed-plan-intro2">
           <div class="each-plan-div"  v-for="item in seedPlanIntros" :key="item.img">
@@ -195,7 +195,7 @@
 
       <div class="banner3-div">
         <div class="title">核心种子力量</div>
-        <div class="title2">2700+同学的选择，多年背景提升，申请水到渠成。</div>
+        <div class="title2">4300+同学的选择，多年背景提升，申请水到渠成。</div>
         <ul class="teacher-item-div" >
           <li v-for="(item, index) in teacherTypes" :key="item.name" @click="changeTeacherType(index)" :class="{ 'teacher-bg-colors' : index == currentType }">
             <div class="img" :style="{backgroundImage:'url(' + item.img + ')'}"></div>
@@ -926,7 +926,7 @@ export default {
         }
 
         .info-number {
-          width: 75px;
+          width: 76px;
           font-size:28px;
           font-family:Biko;
           font-weight:bold;
