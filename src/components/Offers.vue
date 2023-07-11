@@ -48,7 +48,7 @@
               <span class='number-text' v-if='index == 1'>份</span>
             </div>
           </div>
-          <div class='number-dataLine'>*数据截止到2022年7月</div>
+          <div class='number-dataLine'>*数据截止到2023年7月</div>
         </div>
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
@@ -141,7 +141,7 @@
               <span class='number-text' v-if='index == 1'>份</span>
             </div>
           </div>
-          <div class='number-dataLine'>*数据截止到2022年7月</div>
+          <div class='number-dataLine'>*数据截止到2023年7月</div>
         </div>
 
         <div class='school-div' :style="{backgroundImage:'url(' + banner2 + ')'}">
