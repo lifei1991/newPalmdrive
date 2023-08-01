@@ -6,7 +6,7 @@
     <div v-if="!isMobile" class="web-div">
       <div class="banner1-div">
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
-          <div class="text1">7000+ 世界名校毕业导师</div>
+          <div class="text1">9000+ 世界名校毕业导师</div>
           <div class="text2">精准辅导 200+ 多个专业，专业标准化管理，半年度导师培训， 导师筛选通过率仅 33.6%</div>
         </div>
       </div>
