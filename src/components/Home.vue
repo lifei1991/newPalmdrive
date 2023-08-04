@@ -605,7 +605,7 @@ export default {
         {
           logo: require('../assets/img/home/intros/intro6.png'),
           title: '陪伴式教学',
-          text: '科学的时间安排和规划，长期和及时的进度追踪， 密切的沟通交流，干满满的学习课程'
+          text: '科学的时间安排和规划，长期和及时的进度追踪， 密切的沟通交流，干货满满的学习课程'
         }
       ],
       teachers: [
