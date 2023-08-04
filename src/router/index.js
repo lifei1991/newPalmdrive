@@ -139,7 +139,7 @@ export default new Router({
       name: 'HighSchool',
       component: resolve => (require(['@/components/HighSchool'], resolve)),
       meta: {
-        title: '申请初高中'
+        title: '初高中留学'
       }
     },
     {

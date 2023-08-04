@@ -9,15 +9,15 @@
         <ul>
           <li v-bind:class="{ 'select-menu-colors' : currentType == 0 }"><a href="http://palmdrive.cn/" target="_blank">首页</a></li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 1 }"><a href="http://palmdrive.cn/highschool_services" target="_blank">申请初高中</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 1 }"><a href="http://palmdrive.cn/highschool_services" target="_blank">初高中留学</a></li>
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">申请本科</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 2 }"><a href="http://palmdrive.cn/undergrad_services" target="_blank">本科留学</a></li>
 
-          <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">申请研究生</li>
+          <li @mouseenter="changeMenu(3)" v-bind:class="{ 'select-menu-colors' : currentType == 3 }">硕博留学</li>
 
           <!-- <li v-bind:class="{ 'select-menu-colors' : currentType == 4 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/four_to_one">导师团队</a></li> -->
 
-          <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">成功案例</a></li>
+          <li v-bind:class="{ 'select-menu-colors' : currentType == 5 }"><a href="http://www.palmdrive.cn/v2/graduate.html#/offers" target="_blank">硕博成功案例</a></li>
 
           <!-- <li v-bind:class="{ 'select-menu-colors' : currentType == 6 }"><a href="http://palmdrive.cn/news-all?type=graduate" target="_blank">申请动态</a></li> -->
 
@@ -195,16 +195,16 @@
                 <cell title="首页" link="http://palmdrive.cn/" :border-intent="false">首页
                 </cell>
 
-                <cell title="申请初高中" link="http://palmdrive.cn/highschool_services" :border-intent="false">
-                申请初高中
+                <cell title="初高中留学" link="http://palmdrive.cn/highschool_services" :border-intent="false">
+                初高中留学
                 </cell>
 
-                <cell title="申请本科" link="http://palmdrive.cn/undergrad_services" :border-intent="false">
-                申请本科
+                <cell title="本科留学" link="http://palmdrive.cn/undergrad_services" :border-intent="false">
+                本科留学
                 </cell>
 
-                <cell title="申请研究生" is-link :border-intent="false" :arrow-direction="show1 ? 'up' : 'down'" @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
-                申请研究生
+                <cell title="硕博留学" is-link :border-intent="false" :arrow-direction="show1 ? 'up' : 'down'" @click.native="show1 = !show1; show2=false;show3=false;show4=false;show5=false;">
+                硕博留学
                 </cell>
 
                 <!-- <p class="slide" :class="show1?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p> -->
@@ -280,8 +280,8 @@
                   @click.native="isshow = false">
                 </cell> -->
 
-                <cell title="成功案例" link="http://www.palmdrive.cn/v2/graduate.html#/offers" :border-intent="false" @click.native="isshow = false">
-                成功案例
+                <cell title="硕博成功案例" link="http://www.palmdrive.cn/v2/graduate.html#/offers" :border-intent="false" @click.native="isshow = false">
+                硕博成功案例
                 </cell>
 
                 <cell title="最新动态" link="http://palmdrive.cn/news-all?type=graduate" :border-intent="false" @click.native="isshow = false">
@@ -1159,7 +1159,7 @@ body {
       background-image: url('assets/img/head/logo.png');
       background-repeat: no-repeat;
       background-size: cover;
-      margin: 38px 111px 0 0;
+      margin: 38px 200px 0 0;
       display: inline-block;
       vertical-align: top;
     }
@@ -1217,7 +1217,7 @@ body {
       color: rgba(34, 195, 182, 1);
       opacity: 1;
       vertical-align: bottom;
-      margin-left: 64px;
+      margin-left: 130px;
       position: relative;
       cursor: pointer;
       margin-bottom: 13px;
