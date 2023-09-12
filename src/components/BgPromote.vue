@@ -5,7 +5,7 @@
       <div class='banner1-div'>
         <div class='banner1' :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class='banner1-number'>
-              3159+
+              4300+
           </div>
 
           <div class='info1-div'>
@@ -95,7 +95,7 @@
       <div class='banner1-div'>
         <div class="banner1" :style="{backgroundImage:'url(' + banner1 + ')'}">
           <div class='banner1-number'>
-              3159+
+              4300+
           </div>
           <div class='info1-div'>
             <div class='info-number'>
