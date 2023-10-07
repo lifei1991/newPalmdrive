@@ -525,7 +525,7 @@ export default {
           name2: '硅谷',
           place: [
             {
-              text: '2381 Zanker Rd, Ste 110, San Jose, CA, 95131',
+              text: '1601 S De Anza Blvd, Ste 115, Cupertino, 95014',
               number: '650-880-9306'
             }
           ]
